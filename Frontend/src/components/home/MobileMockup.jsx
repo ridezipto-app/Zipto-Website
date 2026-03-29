@@ -70,7 +70,7 @@ export default function MobileMockup() {
               <div className="flex-1 bg-blue-600 text-white p-4 rounded-2xl text-center shadow-md transition-all duration-300 cursor-pointer">
                 <img src={bikeIcon} alt="Bike" className="mx-auto mb-2 w-8 h-8" />
                 <p className="font-medium">Bike</p>
-                <p className="text-xs opacity-80">₹40</p>
+                <p className="text-xs opacity-80">₹35</p>
               </div>
 
               {/* Normal */}
