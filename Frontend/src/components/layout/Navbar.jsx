@@ -101,44 +101,44 @@ const handleNavigation = (link) => {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="absolute top-full left-0 w-full bg-[#070F1F] flex flex-col items-center py-6 gap-6 md:hidden border-t border-white/10">
-            {links.map((link, index) =>
-              link.path ? (
-                <Link
-                  key={index}
-                  to={link.path}
-                  onClick={() => {
-                    setActiveLink(link.name);
-                    setOpen(false);
-                  }}
-                  className="text-gray-300 hover:text-white transition"
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <li
-                  key={index}
-                  onClick={() => {
-                    setOpen(false);
-                    handleNavigation(link);
-                  }}
-                  className="text-gray-300 hover:text-white cursor-pointer transition"
-                >
-                  {link.name}
-                </li>
-              )
-            )}
+         <div className="absolute top-full left-0 w-full bg-[#070F1F] flex flex-col items-start py-6 px-6 gap-4 md:hidden border-t border-white/10">
+           {links.map((link, index) =>
+  link.path ? (
+    <Link
+      key={index}
+      to={link.path}
+      onClick={() => {
+        setActiveLink(link.name);
+        setOpen(false);
+      }}
+      className="w-full text-left px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition"
+    >
+      {link.name}
+    </Link>
+  ) : (
+    <li
+      key={index}
+      onClick={() => {
+        setOpen(false);
+        handleNavigation(link);
+      }}
+      className="w-full list-none text-left px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 cursor-pointer transition"
+    >
+      {link.name}
+    </li>
+  )
+)}
 
             {/* ✅ Mobile Download */}
-            <button
-              onClick={() => {
-                setOpen(false);
-                setShowPopup(true);
-              }}
-              className="flex items-center gap-2 bg-orange-500 px-5 py-2 rounded-lg"
-            >
-              <FaDownload /> Download App
-            </button>
+           <button
+  onClick={() => {
+    setOpen(false);
+    setShowPopup(true);
+  }}
+  className="flex items-center gap-2 bg-orange-500 px-5 py-2 rounded-lg ml-1"
+>
+  <FaDownload /> Download App
+</button>
           </div>
         )}
       </nav>
