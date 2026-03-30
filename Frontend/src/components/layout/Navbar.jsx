@@ -37,15 +37,14 @@ const handleNavigation = (link) => {
             <img
               src={ziptoLogo}
               alt="logo"
-              className="h-14 w-14 rounded-lg "
+              className="h-25 w-25 rounded-lg "
             />
           </div>
           <span
   className="text-4xl tracking-wide flex items-center "
   style={{ fontFamily: "cocon, sans-serif" }}
 >
-  <span className="text-white">Zip</span>
-  <span className="text-white">to</span>
+  
 </span>
         </div>
 
