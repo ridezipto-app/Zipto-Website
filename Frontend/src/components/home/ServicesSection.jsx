@@ -31,7 +31,7 @@ export default function ServicesSection() {
     {
       title: "Scooty Delivery",
       subtitle: "Lightweight parcel deliveries",
-      capacity: "Up to 20 kg",
+      capacity: "Up to 22 kg",
       price: "₹40",
       icon: scootyIcon,
       color: "bg-orange-100",
