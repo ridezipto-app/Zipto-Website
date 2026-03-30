@@ -69,7 +69,7 @@ const handleNavigation = (link) => {
               <img
                 src={ziptoLogo}
                 alt="Zipto Logo"
-                className="h-25 w-25 rounded-lg"
+                className="h-20 w-20 rounded-lg"
               />
             {/* </div> */}
             
