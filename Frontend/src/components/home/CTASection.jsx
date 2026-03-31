@@ -55,7 +55,7 @@ export default function ContactPage() {
 
             <div className="space-y-4 sm:space-y-5">
               {[
-                { icon: <FaEnvelope />, title: "Email", value: "contact@ridezipto.com" },
+                { icon: <FaEnvelope />, title: "Email", value: "support@ridezipto.com" },
                 { icon: <MdAccessTime />, title: "Response", value: "24 × 7 Support" },
                 {
                   icon: <FaPhoneAlt />,
