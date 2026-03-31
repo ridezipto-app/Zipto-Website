@@ -179,7 +179,7 @@ export default function TermsConditions() {
         </div>
 
         <p className="text-center text-gray-800 mt-10 text-sm">
-          🛡️ By using Zipto, you acknowledge that you have read this Privacy Policy.
+          🛡️ By using Zipto, you acknowledge that you have read this Terms & Condition.
         </p>
         
 
