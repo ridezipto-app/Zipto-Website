@@ -245,8 +245,7 @@ export default function AboutUs() {
         </div>
       </div>
       <WhyChooseSection />
-    </div>
-     {/* Contact Section */}
+         {/* Contact Section */}
         <div className="mt-12 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-2xl p-8 text-center">
 
           <FaEnvelope className="text-3xl mx-auto mb-4" />
@@ -263,8 +262,7 @@ export default function AboutUs() {
 
         </div>
 
-        <p className="text-center text-gray-800 mt-10 text-sm">
-          🛡️ By using Zipto, you acknowledge that you have read About Us.
-        </p>
+    </div>
+  
   );
 }
