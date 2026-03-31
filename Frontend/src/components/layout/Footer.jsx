@@ -179,7 +179,7 @@ const handleNavigation = (link) => {
                 stroke="url(#ziptoGradient)"
                 strokeWidth={2}
               />
-              <span> supportzipto@gmail.com</span>
+              <span> support@ridezipto.com</span>
             </li>
            
 
