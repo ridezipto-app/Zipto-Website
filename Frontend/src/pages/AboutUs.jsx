@@ -246,5 +246,25 @@ export default function AboutUs() {
       </div>
       <WhyChooseSection />
     </div>
+     {/* Contact Section */}
+        <div className="mt-12 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-2xl p-8 text-center">
+
+          <FaEnvelope className="text-3xl mx-auto mb-4" />
+
+          <h2 className="text-2xl font-semibold mb-3">Contact Us</h2>
+
+          <p className="opacity-90 mb-4">
+            If you have questions about us, contact us.
+          </p>
+
+          <p>Email:   contact@ridezipto.com</p>
+          <p>Phone:91+ 9090029996</p>
+          <p>Plot No-781, Maharishi College Rd, in front of DN Kingsland, Saheed Nagar, Bhubaneswar, Odisha 751007</p>
+
+        </div>
+
+        <p className="text-center text-gray-800 mt-10 text-sm">
+          🛡️ By using Zipto, you acknowledge that you have read About Us.
+        </p>
   );
 }
