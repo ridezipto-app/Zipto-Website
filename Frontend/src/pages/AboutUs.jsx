@@ -4,6 +4,7 @@ import {
   FaTruck,
   FaMotorcycle,
   FaBox,
+  FaEnvelope,
   FaUsers,
 } from "react-icons/fa";
 import ziptoLogo from "../assets/zipto.jpeg";
