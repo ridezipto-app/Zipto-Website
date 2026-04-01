@@ -42,10 +42,10 @@ const handleNavigation = (link) => {
     icon: Instagram,
     link: "https://www.instagram.com/ridezipto?igsh=ZDNldGp6YjN2YXZx",
   },
-  // {
-  //   icon: Twitter,
-  //   link: "https://x.com/login",
-  // },
+  {
+    icon: Twitter,
+    link: "https://x.com/ridezipto",
+  },
   {
     icon: Linkedin,
     link: "https://www.linkedin.com/company/zipto-com/",
