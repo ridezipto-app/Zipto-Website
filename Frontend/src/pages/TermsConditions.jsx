@@ -174,7 +174,7 @@ export default function TermsConditions() {
 
           <p>Email:  legal@ridezipto.com</p>
           <p>Phone: +91 9090029996</p>
-          <p>Plot No-781, Maharishi College Rd, in front of DN Kingsland, Saheed Nagar, Bhubaneswar, Odisha 751007</p>
+          <p> Bhubaneswar, Odisha </p>
 
         </div>
 
