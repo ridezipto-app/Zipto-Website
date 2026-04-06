@@ -25,7 +25,7 @@ export default function BecomeRider() {
     {
       icon: <FaUsers className="text-orange-600 text-xl" />,
       title: "Growing Community",
-      desc: "500+ riders",
+      desc: "Trusted by thousands",
     },
   ];
 
