@@ -76,7 +76,7 @@ const handleNavigation = (link) => {
           </div>
 
           <p className="text-black-400 leading-relaxed mb-8">
-  Fast, reliable, and affordable logistics solutions built for businesses and individuals.
+  Deliver anything, anytime — fast, reliable, and hassle-free.
 </p>
 
           {/* Social Icons */}
