@@ -11,7 +11,7 @@ export default function HeroStats() {
         {/* Deliveries */}
         <div>
           <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-800 to-purple-700 bg-clip-text text-transparent">
-            10K+
+            🚀 Growing Fast
           </h3>
           <p className="text-gray-900 mt-2">Deliveries</p>
         </div>
@@ -19,7 +19,7 @@ export default function HeroStats() {
         {/* Riders */}
         <div>
           <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-800 to-purple-700 bg-clip-text text-transparent">
-            500+
+            👥 Trusted by Users
           </h3>
           <p className="text-gray-900 mt-2">Riders</p>
         </div>
@@ -28,7 +28,7 @@ export default function HeroStats() {
         <div>
           <div className="flex items-center gap-2">
             <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-800 to-purple-700 bg-clip-text text-transparent">
-              4.8
+              ⭐ Highly Rated Service
             </h3>
             <Star className="text-purple-700 fill-purple-700 w-8 h-8" />
           </div>
