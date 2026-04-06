@@ -109,7 +109,7 @@ export default function ForBusinessSection() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="bg-white p-6 rounded-2xl shadow-md hover:scale-105 transition">
-                <h3 className="text-3xl font-bold text-blue-600">500+</h3>
+                <h3 className="text-3xl font-bold text-blue-600">Growing rapidly 🚀</h3>
                 <p className="text-gray-600">Business Partners</p>
               </div>
 
