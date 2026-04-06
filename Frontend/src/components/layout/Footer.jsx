@@ -156,7 +156,7 @@ const handleNavigation = (link) => {
     strokeWidth={2}
   />
   <span className="text-sm sm:text-base">
-   Maharishi College Rd, in front of DN Kingsland, Saheed Nagar, Bhubaneswar, Odisha 751007
+  Bhubaneswar, Odisha
   </span>
 </li>
 
