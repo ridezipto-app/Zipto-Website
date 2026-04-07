@@ -50,6 +50,22 @@ export default function PrivacyPolicy() {
             Last updated: January 2026
           </p>
 
+          {/* INFO BOX (Add this here 👇) */}
+<div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-blue-900 text-sm mb-10 flex gap-3 items-start">
+
+  {/* Icon */}
+  <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
+    ℹ️
+  </div>
+
+  {/* Text */}
+  <p>
+    Welcome to <strong>Zipto</strong>, operated by (Zipto Hyperlogistics Pvt. Ltd).
+    Please read all sections carefully before accepting. 
+  </p>
+
+</div>
+
           {/* CUSTOMER PRIVACY POLICY */}
           <div className="bg-white shadow-xl rounded-2xl p-10 mb-10">
             <div className="flex items-center gap-3 mb-6">
