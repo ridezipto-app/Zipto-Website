@@ -112,17 +112,14 @@ export default function AboutUs() {
 
   {/* Text */}
   <p className="leading-relaxed">
-    Welcome to <strong>Zipto</strong>, operated by (Zipto Hyperlogistics Pvt. Ltd).
-    Please read all sections carefully before accepting.
+    Welcome to Zipto, operated by Zipto Hyperlogistics Pvt. Ltd. Please review all sections carefully before proceeding.
   </p>
 
 </div>
         <p className="text-gray-600 text-lg leading-relaxed text-center max-w-4xl mx-auto">
-          In many growing cities, deliveries remain fragmented, slow, and
-          unstructured. Businesses struggle with reliable logistics, and
-          customers often face unnecessary delays. Zipto solves this challenge
-          by building a connected delivery network powered by technology and
-          local mobility.
+          Zipto is redefining local delivery with a smart and connected logistics network.
+From bikes to mini trucks, we provide fast, reliable, and affordable transportation for businesses and individuals.
+Built on technology and efficiency, Zipto ensures every delivery is seamless, on time, and hassle-free.
           <br /><br />
           Our platform brings together customers, businesses, and delivery
           partners on a single ecosystem, enabling fast, affordable, and
