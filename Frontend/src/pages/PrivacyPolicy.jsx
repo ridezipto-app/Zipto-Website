@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
           </p>
 
           {/* INFO BOX (Add this here 👇) */}
-<div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-blue-900 text-sm mb-10 flex gap-3 items-start">
+<div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-900 text-sm mb-6">
 
   {/* Icon */}
   <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
