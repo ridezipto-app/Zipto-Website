@@ -56,13 +56,14 @@ export default function PrivacyPolicy() {
   {/* Icon */}
   <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
     ℹ️
-  </div>
-
-  {/* Text */}
-  <p>
+      <p>
     Welcome to <strong>Zipto</strong>, operated by (Zipto Hyperlogistics Pvt. Ltd).
     Please read all sections carefully before accepting. 
   </p>
+  </div>
+
+  {/* Text */}
+
 
 </div>
 
