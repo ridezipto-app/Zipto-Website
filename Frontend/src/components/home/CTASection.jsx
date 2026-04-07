@@ -37,20 +37,7 @@ export default function ContactPage() {
         {/* LEFT SIDE */}
         <div className="bg-[#0F1A2E] text-white p-6 sm:p-8 md:p-12 flex flex-col justify-between">
           <div>
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-900 text-sm mb-6 flex items-center gap-3">
-
-  {/* Icon */}
-  <div className="bg-blue-100 text-blue-600 p-2 rounded-full flex items-center justify-center">
-    <span className="text-sm">ℹ️</span>
-  </div>
-
-  {/* Text */}
-  <p className="leading-relaxed">
-    Welcome to <strong>Zipto</strong>, operated by (Zipto Hyperlogistics Pvt. Ltd).
-    Please read all sections carefully before accepting.
-  </p>
-
-</div>
+          
             <p className="text-orange-500 uppercase tracking-[0.25em] text-[10px] sm:text-xs mb-4 sm:mb-6">
               ● Support & Contact
             </p>
