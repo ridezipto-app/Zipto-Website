@@ -105,8 +105,7 @@ export default function TermsConditions() {
 
   {/* Text */}
   <p className="leading-relaxed">
-    Welcome to <strong>Zipto</strong>, operated by (Zipto Hyperlogistics Pvt. Ltd).
-    Please read all sections carefully before accepting.
+    Welcome to Zipto, operated by Zipto Hyperlogistics Pvt. Ltd. Please review all sections carefully before proceeding.
   </p>
 
 </div>
