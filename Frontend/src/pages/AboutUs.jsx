@@ -102,12 +102,24 @@ export default function AboutUs() {
 
       {/* About */}
       <div className="max-w-7xl mx-auto px-6 py-16">
+
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-900 text-sm mb-6 flex items-center gap-3">
+
+  {/* Icon */}
+  <div className="bg-blue-100 text-blue-600 p-2 rounded-full flex items-center justify-center">
+    <span className="text-sm">ℹ️</span>
+  </div>
+
+  {/* Text */}
+  <p className="leading-relaxed">
+    Welcome to Zipto, operated by Zipto Hyperlogistics Pvt. Ltd. Please review all sections carefully before proceeding.
+  </p>
+
+</div>
         <p className="text-gray-600 text-lg leading-relaxed text-center max-w-4xl mx-auto">
-          In many growing cities, deliveries remain fragmented, slow, and
-          unstructured. Businesses struggle with reliable logistics, and
-          customers often face unnecessary delays. Zipto solves this challenge
-          by building a connected delivery network powered by technology and
-          local mobility.
+          Zipto is redefining local delivery with a smart and connected logistics network.
+From bikes to mini trucks, we provide fast, reliable, and affordable transportation for businesses and individuals.
+Built on technology and efficiency, Zipto ensures every delivery is seamless, on time, and hassle-free.
           <br /><br />
           Our platform brings together customers, businesses, and delivery
           partners on a single ecosystem, enabling fast, affordable, and
@@ -259,7 +271,7 @@ export default function AboutUs() {
 
           <p>Email:   contact@ridezipto.com</p>
           <p>Phone:91+ 9090029996</p>
-          <p>Plot No-781, Maharishi College Rd, in front of DN Kingsland, Saheed Nagar, Bhubaneswar, Odisha 751007</p>
+          <p>  Bhubaneswar, Odisha </p>
 
         </div>
 

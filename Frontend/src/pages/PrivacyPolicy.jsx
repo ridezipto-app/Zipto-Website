@@ -50,6 +50,22 @@ export default function PrivacyPolicy() {
             Last updated: January 2026
           </p>
 
+          {/* INFO BOX (Add this here 👇) */}
+{/* INFO BOX */}
+<div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-900 text-sm mb-6 flex items-center gap-3">
+
+  {/* Icon */}
+  <div className="bg-blue-100 text-blue-600 p-2 rounded-full flex items-center justify-center">
+    <span className="text-sm">ℹ️</span>
+  </div>
+
+  {/* Text */}
+  <p className="leading-relaxed">
+    Welcome to Zipto, operated by Zipto Hyperlogistics Pvt. Ltd. Please review all sections carefully before proceeding.
+  </p>
+
+</div>
+
           {/* CUSTOMER PRIVACY POLICY */}
           <div className="bg-white shadow-xl rounded-2xl p-10 mb-10">
             <div className="flex items-center gap-3 mb-6">
@@ -220,7 +236,7 @@ export default function PrivacyPolicy() {
 
           <p>Email:  legal@ridezipto.com</p>
           <p>Phone:91+ 9090029996</p>
-          <p>Plot No-781, Maharishi College Rd, in front of DN Kingsland, Saheed Nagar, Bhubaneswar, Odisha 751007</p>
+          <p> Bhubaneswar, Odisha </p>
 
         </div>
 

@@ -37,6 +37,7 @@ export default function ContactPage() {
         {/* LEFT SIDE */}
         <div className="bg-[#0F1A2E] text-white p-6 sm:p-8 md:p-12 flex flex-col justify-between">
           <div>
+          
             <p className="text-orange-500 uppercase tracking-[0.25em] text-[10px] sm:text-xs mb-4 sm:mb-6">
               ● Support & Contact
             </p>
