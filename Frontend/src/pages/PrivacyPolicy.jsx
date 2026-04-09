@@ -11,7 +11,7 @@ const customerSections = [
     content: (
       <ul className="list-disc pl-5 space-y-1">
         <li><strong>Personal Information:</strong> Full name, mobile number, email, profile details</li>
-        <li><strong>Location Data:</strong> Real-time GPS location for tracking and delivery services</li>
+        <li><strong>Location Data (IMPORTANT):</strong> Real-time GPS location used for order tracking, delivery assignment, and route optimization</li>
         <li><strong>Transaction Data:</strong> Pickup/delivery address, order details, payment info</li>
         <li><strong>Device Data:</strong> IP address, device type, app usage, logs</li>
       </ul>
@@ -89,6 +89,7 @@ const customerSections = [
       <div>
         <p>Email: support@ridezipto.com</p>
         <p>Location: Bhubaneswar, Odisha, India</p>
+        <p>Response Time: 24–48 hours</p>
       </div>
     ),
   },
@@ -110,7 +111,7 @@ const riderSections = [
   {
     title: "2. Background Location Tracking ⚠️",
     content:
-      "Zipto Rider App collects continuous background location data even when the app is closed. This is required for order allocation, live tracking, fraud prevention, and safety monitoring.",
+      "Zipto Rider App collects continuous background location data, even when the app is closed or not in use. This is mandatory for order allocation, live tracking, fraud prevention, and safety monitoring.",
   },
   {
     title: "3. How We Use Data",
@@ -164,6 +165,7 @@ const riderSections = [
       <div>
         <p>Email: rider.support@ridezipto.com</p>
         <p>Location: Bhubaneswar, Odisha</p>
+        <p>Response Time: 24–48 hours</p>
       </div>
     ),
   },
