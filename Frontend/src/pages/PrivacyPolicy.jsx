@@ -2,101 +2,93 @@ import { useState } from "react";
 
 const customerSections = [
   {
-    title: "Information we collect",
+    title: "1. Introduction",
+    content:
+      "This Privacy Policy explains how Zipto Hyperlogistics Pvt. Ltd. collects, uses, processes, and protects your data when you use our platform including customer app, rider app, and website services. By using the platform, you consent to this policy.",
+  },
+  {
+    title: "2. Information We Collect",
     content: (
       <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong>Personal information:</strong> Name, phone number, email
-          address
-        </li>
-        <li>
-          <strong>Location data:</strong> To provide delivery and tracking
-          services
-        </li>
-        <li>
-          <strong>Device information:</strong> Device type, IP address, app
-          usage data
-        </li>
-        <li>
-          <strong>Media access:</strong> Camera/photos (only when required by
-          features)
-        </li>
+        <li><strong>Personal Information:</strong> Full name, mobile number, email, profile details</li>
+        <li><strong>Location Data:</strong> Real-time GPS location for tracking and delivery services</li>
+        <li><strong>Transaction Data:</strong> Pickup/delivery address, order details, payment info</li>
+        <li><strong>Device Data:</strong> IP address, device type, app usage, logs</li>
       </ul>
     ),
   },
   {
-    title: "How we use your information",
+    title: "3. How We Use Your Information",
     content: (
       <ul className="list-disc pl-5 space-y-1">
-        <li>To provide and improve our services</li>
-        <li>To manage your account</li>
-        <li>To process orders and deliveries</li>
-        <li>To communicate updates and support</li>
-        <li>To ensure security and prevent fraud</li>
+        <li>Provide and improve services</li>
+        <li>Match customers with delivery partners</li>
+        <li>Process orders and payments</li>
+        <li>Enable real-time tracking</li>
+        <li>Send notifications and updates</li>
+        <li>Prevent fraud and ensure safety</li>
       </ul>
     ),
   },
   {
-    title: "Permissions we use",
+    title: "4. Data Sharing & Disclosure",
     content: (
       <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong>Location:</strong> For live tracking and delivery services
-        </li>
-        <li>
-          <strong>Camera/storage:</strong> For uploading images when required
-        </li>
+        <li>Delivery partners (for fulfilling orders)</li>
+        <li>Payment providers (secure transactions)</li>
+        <li>Service providers (analytics, cloud, support)</li>
+        <li>Government authorities (if required by law)</li>
+        <li><strong>We do NOT sell your personal data</strong></li>
       </ul>
     ),
   },
   {
-    title: "Data sharing",
+    title: "5. Data Storage & Security",
     content:
-      "We do not sell your personal data. We may share your data with trusted service providers only to operate and improve our services.",
+      "We use industry-standard security practices such as encryption, secure servers, and access control. However, no system is completely secure and users share data at their own risk.",
   },
   {
-    title: "Data security",
+    title: "6. Data Retention",
     content:
-      "We take reasonable steps to protect your information, but no method is 100% secure.",
+      "We retain your data as long as your account is active or as required by legal and compliance obligations. Data may be deleted or anonymized when no longer needed.",
   },
   {
-    title: "Your rights",
-    content:
-      "You can update or delete your data by contacting us at the email below.",
-  },
-  {
-    title: "Children's privacy",
-    content: "Our services are not intended for users under 16 years of age.",
-  },
-  {
-    title: "Changes to this policy",
-    content: "We may update this Privacy Policy from time to time.",
-  },
-  {
-    title: "Contact us",
+    title: "7. User Rights",
     content: (
-      <div className="space-y-1">
-        <p>
-          Email:{" "}
-          <a
-            href="mailto:support@ridezipto.com"
-            className="text-blue-600 hover:underline"
-          >
-            support@ridezipto.com
-          </a>
-        </p>
-        <p>
-          Website:{" "}
-          <a
-            href="https://ridezipto.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            ridezipto.com
-          </a>
-        </p>
-        <p>Phone: 9090029996</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Access your data</li>
+        <li>Update or correct information</li>
+        <li>Request account deletion</li>
+        <li>Withdraw consent</li>
+      </ul>
+    ),
+  },
+  {
+    title: "8. Cookies & Tracking",
+    content:
+      "We use cookies and similar technologies to improve user experience, analyze performance, and personalize services.",
+  },
+  {
+    title: "9. Third-Party Services",
+    content:
+      "Our platform may include third-party integrations. Zipto is not responsible for their privacy practices.",
+  },
+  {
+    title: "10. Children's Privacy",
+    content:
+      "Zipto services are not intended for users under 18 years of age.",
+  },
+  {
+    title: "11. Changes to Policy",
+    content:
+      "We may update this Privacy Policy at any time. Users will be notified of significant changes via app or email.",
+  },
+  {
+    title: "12. Contact Information",
+    content: (
+      <div>
+        <p>Email: support@ridezipto.com</p>
+        <p>Location: Bhubaneswar, Odisha, India</p>
       </div>
     ),
   },
@@ -104,123 +96,74 @@ const customerSections = [
 
 const riderSections = [
   {
-    title: "Definitions",
+    title: "1. Information We Collect",
     content: (
       <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong>Account:</strong> Unique account created to access our service
-        </li>
-        <li>
-          <strong>Application:</strong> Zipto Rider Onboarding
-        </li>
-        <li>
-          <strong>Company:</strong> Zipto Hyperlogistics Pvt. Ltd.,
-          Bhubaneswar, Odisha
-        </li>
-        <li>
-          <strong>Country:</strong> India
-        </li>
-        <li>
-          <strong>Device:</strong> Any device used to access the service
-        </li>
-        <li>
-          <strong>Personal data:</strong> Information that identifies an
-          individual
-        </li>
-        <li>
-          <strong>Usage data:</strong> Automatically collected usage data
-        </li>
+        <li>Personal details (name, phone, email)</li>
+        <li>Driving license & vehicle documents</li>
+        <li>Bank & payout details</li>
+        <li>Live and background location tracking</li>
+        <li>Device and usage data</li>
       </ul>
     ),
   },
   {
-    title: "Information we collect",
-    content: (
-      <div className="space-y-3">
-        <div>
-          <p className="font-medium mb-1">Personal data:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Email address, name, phone number, address details</li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-medium mb-1">Usage data:</p>
-          <p>IP address, browser type, pages visited, time spent, and device info.</p>
-        </div>
-        <div>
-          <p className="font-medium mb-1">App permissions:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Location access for delivery tracking</li>
-            <li>Camera &amp; gallery for uploading images</li>
-          </ul>
-        </div>
-      </div>
-    ),
+    title: "2. Background Location Tracking ⚠️",
+    content:
+      "Zipto Rider App collects continuous background location data even when the app is closed. This is required for order allocation, live tracking, fraud prevention, and safety monitoring.",
   },
   {
-    title: "How we use data",
+    title: "3. How We Use Data",
     content: (
       <ul className="list-disc pl-5 space-y-1">
-        <li>Provide and maintain services</li>
-        <li>Manage user accounts</li>
-        <li>Process orders and deliveries</li>
-        <li>Customer support &amp; communication</li>
-        <li>Improve app performance</li>
+        <li>Order assignment and delivery tracking</li>
+        <li>Processing payouts</li>
+        <li>Improving platform performance</li>
+        <li>Ensuring safety and fraud prevention</li>
       </ul>
     ),
   },
   {
-    title: "Data sharing",
+    title: "4. Data Sharing",
     content:
-      "We do not sell your data. We may share it with service providers and partners only to operate our services.",
+      "We may share data with service providers, payment partners, and authorities if required by law. We do not sell personal data.",
   },
   {
-    title: "Data retention",
+    title: "5. Data Retention",
     content:
-      "We retain your data only as long as necessary for legal and operational purposes.",
+      "We retain rider data as long as required for platform operations and legal compliance.",
   },
   {
-    title: "Security",
+    title: "6. Sensitive Document Handling",
     content:
-      "We implement reasonable security measures but cannot guarantee absolute security.",
+      "Documents such as driving license, vehicle registration, and identity proof are securely stored and used only for verification and compliance.",
   },
   {
-    title: "Your rights",
-    content: "You can request to access, update, or delete your data anytime.",
+    title: "7. Payout & Financial Data",
+    content:
+      "Bank details are used only for processing payouts. We do not store sensitive credentials like OTP or PIN.",
   },
   {
-    title: "Children's privacy",
-    content: "Our service is not intended for users under 16 years of age.",
+    title: "8. Performance Monitoring",
+    content:
+      "We track acceptance rate, cancellation rate, and delivery performance to improve efficiency and fairness.",
   },
   {
-    title: "Changes to this policy",
-    content: "We may update this Privacy Policy from time to time.",
+    title: "9. Security",
+    content:
+      "We implement security measures but cannot guarantee absolute protection.",
   },
   {
-    title: "Contact us",
+    title: "10. User Rights",
+    content:
+      "Riders can request access, correction, or deletion of their data.",
+  },
+  {
+    title: "11. Contact",
     content: (
-      <div className="space-y-1">
-        <p>
-          Email:{" "}
-          <a
-            href="mailto:rider.support@ridezipto.com"
-            className="text-blue-600 hover:underline"
-          >
-            rider.support@ridezipto.com
-          </a>
-        </p>
-        <p>
-          Website:{" "}
-          <a
-            href="https://ridezipto.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            ridezipto.com
-          </a>
-        </p>
-        <p>Phone: 9090029996</p>
+      <div>
+        <p>Email: rider.support@ridezipto.com</p>
+        <p>Location: Bhubaneswar, Odisha</p>
       </div>
     ),
   },
