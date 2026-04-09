@@ -2,6 +2,9 @@ import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { MdAccessTime } from "react-icons/md";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+emailjs.init({
+  publicKey: "_-FpBW5zEY1qTTtOr",
+});
 
 export default function ContactPage() {
   const form = useRef();
@@ -9,14 +12,11 @@ export default function ContactPage() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_vuy9nal",
-        "template_b1cbjbn",
-        form.current,
-        "_-FpBW5zEY1qTTtOr"
-      )
-      .then(
+emailjs.sendForm(
+  "service_vuy9nal",
+  "template_b1cbjbn",
+  form.current
+).then(
         () => {
           alert("Message sent successfully ✅");
           form.current.reset();
