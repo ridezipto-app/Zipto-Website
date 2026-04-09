@@ -11,55 +11,99 @@ export default function TermsConditions() {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = [
-    {
-      title: "1. Introduction",
-      text: `Welcome to Zipto. By downloading, accessing, or using the Zipto application or website, you agree to comply with these Terms & Conditions.`,
-    },
-    {
-      title: "2. Service Description",
-      text: `Zipto is a technology platform that connects customers and businesses with independent delivery partners for transporting goods through multiple vehicles including Bike, Scooty, Auto-rickshaw, Pickup, and Mini Truck. Zipto acts only as a technology intermediary facilitating delivery services.`,
-    },
-    {
-      title: "3. User Eligibility",
-      text: `Users must be at least 18 years old, provide accurate account information, and use the platform only for lawful purposes.`,
-    },
-    {
-      title: "4. User Responsibilities",
-      text: `Users agree to provide accurate pickup and delivery information, ensure items are properly packaged, and avoid sending restricted or illegal items.`,
-    },
-    {
-      title: "5. Payments",
-      text: `Delivery charges are displayed before confirming the order. Payments may be made using available payment options within the Zipto platform.`,
-    },
-    {
-      title: "6. Account Suspension",
-      text: `Zipto reserves the right to suspend or terminate accounts that violate platform policies or misuse the service.`,
-    },
-    {
-      title: "7. Governing Law",
-      text: `These Terms & Conditions are governed by the laws of India.`,
-    },
-  ];
+const sections = [
+  {
+    title: "1. Introduction",
+    text: `These Terms & Conditions constitute a legally binding agreement between you and Zipto Hyperlogistics Pvt. Ltd. By using the Zipto platform, you agree to be bound by these Terms. If you do not agree, please discontinue use immediately.`,
+  },
+  {
+    title: "2. Platform Nature",
+    text: `Zipto is a technology-enabled logistics marketplace connecting customers, businesses, and independent delivery partners. Zipto does not provide transportation services directly; all deliveries are fulfilled by third-party partners.`,
+  },
+  {
+    title: "3. Scope of Services",
+    text: `Zipto facilitates on-demand services including food delivery, medicine delivery, parcel transport, hyperlocal logistics, and last-mile delivery using vehicles like bikes, autos, pickups, and mini trucks.`,
+  },
+  {
+    title: "4. User Representations",
+    text: `You confirm that you are at least 18 years old, legally capable of entering a contract, and that all information provided by you is accurate and complete.`,
+  },
+  {
+    title: "5. User Obligations",
+    text: `Users must provide accurate delivery details, ensure proper packaging, and must not send illegal or hazardous goods. You are solely responsible for the shipment contents.`,
+  },
+  {
+    title: "6. Pricing & Payments",
+    text: `Pricing is dynamic based on distance, demand, and service type. Charges are shown before order confirmation. Payments may be made via UPI, Cash, or COD. Zipto may update pricing at any time.`,
+  },
+  {
+    title: "7. Cancellation Policy",
+    text: `Free cancellation is allowed before partner assignment. After assignment, charges apply. Cancellation is not allowed after pickup. Zipto may cancel orders due to safety or policy violations.`,
+  },
+  {
+    title: "8. Refund Policy",
+    text: `Refunds are applicable only for failed transactions, duplicate payments, or cancellations by Zipto. No refunds for incorrect address, customer unavailability, or post-pickup cancellations. Processing time: 5–7 business days.`,
+  },
+  {
+    title: "9. Prohibited Items",
+    text: `Users must not send illegal (drugs, weapons), hazardous (flammable, toxic), or restricted items (cash, valuables, alcohol). Violations may lead to account suspension and legal action.`,
+  },
+  {
+    title: "10. Limitation of Liability",
+    text: `Zipto is not liable for indirect damages, delays, improper packaging losses, or actions of delivery partners. Services are provided on an "as-is" basis.`,
+  },
+  {
+    title: "11. Indemnification",
+    text: `You agree to indemnify Zipto against claims, damages, or legal costs arising from misuse, violations, or illegal shipments.`,
+  },
+  {
+    title: "12. Intellectual Property",
+    text: `All content including logo, design, and technology belongs to Zipto. Unauthorized use is strictly prohibited.`,
+  },
+  {
+    title: "13. Account Suspension",
+    text: `Zipto may suspend or terminate accounts involved in fraud, abuse, or policy violations.`,
+  },
+  {
+    title: "14. Force Majeure",
+    text: `Zipto is not responsible for delays or failures due to events beyond control such as natural disasters, government actions, or network failures.`,
+  },
+  {
+    title: "15. Governing Law",
+    text: `These Terms are governed by the laws of India. Courts in Bhubaneswar, Odisha shall have exclusive jurisdiction.`,
+  },
+];
 
-  const riderSections = [
-    {
-      title: "1. Rider Eligibility",
-      text: `Delivery partners must be at least 18 years old, hold a valid driving license, and provide valid vehicle documents.`,
-    },
-    {
-      title: "2. Rider Responsibilities",
-      text: `Delivery partners must deliver packages safely, follow traffic laws, and maintain professional conduct with customers.`,
-    },
-    {
-      title: "3. Independent Service Provider",
-      text: `By registering on the Zipto Rider App, delivery partners agree to operate as independent service providers.`,
-    },
-    {
-      title: "4. Rider Account Suspension",
-      text: `Zipto may suspend or terminate rider accounts if platform policies are violated.`,
-    },
-  ];
+const riderSections = [
+  {
+    title: "1. Independent Contractor Status",
+    text: `Delivery partners operate as independent contractors. This agreement does not create employment, partnership, or agency relationships.`,
+  },
+  {
+    title: "2. Service Obligations",
+    text: `Riders must complete deliveries responsibly, follow traffic laws, maintain professionalism, and ensure package safety.`,
+  },
+  {
+    title: "3. Earnings & Payouts",
+    text: `Earnings include base fare, distance fees, and incentives. Zipto may deduct platform fees or penalties where applicable.`,
+  },
+  {
+    title: "4. Performance Monitoring",
+    text: `Zipto may track acceptance rate, cancellations, and customer ratings. Poor performance may lead to deactivation.`,
+  },
+  {
+    title: "5. Prohibited Conduct",
+    text: `Riders must not tamper with goods, misuse customer data, accept illegal deliveries, or engage in fraud.`,
+  },
+  {
+    title: "6. Liability & Risk",
+    text: `Riders are responsible for their vehicle condition, legal compliance, and personal safety.`,
+  },
+  {
+    title: "7. Termination",
+    text: `Zipto may deactivate rider accounts without notice in cases of misconduct, fraud, or policy violations.`,
+  },
+];
 
   return (
     <>
