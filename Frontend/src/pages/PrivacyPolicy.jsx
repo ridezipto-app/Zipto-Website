@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FaCheckCircle, FaEnvelope } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 import ziptoLogo from "../assets/zipto.jpeg";
 import { useNavigate } from "react-router-dom";
 
@@ -10,183 +10,173 @@ export default function PrivacyPolicy() {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = [
-    {
-      title: "1. Introduction",
-      text: `This Privacy Policy explains how Zipto Hyperlogistics Pvt. Ltd. collects, uses, processes, and protects your personal data when you use the Zipto platform. By accessing or using our services, you agree to this Privacy Policy.`,
-    },
-    {
-      title: "2. Information We Collect",
-      text: `We collect personal information such as your name, phone number, email, and profile details. We also collect IMPORTANT location data (real-time GPS) for delivery tracking, transaction data including pickup and drop details, and device data such as IP address and usage logs.`,
-    },
-    {
-      title: "3. Use of Information",
-      text: `Your data is used to provide and improve services, match you with delivery partners, process orders and payments, enable real-time tracking, send notifications, and prevent fraud or misuse.`,
-    },
-    {
-      title: "4. Data Sharing & Disclosure",
-      text: `We may share your data with delivery partners, payment providers, and service providers for operational purposes. We may also disclose data if required by law. We do NOT sell your personal data.`,
-    },
-    {
-      title: "5. Data Storage & Security",
-      text: `We use industry-standard security practices such as encryption and secure servers to protect your data. However, no system is completely secure and data sharing is at your own risk.`,
-    },
-    {
-      title: "6. Data Retention",
-      text: `We retain your data as long as your account is active or as required by legal obligations. Data may be deleted or anonymized when no longer required.`,
-    },
-    {
-      title: "7. User Rights",
-      text: `You have the right to access, update, or delete your data, and withdraw consent where applicable.`,
-    },
-    {
-      title: "8. Cookies & Tracking",
-      text: `We use cookies and similar technologies to enhance user experience, analyze performance, and personalize services.`,
-    },
-    {
-      title: "9. Third-Party Services",
-      text: `Our platform may include third-party integrations. Zipto is not responsible for the privacy practices of these services.`,
-    },
-    {
-      title: "10. Children's Privacy",
-      text: `Zipto services are not intended for users under 18 years of age.`,
-    },
-    {
-      title: "11. Changes to Policy",
-      text: `We may update this Privacy Policy from time to time. Users will be notified of significant changes.`,
-    },
-  ];
-
-  const riderSections = [
-    {
-      title: "1. Information We Collect",
-      text: `We collect personal details, vehicle documents, bank details, device data, and live as well as background location data.`,
-    },
-    {
-      title: "2. Background Location Tracking ⚠️",
-      text: `Zipto Rider App collects continuous background location data even when the app is closed or not in use. This is mandatory for order allocation, live tracking, fraud prevention, and safety monitoring.`,
-    },
-    {
-      title: "3. Use of Data",
-      text: `Data is used for order assignment, delivery tracking, payout processing, performance monitoring, and ensuring platform safety.`,
-    },
-    {
-      title: "4. Data Sharing",
-      text: `We may share rider data with service providers, payment partners, and authorities if required by law. We do not sell personal data.`,
-    },
-    {
-      title: "5. Data Retention",
-      text: `Rider data is retained as long as required for operations and legal compliance.`,
-    },
-    {
-      title: "6. Security",
-      text: `We implement security measures but cannot guarantee absolute protection.`,
-    },
-    {
-      title: "7. Rider Rights",
-      text: `Riders can request access, correction, or deletion of their data.`,
-    },
-  ];
-
   return (
     <>
       {/* Back Button */}
       <div className="p-4">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 bg-white text-blue-600 font-semibold px-4 py-2 rounded-lg shadow hover:bg-blue-50 transition"
+          className="flex items-center gap-2 bg-white text-blue-600 font-semibold px-4 py-2 rounded-lg border hover:bg-blue-50 transition"
         >
           ← Back to Home
         </button>
       </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 to-blue-500 py-16 px-6">
+      <div className="min-h-screen bg-gray-50 py-12 px-4">
 
         {/* Logo */}
-        <div className="flex justify-center mb-6">
-          <img src={ziptoLogo} alt="Zipto Logo" className="h-25 w-25 rounded-lg" />
+        <div className="flex justify-center mb-4">
+          <img
+            src={ziptoLogo}
+            alt="Zipto Logo"
+            className="h-20 w-20 rounded-lg"
+          />
         </div>
 
         {/* Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold bg-gradient-to-r from-orange-700 to-blue-600 bg-clip-text text-transparent">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">
             Privacy Policy
           </h1>
-          <p className="text-gray-800 mt-3">
+          <p className="text-gray-500 mt-1 text-sm">
             Last updated: April 2026
           </p>
         </div>
 
-        {/* Info Box */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-900 text-sm mb-6 flex items-center gap-3">
-          <div className="bg-blue-100 text-blue-600 p-2 rounded-full">
-            ℹ️
+        {/* MAIN CARD */}
+        <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+
+          {/* Intro */}
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            This Privacy Policy explains how <strong>Zipto Hyperlogistics Pvt. Ltd.</strong> 
+            collects, uses, processes, and protects your personal data when you use our platform, 
+            including the customer application, rider application, and related services. 
+            By using Zipto, you agree to the terms of this Privacy Policy.
+          </p>
+
+          {/* Sections */}
+          <div className="space-y-6 text-gray-700 text-sm leading-relaxed">
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">1. Information We Collect</h2>
+              <p>
+                We collect personal information such as name, phone number, email, and profile details. 
+                <strong> Location Data (IMPORTANT):</strong> We collect real-time GPS location for order tracking, 
+                delivery assignment, and route optimization. We also collect transaction data (addresses, orders, payments) 
+                and device data (IP address, device type, usage logs).
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">2. How We Use Your Information</h2>
+              <p>
+                Your information is used to provide and improve services, match customers with delivery partners, 
+                process orders and payments, enable real-time tracking, send notifications, and prevent fraud or misuse.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">3. Data Sharing & Disclosure</h2>
+              <p>
+                We may share data with delivery partners, payment providers, and service providers for operational purposes. 
+                Data may also be disclosed if required by law. <strong>We do NOT sell your personal data.</strong>
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">4. Data Storage & Security</h2>
+              <p>
+                We implement industry-standard security measures including encryption, secure servers, and access controls. 
+                However, no system can guarantee absolute security.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">5. Data Retention</h2>
+              <p>
+                We retain your data as long as your account is active or as required by legal obligations. 
+                Data may be deleted or anonymized when no longer necessary.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">6. User Rights</h2>
+              <p>
+                You have the right to access, update, or correct your data, request deletion, and withdraw consent where applicable.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">7. Cookies & Tracking</h2>
+              <p>
+                We use cookies and similar technologies to enhance user experience, analyze performance, and personalize services.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">8. Third-Party Services</h2>
+              <p>
+                Our platform may include third-party integrations. Zipto is not responsible for their privacy practices.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">9. Children's Privacy</h2>
+              <p>
+                Zipto services are not intended for users under 18 years of age.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-gray-800 mb-1">10. Changes to Policy</h2>
+              <p>
+                We may update this Privacy Policy from time to time. Users will be notified of significant changes.
+              </p>
+            </div>
+
+            {/* Rider Section */}
+            <div className="pt-4 border-t">
+              <h2 className="font-semibold text-gray-800 mb-2">
+                Rider-Specific Policy
+              </h2>
+
+              <p>
+                Zipto Rider App collects personal details, vehicle documents, bank details, and device data.
+              </p>
+
+              <p className="mt-2">
+                <strong>Background Location Tracking (MANDATORY):</strong> The rider app collects continuous 
+                background location data even when the app is closed or not in use. This is required for 
+                order allocation, live tracking, fraud prevention, and safety monitoring.
+              </p>
+
+              <p className="mt-2">
+                Rider data is used for delivery tracking, payout processing, performance monitoring, and safety enforcement. 
+                Data may be shared with service providers and authorities if required by law.
+              </p>
+            </div>
+
           </div>
-          <p>
-            Your privacy is important to us. Please review this policy carefully to understand how your data is handled.
-          </p>
         </div>
 
-        {/* CUSTOMER POLICY */}
-        <div className="max-w-5xl mx-auto grid gap-6">
-          <h2 className="text-2xl font-bold text-center mb-6">
-            ZIPTO CUSTOMER APPLICATION
+        {/* Contact Section */}
+        <div className="max-w-4xl mx-auto mt-8 bg-white border border-gray-200 rounded-xl p-6 text-center">
+          <FaEnvelope className="text-xl mx-auto mb-2 text-gray-600" />
+          <h2 className="text-lg font-semibold text-gray-800 mb-2">
+            Contact Us
           </h2>
-
-          {sections.map((item, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition">
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-blue-500 mt-1" />
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2 leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* RIDER POLICY */}
-        <div className="max-w-5xl mx-auto grid gap-6 mt-16">
-          <h2 className="text-2xl font-bold text-center">
-            ZIPTO RIDER APPLICATION
-          </h2>
-
-          {riderSections.map((item, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition">
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-orange-500 mt-1" />
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2 leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact */}
-        <div className="mt-12 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-2xl p-8 text-center">
-          <FaEnvelope className="text-3xl mx-auto mb-4" />
-          <h2 className="text-2xl font-semibold mb-3">Contact Us</h2>
-          <p className="opacity-90 mb-4">
-            For any privacy-related queries, contact us.
+          <p className="text-sm text-gray-600">
+            For any privacy-related queries:
           </p>
-          <p>Email: support@ridezipto.com</p>
-          <p>Rider Email: rider.support@ridezipto.com</p>
-          <p>Bhubaneswar, Odisha</p>
+          <p className="text-sm mt-2">support@ridezipto.com</p>
+          <p className="text-sm">rider.support@ridezipto.com</p>
+          <p className="text-sm mt-1">Bhubaneswar, Odisha, India</p>
+          <p className="text-xs text-gray-400 mt-2">Response Time: 24–48 hours</p>
         </div>
 
-        <p className="text-center text-gray-800 mt-10 text-sm">
-          🛡️ By using Zipto, you agree to this Privacy Policy.
+        {/* Footer */}
+        <p className="text-center text-gray-500 mt-8 text-xs">
+          By using Zipto, you agree to this Privacy Policy.
         </p>
 
       </div>
