@@ -21,276 +21,244 @@ export default function TermsConditions() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-white px-6 py-10">
+      <div className="min-h-screen bg-gray-50 px-6 py-10">
 
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-10">
           <img src={ziptoLogo} className="h-16 mx-auto mb-4 rounded" />
           <h1 className="text-4xl font-bold text-gray-900">
-            Terms & Conditions
+            ZIPTO TERMS & CONDITIONS
           </h1>
           <p className="text-gray-500 mt-2 text-sm">
-            Last updated: April 2026
+            Effective Date: 11 April 2026 <br />
+            Last Updated: 11 April 2026
           </p>
         </div>
 
-        {/* CONTENT */}
-        <div className="max-w-4xl mx-auto space-y-12 text-gray-800">
+        {/* MAIN CARD */}
+        <div className="max-w-4xl mx-auto bg-white border rounded-xl p-8 shadow-sm space-y-10 text-gray-800">
 
-          {/* 1 */}
+          {/* ================= CUSTOMER TERMS ================= */}
           <section>
-            <h2 className="text-2xl font-semibold mb-3">1. Introduction</h2>
-            <p className="text-gray-600">
-              These Terms & Conditions (“Terms”) constitute a legally binding agreement between you (“User”, “Customer”, or “Delivery Partner”) and Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”).
-            </p>
-            <p className="text-gray-600 mt-2">
-              By accessing or using the Zipto platform (including mobile applications, websites, and services), you agree to comply with and be bound by these Terms.
-            </p>
-            <p className="text-gray-600 mt-2">
-              If you do not agree, you must immediately discontinue use of the platform.
-            </p>
-          </section>
+            <h2 className="text-2xl font-bold mb-4">
+              ZIPTO (CUSTOMER APP) – TERMS & CONDITIONS
+            </h2>
 
-          {/* 2 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">2. Platform Nature</h2>
+            <h3 className="font-semibold">1. INTRODUCTION</h3>
             <p className="text-gray-600">
-              Zipto is a technology-enabled logistics marketplace that connects:
+              These Terms & Conditions constitute a legally binding agreement between you and Zipto Hyperlogistics Pvt. Ltd.
             </p>
 
-            <ul className="list-disc pl-6 mt-2 text-gray-600">
-              <li>Customers</li>
-              <li>Businesses</li>
-              <li>Independent Delivery Partners</li>
+            <h3 className="font-semibold mt-4">2. COMPANY DETAILS</h3>
+            <p className="text-gray-600">
+              ZIPTO HYPERLOGISTICS PRIVATE LIMITED <br />
+              Saheed Nagar, Bhubaneswar, Odisha - 751007
+            </p>
+
+            <h3 className="font-semibold mt-4">3. PLATFORM NATURE</h3>
+            <p className="text-gray-600">
+              Zipto connects customers with independent delivery partners.
+            </p>
+            <p className="font-medium mt-2">
+              ⚠️ Zipto does NOT directly provide delivery services.
+            </p>
+
+            <h3 className="font-semibold mt-4">4. ELIGIBILITY</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Must be 18+</li>
+              <li>Must provide accurate information</li>
             </ul>
 
-            <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg mt-4">
-              <p className="font-semibold">⚠️ IMPORTANT</p>
-              <ul className="list-disc pl-6 text-gray-600 mt-2">
-                <li>Zipto does not provide transportation services directly.</li>
-                <li>All delivery services are fulfilled by independent third-party partners.</li>
-              </ul>
-            </div>
-          </section>
-
-          {/* 3 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">3. Scope of Services</h2>
-
+            <h3 className="font-semibold mt-4">5. SERVICES</h3>
             <ul className="list-disc pl-6 text-gray-600">
               <li>Food delivery</li>
+              <li>Parcel delivery</li>
               <li>Medicine delivery</li>
-              <li>Parcel & goods transportation</li>
-              <li>Hyperlocal logistics</li>
-              <li>Last-mile delivery solutions</li>
+              <li>Goods transportation</li>
             </ul>
 
-            <p className="mt-3 text-gray-600">Service vehicles may include:</p>
+            <h3 className="font-semibold mt-4">6. USER OBLIGATIONS</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Bikes / Scooters</li>
-              <li>Auto-rickshaws</li>
-              <li>Pickup vehicles</li>
-              <li>Mini trucks</li>
+              <li>Provide correct details</li>
+              <li>Proper packaging</li>
+              <li>Avoid illegal goods</li>
             </ul>
-          </section>
 
-          {/* 4 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">
-              4. User Representations & Warranties
-            </h2>
+            <h3 className="font-semibold mt-4">7. PRICING & PAYMENTS</h3>
+            <p className="text-gray-600">Prices are dynamic.</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>You are at least 18 years of age</li>
-              <li>You have legal capacity to enter into a binding contract</li>
-              <li>All information provided is true, accurate, and complete</li>
+              <li>UPI</li>
+              <li>Cash</li>
+              <li>COD</li>
             </ul>
-          </section>
 
-          {/* 5 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">5. User Obligations</h2>
+            <h3 className="font-semibold mt-4">8. CANCELLATION</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Provide accurate pickup and delivery details</li>
-              <li>Ensure items are securely packaged</li>
-              <li>Not use the platform for unlawful or fraudulent purposes</li>
-              <li>Not send prohibited or hazardous goods</li>
+              <li>Before assignment: Free</li>
+              <li>After assignment: Charges apply</li>
+              <li>After pickup: Not allowed</li>
             </ul>
 
-            <p className="mt-3 font-medium">
-              ⚠️ You remain solely responsible for the contents of your shipment.
-            </p>
-          </section>
-
-          {/* 6 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">6. Pricing & Payments</h2>
+            <h3 className="font-semibold mt-4">9. REFUNDS</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Prices are dynamically determined based on distance, demand, and service type</li>
-              <li>Charges are displayed prior to order confirmation</li>
-              <li>UPI / Cash / COD accepted</li>
+              <li>Failed transactions</li>
+              <li>Duplicate payments</li>
+              <li>Cancelled by Zipto</li>
             </ul>
+            <p className="mt-2">⏱ 5–7 business days</p>
 
-            <p className="mt-2 text-gray-600">
-              Zipto reserves the right to revise pricing at any time without prior notice.
-            </p>
-          </section>
-
-          {/* 7 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">7. Cancellation Policy</h2>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Before partner assignment: Free cancellation</li>
-              <li>After assignment: Cancellation charges applicable</li>
-              <li>After pickup: ❌ No cancellation permitted</li>
-            </ul>
-
-            <p className="mt-2 text-gray-600">
-              Zipto may cancel orders due to safety concerns, incorrect details, or policy violations.
-            </p>
-          </section>
-
-          {/* 8 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">8. Refund Policy</h2>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Failed or unsuccessful transaction</li>
-              <li>Duplicate payment</li>
-              <li>Order cancelled by Zipto</li>
-            </ul>
-
-            <p className="mt-2 text-gray-600">No refunds for:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Incorrect address</li>
-              <li>Customer unavailability</li>
-              <li>Cancellation after pickup</li>
-            </ul>
-
-            <p className="mt-2">⏱ Processing time: 5–7 business days</p>
-          </section>
-
-          {/* 9 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">9. Prohibited Items</h2>
-
+            <h3 className="font-semibold mt-4">10. PROHIBITED ITEMS</h3>
             <p className="font-medium">Illegal:</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Narcotics / drugs</li>
-              <li>Weapons / explosives</li>
+              <li>Drugs</li>
+              <li>Weapons</li>
               <li>Counterfeit goods</li>
             </ul>
 
-            <p className="font-medium mt-3">Hazardous:</p>
+            <p className="font-medium mt-2">Hazardous:</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Flammable substances</li>
+              <li>Flammable items</li>
               <li>Toxic chemicals</li>
-              <li>Dangerous materials</li>
             </ul>
 
-            <p className="font-medium mt-3">Restricted:</p>
+            <p className="font-medium mt-2">Restricted:</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Cash / currency</li>
+              <li>Cash</li>
               <li>Precious items</li>
-              <li>Alcohol or regulated goods</li>
+              <li>Alcohol</li>
             </ul>
 
-            <p className="mt-3 font-medium">
-              🚫 Violation may result in account suspension and legal action
+            <p className="mt-2 font-medium">
+              🚫 User responsible for shipment contents
             </p>
-          </section>
 
-          {/* 10–15 */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">10. Limitation of Liability</h2>
+            <h3 className="font-semibold mt-4">11. ACCOUNT & SECURITY</h3>
             <p className="text-gray-600">
-              Zipto shall not be liable for indirect damages, delays, improper packaging, or actions of delivery partners.
+              Users are responsible for account security.
             </p>
-          </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">11. Indemnification</h2>
+            <h3 className="font-semibold mt-4">12. THIRD-PARTY SERVICES</h3>
             <p className="text-gray-600">
-              You agree to indemnify Zipto against claims, damages, and legal costs arising from misuse or violations.
+              Zipto is not responsible for third-party services.
             </p>
-          </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">12. Intellectual Property</h2>
+            <h3 className="font-semibold mt-4">13. LIMITATION OF LIABILITY</h3>
             <p className="text-gray-600">
-              All platform content including logo, design, and technology are owned by Zipto.
+              Zipto is not liable for delays, losses, or user errors.
             </p>
-          </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">13. Account Termination</h2>
+            <h3 className="font-semibold mt-4">14. INDEMNIFICATION</h3>
             <p className="text-gray-600">
-              Zipto may suspend or terminate accounts involved in fraud, abuse, or violations.
+              Users agree to indemnify Zipto.
             </p>
-          </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">14. Force Majeure</h2>
+            <h3 className="font-semibold mt-4">15. TERMINATION</h3>
             <p className="text-gray-600">
-              Zipto is not liable for failures due to events beyond control.
+              Accounts may be terminated for violations.
             </p>
-          </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3">15. Governing Law</h2>
+            <h3 className="font-semibold mt-4">16. INTELLECTUAL PROPERTY</h3>
+            <p className="text-gray-600">All content belongs to Zipto.</p>
+
+            <h3 className="font-semibold mt-4">17. PRIVACY</h3>
             <p className="text-gray-600">
-              Governed by laws of India. Jurisdiction: Bhubaneswar, Odisha.
+              Governed by Privacy Policy.
             </p>
+
+            <h3 className="font-semibold mt-4">18. FORCE MAJEURE</h3>
+            <p className="text-gray-600">
+              Not liable for uncontrollable events.
+            </p>
+
+            <h3 className="font-semibold mt-4">19. GOVERNING LAW</h3>
+            <p className="text-gray-600">
+              Indian law. Jurisdiction: Bhubaneswar.
+            </p>
+
+            <h3 className="font-semibold mt-4">20. MODIFICATION</h3>
+            <p className="text-gray-600">
+              Terms may be updated anytime.
+            </p>
+
+            <h3 className="font-semibold mt-4">21. CONTACT</h3>
+            <p>Email: support@ridezipto.com</p>
+            <p>Response within 48 hours</p>
           </section>
 
-          {/* RIDER */}
-          <section className="border-t pt-8">
+          {/* ================= RIDER TERMS ================= */}
+          <section className="border-t pt-6">
             <h2 className="text-2xl font-bold mb-4">
-              🛵 Zipto Rider Terms (Advanced)
+              ZIPTO RIDER TERMS & CONDITIONS
             </h2>
 
-            <h3 className="font-semibold mb-2">1. Independent Contractor Status</h3>
+            <h3 className="font-semibold">1. INTRODUCTION</h3>
             <p className="text-gray-600">
-              Riders are independent contractors, not employees.
+              Applies to delivery partners using the Rider App.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2">2. Service Obligations</h3>
+            <h3 className="font-semibold mt-3">2. INDEPENDENT CONTRACTOR</h3>
+            <p className="text-gray-600">
+              Riders are not employees.
+            </p>
+
+            <h3 className="font-semibold mt-3">3. ELIGIBILITY</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Complete deliveries responsibly</li>
-              <li>Follow traffic laws</li>
-              <li>Maintain professionalism</li>
-              <li>Ensure package safety</li>
+              <li>18+</li>
+              <li>Valid documents</li>
+              <li>Driving license</li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2">3. Earnings & Payouts</h3>
+            <h3 className="font-semibold mt-3">4. SERVICES</h3>
             <p className="text-gray-600">
-              Includes fares, incentives, and may include deductions.
+              Delivery of food, parcels, medicines.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2">4. Performance Management</h3>
+            <h3 className="font-semibold mt-3">5. OBLIGATIONS</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Follow traffic rules</li>
+              <li>Maintain professionalism</li>
+              <li>Ensure safe delivery</li>
+            </ul>
+
+            <h3 className="font-semibold mt-3">6. EARNINGS</h3>
+            <p className="text-gray-600">
+              Includes fares, incentives, deductions.
+            </p>
+
+            <h3 className="font-semibold mt-3">7. PERFORMANCE</h3>
             <p className="text-gray-600">
               Poor performance may lead to deactivation.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2">5. Prohibited Conduct</h3>
+            <h3 className="font-semibold mt-3">8. PROHIBITED CONDUCT</h3>
             <p className="text-gray-600">
-              Fraud, misuse, illegal deliveries strictly prohibited.
+              Fraud, misuse, illegal activity prohibited.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2">6. Liability & Risk</h3>
+            <h3 className="font-semibold mt-3">9. ACCOUNT DEACTIVATION</h3>
             <p className="text-gray-600">
-              Riders are responsible for safety and compliance.
+              Possible for violations.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2">7. Termination</h3>
+            <h3 className="font-semibold mt-3">10. LIABILITY</h3>
             <p className="text-gray-600">
-              Zipto may deactivate accounts without notice for violations.
+              Riders responsible for safety & compliance.
             </p>
+
+            <h3 className="font-semibold mt-3">11. GOVERNING LAW</h3>
+            <p className="text-gray-600">
+              Indian law applies.
+            </p>
+
+            <h3 className="font-semibold mt-3">12. CONTACT</h3>
+            <p>rider.support@ridezipto.com</p>
           </section>
 
         </div>
 
         {/* Footer */}
-        <p className="text-center text-gray-400 mt-16 text-sm">
-          By using Zipto, you agree to these Terms & Conditions.
+        <p className="text-center text-gray-400 mt-10 text-sm">
+          © 2026 Zipto Hyperlogistics Pvt. Ltd.
         </p>
 
       </div>
