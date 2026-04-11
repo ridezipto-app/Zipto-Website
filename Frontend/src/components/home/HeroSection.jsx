@@ -69,7 +69,7 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="pt-4 animate-fadeUp delay-500">
             <CTAButtons />
-            <HeroStats />
+            {/* <HeroStats /> */}
           </div>
 
         </div>
