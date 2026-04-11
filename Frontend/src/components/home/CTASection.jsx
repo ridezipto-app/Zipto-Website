@@ -50,9 +50,9 @@ export default function LaunchingSoon() {
 
       {/* Mission */}
       <div className="mt-12 text-center">
-        <p className="text-gray-400 mb-2 tracking-widest">~~~ Our Mission ~~~</p>
+        <p className="text-gray-800 mb-2 tracking-widest">~~~ Our Mission ~~~</p>
 
-        <p className="text-lg md:text-xl text-gray-200 max-w-xl">
+        <p className="text-lg md:text-xl text-gray-100 max-w-xl">
           Building Odisha’s fastest hyperlocal delivery network
         </p>
       </div>
