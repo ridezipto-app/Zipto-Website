@@ -22,252 +22,234 @@ export default function PrivacyPolicy() {
       </div>
 
       <div className="min-h-screen bg-gray-50 px-6 py-10">
-
+        
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-10">
           <img src={ziptoLogo} className="h-16 mx-auto mb-4 rounded" />
           <h1 className="text-4xl font-bold text-gray-900">
-            Privacy Policy
+            ZIPTO PRIVACY POLICY
           </h1>
           <p className="text-gray-500 mt-2 text-sm">
-            Last updated: April 2026
+            Effective Date: 11 April 2026 <br />
+            Last Updated: 11 April 2026
           </p>
         </div>
 
-        {/* SINGLE CARD */}
-        <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-sm space-y-10 text-gray-800">
+        {/* MAIN CARD */}
+        <div className="max-w-4xl mx-auto bg-white border rounded-xl p-8 shadow-sm space-y-10 text-gray-800">
 
-          {/* 1 */}
+          {/* ================= CUSTOMER POLICY ================= */}
           <section>
-            <h2 className="text-xl font-semibold mb-2">1. INTRODUCTION</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              1. ZIPTO (CUSTOMER APP) – PRIVACY POLICY
+            </h2>
+
+            <h3 className="font-semibold mt-3">1. INTRODUCTION</h3>
             <p className="text-gray-600">
-              This Privacy Policy describes how Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”) collects, uses, processes, and protects your information when you use our platform, including:
+              This Privacy Policy describes how Zipto Hyperlogistics Pvt. Ltd.
+              (“Zipto”, “Company”, “We”, “Us”) collects, uses, and protects your
+              information when you use the Zipto Customer Application, website,
+              and related services.
             </p>
 
-            <ul className="list-disc pl-6 mt-2 text-gray-600">
-              <li>Zipto Customer Application</li>
-              <li>Zipto Rider Application</li>
-              <li>Website and related services</li>
-            </ul>
-
-            <p className="mt-2 text-gray-600">
-              By using the platform, you consent to the practices described in this Privacy Policy.
+            <p className="text-gray-600 mt-2">
+              By using Zipto, you explicitly consent to the collection and use
+              of your data as described in this policy.
             </p>
-          </section>
 
-          {/* 2 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">2. INFORMATION WE COLLECT</h2>
+            <h3 className="font-semibold mt-4">2. COMPANY DETAILS</h3>
+            <p className="text-gray-600">
+              Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED. <br />
+              Registered Office: 781, Saheed Nagar, Maharishi College Road,
+              Bhubaneswar, Odisha, India - 751007 <br />
+              Location: Bhubaneswar, Odisha, India
+            </p>
 
-            <p className="font-semibold mt-2">A. Personal Information</p>
-            <p className="text-gray-600">We may collect:</p>
+            <h3 className="font-semibold mt-4">3. INFORMATION WE COLLECT</h3>
+
+            <p className="font-medium mt-2">A. Personal Information</p>
             <ul className="list-disc pl-6 text-gray-600">
               <li>Full Name</li>
               <li>Mobile Number</li>
               <li>Email Address</li>
-              <li>Profile details</li>
             </ul>
 
-            <p className="font-semibold mt-4">B. Location Data (VERY IMPORTANT)</p>
-            <p className="text-gray-600">We collect:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Real-time GPS location</li>
-              <li>Background location (for riders)</li>
-            </ul>
+            <p className="font-medium mt-3">B. Location Data</p>
+            <p className="text-gray-600">
+              Used for pickup, delivery, tracking, and service accuracy.
+            </p>
+            <p className="text-sm mt-1">📍 Collected only during active services.</p>
 
-            <p className="mt-2 font-medium">📍 This is used for:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Order tracking</li>
-              <li>Delivery assignment</li>
-              <li>Route optimization</li>
-            </ul>
-
-            <p className="font-semibold mt-4">C. Transaction Information</p>
+            <p className="font-medium mt-3">C. Order & Transaction Data</p>
             <ul className="list-disc pl-6 text-gray-600">
               <li>Pickup & delivery addresses</li>
               <li>Order details</li>
-              <li>Payment information (UPI / COD / Cash)</li>
+              <li>Payment method (UPI / COD / Cash)</li>
             </ul>
 
-            <p className="font-semibold mt-4">D. Device & Technical Data</p>
+            <p className="font-medium mt-3">D. Device Information</p>
             <ul className="list-disc pl-6 text-gray-600">
               <li>Device type</li>
               <li>IP address</li>
               <li>App usage data</li>
-              <li>Log data</li>
             </ul>
 
-            <p className="font-semibold mt-4">E. Rider-Specific Data</p>
-            <p className="text-gray-600">For Rider App:</p>
+            <h3 className="font-semibold mt-4">4. HOW WE USE YOUR INFORMATION</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Driving license</li>
-              <li>Vehicle documents</li>
-              <li>Bank / payout details</li>
-              <li>Live location tracking</li>
-            </ul>
-          </section>
-
-          {/* 3 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">3. HOW WE USE YOUR INFORMATION</h2>
-            <p className="text-gray-600">We use your data to:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Provide and improve services</li>
-              <li>Match customers with delivery partners</li>
-              <li>Process orders and payments</li>
-              <li>Enable real-time tracking</li>
-              <li>Send notifications & updates</li>
-              <li>Prevent fraud and abuse</li>
-              <li>Ensure platform safety</li>
-            </ul>
-          </section>
-
-          {/* 4 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">4. DATA SHARING & DISCLOSURE</h2>
-            <p>We may share information with:</p>
-
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>✔ Delivery Partners (for order fulfillment)</li>
-              <li>✔ Payment Providers (for secure transactions)</li>
-              <li>✔ Service Providers (for analytics, cloud, support)</li>
-              <li>✔ Government Authorities (if required by law</li>
-            </ul>
-
-            <p className="mt-2 font-medium">
-              ⚠️ We do NOT sell your personal data to third parties.
-            </p>
-          </section>
-
-          {/* 5 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">5. DATA STORAGE & SECURITY</h2>
-            <p>We implement industry-standard security measures including:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Encryption</li>
-              <li>Secure servers</li>
-              <li>Access control</li>
-            </ul>
-            <p className="mt-2 text-gray-600">
-              However, no system is 100% secure. Users share data at their own risk.
-            </p>
-          </section>
-
-          {/* 6 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">6. DATA RETENTION</h2>
-            <p>We retain data:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>As long as your account is active</li>
-              <li>As required for legal and compliance purposes</li>
-            </ul>
-            <p className="mt-2 text-gray-600">
-              We may delete or anonymize data when no longer required.
-            </p>
-          </section>
-
-          {/* 7 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">7. USER RIGHTS</h2>
-            <p>You have the right to:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Access your data</li>
-              <li>Update or correct information</li>
-              <li>Request deletion of your account</li>
-              <li>Withdraw consent</li>
-            </ul>
-            <p className="mt-2 text-gray-600">
-              Requests can be made via official support channels.
-            </p>
-          </section>
-
-          {/* 8 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">8. COOKIES & TRACKING</h2>
-            <p>Zipto may use cookies and similar technologies to:</p>
-            <ul className="list-disc pl-6 text-gray-600">
+              <li>Provide delivery services</li>
+              <li>Connect with delivery partners</li>
+              <li>Process orders & payments</li>
+              <li>Send updates & notifications</li>
               <li>Improve user experience</li>
-              <li>Analyze performance</li>
-              <li>Personalize services</li>
             </ul>
-          </section>
 
-          {/* 9 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">9. THIRD-PARTY SERVICES</h2>
-            <p className="text-gray-600">
-              Zipto may contain integrations with third-party services.
-              We are not responsible for their privacy practices.
+            <h3 className="font-semibold mt-4">5. DATA SHARING</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Delivery partners</li>
+              <li>Payment providers</li>
+              <li>Service providers</li>
+              <li>Authorities (if required)</li>
+            </ul>
+            <p className="mt-2 font-medium">
+              ⚠️ We do NOT sell your personal data.
             </p>
-          </section>
 
-          {/* 10 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">10. CHILDREN’S PRIVACY</h2>
+            <h3 className="font-semibold mt-4">6. PAYMENT SECURITY</h3>
             <p className="text-gray-600">
-              Zipto services are not intended for individuals under 18 years of age.
+              Payments are processed via secure third-party gateways. Zipto does
+              NOT store card details, UPI PIN, or OTP.
             </p>
-          </section>
 
-          {/* 11 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">11. CHANGES TO POLICY</h2>
+            <h3 className="font-semibold mt-4">7. DATA RETENTION</h3>
             <p className="text-gray-600">
-              Zipto reserves the right to update this Privacy Policy at any time.
-              Users will be notified of significant changes via app or email.
+              Data is retained while your account is active or as required by law.
             </p>
+
+            <h3 className="font-semibold mt-4">8. USER RIGHTS</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Access data</li>
+              <li>Update information</li>
+              <li>Request deletion</li>
+            </ul>
+            <p className="mt-2">📩 support@ridezipto.com</p>
+
+            <h3 className="font-semibold mt-4">9. ACCOUNT DELETION</h3>
+            <p className="text-gray-600">
+              Requests will be processed within a reasonable timeframe.
+            </p>
+
+            <h3 className="font-semibold mt-4">10. COOKIES</h3>
+            <p className="text-gray-600">
+              Used for improving performance and user experience.
+            </p>
+
+            <h3 className="font-semibold mt-4">11. CHILDREN’S PRIVACY</h3>
+            <p className="text-gray-600">
+              Not intended for users under 18.
+            </p>
+
+            <h3 className="font-semibold mt-4">12. CHANGES TO POLICY</h3>
+            <p className="text-gray-600">
+              Policy may be updated at any time.
+            </p>
+
+            <h3 className="font-semibold mt-4">13. CONTACT</h3>
+            <p>Email: support@ridezipto.com</p>
+
+            <h3 className="font-semibold mt-4">14. GRIEVANCE OFFICER</h3>
+            <p>Zipto Support Team (Response within 48 hours)</p>
           </section>
 
-          {/* 12 */}
-          <section>
-            <h2 className="text-xl font-semibold mb-2">12. CONTACT INFORMATION</h2>
-            <p>📧 Email: support@zipto.in</p>
-            <p>📍 Location: Bhubaneswar, Odisha, India</p>
-          </section>
-
-          {/* RIDER */}
+          {/* ================= RIDER POLICY ================= */}
           <section className="border-t pt-6">
-            <h2 className="text-xl font-bold mb-3">
-              🛵 RIDER PRIVACY ADDENDUM (IMPORTANT)
+            <h2 className="text-2xl font-bold mb-4">
+              ZIPTO RIDER PRIVACY POLICY
             </h2>
 
-            <h3 className="font-semibold">1. BACKGROUND LOCATION TRACKING</h3>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Order allocation</li>
-              <li>Live tracking</li>
-              <li>Fraud prevention</li>
-              <li>Safety monitoring</li>
-            </ul>
-            <p className="mt-2 font-medium">
-              ⚠️ This is mandatory for platform functionality.
+            <h3 className="font-semibold">1. INTRODUCTION</h3>
+            <p className="text-gray-600">
+              This applies to the Rider Onboarding Application used by delivery partners.
             </p>
 
-            <h3 className="font-semibold mt-4">2. SENSITIVE DOCUMENT HANDLING</h3>
+            <h3 className="font-semibold mt-3">2. COMPANY DETAILS</h3>
+            <p className="text-gray-600">
+              ZIPTO HYPERLOGISTICS PRIVATE LIMITED <br />
+              Bhubaneswar, Odisha, India
+            </p>
+
+            <h3 className="font-semibold mt-3">3. INFORMATION WE COLLECT</h3>
+
+            <p className="font-medium">A. Personal Info</p>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Name, Phone, Email</li>
+            </ul>
+
+            <p className="font-medium mt-2">B. KYC Data</p>
             <ul className="list-disc pl-6 text-gray-600">
               <li>Driving License</li>
-              <li>Vehicle Registration</li>
-              <li>Identity Proof</li>
+              <li>Vehicle Documents</li>
+              <li>ID Proof</li>
             </ul>
 
-            <h3 className="font-semibold mt-4">3. PAYOUT & FINANCIAL DATA</h3>
+            <p className="font-medium mt-2">C. Financial</p>
             <p className="text-gray-600">
-              We collect bank/payment details to process rider earnings and manage payouts.
-              We do not store sensitive banking credentials like OTP or PIN.
+              Bank details for payouts (No PIN/OTP stored)
             </p>
 
-            <h3 className="font-semibold mt-4">4. PERFORMANCE & ANALYTICS</h3>
+            <p className="font-medium mt-2">D. Location (CRITICAL)</p>
+            <p className="text-gray-600">
+              Real-time & background tracking for deliveries, safety, fraud prevention.
+            </p>
+
+            <p className="font-medium mt-2">E. Device Data</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Acceptance rate</li>
-              <li>Cancellation rate</li>
-              <li>Delivery performance</li>
+              <li>Device, IP, logs</li>
             </ul>
+
+            <h3 className="font-semibold mt-3">4. HOW WE USE DATA</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Verify identity</li>
+              <li>Assign deliveries</li>
+              <li>Process earnings</li>
+              <li>Ensure safety</li>
+            </ul>
+
+            <h3 className="font-semibold mt-3">5. DATA SHARING</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Customers</li>
+              <li>Payment processors</li>
+              <li>Authorities</li>
+            </ul>
+
+            <h3 className="font-semibold mt-3">6. DATA SECURITY</h3>
+            <p>We use encryption & secure systems.</p>
+
+            <h3 className="font-semibold mt-3">7. DATA RETENTION</h3>
+            <p>While active or legally required.</p>
+
+            <h3 className="font-semibold mt-3">8. RIDER RIGHTS</h3>
+            <p>📩 rider.support@ridezipto.com</p>
+
+            <h3 className="font-semibold mt-3">9. BACKGROUND LOCATION CONSENT</h3>
+            <p className="text-gray-600">
+              Continuous tracking is required even when app is closed.
+            </p>
+
+            <h3 className="font-semibold mt-3">10. CHANGES</h3>
+            <p>Policy may be updated.</p>
+
+            <h3 className="font-semibold mt-3">11. CONTACT</h3>
+            <p>rider.support@ridezipto.com</p>
+
+            <h3 className="font-semibold mt-3">12. GRIEVANCE</h3>
+            <p>Response within 48 hours</p>
           </section>
 
         </div>
 
         {/* Footer */}
         <p className="text-center text-gray-400 mt-10 text-sm">
-          By using Zipto, you agree to this Privacy Policy.
+          © 2026 Zipto Hyperlogistics Pvt. Ltd.
         </p>
 
       </div>
