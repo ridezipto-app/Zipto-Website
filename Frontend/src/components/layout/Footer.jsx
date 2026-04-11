@@ -145,14 +145,20 @@ export default function Footer() {
               © {new Date().getFullYear()} Zipto. All rights reserved. Made with ❤️ in Bhubaneswar
             </p>
 
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <Link to="/privacy-policy" className="hover:text-orange">
-                Privacy Policy
-              </Link>
-              <Link to="/terms-of-service" className="hover:text-orange">
-                Terms & Conditions
-              </Link>
-            </div>
+           <div className="flex gap-6 mt-4 md:mt-0">
+  <Link to="/privacy-policy" className="hover:text-orange">
+    Privacy Policy
+  </Link>
+
+  <Link to="/terms-of-service" className="hover:text-orange">
+    Terms & Conditions
+  </Link>
+
+  {/* ✅ New Rider Agreement */}
+  <Link to="/rider-agreement" className="hover:text-orange">
+    Rider Agreement
+  </Link>
+</div>
           </div>
         </div>
 
