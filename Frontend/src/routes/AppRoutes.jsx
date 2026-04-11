@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsOfService from "../pages/TermsConditions";
-import RiderAgreement from "./pages/RiderAgreement";
+import RiderAgreement from "../pages/RiderAgreement";
 import AboutUs from "../pages/AboutUs";
 
 export default function AppRoutes() {
