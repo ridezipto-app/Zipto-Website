@@ -49,7 +49,7 @@ export default function TermsConditions() {
 
     <h3 className="font-semibold">1. INTRODUCTION</h3>
     <p className="text-gray-600">
-      These Terms & Conditions (“Terms”) constitute a legally binding agreement between you (“User”, “Customer”) and Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”). <br /><br />
+      These Terms & Conditions (“Terms”) constitute a legally binding agreement between you (“User”, “Customer”) and Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”). <br />
       By accessing or using the Zipto Customer Application, website, or services, you agree to be bound by these Terms.
     </p>
 
