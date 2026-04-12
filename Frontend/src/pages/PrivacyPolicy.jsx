@@ -35,211 +35,254 @@ export default function PrivacyPolicy() {
           </p>
         </div>
 
-        {/* MAIN CARD */}
-        <div className="max-w-4xl mx-auto bg-white border rounded-xl p-8 shadow-sm space-y-10 text-gray-800 whitespace-pre-line">
+        <div className="max-w-4xl mx-auto bg-white border rounded-xl p-8 shadow-sm space-y-10 text-gray-800">
 
-{`🔐 ZIPTO PRIVACY POLICY
-Effective Date: 11 April 2026
-Last Updated: 11 April 2026
+          {/* ================= CUSTOMER POLICY ================= */}
+          <section>
+            <h2 className="text-2xl font-bold mb-4">
+              1. ZIPTO (CUSTOMER APP) – PRIVACY POLICY
+            </h2>
 
-1. INTRODUCTION
-This Privacy Policy describes how Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”) collects, uses, and protects your information when you use the Zipto Customer Application, website, and related services.
+            <p className="font-semibold">🔐 ZIPTO PRIVACY POLICY</p>
 
-By using Zipto, you explicitly consent to the collection and use of your data as described in this policy.
+            <h3 className="mt-4 font-semibold">1. INTRODUCTION</h3>
+            <p>This Privacy Policy describes how Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”) collects, uses, and protects your information when you use the Zipto Customer Application, website, and related services.</p>
+            <p className="mt-2">By using Zipto, you explicitly consent to the collection and use of your data as described in this policy.</p>
 
-2. COMPANY DETAILS
-Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED.
-Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007
-Location: Bhubaneswar, Odisha, India
+            <h3 className="mt-4 font-semibold">2. COMPANY DETAILS</h3>
+            <ul className="list-disc pl-6">
+              <li>Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED.</li>
+              <li>Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007</li>
+              <li>Location: Bhubaneswar, Odisha, India</li>
+            </ul>
 
-3. INFORMATION WE COLLECT
-A. Personal Information
-Full Name
-Mobile Number
-Email Address
+            <h3 className="mt-4 font-semibold">3. INFORMATION WE COLLECT</h3>
 
-B. Location Data
-We collect location data to:
-Enable pickup and delivery services
-Provide real-time tracking
-Improve service accuracy
+            <p className="font-medium mt-2">A. Personal Information</p>
+            <ul className="list-disc pl-6">
+              <li>Full Name</li>
+              <li>Mobile Number</li>
+              <li>Email Address</li>
+            </ul>
 
-📍 Location is collected only when required for active services.
+            <p className="font-medium mt-2">B. Location Data</p>
+            <p>We collect location data to:</p>
+            <ul className="list-disc pl-6">
+              <li>Enable pickup and delivery services</li>
+              <li>Provide real-time tracking</li>
+              <li>Improve service accuracy</li>
+            </ul>
+            <p>📍 Location is collected only when required for active services.</p>
 
-C. Order & Transaction Data
-Pickup and delivery addresses
-Order details
-Payment method (UPI, Cash, COD)
+            <p className="font-medium mt-2">C. Order & Transaction Data</p>
+            <ul className="list-disc pl-6">
+              <li>Pickup and delivery addresses</li>
+              <li>Order details</li>
+              <li>Payment method (UPI, Cash, COD)</li>
+            </ul>
 
-D. Device Information
-Device type
-IP address
-App usage data
+            <p className="font-medium mt-2">D. Device Information</p>
+            <ul className="list-disc pl-6">
+              <li>Device type</li>
+              <li>IP address</li>
+              <li>App usage data</li>
+            </ul>
 
-4. HOW WE USE YOUR INFORMATION
-We use your data to:
-Provide delivery services
-Connect you with delivery partners
-Process orders and payments
-Send updates and notifications
-Improve user experience
+            <h3 className="mt-4 font-semibold">4. HOW WE USE YOUR INFORMATION</h3>
+            <p>We use your data to:</p>
+            <ul className="list-disc pl-6">
+              <li>Provide delivery services</li>
+              <li>Connect you with delivery partners</li>
+              <li>Process orders and payments</li>
+              <li>Send updates and notifications</li>
+              <li>Improve user experience</li>
+            </ul>
 
-5. DATA SHARING
-We may share data with:
-Delivery partners (for order fulfillment)
-Payment providers (for transactions)
-Service providers (analytics, support)
-Authorities (if required by law)
+            <h3 className="mt-4 font-semibold">5. DATA SHARING</h3>
+            <p>We may share data with:</p>
+            <ul className="list-disc pl-6">
+              <li>Delivery partners (for order fulfillment)</li>
+              <li>Payment providers (for transactions)</li>
+              <li>Service providers (analytics, support)</li>
+              <li>Authorities (if required by law)</li>
+            </ul>
+            <p className="mt-2 font-medium">⚠️ We do NOT sell your personal data.</p>
 
-⚠️ We do NOT sell your personal data.
+            <h3 className="mt-4 font-semibold">6. PAYMENT SECURITY</h3>
+            <p>Payments are processed via secure third-party gateways.</p>
+            <p>Zipto does NOT store:</p>
+            <ul className="list-disc pl-6">
+              <li>Card details</li>
+              <li>UPI PIN</li>
+              <li>OTP</li>
+            </ul>
 
-6. PAYMENT SECURITY
-Payments are processed via secure third-party gateways.
+            <h3 className="mt-4 font-semibold">7. DATA RETENTION</h3>
+            <p>We retain data:</p>
+            <ul className="list-disc pl-6">
+              <li>As long as your account is active</li>
+              <li>As required by law</li>
+            </ul>
 
-Zipto does NOT store:
-Card details
-UPI PIN
-OTP
+            <h3 className="mt-4 font-semibold">8. USER RIGHTS</h3>
+            <p>You may:</p>
+            <ul className="list-disc pl-6">
+              <li>Access your data</li>
+              <li>Update your information</li>
+              <li>Request account deletion</li>
+            </ul>
+            <p>📩 Email: support@ridezipto.com</p>
 
-7. DATA RETENTION
-We retain data:
-As long as your account is active
-As required by law
+            <h3 className="mt-4 font-semibold">9. ACCOUNT DELETION</h3>
+            <p>Users can request deletion via email.</p>
+            <p>Data will be deleted within a reasonable timeframe, subject to legal requirements.</p>
 
-8. USER RIGHTS
-You may:
-Access your data
-Update your information
-Request account deletion
+            <h3 className="mt-4 font-semibold">10. COOKIES</h3>
+            <p>We may use cookies to improve performance and user experience.</p>
 
-📩 Email: support@ridezipto.com
+            <h3 className="mt-4 font-semibold">11. CHILDREN’S PRIVACY</h3>
+            <p>Zipto is not intended for users under 18 years.</p>
 
-9. ACCOUNT DELETION
-Users can request deletion via email.
+            <h3 className="mt-4 font-semibold">12. CHANGES TO POLICY</h3>
+            <p>We may update this policy at any time.</p>
 
-Data will be deleted within a reasonable timeframe, subject to legal requirements.
+            <h3 className="mt-4 font-semibold">13. CONTACT</h3>
+            <p>Email: support@ridezipto.com</p>
+            <p>Location: Bhubaneswar, Odisha, India</p>
 
-10. COOKIES
-We may use cookies to improve performance and user experience.
+            <h3 className="mt-4 font-semibold">14. GRIEVANCE OFFICER</h3>
+            <p>Zipto Support Team</p>
+            <p>Response Time: Within 48 hours</p>
 
-11. CHILDREN’S PRIVACY
-Zipto is not intended for users under 18 years.
+            <p className="mt-4">© 2026 Zipto Hyperlogistics Pvt. Ltd.</p>
+          </section>
 
-12. CHANGES TO POLICY
-We may update this policy at any time.
+          {/* ================= RIDER POLICY ================= */}
+          <section className="border-t pt-6">
+            <h2 className="text-2xl font-bold mb-4">
+              ZIPTO RIDER PRIVACY POLICY
+            </h2>
 
-13. CONTACT
-Email: support@ridezipto.com
-Location: Bhubaneswar, Odisha, India
+            <p className="text-sm text-gray-500">
+              Effective Date: 11 April 2026 <br />
+              Last Updated: 11 April 2026
+            </p>
 
-14. GRIEVANCE OFFICER
-Zipto Support Team
-Response Time: Within 48 hours
+            <h3 className="mt-4 font-semibold">1. INTRODUCTION</h3>
+            <p>This Privacy Policy applies to the Zipto Rider Onboarding Application, operated by Zipto Hyperlogistics Pvt. Ltd..</p>
+            <p>This app is intended for delivery partners (“Riders”) to register and operate on the Zipto platform.</p>
+            <p>By using this app, you consent to data collection practices described below.</p>
 
-© 2026 Zipto Hyperlogistics Pvt. Ltd.
+            <h3 className="mt-4 font-semibold">2. COMPANY DETAILS</h3>
+            <ul className="list-disc pl-6">
+              <li>Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED.</li>
+              <li>Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007</li>
+              <li>Location: Bhubaneswar, Odisha, India</li>
+            </ul>
 
-ZIPTO RIDER ONBOARDING – PRIVACY POLICY
+            <h3 className="mt-4 font-semibold">3. INFORMATION WE COLLECT</h3>
 
-ZIPTO RIDER PRIVACY POLICY
-Effective Date: 11 April 2026
-Last Updated: 11 April 2026
+            <p className="font-medium mt-2">A. Personal Information</p>
+            <ul className="list-disc pl-6">
+              <li>Full Name</li>
+              <li>Mobile Number</li>
+              <li>Email Address</li>
+            </ul>
 
-1. INTRODUCTION
-This Privacy Policy applies to the Zipto Rider Onboarding Application, operated by Zipto Hyperlogistics Pvt. Ltd..
+            <p className="font-medium mt-2">B. KYC & Verification Data</p>
+            <ul className="list-disc pl-6">
+              <li>Driving License</li>
+              <li>Vehicle Registration</li>
+              <li>Identity Proof</li>
+            </ul>
 
-This app is intended for delivery partners (“Riders”) to register and operate on the Zipto platform.
+            <p className="font-medium mt-2">C. Financial Information</p>
+            <ul className="list-disc pl-6">
+              <li>Bank Account Details (for payouts)</li>
+            </ul>
+            <p>⚠️ We do NOT store PINs, OTPs, or sensitive banking credentials.</p>
 
-By using this app, you consent to data collection practices described below.
+            <p className="font-medium mt-2">D. Location Data (CRITICAL)</p>
+            <p>We collect:</p>
+            <ul className="list-disc pl-6">
+              <li>Real-time GPS location</li>
+              <li>Background location data</li>
+            </ul>
+            <p>📍 Used for:</p>
+            <ul className="list-disc pl-6">
+              <li>Order assignment</li>
+              <li>Live tracking</li>
+              <li>Safety monitoring</li>
+              <li>Fraud prevention</li>
+            </ul>
+            <p>⚠️ Location may be collected even when the app is closed or not in use.</p>
 
-2. COMPANY DETAILS
-Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED.
-Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007
-Location: Bhubaneswar, Odisha, India
+            <p className="font-medium mt-2">E. Device Data</p>
+            <ul className="list-disc pl-6">
+              <li>Device type</li>
+              <li>IP address</li>
+              <li>App usage logs</li>
+            </ul>
 
-3. INFORMATION WE COLLECT
-A. Personal Information
-Full Name
-Mobile Number
-Email Address
+            <h3 className="mt-4 font-semibold">4. HOW WE USE DATA</h3>
+            <p>We use rider data to:</p>
+            <ul className="list-disc pl-6">
+              <li>Verify identity</li>
+              <li>Assign deliveries</li>
+              <li>Process earnings</li>
+              <li>Monitor performance</li>
+              <li>Ensure safety and compliance</li>
+            </ul>
 
-B. KYC & Verification Data
-Driving License
-Vehicle Registration
-Identity Proof
+            <h3 className="mt-4 font-semibold">5. DATA SHARING</h3>
+            <p>We may share data with:</p>
+            <ul className="list-disc pl-6">
+              <li>Customers (limited info for delivery)</li>
+              <li>Payment processors</li>
+              <li>Government authorities (if required)</li>
+            </ul>
+            <p>We do NOT sell rider data.</p>
 
-C. Financial Information
-Bank Account Details (for payouts)
+            <h3 className="mt-4 font-semibold">6. DATA SECURITY</h3>
+            <p>We use encryption and secure systems to protect data.</p>
 
-⚠️ We do NOT store PINs, OTPs, or sensitive banking credentials.
+            <h3 className="mt-4 font-semibold">7. DATA RETENTION</h3>
+            <p>Data is retained:</p>
+            <ul className="list-disc pl-6">
+              <li>While account is active</li>
+              <li>As required by law</li>
+            </ul>
 
-D. Location Data (CRITICAL)
-We collect:
-Real-time GPS location
-Background location data
+            <h3 className="mt-4 font-semibold">8. RIDER RIGHTS</h3>
+            <p>Riders can:</p>
+            <ul className="list-disc pl-6">
+              <li>Update details</li>
+              <li>Request account deletion</li>
+            </ul>
+            <p>📩 Email: rider.support@ridezipto.com</p>
 
-📍 Used for:
-Order assignment
-Live tracking
-Safety monitoring
-Fraud prevention
+            <h3 className="mt-4 font-semibold">9. ACCOUNT DELETION</h3>
+            <p>Deletion requests can be made via email.</p>
 
-⚠️ Location may be collected even when the app is closed or not in use.
+            <h3 className="mt-4 font-semibold">10. BACKGROUND LOCATION CONSENT</h3>
+            <p>
+              By using the app, riders agree to continuous location tracking,
+              including when the app is in background or closed.
+            </p>
 
-E. Device Data
-Device type
-IP address
-App usage logs
+            <h3 className="mt-4 font-semibold">11. CHANGES TO POLICY</h3>
+            <p>We may update this policy periodically.</p>
 
-4. HOW WE USE DATA
-We use rider data to:
-Verify identity
-Assign deliveries
-Process earnings
-Monitor performance
-Ensure safety and compliance
+            <h3 className="mt-4 font-semibold">12. CONTACT</h3>
+            <p>Email: rider.support@ridezipto.com</p>
+            <p>Location: Bhubaneswar, Odisha, India</p>
 
-5. DATA SHARING
-We may share data with:
-Customers (limited info for delivery)
-Payment processors
-Government authorities (if required)
+            <h3 className="mt-4 font-semibold">13. GRIEVANCE OFFICER</h3>
+            <p>Zipto Support Team</p>
+            <p>Response Time: Within 48 hours</p>
 
-We do NOT sell rider data.
-
-6. DATA SECURITY
-We use encryption and secure systems to protect data.
-
-7. DATA RETENTION
-Data is retained:
-While account is active
-As required by law
-
-8. RIDER RIGHTS
-Riders can:
-Update details
-Request account deletion
-
-📩 Email: rider.support@ridezipto.com
-
-9. ACCOUNT DELETION
-Deletion requests can be made via email.
-
-10. BACKGROUND LOCATION CONSENT
-By using the app, riders agree to continuous location tracking,
-including when the app is in background or closed.
-
-11. CHANGES TO POLICY
-We may update this policy periodically.
-
-12. CONTACT
-Email: rider.support@ridezipto.com
-Location: Bhubaneswar, Odisha, India
-
-13. GRIEVANCE OFFICER
-Zipto Support Team
-Response Time: Within 48 hours
-
-© 2026 Zipto Hyperlogistics Pvt. Ltd.`}
+            <p className="mt-4">© 2026 Zipto Hyperlogistics Pvt. Ltd.</p>
+          </section>
 
         </div>
 
