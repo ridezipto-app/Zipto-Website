@@ -45,10 +45,7 @@ export default function TermsConditions() {
       ZIPTO TERMS & CONDITIONS (CUSTOMER APP)
     </h2>
 
-    <p className="text-sm text-gray-500 mb-4">
-      Effective Date: 11 April 2026 <br />
-      Last Updated: 11 April 2026
-    </p>
+   
 
     <h3 className="font-semibold">1. INTRODUCTION</h3>
     <p className="text-gray-600">
@@ -222,10 +219,6 @@ export default function TermsConditions() {
               ZIPTO RIDER TERMS & CONDITIONS
             </h2>
 
-            <p className="text-sm text-gray-500 mb-4">
-              Effective Date: 11 April 2026 <br />
-              Last Updated: 11 April 2026
-            </p>
 
             <h3 className="font-semibold">1. INTRODUCTION</h3>
             <p className="text-gray-600">
