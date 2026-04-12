@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: "Vehicles", id: "Our Delivery Vehicles" },
     { name: "For Business", id: "for-business" },
     { name: "Become a Rider", id: "rider" },
-    { name: "Contact", id: "contact" },
+    
   ];
 
   const handleNavigation = (link) => {
