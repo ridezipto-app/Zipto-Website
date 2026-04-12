@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center px-6 md:px-16 py-20 overflow-hidden scroll-mt-28"
+      className="relative w-full min-h-screen flex items-center px-4 sm:px-6 md:px-12 py-16 overflow-hidden scroll-mt-28"
     >
 
       {/* Background Video */}
@@ -22,20 +22,21 @@ export default function HeroSection() {
         <source src={heroVideo} type="video/mp4" />
       </video>
 
-      {/* Dark Overlay for readability */}
-      <div className="absolute inset-0 bg-black/20 -z-10"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30 -z-10"></div>
 
-      {/* Animated Background Blobs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 opacity-20 rounded-full blur-3xl animate-blob"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-orange-300 opacity-20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+      {/* Background Blobs (hidden on small screens) */}
+      <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-blue-300 opacity-20 rounded-full blur-3xl animate-blob"></div>
+      <div className="hidden md:block absolute bottom-20 right-10 w-72 h-72 bg-orange-300 opacity-20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
 
-      <div className="relative grid md:grid-cols-2 items-center gap-16 w-full">
+      {/* MAIN CONTAINER */}
+      <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-14 w-full max-w-7xl mx-auto">
 
         {/* LEFT CONTENT */}
-        <div className="space-y-6 px-4">
+        <div className="space-y-5 text-center md:text-left">
 
-          {/* Headline */}
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight overflow-hidden">
+          {/* Heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
 
             <span className="block animate-textReveal bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">
               Structured
@@ -49,50 +50,47 @@ export default function HeroSection() {
               Infrastructure
             </span>
 
-            <span className="block animate-textReveal delay-700 text-gray-800">
+            <span className="block animate-textReveal delay-700 text-white">
               for Odisha
             </span>
 
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl font-medium text-gray-1000 animate-fadeUp delay-200">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-white animate-fadeUp delay-200">
             "Delivery Aapki, Trust Humara"
           </p>
 
           {/* Description */}
-          <p className="text-gray-900 max-w-lg text-lg animate-fadeUp delay-300">
-            Book bike,scooty,auto, mini truck, or pickup deliveries instantly with
-            transparent pricing, live tracking, and trusted riders.
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-md mx-auto md:mx-0 animate-fadeUp delay-300">
+            Book bike, scooty, auto, mini truck, or pickup deliveries instantly
+            with transparent pricing, live tracking, and trusted riders.
           </p>
 
           {/* Buttons */}
-          <div className="pt-4 animate-fadeUp delay-500">
+          <div className="pt-4 flex justify-center md:justify-start animate-fadeUp delay-500">
             <CTAButtons />
-            {/* <HeroStats /> */}
           </div>
 
         </div>
 
-        {/* RIGHT MOBILE UI */}
-        <div className="relative flex justify-center animate-float">
+        {/* RIGHT MOBILE MOCKUP */}
+        <div className="relative flex justify-center items-center w-full animate-float">
 
-          <div className="relative z-10 hover:scale-105 transition duration-500">
+          <div className="relative z-10 w-[70%] sm:w-[60%] md:w-[80%] max-w-sm hover:scale-105 transition duration-500">
             <MobileMockup />
           </div>
 
           {/* Glow */}
-          <div className="absolute w-96 h-96 bg-gradient-to-r from-blue-400 to-orange-400 opacity-20 blur-3xl rounded-full animate-pulse"></div>
+          <div className="absolute w-72 sm:w-80 md:w-96 h-72 sm:h-80 md:h-96 bg-gradient-to-r from-blue-400 to-orange-400 opacity-20 blur-3xl rounded-full animate-pulse"></div>
 
         </div>
 
       </div>
 
-      {/* Custom Animations */}
+      {/* Animations */}
       <style>
         {`
-
-        /* Floating phone animation */
         .animate-float{
           animation: float 5s ease-in-out infinite;
         }
@@ -103,7 +101,6 @@ export default function HeroSection() {
           100%{ transform: translateY(0px); }
         }
 
-        /* Fade up animation */
         .animate-fadeUp{
           animation: fadeUp 1s ease forwards;
         }
@@ -119,7 +116,6 @@ export default function HeroSection() {
           }
         }
 
-        /* Blob animation */
         .animate-blob{
           animation: blob 8s infinite;
         }
@@ -135,7 +131,6 @@ export default function HeroSection() {
           animation-delay:2s;
         }
 
-        /* Hero text animation */
         .animate-textReveal{
           opacity:0;
           transform: translateY(40px);
@@ -151,19 +146,9 @@ export default function HeroSection() {
           }
         }
 
-        /* Delay utilities */
-        .delay-200{
-          animation-delay:0.2s;
-        }
-
-        .delay-500{
-          animation-delay:0.5s;
-        }
-
-        .delay-700{
-          animation-delay:0.7s;
-        }
-
+        .delay-200{ animation-delay:0.2s; }
+        .delay-500{ animation-delay:0.5s; }
+        .delay-700{ animation-delay:0.7s; }
         `}
       </style>
 
