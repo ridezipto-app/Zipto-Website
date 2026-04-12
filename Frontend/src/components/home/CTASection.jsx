@@ -13,39 +13,39 @@ export default function LaunchingSoon() {
       </h1>
 
       {/* Cards Container */}
-      <div className="w-full max-w-6xl border border-white/20 backdrop-blur-md bg-white/10 rounded-xl p-4 sm:p-6">
+      <div className="w-full max-w-4xl border border-white/20 backdrop-blur-md bg-white/10 rounded-xl p-4 sm:p-6">
 
-        {/* Grid Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* ✅ FIXED GRID */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-5">
 
           {/* Card 1 */}
-          <div className="border border-gray-800 rounded-xl p-5 flex items-center gap-4 bg-[#0c0c0c] hover:scale-105 transition">
-            <span className="text-2xl sm:text-3xl">⚡</span>
-            <p className="text-sm sm:text-base font-medium">
+          <div className="border border-gray-800 rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 bg-[#0c0c0c] hover:scale-105 transition">
+            <span className="text-xl sm:text-3xl">⚡</span>
+            <p className="text-xs sm:text-base font-medium">
               Fast & <br /> Reliable Delivery
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="border border-gray-800 rounded-xl p-5 flex items-center gap-4 bg-[#0c0c0c] hover:scale-105 transition">
-            <span className="text-2xl sm:text-3xl">🚚</span>
-            <p className="text-sm sm:text-base font-medium">
+          <div className="border border-gray-800 rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 bg-[#0c0c0c] hover:scale-105 transition">
+            <span className="text-xl sm:text-3xl">🚚</span>
+            <p className="text-xs sm:text-base font-medium">
               Trusted <br /> Rider Network
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="border border-gray-800 rounded-xl p-5 flex items-center gap-4 bg-[#0c0c0c] hover:scale-105 transition">
-            <span className="text-2xl sm:text-3xl">📍</span>
-            <p className="text-sm sm:text-base font-medium">
+          <div className="border border-gray-800 rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 bg-[#0c0c0c] hover:scale-105 transition">
+            <span className="text-xl sm:text-3xl">📍</span>
+            <p className="text-xs sm:text-base font-medium">
               Serving <br /> Across the City
             </p>
           </div>
 
           {/* Card 4 */}
-          <div className="border border-gray-800 rounded-xl p-5 flex items-center gap-4 bg-[#0c0c0c] hover:scale-105 transition">
-            <span className="text-2xl sm:text-3xl">⏱️</span>
-            <p className="text-sm sm:text-base font-medium">
+          <div className="border border-gray-800 rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 bg-[#0c0c0c] hover:scale-105 transition">
+            <span className="text-xl sm:text-3xl">⏱️</span>
+            <p className="text-xs sm:text-base font-medium">
               Quick <br /> Pickup & Drop
             </p>
           </div>
