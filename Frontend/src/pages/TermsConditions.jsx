@@ -215,135 +215,128 @@ export default function TermsConditions() {
     <p>Response Time: Within 48 hours</p>
   </section>
 
-  {/* ================= RIDER TERMS ================= */}
-  <section className="border-t pt-6">
-    <h2 className="text-2xl font-bold mb-4">
-      ZIPTO RIDER TERMS & CONDITIONS
-    </h2>
-
-    <p className="text-sm text-gray-500 mb-4">
-      Effective Date: 11 April 2026 <br />
-      Last Updated: 11 April 2026
-    </p>
-
-    <h3 className="font-semibold">1. INTRODUCTION</h3>
-    <p className="text-gray-600">
-      These Terms apply to delivery partners (“Riders”) using the Zipto Rider Onboarding Application operated by Zipto Hyperlogistics Pvt. Ltd..
-    </p>
-
-    <h3 className="font-semibold mt-3">2. COMPANY DETAILS</h3>
-    <p className="text-gray-600">
-      Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED. <br />
-      Registered Office: Bhubaneswar, Odisha, India
-    </p>
-
-    <h3 className="font-semibold mt-3">3. INDEPENDENT CONTRACTOR STATUS</h3>
-    <p className="text-gray-600">Riders are independent contractors.</p>
-
-    <h3 className="font-semibold mt-3">4. ELIGIBILITY</h3>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>18+</li>
-      <li>Valid documents</li>
-      <li>Driving license</li>
-    </ul>
-
-    <h3 className="font-semibold mt-3">5. SERVICES</h3>
-    <p className="text-gray-600">Food, parcel, medicine delivery.</p>
-
-    <h3 className="font-semibold mt-3">6. RIDER OBLIGATIONS</h3>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Follow traffic laws</li>
-      <li>Maintain professionalism</li>
-      <li>Ensure safe delivery</li>
-      <li>Handle goods responsibly</li>
-    </ul>
-
-    <h3 className="font-semibold mt-3">7. EARNINGS & PAYOUTS</h3>
-    <p className="text-gray-600">Includes fares, incentives, deductions.</p>
-
-    <h3 className="font-semibold mt-3">8. PERFORMANCE MONITORING</h3>
-    <p className="text-gray-600">Poor performance may lead to deactivation.</p>
-
-    <h3 className="font-semibold mt-3">9. PROHIBITED CONDUCT</h3>
-    <p className="text-gray-600">Fraud, misuse, illegal activity prohibited.</p>
-
-    <h3 className="font-semibold mt-3">10. ACCOUNT DEACTIVATION</h3>
-    <p className="text-gray-600">Possible for violations.</p>
-
-    <h3 className="font-semibold mt-3">11. LIABILITY</h3>
-    <p className="text-gray-600">Riders responsible for safety & compliance.</p>
-
-    <h3 className="font-semibold mt-3">12. CONTACT</h3>
-    <p>rider.support@ridezipto.com</p>
-  </section>
-
-          {/* ================= RIDER TERMS ================= */}
+  
+           {/* ================= RIDER TERMS ================= */}
           <section className="border-t pt-6">
             <h2 className="text-2xl font-bold mb-4">
               ZIPTO RIDER TERMS & CONDITIONS
             </h2>
 
+            <p className="text-sm text-gray-500 mb-4">
+              Effective Date: 11 April 2026 <br />
+              Last Updated: 11 April 2026
+            </p>
+
             <h3 className="font-semibold">1. INTRODUCTION</h3>
             <p className="text-gray-600">
-              Applies to delivery partners using the Rider App.
+              These Terms apply to delivery partners (“Riders”) using the Zipto Rider Onboarding Application operated by Zipto Hyperlogistics Pvt. Ltd..
+              <br /><br />
+              By registering or using the platform, you agree to these Terms.
             </p>
 
-            <h3 className="font-semibold mt-3">2. INDEPENDENT CONTRACTOR</h3>
+            <h3 className="font-semibold mt-4">2. COMPANY DETAILS</h3>
             <p className="text-gray-600">
-              Riders are not employees.
+              Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED. <br />
+              Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007 <br />
+              Location: Bhubaneswar, Odisha, India
             </p>
 
-            <h3 className="font-semibold mt-3">3. ELIGIBILITY</h3>
+            <h3 className="font-semibold mt-4">3. INDEPENDENT CONTRACTOR STATUS</h3>
+            <p className="text-gray-600">
+              Riders are independent contractors. <br />
+              Nothing in this agreement creates employment or partnership.
+            </p>
+
+            <h3 className="font-semibold mt-4">4. ELIGIBILITY</h3>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>18+</li>
-              <li>Valid documents</li>
-              <li>Driving license</li>
+              <li>Be at least 18 years old</li>
+              <li>Provide valid documents</li>
+              <li>Have a valid driving license</li>
             </ul>
 
-            <h3 className="font-semibold mt-3">4. SERVICES</h3>
-            <p className="text-gray-600">
-              Delivery of food, parcels, medicines.
-            </p>
-
-            <h3 className="font-semibold mt-3">5. OBLIGATIONS</h3>
+            <h3 className="font-semibold mt-4">5. SERVICES</h3>
+            <p className="text-gray-600">Riders provide delivery services including:</p>
             <ul className="list-disc pl-6 text-gray-600">
-              <li>Follow traffic rules</li>
+              <li>Food delivery</li>
+              <li>Parcel delivery</li>
+              <li>Medicine delivery</li>
+              <li>Goods transportation</li>
+            </ul>
+
+            <h3 className="font-semibold mt-4">6. RIDER OBLIGATIONS</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Follow traffic laws</li>
               <li>Maintain professionalism</li>
               <li>Ensure safe delivery</li>
+              <li>Handle goods responsibly</li>
             </ul>
 
-            <h3 className="font-semibold mt-3">6. EARNINGS</h3>
+            <h3 className="font-semibold mt-4">7. EARNINGS & PAYOUTS</h3>
             <p className="text-gray-600">
-              Includes fares, incentives, deductions.
+              Riders earn through base fare, distance charges, and incentives.
+              <br />
+              Zipto may deduct platform fees and penalties (if applicable).
             </p>
 
-            <h3 className="font-semibold mt-3">7. PERFORMANCE</h3>
+            <h3 className="font-semibold mt-4">8. PERFORMANCE MONITORING</h3>
             <p className="text-gray-600">
+              Zipto may track acceptance rate, cancellation rate, and ratings.
               Poor performance may lead to deactivation.
             </p>
 
-            <h3 className="font-semibold mt-3">8. PROHIBITED CONDUCT</h3>
+            <h3 className="font-semibold mt-4">9. PROHIBITED CONDUCT</h3>
+            <ul className="list-disc pl-6 text-gray-600">
+              <li>Tamper with goods</li>
+              <li>Misuse user data</li>
+              <li>Engage in fraud</li>
+              <li>Accept illegal deliveries</li>
+            </ul>
+
+            <h3 className="font-semibold mt-4">10. ACCOUNT DEACTIVATION</h3>
             <p className="text-gray-600">
-              Fraud, misuse, illegal activity prohibited.
+              Zipto may suspend or deactivate rider accounts for violations.
             </p>
 
-            <h3 className="font-semibold mt-3">9. ACCOUNT DEACTIVATION</h3>
+            <h3 className="font-semibold mt-4">11. LIABILITY</h3>
             <p className="text-gray-600">
-              Possible for violations.
+              Riders are responsible for their vehicle, legal compliance, and personal safety.
             </p>
 
-            <h3 className="font-semibold mt-3">10. LIABILITY</h3>
+            <h3 className="font-semibold mt-4">12. LIMITATION OF LIABILITY</h3>
             <p className="text-gray-600">
-              Riders responsible for safety & compliance.
+              Zipto is not liable for rider negligence or external incidents.
             </p>
 
-            <h3 className="font-semibold mt-3">11. GOVERNING LAW</h3>
+            <h3 className="font-semibold mt-4">13. THIRD-PARTY SERVICES</h3>
             <p className="text-gray-600">
-              Indian law applies.
+              Zipto may use third-party services. We are not responsible for their failures.
             </p>
 
-            <h3 className="font-semibold mt-3">12. CONTACT</h3>
-            <p>rider.support@ridezipto.com</p>
+            <h3 className="font-semibold mt-4">14. PRIVACY</h3>
+            <p className="text-gray-600">
+              Rider data is governed by the Rider Privacy Policy.
+            </p>
+
+            <h3 className="font-semibold mt-4">15. FORCE MAJEURE</h3>
+            <p className="text-gray-600">
+              Zipto is not liable for events beyond control.
+            </p>
+
+            <h3 className="font-semibold mt-4">16. GOVERNING LAW</h3>
+            <p className="text-gray-600">
+              Indian law applies. <br />
+              Jurisdiction: Bhubaneswar courts.
+            </p>
+
+            <h3 className="font-semibold mt-4">17. MODIFICATION OF TERMS</h3>
+            <p className="text-gray-600">
+              Zipto may update these Terms anytime.
+            </p>
+
+            <h3 className="font-semibold mt-4">18. CONTACT & GRIEVANCE</h3>
+            <p>Email: rider.support@ridezipto.com</p>
+            <p>Grievance Officer: Zipto Support Team</p>
+            <p>Response Time: Within 48 hours</p>
           </section>
 
         </div>
