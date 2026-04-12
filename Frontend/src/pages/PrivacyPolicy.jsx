@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
               1. ZIPTO (CUSTOMER APP) – PRIVACY POLICY
             </h2>
 
-            <p className="font-semibold">🔐 ZIPTO PRIVACY POLICY</p>
+            <p className="font-semibold"> ZIPTO PRIVACY POLICY</p>
 
             <h3 className="mt-4 font-semibold">1. INTRODUCTION</h3>
             <p>This Privacy Policy describes how Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”) collects, uses, and protects your information when you use the Zipto Customer Application, website, and related services.</p>
@@ -72,7 +72,7 @@ export default function PrivacyPolicy() {
               <li>Provide real-time tracking</li>
               <li>Improve service accuracy</li>
             </ul>
-            <p>📍 Location is collected only when required for active services.</p>
+            <p> Location is collected only when required for active services.</p>
 
             <p className="font-medium mt-2">C. Order & Transaction Data</p>
             <ul className="list-disc pl-6">
@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
               <li>Real-time GPS location</li>
               <li>Background location data</li>
             </ul>
-            <p>📍 Used for:</p>
+            <p> Used for:</p>
             <ul className="list-disc pl-6">
               <li>Order assignment</li>
               <li>Live tracking</li>
