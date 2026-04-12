@@ -4,7 +4,9 @@ import AppRoutes from "./routes/AppRoutes";
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <div className="w-full min-h-screen overflow-x-hidden">
+        <AppRoutes />
+      </div>
     </BrowserRouter>
   );
 }
