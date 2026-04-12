@@ -163,10 +163,7 @@ export default function PrivacyPolicy() {
               ZIPTO RIDER PRIVACY POLICY
             </h2>
 
-            <p className="text-sm text-gray-500">
-              Effective Date: 11 April 2026 <br />
-              Last Updated: 11 April 2026
-            </p>
+            
 
             <h3 className="mt-4 font-semibold">1. INTRODUCTION</h3>
             <p>This Privacy Policy applies to the Zipto Rider Onboarding Application, operated by Zipto Hyperlogistics Pvt. Ltd..</p>
