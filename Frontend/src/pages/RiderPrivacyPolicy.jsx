@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../assets/zipto_Riders.png"; // adjust path if needed
 const sections = [
   {
     id: "introduction",
@@ -485,14 +485,26 @@ export default function RiderPrivacyPolicy() {
           letter-spacing: 0.12em; text-transform: uppercase;
           padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
         }
-        .hero-logo {
-          width: 72px; height: 72px; border-radius: 18px;
-          border: 3px solid rgba(255,255,255,0.3);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-          margin: 0 auto 20px; background: var(--blue-800);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 1.8rem; font-weight: 700; color: white; overflow: hidden;
-        }
+       .hero-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+
+  border: 3px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  margin: 0 auto 20px;
+
+  background: var(--blue-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
         .hero h1 {
           font-family: var(--font-display);
           font-size: clamp(2rem, 5vw, 3.2rem);
@@ -648,16 +660,22 @@ export default function RiderPrivacyPolicy() {
       </div>
 
       {/* HERO */}
-      <div className="hero">
-        <div className="hero-badge">🔒 Privacy Policy</div>
-        <div className="hero-logo">Z</div>
-        <h1>Rider <em>Privacy Policy</em></h1>
-        <div className="hero-meta">
-          <span>📅 Effective: 11 April 2026</span>
-          <span>🛵 Delivery Partner</span>
-          <span>⚖️ Governed by Indian Law</span>
-        </div>
-      </div>
+   <div className="hero">
+  <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
+
+  <div className="hero-logo">
+    <img src={logo} alt="Zipto Logo" />
+  </div>
+
+  <h1>Rider Onboarding <em>Privacy Policy</em></h1>
+
+  <div className="hero-meta">
+    <span>📅 Effective: 11 April 2026</span>
+    <span>🛵 Delivery Partner</span>
+    <span>⚖️ Governed by Indian Law</span>
+  </div>
+</div>
+
 
       {/* CONTENT */}
       <div className="page-wrap">

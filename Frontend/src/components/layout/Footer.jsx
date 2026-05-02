@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import ziptoLogo from "../../assets/zipto.jpeg";
+import ziptoLogo from "../../assets/zipto_logo.jpeg";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

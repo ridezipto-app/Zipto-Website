@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import ziptoLogo from "../assets/zipto.jpeg";
+import logo from "../assets/zipto_logo.jpeg";
 
 const sections = [
   {
@@ -614,18 +614,21 @@ export default function RiderAgreement() {
         </button>
       </div>
 
-      {/* HERO */}
-      <div className="hero">
-        <div className="hero-badge">🛵 Rider Agreement</div>
-        <div className="hero-logo">Z</div>
-        <h1>Rider <em>Agreement</em></h1>
-        <div className="hero-meta">
-          <span>📅 Effective: 11 April 2026</span>
-          <span>🛵 Delivery Partner</span>
-          <span>⚖️ Governed by Indian Law</span>
-        </div>
-      </div>
+<div className="hero">
+  <div className="hero-badge">🛵 Terms & Conditions</div>
 
+  <div className="hero-logo">
+    <img src={logo} alt="Zipto Logo" />
+  </div>
+
+  <h1>Customer <em>Terms & Conditions</em></h1>
+
+  <div className="hero-meta">
+    <span>📅 Effective: 11 April 2026</span>
+    <span>🛵 Delivery Partner</span>
+    <span>⚖️ Governed by Indian Law</span>
+  </div>
+</div>
       {/* CONTENT */}
       <div className="page-wrap">
         <div className="toolbar">

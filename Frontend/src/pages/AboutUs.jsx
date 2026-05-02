@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import ziptoLogo from "../assets/zipto.jpeg";
+import ziptoLogo from "../assets/zipto_logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
 import Navbar from "../components/layout/Navbar";
 

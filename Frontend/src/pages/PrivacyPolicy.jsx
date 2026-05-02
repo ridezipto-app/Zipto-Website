@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Replace with your actual logo import:
-// import ziptoLogo from "../assets/zipto.jpeg";
+import logo from "../assets/zipto.png";
 
 const sections = [
   {
@@ -378,16 +378,20 @@ export default function PrivacyPolicy() {
           letter-spacing: 0.12em; text-transform: uppercase;
           padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
         }
-        .hero-logo {
-          width: 72px; height: 72px; border-radius: 18px;
-          border: 3px solid rgba(255,255,255,0.3);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-          margin: 0 auto 20px;
-          object-fit: cover;
-          background: var(--blue-800);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 1.8rem; font-weight: 700; color: white;
-        }
+  .hero-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+
+  border: 3px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  margin: 0 auto 20px;
+
+  background: var(--blue-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
         .hero h1 {
           font-family: var(--font-display);
           font-size: clamp(2rem, 5vw, 3.2rem);
@@ -580,16 +584,21 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* HERO */}
-      <div className="hero">
-        <div className="hero-badge">🔒 Legal &amp; Privacy</div>
-        <div className="hero-logo">Z</div>
-        <h1>Zipto <em>Privacy</em> Policy</h1>
-        <div className="hero-meta">
-          <span>📅 Effective: 11 April 2026</span>
-          <span>🔄 Last Updated: 11 April 2026</span>
-          <span>🏢 Customer App</span>
-        </div>
-      </div>
+   <div className="hero">
+  <div className="hero-badge">🔒 Legal &amp; Privacy</div>
+
+  <div className="hero-logo">
+    <img src={logo} alt="Zipto Logo" />
+  </div>
+
+  <h1>Zipto <em>Privacy</em> Policy</h1>
+
+  <div className="hero-meta">
+    <span>📅 Effective: 11 April 2026</span>
+    <span>🔄 Last Updated: 11 April 2026</span>
+    <span>🏢 Customer App</span>
+  </div>
+</div>
 
       {/* CONTENT */}
       <div className="page-wrap">

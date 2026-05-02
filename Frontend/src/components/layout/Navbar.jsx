@@ -1,4 +1,4 @@
-import ziptoLogo from "../../assets/zipto.jpeg";
+import ziptoLogo from "../../assets/zipto_logo.jpeg";
 import { FaDownload, FaBars, FaTimes, FaApple, FaGooglePlay } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -71,25 +71,44 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center justify-between gap-6">
 
           {/* ── LOGO ── */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="flex items-center gap-3 cursor-pointer select-none"
-          >
-            <div className="relative">
-              <div style={{ position: "absolute", inset: 0, borderRadius: 12, background: "rgba(59,130,246,0.15)", filter: "blur(8px)", transform: "scale(1.1)", pointerEvents: "none" }} />
-              <img
-                src={ziptoLogo}
-                alt="Zipto logo"
-                className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-cover"
-                style={{ border: "1.5px solid rgba(59,130,246,0.25)" }}
-              />
-            </div>
-            <span style={{ fontWeight: 700, fontSize: 18, color: "#1e3a8a", letterSpacing: "-0.01em", fontFamily: "inherit" }}
-              className="hidden sm:block">
-              Zipto
-            </span>
-          </motion.div>
+       <motion.div
+  whileHover={{ scale: 1.03 }}
+  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+  className="flex items-center gap-3 cursor-pointer select-none"
+>
+  <div className="relative">
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        borderRadius: 12,
+        background: "rgba(59,130,246,0.15)",
+        filter: "blur(8px)",
+        transform: "scale(1.1)",
+        pointerEvents: "none",
+      }}
+    />
+    <img
+      src={ziptoLogo}
+      alt="Zipto logo"
+      className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-cover"
+      style={{ border: "1.5px solid rgba(59,130,246,0.25)" }}
+    />
+  </div>
+
+  <span
+    style={{
+      fontWeight: 700,
+      fontSize: 20,
+      color: "#1e3a8a",
+      letterSpacing: "0.3px",
+      fontFamily: "Cocon, sans-serif",
+    }}
+    className="hidden sm:block"
+  >
+    Zipto
+  </span>
+</motion.div>
 
           {/* ── DESKTOP LINKS ── */}
           <ul className="hidden md:flex items-center gap-0.5 text-[13.5px] font-medium">

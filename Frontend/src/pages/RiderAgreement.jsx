@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import ziptoLogo from "../assets/zipto.jpeg";
+import logo from "../assets/Zipto_Riders.png";
 
 const sections = [
   {
@@ -452,14 +452,21 @@ export default function RiderAgreement() {
           letter-spacing: 0.12em; text-transform: uppercase;
           padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
         }
-        .hero-logo {
-          width: 72px; height: 72px; border-radius: 18px;
-          border: 3px solid rgba(255,255,255,0.3);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-          margin: 0 auto 20px; background: var(--blue-800);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 1.8rem; font-weight: 700; color: white; overflow: hidden;
-        }
+       .hero-logo {
+  width: 160px;   /* increased from 120px */
+  height: 160px;
+
+  border-radius: 28px;
+  border: 3px solid rgba(255,255,255,0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+
+  margin: 0 auto 24px;
+  background: var(--blue-800);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
         .hero h1 {
           font-family: var(--font-display);
           font-size: clamp(2rem, 5vw, 3.2rem);
@@ -615,16 +622,21 @@ export default function RiderAgreement() {
       </div>
 
       {/* HERO */}
-      <div className="hero">
-        <div className="hero-badge">🛵 Rider Agreement</div>
-        <div className="hero-logo">Z</div>
-        <h1>Rider <em>Agreement</em></h1>
-        <div className="hero-meta">
-          <span>📅 Effective: 11 April 2026</span>
-          <span>🛵 Delivery Partner</span>
-          <span>⚖️ Governed by Indian Law</span>
-        </div>
-      </div>
+  <div className="hero">
+  <div className="hero-badge">🛵 Rider onboarding Agreement</div>
+
+  <div className="hero-logo">
+    <img src={logo} alt="Zipto Logo" />
+  </div>
+
+  <h1>Rider Onboarding <em>Agreement</em></h1>
+
+  <div className="hero-meta">
+    <span>📅 Effective: 11 April 2026</span>
+    <span>🛵 Delivery Partner</span>
+    <span>⚖️ Governed by Indian Law</span>
+  </div>
+</div>
 
       {/* CONTENT */}
       <div className="page-wrap">
