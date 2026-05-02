@@ -1,344 +1,659 @@
-import React, { useEffect } from "react";
-import ziptoLogo from "../assets/zipto.jpeg";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import ziptoLogo from "../assets/zipto.jpeg";
 
-export default function TermsConditions() {
+const sections = [
+  {
+    id: "introduction",
+    title: "Introduction",
+    number: "01",
+    content: (
+      <>
+        <p>This Rider Agreement ("Agreement") is entered into between:</p>
+        <div className="two-col mt-4">
+          <div className="col-block yes-block">
+            <h4>Company</h4>
+            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+              Zipto Hyperlogistics Pvt. Ltd.<br />
+              ("Company", "Zipto", "We")
+            </p>
+          </div>
+          <div className="col-block yes-block">
+            <h4>Rider</h4>
+            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+              You ("Rider", "Delivery Partner", "You")
+            </p>
+          </div>
+        </div>
+        <div className="notice-pill mt-4">
+          ✅ By registering or using the platform, you agree to be bound by this Agreement.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "company",
+    title: "Company Details",
+    number: "02",
+    content: (
+      <ul className="info-list">
+        <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
+        <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Khorda, Bhubaneswar, Odisha, India – 751007</span></li>
+        <li><span className="label">Location</span><span>Bhubaneswar, Odisha, India</span></li>
+      </ul>
+    ),
+  },
+  {
+    id: "status",
+    title: "Independent Contractor Status",
+    number: "03",
+    content: (
+      <>
+        <p>You are engaged as an <strong>independent contractor</strong>. Nothing in this Agreement creates:</p>
+        <ul className="dot-list mt-3">
+          <li>Employment</li>
+          <li>Partnership</li>
+          <li>Agency relationship</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ You are not entitled to employee benefits.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "onboarding",
+    title: "Onboarding & Verification",
+    number: "04",
+    content: (
+      <>
+        <p>You agree to provide accurate and valid documents including:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">🪪 Driving License</div>
+          <div className="service-chip">🚗 Vehicle Registration</div>
+          <div className="service-chip">📄 Identity Proof</div>
+          <div className="service-chip">🏦 Bank Details</div>
+        </div>
+        <p className="mt-3 text-muted">
+          Zipto reserves the right to approve or reject onboarding at its sole discretion.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "responsibilities",
+    title: "Services & Responsibilities",
+    number: "05",
+    content: (
+      <>
+        <p>You agree to:</p>
+        <ul className="dot-list mt-3">
+          <li>Accept and complete delivery orders responsibly</li>
+          <li>Follow all traffic laws and regulations</li>
+          <li>Ensure safe handling of goods</li>
+          <li>Maintain professional conduct with customers</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "flexibility",
+    title: "Work Flexibility",
+    number: "06",
+    content: (
+      <>
+        <ul className="dot-list">
+          <li>You are free to choose your working hours</li>
+          <li>There is no obligation to accept every order</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Performance metrics may affect your account status.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "earnings",
+    title: "Earnings & Payments",
+    number: "07",
+    content: (
+      <>
+        <div className="two-col mt-3">
+          <div className="col-block yes-block">
+            <h4>Earnings Include</h4>
+            <ul className="dot-list">
+              <li>Base fare</li>
+              <li>Distance-based charges</li>
+              <li>Incentives or bonuses</li>
+            </ul>
+          </div>
+          <div className="col-block no-block">
+            <h4>Deductions May Include</h4>
+            <ul className="dot-list">
+              <li>Platform service fees</li>
+              <li>Penalties for violations</li>
+              <li>Cancellation charges</li>
+            </ul>
+          </div>
+        </div>
+        <div className="notice-pill mt-4">
+          💳 Payouts will be processed periodically to your registered bank account.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "performance",
+    title: "Performance & Ratings",
+    number: "08",
+    content: (
+      <>
+        <p>Zipto may monitor:</p>
+        <ul className="dot-list mt-3">
+          <li>Acceptance rate</li>
+          <li>Cancellation rate</li>
+          <li>Delivery completion rate</li>
+          <li>Customer ratings</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Consistently poor performance may result in suspension or deactivation.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "prohibited",
+    title: "Prohibited Activities",
+    number: "09",
+    content: (
+      <>
+        <p>You must <strong>not</strong>:</p>
+        <ul className="dot-list mt-3">
+          <li>Engage in fraudulent activities</li>
+          <li>Misuse customer data</li>
+          <li>Tamper with packages</li>
+          <li>Deliver illegal or restricted goods</li>
+          <li>Manipulate orders or payments</li>
+        </ul>
+        <div className="sub-block no-block mt-4">
+          <h4>Consequences</h4>
+          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+            Violation may lead to immediate termination and legal action.
+          </p>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "safety",
+    title: "Safety & Compliance",
+    number: "10",
+    content: (
+      <>
+        <p>You are solely responsible for:</p>
+        <ul className="dot-list mt-3">
+          <li>Your vehicle condition</li>
+          <li>Valid licenses and permits</li>
+          <li>Compliance with traffic laws</li>
+          <li>Personal safety during deliveries</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Zipto is not liable for accidents or injuries.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "insurance",
+    title: "Insurance",
+    number: "11",
+    content: (
+      <>
+        <p>Zipto does <strong>not</strong> provide insurance unless explicitly stated.</p>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Riders are responsible for their own vehicle and personal insurance.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "equipment",
+    title: "Equipment & Expenses",
+    number: "12",
+    content: (
+      <>
+        <ul className="dot-list">
+          <li>You must provide your own vehicle, fuel, and mobile device</li>
+          <li>Zipto does not reimburse operational expenses unless specified</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "termination",
+    title: "Account Suspension & Termination",
+    number: "13",
+    content: (
+      <>
+        <p>Zipto may suspend or terminate your account for:</p>
+        <ul className="dot-list mt-3">
+          <li>Policy violations</li>
+          <li>Fraud or misconduct</li>
+          <li>Legal reasons</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Termination may occur without prior notice in severe cases.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "privacy",
+    title: "Data & Privacy",
+    number: "14",
+    content: (
+      <>
+        <p>Your data will be handled in accordance with the Zipto Rider Privacy Policy.</p>
+        <div className="notice-pill mt-4">
+          📍 By using the platform, you consent to data collection including location tracking.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "liability",
+    title: "Limitation of Liability",
+    number: "15",
+    content: (
+      <>
+        <p>To the maximum extent permitted by law, Zipto shall not be liable for:</p>
+        <ul className="dot-list mt-3">
+          <li>Loss of income</li>
+          <li>Accidents or injuries</li>
+          <li>Third-party actions</li>
+          <li>Technical issues or downtime</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "indemnification",
+    title: "Indemnification",
+    number: "16",
+    content: (
+      <>
+        <p>You agree to indemnify and hold harmless Zipto against:</p>
+        <ul className="dot-list mt-3">
+          <li>Claims</li>
+          <li>Damages</li>
+          <li>Legal costs</li>
+        </ul>
+        <p className="mt-3 text-muted">
+          arising from your negligence, violation of this Agreement, or illegal activities.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "force",
+    title: "Force Majeure",
+    number: "17",
+    content: (
+      <p>
+        Zipto shall not be liable for delays or failures caused by natural disasters,
+        government actions, network issues, or events beyond its reasonable control.
+      </p>
+    ),
+  },
+  {
+    id: "law",
+    title: "Governing Law & Jurisdiction",
+    number: "18",
+    content: (
+      <ul className="info-list">
+        <li><span className="label">Governing Law</span><span>Laws of India</span></li>
+        <li><span className="label">Jurisdiction</span><span>Bhubaneswar, Odisha</span></li>
+      </ul>
+    ),
+  },
+  {
+    id: "modifications",
+    title: "Modifications",
+    number: "19",
+    content: (
+      <p>
+        Zipto may update this Agreement at any time. Continued use of the platform
+        constitutes acceptance of any changes made.
+      </p>
+    ),
+  },
+  {
+    id: "contact",
+    title: "Contact & Grievance",
+    number: "20",
+    content: (
+      <div className="contact-grid">
+        <div className="contact-card">
+          <div className="icon">📧</div>
+          <div>
+            <div className="c-label">Email</div>
+            <a href="mailto:rider.support@ridezipto.com">rider.support@ridezipto.com</a>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="icon">👤</div>
+          <div>
+            <div className="c-label">Grievance Officer</div>
+            <span>Zipto Support Team</span>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="icon">⏱</div>
+          <div>
+            <div className="c-label">Response Time</div>
+            <span>Within 48 hours</span>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "acceptance",
+    title: "Acceptance",
+    number: "21",
+    content: (
+      <div className="acceptance-box">
+        <div className="accept-icon">✅</div>
+        <p>
+          By registering on the Zipto Rider platform, you acknowledge that you have{" "}
+          <strong>read, understood, and voluntarily agreed</strong> to all terms and
+          conditions in this Agreement.
+        </p>
+      </div>
+    ),
+  },
+];
+
+export default function RiderAgreement() {
   const navigate = useNavigate();
+  const [openSections, setOpenSections] = useState(new Set());
+  const [scrolled, setScrolled] = useState(false);
+  const allIds = sections.map((s) => s.id);
+  const allOpen = openSections.size === allIds.length;
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const toggle = (id) =>
+    setOpenSections((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+
+  const toggleAll = () =>
+    setOpenSections(allOpen ? new Set() : new Set(allIds));
 
   return (
     <>
-      {/* Back */}
-      <div className="p-4">
-        <button
-          onClick={() => navigate("/")}
-          className="text-blue-600 font-medium hover:underline"
-        >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --blue-950: #03122b; --blue-900: #062553; --blue-800: #0a3880;
+          --blue-700: #0d4db3; --blue-600: #1563d4; --blue-500: #2979f5;
+          --blue-400: #5b9bff; --blue-300: #93bfff; --blue-200: #c4d9ff;
+          --blue-100: #e8f0ff; --blue-50: #f0f5ff; --accent: #00c6ff;
+          --white: #ffffff; --text-primary: #0d1b3e;
+          --text-secondary: #3a4f7a; --text-muted: #7a92be;
+          --border: rgba(21,99,212,0.15);
+          --shadow-sm: 0 1px 4px rgba(5,50,150,0.08);
+          --shadow-md: 0 4px 20px rgba(5,50,150,0.12);
+          --radius: 14px;
+          --font-body: 'Sora', sans-serif;
+          --font-display: 'DM Serif Display', serif;
+        }
+        body { font-family: var(--font-body); background: var(--blue-50); color: var(--text-primary); }
+
+        .top-bar {
+          position: sticky; top: 0; z-index: 100;
+          background: rgba(255,255,255,0.85); backdrop-filter: blur(16px);
+          border-bottom: 1px solid var(--border); padding: 14px 24px;
+          display: flex; align-items: center; transition: box-shadow 0.3s;
+        }
+        .top-bar.scrolled { box-shadow: var(--shadow-md); }
+        .back-btn {
+          display: flex; align-items: center; gap: 6px;
+          font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+          color: var(--blue-600); background: var(--blue-100);
+          border: none; padding: 7px 14px; border-radius: 99px;
+          cursor: pointer; transition: background 0.2s, transform 0.2s;
+        }
+        .back-btn:hover { background: var(--blue-200); transform: translateX(-2px); }
+
+        .hero {
+          background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
+          padding: 64px 24px 56px; text-align: center;
+          position: relative; overflow: hidden;
+        }
+        .hero::before {
+          content: ''; position: absolute; inset: 0;
+          background: radial-gradient(ellipse at 70% 30%, rgba(0,198,255,0.18) 0%, transparent 60%);
+          pointer-events: none;
+        }
+        .hero-badge {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+          color: var(--blue-200); font-size: 0.72rem; font-weight: 600;
+          letter-spacing: 0.12em; text-transform: uppercase;
+          padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
+        }
+        .hero-logo {
+          width: 72px; height: 72px; border-radius: 18px;
+          border: 3px solid rgba(255,255,255,0.3);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+          margin: 0 auto 20px; background: var(--blue-800);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 1.8rem; font-weight: 700; color: white; overflow: hidden;
+        }
+        .hero h1 {
+          font-family: var(--font-display);
+          font-size: clamp(2rem, 5vw, 3.2rem);
+          color: white; line-height: 1.1; letter-spacing: -0.01em;
+        }
+        .hero h1 em { color: var(--accent); font-style: normal; }
+        .hero-meta {
+          margin-top: 14px;
+          display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+        }
+        .hero-meta span {
+          font-size: 0.75rem; color: var(--blue-200); font-weight: 500;
+          display: flex; align-items: center; gap: 4px;
+        }
+
+        .page-wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+        .toolbar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+        .expand-btn {
+          font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+          color: var(--blue-600); background: white; cursor: pointer;
+          border: 1px solid var(--border); padding: 7px 16px; border-radius: 99px;
+          transition: background 0.2s, color 0.2s;
+        }
+        .expand-btn:hover { background: var(--blue-600); color: white; }
+
+        .policy-card {
+          background: white; border: 1px solid var(--border);
+          border-radius: var(--radius); margin-bottom: 12px;
+          box-shadow: var(--shadow-sm); overflow: hidden;
+          transition: box-shadow 0.25s;
+        }
+        .policy-card:hover { box-shadow: var(--shadow-md); }
+        .policy-card.open { box-shadow: var(--shadow-md); }
+        .card-header {
+          display: flex; align-items: center; gap: 16px;
+          padding: 18px 22px; cursor: pointer; user-select: none;
+          transition: background 0.2s;
+        }
+        .card-header:hover { background: var(--blue-50); }
+        .section-number {
+          font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+          color: var(--blue-400); min-width: 28px;
+        }
+        .section-title {
+          flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--text-primary);
+        }
+        .chevron {
+          width: 22px; height: 22px; border-radius: 50%;
+          background: var(--blue-100);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 0.65rem; color: var(--blue-600);
+          transition: transform 0.3s, background 0.2s; flex-shrink: 0;
+        }
+        .policy-card.open .chevron { transform: rotate(180deg); background: var(--blue-600); color: white; }
+        .card-body {
+          max-height: 0; overflow: hidden;
+          transition: max-height 0.4s ease, padding 0.3s;
+          padding: 0 22px;
+        }
+        .card-body.open { max-height: 1200px; padding: 0 22px 22px; border-top: 1px solid var(--border); }
+        .card-body p, .card-body li { font-size: 0.875rem; line-height: 1.7; color: var(--text-secondary); }
+        .card-body .mt-3 { margin-top: 12px; }
+        .card-body .mt-4 { margin-top: 16px; }
+
+        .info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .info-list li {
+          display: flex; gap: 10px; font-size: 0.875rem; color: var(--text-secondary);
+          padding: 10px 14px; background: var(--blue-50);
+          border-radius: 8px; border: 1px solid var(--border);
+        }
+        .info-list .label { font-weight: 600; color: var(--blue-700); min-width: 160px; flex-shrink: 0; }
+
+        .dot-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .dot-list li {
+          display: flex; align-items: flex-start; gap: 10px;
+          font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5;
+        }
+        .dot-list li::before {
+          content: ''; width: 6px; height: 6px; border-radius: 50%;
+          background: var(--blue-500); margin-top: 6px; flex-shrink: 0;
+        }
+
+        .sub-block { padding: 14px 16px; background: var(--blue-50); border-radius: 10px; border: 1px solid var(--border); }
+        .sub-block h4 {
+          font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+          text-transform: uppercase; color: var(--blue-700); margin-bottom: 8px;
+        }
+        .sub-block.no-block { background: #fff4f4; border-color: #ffd0d0; }
+        .sub-block.no-block h4 { color: #c0392b; }
+
+        .notice-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: var(--blue-100); border: 1px solid var(--blue-200);
+          color: var(--blue-800); font-size: 0.78rem; font-weight: 500;
+          padding: 7px 14px; border-radius: 8px; line-height: 1.5;
+        }
+        .notice-pill.notice-warn { background: #fff4e5; border-color: #ffd591; color: #7c4a00; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 540px) { .two-col { grid-template-columns: 1fr; } }
+        .col-block { padding: 14px; border-radius: 10px; }
+        .col-block h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+        .no-block { background: #fff4f4; border: 1px solid #ffd0d0; }
+        .no-block h4 { color: #c0392b; }
+        .yes-block { background: var(--blue-50); border: 1px solid var(--blue-200); }
+        .yes-block h4 { color: var(--blue-700); }
+
+        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (max-width: 480px) { .service-grid { grid-template-columns: 1fr; } }
+        .service-chip {
+          padding: 12px 14px; background: var(--blue-50);
+          border: 1px solid var(--blue-200); border-radius: 10px;
+          font-size: 0.82rem; font-weight: 600; color: var(--blue-800);
+          display: flex; align-items: center; gap: 8px;
+        }
+
+        .contact-grid { display: flex; flex-direction: column; gap: 10px; }
+        .contact-card {
+          display: flex; align-items: center; gap: 14px;
+          padding: 14px 16px; background: var(--blue-50);
+          border: 1px solid var(--border); border-radius: 10px;
+        }
+        .contact-card .icon { font-size: 1.2rem; flex-shrink: 0; }
+        .contact-card .c-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+        .contact-card a { color: var(--blue-600); font-size: 0.875rem; text-decoration: none; }
+        .contact-card a:hover { text-decoration: underline; }
+        .contact-card span { font-size: 0.875rem; color: var(--text-secondary); }
+
+        .acceptance-box {
+          display: flex; gap: 14px; align-items: flex-start;
+          padding: 18px;
+          background: linear-gradient(135deg, var(--blue-100), var(--blue-50));
+          border: 1px solid var(--blue-300); border-radius: 12px;
+        }
+        .accept-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+        .acceptance-box p { font-size: 0.875rem; color: var(--blue-900); line-height: 1.7; }
+
+        .text-muted { color: var(--text-muted) !important; font-style: italic; font-size: 0.82rem; }
+
+        .policy-footer {
+          text-align: center; padding: 32px 20px;
+          border-top: 1px solid var(--border); margin-top: 20px;
+        }
+        .policy-footer p { font-size: 0.78rem; color: var(--text-muted); }
+        .policy-footer .brand { font-weight: 700; color: var(--blue-600); }
+      `}</style>
+
+      {/* TOP BAR */}
+      <div className={`top-bar ${scrolled ? "scrolled" : ""}`}>
+        <button className="back-btn" onClick={() => navigate("/")}>
           ← Back to Home
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50 px-6 py-10">
+      {/* HERO */}
+      <div className="hero">
+        <div className="hero-badge">🛵 Rider Agreement</div>
+        <div className="hero-logo">Z</div>
+        <h1>Rider <em>Agreement</em></h1>
+        <div className="hero-meta">
+          <span>📅 Effective: 11 April 2026</span>
+          <span>🛵 Delivery Partner</span>
+          <span>⚖️ Governed by Indian Law</span>
+        </div>
+      </div>
 
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-10">
-          <img src={ziptoLogo} className="h-16 mx-auto mb-4 rounded" />
-          <h1 className="text-4xl font-bold text-gray-900">
-            ZIPTO TERMS & CONDITIONS
-          </h1>
-          <p className="text-gray-500 mt-2 text-sm">
-            Effective Date: 11 April 2026 <br />
-            Last Updated: 11 April 2026
-          </p>
+      {/* CONTENT */}
+      <div className="page-wrap">
+        <div className="toolbar">
+          <button className="expand-btn" onClick={toggleAll}>
+            {allOpen ? "Collapse All ↑" : "Expand All ↓"}
+          </button>
         </div>
 
-        {/* MAIN CARD */}
-        <div className="max-w-4xl mx-auto bg-white border rounded-xl p-8 shadow-sm space-y-10 text-gray-800">
+        {sections.map((sec) => {
+          const isOpen = openSections.has(sec.id);
+          return (
+            <div key={sec.id} className={`policy-card ${isOpen ? "open" : ""}`}>
+              <div className="card-header" onClick={() => toggle(sec.id)}>
+                <span className="section-number">{sec.number}</span>
+                <span className="section-title">{sec.title}</span>
+                <div className="chevron">▾</div>
+              </div>
+              <div className={`card-body ${isOpen ? "open" : ""}`}>
+                <div style={{ paddingTop: "16px" }}>{sec.content}</div>
+              </div>
+            </div>
+          );
+        })}
 
-          {/* ================= CUSTOMER TERMS ================= */}
-         {/* ================= CUSTOMER TERMS ================= */}
-  <section>
-    <h2 className="text-2xl font-bold mb-4">
-      ZIPTO TERMS & CONDITIONS (CUSTOMER APP)
-    </h2>
-
-   
-
-    <h3 className="font-semibold">1. INTRODUCTION</h3>
-    <p className="text-gray-600">
-      These Terms & Conditions (“Terms”) constitute a legally binding agreement between you (“User”, “Customer”) and Zipto Hyperlogistics Pvt. Ltd. (“Zipto”, “Company”, “We”, “Us”). <br />
-      By accessing or using the Zipto Customer Application, website, or services, you agree to be bound by these Terms.
-    </p>
-
-    <h3 className="font-semibold mt-4">2. COMPANY DETAILS</h3>
-    <p className="text-gray-600">
-      Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED. <br />
-      Registered Office: 781, saheed Ngr, 780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007 <br />
-      Location: Bhubaneswar, Odisha, India
-    </p>
-
-    <h3 className="font-semibold mt-4">3. PLATFORM NATURE</h3>
-    <p className="text-gray-600">
-      Zipto is a technology platform that connects customers with independent delivery partners.
-    </p>
-    <p className="font-medium mt-2">
-      ⚠️ Zipto does NOT directly provide delivery services.
-    </p>
-
-    <h3 className="font-semibold mt-4">4. ELIGIBILITY</h3>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Must be 18 years or older</li>
-      <li>Must provide accurate information</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">5. SERVICES</h3>
-    <p className="text-gray-600">Zipto enables:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Food delivery</li>
-      <li>Parcel delivery</li>
-      <li>Medicine delivery</li>
-      <li>Goods transportation</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">6. USER OBLIGATIONS</h3>
-    <p>You agree to:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Provide correct pickup & delivery details</li>
-      <li>Properly package items</li>
-      <li>Avoid sending illegal or restricted goods</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">7. PRICING & PAYMENTS</h3>
-    <p className="text-gray-600">Prices are dynamic (distance, demand)</p>
-    <p className="mt-2">Payment methods:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>UPI</li>
-      <li>Cash</li>
-      <li>COD</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">8. CANCELLATION</h3>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Before assignment: Free</li>
-      <li>After assignment: Charges apply</li>
-      <li>After pickup: Not allowed</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">9. REFUNDS</h3>
-    <p>Refunds applicable only in:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Failed transactions</li>
-      <li>Duplicate payments</li>
-      <li>Cancellation by Zipto</li>
-    </ul>
-    <p className="mt-2">Processing time: 5–7 business days</p>
-
-    <h3 className="font-semibold mt-4">10. PROHIBITED ITEMS</h3>
-    <p>Users must NOT send:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Illegal items (drugs, weapons)</li>
-      <li>Hazardous materials</li>
-      <li>Restricted or high-risk goods</li>
-    </ul>
-    <p className="mt-2">⚠️ User is fully responsible for shipment contents.</p>
-
-    <h3 className="font-semibold mt-4">11. ACCOUNT & SECURITY</h3>
-    <p className="text-gray-600">
-      Users are responsible for account confidentiality. <br />
-      Zipto is not liable for unauthorized access due to user negligence.
-    </p>
-
-    <h3 className="font-semibold mt-4">12. THIRD-PARTY SERVICES</h3>
-    <p className="text-gray-600">
-      Zipto may use third-party services (payments, maps). <br />
-      We are not responsible for their performance.
-    </p>
-
-    <h3 className="font-semibold mt-4">13. LIMITATION OF LIABILITY</h3>
-    <p className="text-gray-600">
-      To the maximum extent permitted by law, Zipto shall not be liable for:
-    </p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Delivery delays</li>
-      <li>Loss due to improper packaging</li>
-      <li>User errors</li>
-      <li>Third-party actions</li>
-    </ul>
-
-    <h3 className="font-semibold mt-4">14. INDEMNIFICATION</h3>
-    <p className="text-gray-600">
-      Users agree to indemnify Zipto against claims arising from misuse or violations.
-    </p>
-
-    <h3 className="font-semibold mt-4">15. TERMINATION</h3>
-    <p className="text-gray-600">
-      Zipto may suspend or terminate accounts for fraud, abuse, or policy violations.
-    </p>
-
-    <h3 className="font-semibold mt-4">16. INTELLECTUAL PROPERTY</h3>
-    <p className="text-gray-600">All platform content belongs to Zipto.</p>
-
-    <h3 className="font-semibold mt-4">17. PRIVACY</h3>
-    <p className="text-gray-600">Use of the platform is governed by our Privacy Policy.</p>
-
-    <h3 className="font-semibold mt-4">18. FORCE MAJEURE</h3>
-    <p className="text-gray-600">
-      Zipto is not liable for events beyond control (natural disasters, etc.).
-    </p>
-
-    <h3 className="font-semibold mt-4">19. GOVERNING LAW</h3>
-    <p className="text-gray-600">
-      These Terms are governed by Indian law. <br />
-      Jurisdiction: Bhubaneswar, Odisha courts.
-    </p>
-
-    <h3 className="font-semibold mt-4">20. MODIFICATION OF TERMS</h3>
-    <p className="text-gray-600">
-      Zipto may update these Terms at any time.
-    </p>
-
-    <h3 className="font-semibold mt-4">21. PROHIBITED ITEMS (DETAILED)</h3>
-    <p>Users are strictly prohibited from sending:</p>
-
-    <p className="font-medium mt-2">Illegal:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Narcotics / drugs</li>
-      <li>Weapons / explosives</li>
-      <li>Counterfeit goods</li>
-    </ul>
-
-    <p className="font-medium mt-2">Hazardous:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Flammable substances</li>
-      <li>Toxic chemicals</li>
-      <li>Dangerous materials</li>
-    </ul>
-
-    <p className="font-medium mt-2">Restricted:</p>
-    <ul className="list-disc pl-6 text-gray-600">
-      <li>Cash / currency</li>
-      <li>Precious items</li>
-      <li>Alcohol or regulated goods</li>
-    </ul>
-
-    <p className="mt-2">🚫 Violation may result in account suspension and legal action</p>
-
-    <h3 className="font-semibold mt-4">22. CONTACT & GRIEVANCE</h3>
-    <p>Email: support@ridezipto.com</p>
-    <p>Grievance Officer: Zipto Support Team</p>
-    <p>Response Time: Within 48 hours</p>
-  </section>
-
-  
-           {/* ================= RIDER TERMS ================= */}
-          <section className="border-t pt-6">
-            <h2 className="text-2xl font-bold mb-4">
-              ZIPTO RIDER TERMS & CONDITIONS
-            </h2>
-
-
-            <h3 className="font-semibold">1. INTRODUCTION</h3>
-            <p className="text-gray-600">
-              These Terms apply to delivery partners (“Riders”) using the Zipto Rider Onboarding Application operated by Zipto Hyperlogistics Pvt. Ltd..
-              <br /><br />
-              By registering or using the platform, you agree to these Terms.
-            </p>
-
-            <h3 className="font-semibold mt-4">2. COMPANY DETAILS</h3>
-            <p className="text-gray-600">
-              Company Name: ZIPTO HYPERLOGISTICS PRIVATE LIMITED. <br />
-              Registered Office: 781,saheed Ngr,780, Maharishi College Road, Saheed Nagar, Khorda, Bhubaneswar, Orissa, India, 751007 <br />
-              Location: Bhubaneswar, Odisha, India
-            </p>
-
-            <h3 className="font-semibold mt-4">3. INDEPENDENT CONTRACTOR STATUS</h3>
-            <p className="text-gray-600">
-              Riders are independent contractors. <br />
-              Nothing in this agreement creates employment or partnership.
-            </p>
-
-            <h3 className="font-semibold mt-4">4. ELIGIBILITY</h3>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Be at least 18 years old</li>
-              <li>Provide valid documents</li>
-              <li>Have a valid driving license</li>
-            </ul>
-
-            <h3 className="font-semibold mt-4">5. SERVICES</h3>
-            <p className="text-gray-600">Riders provide delivery services including:</p>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Food delivery</li>
-              <li>Parcel delivery</li>
-              <li>Medicine delivery</li>
-              <li>Goods transportation</li>
-            </ul>
-
-            <h3 className="font-semibold mt-4">6. RIDER OBLIGATIONS</h3>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Follow traffic laws</li>
-              <li>Maintain professionalism</li>
-              <li>Ensure safe delivery</li>
-              <li>Handle goods responsibly</li>
-            </ul>
-
-            <h3 className="font-semibold mt-4">7. EARNINGS & PAYOUTS</h3>
-            <p className="text-gray-600">
-              Riders earn through base fare, distance charges, and incentives.
-              <br />
-              Zipto may deduct platform fees and penalties (if applicable).
-            </p>
-
-            <h3 className="font-semibold mt-4">8. PERFORMANCE MONITORING</h3>
-            <p className="text-gray-600">
-              Zipto may track acceptance rate, cancellation rate, and ratings.
-              Poor performance may lead to deactivation.
-            </p>
-
-            <h3 className="font-semibold mt-4">9. PROHIBITED CONDUCT</h3>
-            <ul className="list-disc pl-6 text-gray-600">
-              <li>Tamper with goods</li>
-              <li>Misuse user data</li>
-              <li>Engage in fraud</li>
-              <li>Accept illegal deliveries</li>
-            </ul>
-
-            <h3 className="font-semibold mt-4">10. ACCOUNT DEACTIVATION</h3>
-            <p className="text-gray-600">
-              Zipto may suspend or deactivate rider accounts for violations.
-            </p>
-
-            <h3 className="font-semibold mt-4">11. LIABILITY</h3>
-            <p className="text-gray-600">
-              Riders are responsible for their vehicle, legal compliance, and personal safety.
-            </p>
-
-            <h3 className="font-semibold mt-4">12. LIMITATION OF LIABILITY</h3>
-            <p className="text-gray-600">
-              Zipto is not liable for rider negligence or external incidents.
-            </p>
-
-            <h3 className="font-semibold mt-4">13. THIRD-PARTY SERVICES</h3>
-            <p className="text-gray-600">
-              Zipto may use third-party services. We are not responsible for their failures.
-            </p>
-
-            <h3 className="font-semibold mt-4">14. PRIVACY</h3>
-            <p className="text-gray-600">
-              Rider data is governed by the Rider Privacy Policy.
-            </p>
-
-            <h3 className="font-semibold mt-4">15. FORCE MAJEURE</h3>
-            <p className="text-gray-600">
-              Zipto is not liable for events beyond control.
-            </p>
-
-            <h3 className="font-semibold mt-4">16. GOVERNING LAW</h3>
-            <p className="text-gray-600">
-              Indian law applies. <br />
-              Jurisdiction: Bhubaneswar courts.
-            </p>
-
-            <h3 className="font-semibold mt-4">17. MODIFICATION OF TERMS</h3>
-            <p className="text-gray-600">
-              Zipto may update these Terms anytime.
-            </p>
-
-            <h3 className="font-semibold mt-4">18. CONTACT & GRIEVANCE</h3>
-            <p>Email: rider.support@ridezipto.com</p>
-            <p>Grievance Officer: Zipto Support Team</p>
-            <p>Response Time: Within 48 hours</p>
-          </section>
-
+        <div className="policy-footer">
+          <p>© 2026 <span className="brand">Zipto Hyperlogistics Pvt. Ltd.</span> · All rights reserved.</p>
+          <p style={{ marginTop: "6px" }}>Bhubaneswar, Odisha, India · rider.support@ridezipto.com</p>
         </div>
-
-        {/* Footer */}
-        <p className="text-center text-gray-400 mt-10 text-sm">
-          © 2026 Zipto Hyperlogistics Pvt. Ltd.
-        </p>
-
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import ziptoLogo from "../assets/zipto.jpeg";
 
 const sections = [
   {
@@ -9,24 +8,18 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>This Rider Agreement ("Agreement") is entered into between:</p>
-        <div className="two-col mt-4">
-          <div className="col-block yes-block">
-            <h4>Company</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              Zipto Hyperlogistics Pvt. Ltd.<br />
-              ("Company", "Zipto", "We")
-            </p>
-          </div>
-          <div className="col-block yes-block">
-            <h4>Rider</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              You ("Rider", "Delivery Partner", "You")
-            </p>
-          </div>
-        </div>
+        <p>
+          This Privacy Policy explains how <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
+          ("Zipto", "Company", "We", "Us", "Our") collects, uses, processes, stores, and
+          protects information of delivery partners ("Riders") using the Zipto Rider
+          Application and related services.
+        </p>
+        <p className="mt-3">
+          The Rider App is designed to onboard and manage independent delivery partners
+          who perform pickup and delivery services through the Zipto platform.
+        </p>
         <div className="notice-pill mt-4">
-          ✅ By registering or using the platform, you agree to be bound by this Agreement.
+          ✅ By registering or using the Rider App, you agree to this Privacy Policy.
         </div>
       </>
     ),
@@ -38,224 +31,245 @@ const sections = [
     content: (
       <ul className="info-list">
         <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
-        <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Khorda, Bhubaneswar, Odisha, India – 751007</span></li>
-        <li><span className="label">Location</span><span>Bhubaneswar, Odisha, India</span></li>
+        <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
+        <li><span className="label">Operating Location</span><span>Bhubaneswar, Odisha, India</span></li>
+        <li><span className="label">Email</span><span><a href="mailto:rider.support@ridezipto.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@ridezipto.com</a></span></li>
       </ul>
     ),
   },
   {
-    id: "status",
-    title: "Independent Contractor Status",
+    id: "data-collected",
+    title: "Information We Collect",
     number: "03",
-    content: (
-      <>
-        <p>You are engaged as an <strong>independent contractor</strong>. Nothing in this Agreement creates:</p>
-        <ul className="dot-list mt-3">
-          <li>Employment</li>
-          <li>Partnership</li>
-          <li>Agency relationship</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ You are not entitled to employee benefits.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "onboarding",
-    title: "Onboarding & Verification",
-    number: "04",
-    content: (
-      <>
-        <p>You agree to provide accurate and valid documents including:</p>
-        <div className="service-grid mt-3">
-          <div className="service-chip">🪪 Driving License</div>
-          <div className="service-chip">🚗 Vehicle Registration</div>
-          <div className="service-chip">📄 Identity Proof</div>
-          <div className="service-chip">🏦 Bank Details</div>
-        </div>
-        <p className="mt-3 text-muted">
-          Zipto reserves the right to approve or reject onboarding at its sole discretion.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "responsibilities",
-    title: "Services & Responsibilities",
-    number: "05",
-    content: (
-      <>
-        <p>You agree to:</p>
-        <ul className="dot-list mt-3">
-          <li>Accept and complete delivery orders responsibly</li>
-          <li>Follow all traffic laws and regulations</li>
-          <li>Ensure safe handling of goods</li>
-          <li>Maintain professional conduct with customers</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "flexibility",
-    title: "Work Flexibility",
-    number: "06",
-    content: (
-      <>
-        <ul className="dot-list">
-          <li>You are free to choose your working hours</li>
-          <li>There is no obligation to accept every order</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Performance metrics may affect your account status.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "earnings",
-    title: "Earnings & Payments",
-    number: "07",
     content: (
       <>
         <div className="two-col mt-3">
           <div className="col-block yes-block">
-            <h4>Earnings Include</h4>
+            <h4>A. Personal Information</h4>
             <ul className="dot-list">
-              <li>Base fare</li>
-              <li>Distance-based charges</li>
-              <li>Incentives or bonuses</li>
+              <li>Full Name</li>
+              <li>Mobile Number</li>
+              <li>Email Address</li>
+              <li>Profile Photo (if applicable)</li>
+            </ul>
+          </div>
+          <div className="col-block yes-block">
+            <h4>B. Device & Technical Data</h4>
+            <ul className="dot-list">
+              <li>Device type and model</li>
+              <li>Operating system</li>
+              <li>IP address</li>
+              <li>App usage logs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="sub-block mt-4">
+          <h4>C. KYC & Verification Data</h4>
+          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
+            To ensure identity verification and regulatory compliance, we collect:
+          </p>
+          <ul className="dot-list">
+            <li>Driving License</li>
+            <li>Vehicle Registration Certificate (RC)</li>
+            <li>Identity Proof (Aadhaar / PAN / other valid ID)</li>
+          </ul>
+          <p className="mt-3 text-muted">
+            All KYC documents are securely processed and used strictly for verification purposes.
+          </p>
+        </div>
+
+        <div className="sub-block mt-4">
+          <h4>D. Financial Information</h4>
+          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
+            For processing payouts:
+          </p>
+          <ul className="dot-list">
+            <li>Bank Account Details</li>
+            <li>UPI ID (if applicable)</li>
+          </ul>
+        </div>
+        <div className="sub-block no-block mt-3">
+          <h4>Zipto Does NOT Store</h4>
+          <ul className="dot-list">
+            <li>ATM PIN</li>
+            <li>UPI PIN</li>
+            <li>Payment OTP</li>
+          </ul>
+        </div>
+
+        <div className="sub-block mt-4" style={{ background: "#fff4e5", borderColor: "#ffd591" }}>
+          <h4 style={{ color: "#7c4a00" }}>E. Location Data (Critical)</h4>
+          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
+            Zipto collects real-time and background location data. This is required for:
+          </p>
+          <ul className="dot-list">
+            <li>Assigning delivery orders based on proximity</li>
+            <li>Providing real-time tracking to customers</li>
+            <li>Route optimization and navigation</li>
+            <li>Ensuring safety, compliance, and fraud prevention</li>
+          </ul>
+          <div className="notice-pill notice-warn mt-3">
+            ⚠️ Background location is required even when the app is not actively in use.
+          </div>
+        </div>
+
+        <div className="sub-block mt-4">
+          <h4>F. OTP & Authentication Data</h4>
+          <ul className="dot-list">
+            <li>OTP usage for login and verification</li>
+            <li>Authentication logs</li>
+          </ul>
+          <p className="mt-3 text-muted">OTP may be sent via email or mobile for account access.</p>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "data-usage",
+    title: "How We Use Rider Data",
+    number: "04",
+    content: (
+      <>
+        <p>We use collected data to:</p>
+        <ul className="dot-list mt-3">
+          <li>Verify rider identity and documents</li>
+          <li>Enable onboarding and account activation</li>
+          <li>Assign delivery orders</li>
+          <li>Provide navigation and tracking services</li>
+          <li>Process earnings and payouts</li>
+          <li>Monitor performance, safety, and compliance</li>
+          <li>Prevent fraud and misuse</li>
+          <li>Improve platform functionality</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "platform-nature",
+    title: "Nature of Platform",
+    number: "05",
+    content: (
+      <>
+        <p>Zipto operates as a technology-enabled logistics platform.</p>
+        <div className="two-col mt-4">
+          <div className="col-block yes-block">
+            <h4>Zipto's Role</h4>
+            <ul className="dot-list">
+              <li>Facilitates order allocation</li>
+              <li>Coordinates logistics</li>
+              <li>Provides technology platform</li>
             </ul>
           </div>
           <div className="col-block no-block">
-            <h4>Deductions May Include</h4>
+            <h4>Riders Are NOT</h4>
             <ul className="dot-list">
-              <li>Platform service fees</li>
-              <li>Penalties for violations</li>
-              <li>Cancellation charges</li>
+              <li>Employees of Zipto</li>
+              <li>Agents of Zipto</li>
+              <li>Representatives of Zipto</li>
             </ul>
           </div>
         </div>
-        <div className="notice-pill mt-4">
-          💳 Payouts will be processed periodically to your registered bank account.
-        </div>
       </>
     ),
   },
   {
-    id: "performance",
-    title: "Performance & Ratings",
-    number: "08",
+    id: "data-sharing",
+    title: "Data Sharing",
+    number: "06",
     content: (
       <>
-        <p>Zipto may monitor:</p>
+        <p>We may share limited rider data with:</p>
         <ul className="dot-list mt-3">
-          <li>Acceptance rate</li>
-          <li>Cancellation rate</li>
-          <li>Delivery completion rate</li>
-          <li>Customer ratings</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Consistently poor performance may result in suspension or deactivation.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "prohibited",
-    title: "Prohibited Activities",
-    number: "09",
-    content: (
-      <>
-        <p>You must <strong>not</strong>:</p>
-        <ul className="dot-list mt-3">
-          <li>Engage in fraudulent activities</li>
-          <li>Misuse customer data</li>
-          <li>Tamper with packages</li>
-          <li>Deliver illegal or restricted goods</li>
-          <li>Manipulate orders or payments</li>
+          <li>Customers (name and phone number for delivery coordination)</li>
+          <li>Payment processors (for payout processing)</li>
+          <li>Service providers (analytics, support, infrastructure)</li>
+          <li>Legal or government authorities (if required by law)</li>
         </ul>
         <div className="sub-block no-block mt-4">
-          <h4>Consequences</h4>
+          <h4>We Never Do This</h4>
           <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            Violation may lead to immediate termination and legal action.
+            Zipto does <strong>not</strong> sell rider personal data under any circumstances.
           </p>
         </div>
       </>
     ),
   },
   {
-    id: "safety",
-    title: "Safety & Compliance",
+    id: "data-security",
+    title: "Data Security",
+    number: "07",
+    content: (
+      <>
+        <p>We implement appropriate technical and organizational safeguards including:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">🔒 Secure servers</div>
+          <div className="service-chip">🔐 Encryption practices</div>
+          <div className="service-chip">🛡️ Restricted access</div>
+          <div className="service-chip">📋 Compliance controls</div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "data-retention",
+    title: "Data Retention",
+    number: "08",
+    content: (
+      <>
+        <p>We retain rider data:</p>
+        <ul className="dot-list mt-3">
+          <li>As long as the account is active</li>
+          <li>As required for legal, compliance, and fraud prevention purposes</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "rider-responsibilities",
+    title: "Rider Responsibilities",
+    number: "09",
+    content: (
+      <>
+        <p>Riders agree to:</p>
+        <ul className="dot-list mt-3">
+          <li>Provide accurate and valid information</li>
+          <li>Maintain updated documents</li>
+          <li>Safely handle items during delivery</li>
+          <li>Follow all applicable laws and platform guidelines</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "otp-security",
+    title: "OTP & Account Security",
     number: "10",
     content: (
       <>
-        <p>You are solely responsible for:</p>
-        <ul className="dot-list mt-3">
-          <li>Your vehicle condition</li>
-          <li>Valid licenses and permits</li>
-          <li>Compliance with traffic laws</li>
-          <li>Personal safety during deliveries</li>
+        <ul className="dot-list">
+          <li>Riders must keep OTP and account credentials confidential</li>
+          <li>OTP is used only for login and verification</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Zipto is not liable for accidents or injuries.
+          ⚠️ Zipto is not responsible for unauthorized access due to user negligence.
         </div>
       </>
     ),
   },
   {
-    id: "insurance",
-    title: "Insurance",
+    id: "location-consent",
+    title: "Background Location Consent",
     number: "11",
     content: (
       <>
-        <p>Zipto does <strong>not</strong> provide insurance unless explicitly stated.</p>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Riders are responsible for their own vehicle and personal insurance.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "equipment",
-    title: "Equipment & Expenses",
-    number: "12",
-    content: (
-      <>
-        <ul className="dot-list">
-          <li>You must provide your own vehicle, fuel, and mobile device</li>
-          <li>Zipto does not reimburse operational expenses unless specified</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "termination",
-    title: "Account Suspension & Termination",
-    number: "13",
-    content: (
-      <>
-        <p>Zipto may suspend or terminate your account for:</p>
+        <p>By using the Zipto Rider App, you explicitly consent to:</p>
         <ul className="dot-list mt-3">
-          <li>Policy violations</li>
-          <li>Fraud or misconduct</li>
-          <li>Legal reasons</li>
+          <li>Real-time location tracking</li>
+          <li>Background GPS access for operational purposes</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Termination may occur without prior notice in severe cases.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "privacy",
-    title: "Data & Privacy",
-    number: "14",
-    content: (
-      <>
-        <p>Your data will be handled in accordance with the Zipto Rider Privacy Policy.</p>
-        <div className="notice-pill mt-4">
-          📍 By using the platform, you consent to data collection including location tracking.
+          ⚠️ Disabling location access may affect order availability and service functionality.
         </div>
       </>
     ),
@@ -263,74 +277,90 @@ const sections = [
   {
     id: "liability",
     title: "Limitation of Liability",
+    number: "12",
+    content: (
+      <>
+        <p>Zipto shall not be responsible for:</p>
+        <ul className="dot-list mt-3">
+          <li>Product quality, legality, or condition</li>
+          <li>Issues caused by sender or third-party providers</li>
+          <li>Indirect or consequential damages</li>
+        </ul>
+        <div className="notice-pill mt-4">
+          👉 Zipto's role is limited to <strong>platform facilitation</strong>.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "fraud",
+    title: "Fraud & Misuse",
+    number: "13",
+    content: (
+      <>
+        <p>Zipto reserves the right to:</p>
+        <ul className="dot-list mt-3">
+          <li>Suspend or terminate rider accounts</li>
+          <li>Take necessary action in case of fraud, misuse, or policy violations</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "rider-rights",
+    title: "Rider Rights",
+    number: "14",
+    content: (
+      <>
+        <p>Riders may:</p>
+        <ul className="dot-list mt-3">
+          <li>Access and update their information</li>
+          <li>Request correction of data</li>
+          <li>Request account deletion</li>
+        </ul>
+        <div className="contact-grid mt-4">
+          <div className="contact-card">
+            <div className="icon">📩</div>
+            <div>
+              <div className="c-label">Submit requests via</div>
+              <a href="mailto:rider.support@ridezipto.com">rider.support@ridezipto.com</a>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "account-deletion",
+    title: "Account Deletion",
     number: "15",
     content: (
       <>
-        <p>To the maximum extent permitted by law, Zipto shall not be liable for:</p>
-        <ul className="dot-list mt-3">
-          <li>Loss of income</li>
-          <li>Accidents or injuries</li>
-          <li>Third-party actions</li>
-          <li>Technical issues or downtime</li>
-        </ul>
+        <p>
+          Account deletion requests can be made via email. Data will be removed within a
+          reasonable timeframe, subject to legal obligations.
+        </p>
+        <div className="notice-pill mt-4">
+          📩 Email: <strong>rider.support@ridezipto.com</strong>
+        </div>
       </>
     ),
   },
   {
-    id: "indemnification",
-    title: "Indemnification",
+    id: "policy-changes",
+    title: "Changes to Policy",
     number: "16",
     content: (
-      <>
-        <p>You agree to indemnify and hold harmless Zipto against:</p>
-        <ul className="dot-list mt-3">
-          <li>Claims</li>
-          <li>Damages</li>
-          <li>Legal costs</li>
-        </ul>
-        <p className="mt-3 text-muted">
-          arising from your negligence, violation of this Agreement, or illegal activities.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "force",
-    title: "Force Majeure",
-    number: "17",
-    content: (
       <p>
-        Zipto shall not be liable for delays or failures caused by natural disasters,
-        government actions, network issues, or events beyond its reasonable control.
-      </p>
-    ),
-  },
-  {
-    id: "law",
-    title: "Governing Law & Jurisdiction",
-    number: "18",
-    content: (
-      <ul className="info-list">
-        <li><span className="label">Governing Law</span><span>Laws of India</span></li>
-        <li><span className="label">Jurisdiction</span><span>Bhubaneswar, Odisha</span></li>
-      </ul>
-    ),
-  },
-  {
-    id: "modifications",
-    title: "Modifications",
-    number: "19",
-    content: (
-      <p>
-        Zipto may update this Agreement at any time. Continued use of the platform
-        constitutes acceptance of any changes made.
+        Zipto may update this Privacy Policy from time to time. Continued use of the app
+        indicates acceptance of the updated policy.
       </p>
     ),
   },
   {
     id: "contact",
-    title: "Contact & Grievance",
-    number: "20",
+    title: "Contact Information",
+    number: "17",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
@@ -341,40 +371,44 @@ const sections = [
           </div>
         </div>
         <div className="contact-card">
-          <div className="icon">👤</div>
+          <div className="icon">📍</div>
           <div>
-            <div className="c-label">Grievance Officer</div>
-            <span>Zipto Support Team</span>
-          </div>
-        </div>
-        <div className="contact-card">
-          <div className="icon">⏱</div>
-          <div>
-            <div className="c-label">Response Time</div>
-            <span>Within 48 hours</span>
+            <div className="c-label">Location</div>
+            <span>Bhubaneswar, Odisha, India</span>
           </div>
         </div>
       </div>
     ),
   },
   {
+    id: "grievance",
+    title: "Grievance Officer",
+    number: "18",
+    content: (
+      <ul className="info-list">
+        <li><span className="label">Officer</span><span>Zipto Support Team</span></li>
+        <li><span className="label">Response Time</span><span>Within 48 hours</span></li>
+        <li><span className="label">Email</span><span><a href="mailto:rider.support@ridezipto.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@ridezipto.com</a></span></li>
+      </ul>
+    ),
+  },
+  {
     id: "acceptance",
     title: "Acceptance",
-    number: "21",
+    number: "19",
     content: (
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By registering on the Zipto Rider platform, you acknowledge that you have{" "}
-          <strong>read, understood, and voluntarily agreed</strong> to all terms and
-          conditions in this Agreement.
+          By using the Zipto Rider Application, you confirm that you have{" "}
+          <strong>read, understood, and agreed</strong> to this Privacy Policy in its entirety.
         </p>
       </div>
     ),
   },
 ];
 
-export default function RiderAgreement() {
+export default function RiderPrivacyPolicy() {
   const navigate = useNavigate();
   const [openSections, setOpenSections] = useState(new Set());
   const [scrolled, setScrolled] = useState(false);
@@ -401,7 +435,6 @@ export default function RiderAgreement() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
           --blue-950: #03122b; --blue-900: #062553; --blue-800: #0a3880;
@@ -442,7 +475,7 @@ export default function RiderAgreement() {
         }
         .hero::before {
           content: ''; position: absolute; inset: 0;
-          background: radial-gradient(ellipse at 70% 30%, rgba(0,198,255,0.18) 0%, transparent 60%);
+          background: radial-gradient(ellipse at 30% 70%, rgba(0,198,255,0.18) 0%, transparent 60%);
           pointer-events: none;
         }
         .hero-badge {
@@ -519,7 +552,7 @@ export default function RiderAgreement() {
           transition: max-height 0.4s ease, padding 0.3s;
           padding: 0 22px;
         }
-        .card-body.open { max-height: 1200px; padding: 0 22px 22px; border-top: 1px solid var(--border); }
+        .card-body.open { max-height: 1400px; padding: 0 22px 22px; border-top: 1px solid var(--border); }
         .card-body p, .card-body li { font-size: 0.875rem; line-height: 1.7; color: var(--text-secondary); }
         .card-body .mt-3 { margin-top: 12px; }
         .card-body .mt-4 { margin-top: 16px; }
@@ -616,9 +649,9 @@ export default function RiderAgreement() {
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Agreement</div>
+        <div className="hero-badge">🔒 Privacy Policy</div>
         <div className="hero-logo">Z</div>
-        <h1>Rider <em>Agreement</em></h1>
+        <h1>Rider <em>Privacy Policy</em></h1>
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>
           <span>🛵 Delivery Partner</span>
