@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/zipto_riders.png";
+import riderlogo from "../assets/ride_zipto.png";
 import Footer from "../components/layout/Footer";
 
 const sections = [
@@ -627,7 +627,7 @@ export default function RiderAgreement() {
   <div className="hero-badge">🛵 Rider onboarding Agreement</div>
 
   <div className="hero-logo">
-    <img src={logo} alt="Zipto Logo" />
+    <img src={riderlogo} alt="Zipto Logo" />
   </div>
 
   <h1>Rider Onboarding <em>Agreement</em></h1>
