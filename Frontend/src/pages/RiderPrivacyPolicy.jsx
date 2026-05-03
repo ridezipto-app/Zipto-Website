@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/zipto_Riders.png"; // adjust path if needed
+import logo from "../assets/zipto_riders.png"; // adjust path if needed
 const sections = [
   {
     id: "introduction",
