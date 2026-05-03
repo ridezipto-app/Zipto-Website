@@ -1,9 +1,12 @@
 import { Instagram, Linkedin, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import ziptoLogo from "../../assets/zipto_logo.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const quickLinks = [
     { name: "Our Delivery Vehicles", id: "Our Delivery Vehicles" },
     { name: "For Business",          id: "for-business"          },
@@ -12,149 +15,229 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy",        path: "/privacy-policy"       },
-    { name: "Terms & Conditions",    path: "/terms-of-service"     },
-    { name: "Rider Agreement",       path: "/rider-agreement"      },
-    { name: "Rider Privacy Policy",  path: "/rider-privacy-policy" },
-    { name: "Delete Account",        path: "/delete-account"       },
+    { name: "Privacy Policy",       path: "/privacy-policy"       },
+    { name: "Terms & Conditions",   path: "/terms-of-service"     },
+    { name: "Rider Agreement",      path: "/rider-agreement"      },
+    { name: "Rider Privacy Policy", path: "/rider-privacy-policy" },
+    { name: "Delete Account",       path: "/delete-account"       },
   ];
 
   const socials = [
-    { Icon: Instagram,  href: "https://www.instagram.com/ridezipto",             label: "Instagram" },
-    { Icon: FaXTwitter, href: "https://x.com/ridezipto",                         label: "X"         },
-    { Icon: Linkedin,   href: "https://www.linkedin.com/company/zipto-com/",     label: "LinkedIn"  },
+    { Icon: Instagram,  href: "https://www.instagram.com/ridezipto",         label: "Instagram" },
+    { Icon: FaXTwitter, href: "https://x.com/ridezipto",                     label: "X"         },
+    { Icon: Linkedin,   href: "https://www.linkedin.com/company/zipto-com/", label: "LinkedIn"  },
   ];
 
   const handleNavigation = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <footer style={s.footer}>
-      {/* top rule */}
-      <div style={s.topRule} />
+    <>
+      <style>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+          gap: 48px;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 64px 40px 56px;
+        }
 
-      <div style={s.inner}>
+        .footer-bottom-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 18px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
 
-        {/* ── Col 1: Brand ── */}
-        <div style={s.brandCol}>
-          <div style={s.logoWrap}>
-            <img src={ziptoLogo} alt="Zipto" style={s.logo} />
-            <span style={s.brandName}>Zipto</span>
+        .footer-legal-links {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 48px 28px 44px;
+          }
+          .footer-brand-col {
+            grid-column: 1 / -1;
+          }
+          .footer-bottom-inner {
+            padding: 16px 28px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 560px) {
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 36px;
+            padding: 40px 20px 36px;
+          }
+          .footer-brand-col {
+            grid-column: auto;
+          }
+          .footer-bottom-inner {
+            padding: 14px 20px;
+          }
+          .footer-legal-links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+          .footer-legal-sep {
+            display: none !important;
+          }
+        }
+      `}</style>
+
+      <footer style={s.footer}>
+        {/* top rule */}
+        <div style={s.topRule} />
+
+        <div className="footer-grid">
+
+          {/* ── Col 1: Brand ── */}
+          <div className="footer-brand-col" style={s.brandCol}>
+            <div style={s.logoWrap}>
+              <img src={ziptoLogo} alt="Zipto" style={s.logo} />
+              <span style={s.brandName}>Zipto</span>
+            </div>
+
+            <p style={s.tagline}>
+              Deliver anything, anytime —<br />
+              fast, reliable, and hassle-free<br />
+              across Odisha.
+            </p>
+
+            <div style={s.badge}>
+              <span style={s.badgeDot} />
+              Serving Bhubaneswar · Cuttack & beyond
+            </div>
+
+            <div style={s.socialRow}>
+              {socials.map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  aria-label={label} style={s.socialBtn}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.borderColor = "#93c5fd"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "#f9fafb"; e.currentTarget.style.borderColor = "#e5e7eb"; }}>
+                  <Icon size={16} style={{ color: "#374151" }} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <p style={s.tagline}>
-            Deliver anything, anytime —<br />
-            fast, reliable, and hassle-free<br />
-            across Odisha.
-          </p>
-
-          <div style={s.badge}>
-            <span style={s.badgeDot} />
-            Serving Bhubaneswar · Cuttack & beyond
+          {/* ── Col 2: Quick Links ── */}
+          <div>
+            <p style={s.colLabel}>Quick links</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+              {quickLinks.map(({ name, id }) => (
+                <li key={id}>
+                  <button onClick={() => handleNavigation(id)} style={s.linkBtn}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#1d4ed8"; e.currentTarget.style.paddingLeft = "6px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "#4b5563"; e.currentTarget.style.paddingLeft = "0px"; }}>
+                    <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.5 }} />
+                    {name}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div style={s.socialRow}>
-            {socials.map(({ Icon, href, label }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                aria-label={label} style={s.socialBtn}
+          {/* ── Col 3: Contact ── */}
+          <div>
+            <p style={s.colLabel}>Contact us</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
+              <li style={s.contactItem}>
+                <div style={s.contactIcon}><MapPin size={14} style={{ color: "#1d4ed8" }} /></div>
+                <span style={s.contactText}>Bhubaneswar, Odisha</span>
+              </li>
+              <li style={s.contactItem}>
+                <div style={s.contactIcon}><Phone size={14} style={{ color: "#1d4ed8" }} /></div>
+                <div>
+                  <span style={s.contactText}>+91 9090029996</span>
+                  <span style={s.availBadge}>24×7 available</span>
+                </div>
+              </li>
+              <li style={s.contactItem}>
+                <div style={s.contactIcon}><Mail size={14} style={{ color: "#1d4ed8" }} /></div>
+                <a href="mailto:support@ridezipto.com" style={{ ...s.contactText, color: "#1d4ed8", textDecoration: "none" }}>
+                  support@ridezipto.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* ── Col 4: Download CTA ── */}
+          <div>
+            <p style={s.colLabel}>Get the app</p>
+            <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6, marginBottom: 16 }}>
+              Our app is launching soon across iOS and Android. Be the first to know.
+            </p>
+            {[
+              { label: "App Store",   sub: "iOS",     Icon: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.3.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
+              { label: "Google Play", sub: "Android", Icon: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.98.14l11.81-6.82-2.5-2.5-10.29 9.18zm-1.41-20.7C1.47 3.4 1.5 3.7 1.5 4v16c0 .3.03.6.27.94l.08.08 8.96-8.96v-.2L1.77 3.06zm17.63 8.6L16.9 9.34l-2.77 2.77 2.77 2.77 2.52-1.45c.72-.41.72-1.08-.02-1.77zm-16.21 9.64L14.4 12l-2.5-2.5L1.35 19.82c.35.38.9.43 1.84.48z"/></svg> },
+            ].map(({ label, sub, Icon }) => (
+              <div key={label} style={s.storeBtn}
                 onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.borderColor = "#93c5fd"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#f9fafb"; e.currentTarget.style.borderColor = "#e5e7eb"; }}>
-                <Icon size={16} style={{ color: "#374151" }} />
-              </a>
+                <span style={{ color: "#1d4ed8" }}><Icon /></span>
+                <div style={{ lineHeight: 1.25 }}>
+                  <div style={{ fontSize: 10, color: "#9ca3af" }}>{sub}</div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{label}</div>
+                </div>
+                <span style={{ marginLeft: "auto", fontSize: 10, background: "#dbeafe", color: "#1d4ed8", padding: "2px 8px", borderRadius: 100, fontWeight: 500 }}>Soon</span>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* ── Col 2: Quick Links ── */}
-        <div>
-          <p style={s.colLabel}>Quick links</p>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 2 }}>
-            {quickLinks.map(({ name, id }) => (
-              <li key={id}>
-                <button onClick={() => handleNavigation(id)} style={s.linkBtn}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#1d4ed8"; e.currentTarget.style.paddingLeft = "6px"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "#4b5563"; e.currentTarget.style.paddingLeft = "0px"; }}>
-                  <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.5 }} />
-                  {name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* ── Col 3: Contact ── */}
-        <div>
-          <p style={s.colLabel}>Contact us</p>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
-            <li style={s.contactItem}>
-              <div style={s.contactIcon}><MapPin size={14} style={{ color: "#1d4ed8" }} /></div>
-              <span style={s.contactText}>Bhubaneswar, Odisha</span>
-            </li>
-            <li style={s.contactItem}>
-              <div style={s.contactIcon}><Phone size={14} style={{ color: "#1d4ed8" }} /></div>
-              <div>
-                <span style={s.contactText}>+91 9090029996</span>
-                <span style={s.availBadge}>24×7 available</span>
-              </div>
-            </li>
-            <li style={s.contactItem}>
-              <div style={s.contactIcon}><Mail size={14} style={{ color: "#1d4ed8" }} /></div>
-              <a href="mailto:support@ridezipto.com" style={{ ...s.contactText, color: "#1d4ed8", textDecoration: "none" }}>
-                support@ridezipto.com
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* ── Col 4: Download CTA ── */}
-        <div>
-          <p style={s.colLabel}>Get the app</p>
-          <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6, marginBottom: 16 }}>
-            Our app is launching soon across iOS and Android. Be the first to know.
-          </p>
-          {[
-            { label: "App Store",    sub: "iOS",     Icon: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.3.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
-            { label: "Google Play",  sub: "Android", Icon: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.98.14l11.81-6.82-2.5-2.5-10.29 9.18zm-1.41-20.7C1.47 3.4 1.5 3.7 1.5 4v16c0 .3.03.6.27.94l.08.08 8.96-8.96v-.2L1.77 3.06zm17.63 8.6L16.9 9.34l-2.77 2.77 2.77 2.77 2.52-1.45c.72-.41.72-1.08-.02-1.77zm-16.21 9.64L14.4 12l-2.5-2.5L1.35 19.82c.35.38.9.43 1.84.48z"/></svg> },
-          ].map(({ label, sub, Icon }) => (
-            <div key={label} style={s.storeBtn}
-              onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.borderColor = "#93c5fd"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "#f9fafb"; e.currentTarget.style.borderColor = "#e5e7eb"; }}>
-              <span style={{ color: "#1d4ed8" }}><Icon /></span>
-              <div style={{ lineHeight: 1.25 }}>
-                <div style={{ fontSize: 10, color: "#9ca3af" }}>{sub}</div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{label}</div>
-              </div>
-              <span style={{ marginLeft: "auto", fontSize: 10, background: "#dbeafe", color: "#1d4ed8", padding: "2px 8px", borderRadius: 100, fontWeight: 500 }}>Soon</span>
+        {/* ── Bottom bar ── */}
+        <div style={s.bottomBar}>
+          <div className="footer-bottom-inner">
+            <p style={s.copyright}>
+              © {new Date().getFullYear()} Zipto Hyperlogistics Pvt. Ltd. · Made with care in Bhubaneswar
+            </p>
+            <div className="footer-legal-links">
+              {legalLinks.map(({ name, path }, i) => (
+                <span key={path} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                  {i > 0 && <span className="footer-legal-sep" style={{ color: "#d1d5db" }}>·</span>}
+                  <Link
+                    to={path}
+                    style={name === "Delete Account" ? s.legalLinkDelete : s.legalLink}
+                    onMouseEnter={e => e.currentTarget.style.color = name === "Delete Account" ? "#dc2626" : "#1d4ed8"}
+                    onMouseLeave={e => e.currentTarget.style.color = name === "Delete Account" ? "#f87171" : "#9ca3af"}>
+                    {name}
+                  </Link>
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Bottom bar ── */}
-      <div style={s.bottomBar}>
-        <div style={s.bottomInner}>
-          <p style={s.copyright}>
-            © {new Date().getFullYear()} Zipto Hyperlogistics Pvt. Ltd. · Made with care in Bhubaneswar
-          </p>
-          <div style={s.legalLinks}>
-            {legalLinks.map(({ name, path }, i) => (
-              <span key={path} style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                {i > 0 && <span style={{ color: "#d1d5db" }}>·</span>}
-                <Link
-                  to={path}
-                  style={name === "Delete Account" ? s.legalLinkDelete : s.legalLink}
-                  onMouseEnter={e => e.currentTarget.style.color = name === "Delete Account" ? "#dc2626" : "#1d4ed8"}
-                  onMouseLeave={e => e.currentTarget.style.color = name === "Delete Account" ? "#f87171" : "#9ca3af"}>
-                  {name}
-                </Link>
-              </span>
-            ))}
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
 
@@ -167,14 +250,6 @@ const s = {
   topRule: {
     height: 3,
     background: "linear-gradient(90deg, #1d4ed8 0%, #3b82f6 50%, #93c5fd 100%)",
-  },
-  inner: {
-    maxWidth: 1200,
-    margin: "0 auto",
-    padding: "64px 40px 56px",
-    display: "grid",
-    gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr",
-    gap: 48,
   },
 
   /* Brand col */
@@ -242,12 +317,7 @@ const s = {
     borderTop: "0.5px solid #f3f4f6",
     background: "#fafafa",
   },
-  bottomInner: {
-    maxWidth: 1200, margin: "0 auto", padding: "18px 40px",
-    display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
-  },
   copyright: { fontSize: 12, color: "#9ca3af" },
-  legalLinks: { display: "flex", alignItems: "center", gap: 0 },
   legalLink: { fontSize: 12, color: "#9ca3af", textDecoration: "none", transition: "color 0.15s" },
   legalLinkDelete: { fontSize: 12, color: "#f87171", textDecoration: "none", transition: "color 0.15s" },
 };
