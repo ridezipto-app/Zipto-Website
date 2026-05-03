@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../components/layout/Footer"; // adjust path if needed
 // Replace with your actual logo import:
 import logo from "../assets/zipto.png";
 
@@ -633,11 +633,9 @@ export default function PrivacyPolicy() {
           );
         })}
 
-        <div className="policy-footer">
-          <p>© 2026 <span className="brand">Zipto Hyperlogistics Pvt. Ltd.</span> · All rights reserved.</p>
-          <p style={{ marginTop: "6px" }}>Bhubaneswar, Odisha, India · support@ridezipto.com</p>
-        </div>
+
       </div>
+      <Footer/>
     </>
   );
 }
