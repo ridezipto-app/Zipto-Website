@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/zipto_riders.png"; // adjust path if needed
+import riderlogo from "../assets/ride_zipto.png"; // adjust path if needed
 import Footer from "../components/layout/Footer";
 const sections = [
   {
@@ -665,7 +665,7 @@ export default function RiderPrivacyPolicy() {
   <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
 
   <div className="hero-logo">
-    <img src={logo} alt="Zipto Logo" />
+    <img src={riderlogo} alt="Zipto Logo" />
   </div>
 
   <h1>Rider Onboarding <em>Privacy Policy</em></h1>
