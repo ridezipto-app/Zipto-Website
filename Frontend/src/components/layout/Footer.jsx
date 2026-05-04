@@ -19,6 +19,7 @@ export default function Footer() {
     { name: "Terms & Conditions",   path: "/terms-of-service"     },
     { name: "Rider Agreement",      path: "/rider-agreement"      },
     { name: "Rider Privacy Policy", path: "/rider-privacy-policy" },
+    { name: "Rider Terms & Conditions", path: "/rider-terms-of-service" },
     { name: "Delete Account",       path: "/delete-account"       },
   ];
 

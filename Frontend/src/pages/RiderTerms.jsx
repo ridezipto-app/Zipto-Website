@@ -10,25 +10,17 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to <strong>Zipto Rider Platform</strong> — powering fast, reliable intra-city delivery.</p>
-        <p className="mt-3">This Rider Agreement ("Agreement") is entered into between:</p>
-        <div className="two-col mt-4">
-          <div className="col-block yes-block">
-            <h4>Company</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              Zipto Hyperlogistics Pvt. Ltd.<br />
-              ("Company", "Zipto", "We")
-            </p>
-          </div>
-          <div className="col-block yes-block">
-            <h4>Rider</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              You ("Rider", "Delivery Partner")
-            </p>
-          </div>
+        <p>Welcome to <strong>Zipto Rider Platform</strong> — a network of independent delivery partners powering intra-city logistics.</p>
+        <p className="mt-3">These Terms &amp; Conditions ("Terms") govern your use of the Zipto Rider Application and related services operated by:</p>
+        <div className="col-block yes-block mt-4">
+          <h4>Platform Operator</h4>
+          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+            Zipto Hyperlogistics Private Limited<br />
+            ("Zipto", "we", "our", "us")
+          </p>
         </div>
         <div className="notice-pill mt-4">
-          ✅ By registering or using the Zipto platform, you agree to this Agreement.
+          ✅ By registering or using the platform, you agree to these Terms.
         </div>
       </>
     ),
@@ -39,143 +31,97 @@ const sections = [
     number: "02",
     content: (
       <>
-        <p>Zipto is a technology-enabled logistics platform that connects users with delivery partners.</p>
-        <div className="sub-block mt-4">
-          <h4>What Zipto Does</h4>
-          <ul className="dot-list mt-2">
-            <li>Facilitates pickup &amp; delivery</li>
-          </ul>
-        </div>
-        <div className="sub-block no-block mt-3">
-          <h4>What Zipto Does NOT Do</h4>
-          <ul className="dot-list mt-2">
-            <li>Zipto does NOT own goods</li>
-            <li>Zipto does NOT act as a seller</li>
-          </ul>
+        <p>Zipto is a technology-enabled logistics platform that connects customers with delivery partners.</p>
+        <div className="two-col mt-4">
+          <div className="col-block yes-block">
+            <h4>Zipto Does</h4>
+            <ul className="dot-list mt-2">
+              <li>Facilitates order allocation</li>
+              <li>Coordinates logistics</li>
+            </ul>
+          </div>
+          <div className="col-block no-block">
+            <h4>Zipto Does NOT</h4>
+            <ul className="dot-list mt-2">
+              <li>Sell products</li>
+              <li>Act as a seller</li>
+              <li>Employ riders as full-time staff</li>
+              <li>Own goods being transported</li>
+            </ul>
+          </div>
         </div>
       </>
     ),
   },
   {
     id: "status",
-    title: "Independent Contractor Status",
+    title: "Rider Status (Important)",
     number: "03",
     content: (
       <>
-        <p>By joining Zipto, you operate as an <strong>independent delivery partner</strong>. This Agreement does NOT create:</p>
+        <p>By joining Zipto:</p>
         <ul className="dot-list mt-3">
-          <li>Employment</li>
-          <li>Partnership</li>
-          <li>Agency relationship</li>
+          <li>You act as an <strong>independent delivery partner</strong></li>
+          <li>This is <strong>not</strong> an employment relationship</li>
+          <li>You control your own working hours</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ You are not entitled to salary, PF/ESI, insurance, or employee benefits.
+          ⚠️ No salary, PF/ESI, insurance, or employee benefits are provided.
         </div>
       </>
     ),
   },
   {
     id: "eligibility",
-    title: "Eligibility & Onboarding",
+    title: "Eligibility",
     number: "04",
     content: (
       <>
-        <p>To join Zipto, you must be at least <strong>18 years old</strong> and hold a valid driving license. You must provide:</p>
+        <p>To become a Zipto rider, you must:</p>
         <div className="service-grid mt-3">
-          <div className="service-chip">🪪 Driving License</div>
-          <div className="service-chip">🚗 Vehicle RC</div>
-          <div className="service-chip">📄 Identity Proof</div>
-          <div className="service-chip">🏦 Bank Details</div>
+          <div className="service-chip">🎂 At least 18 years old</div>
+          <div className="service-chip">🪪 Valid Driving License</div>
+          <div className="service-chip">🚗 Valid Vehicle Access</div>
+          <div className="service-chip">📄 Accurate KYC Documents</div>
         </div>
-        <p className="mt-3 text-muted">
-          Zipto reserves the right to approve or reject applications at its sole discretion.
-        </p>
       </>
     ),
   },
   {
-    id: "role",
-    title: "Role & Services",
+    id: "services",
+    title: "Services",
     number: "05",
     content: (
       <>
-        <p>You agree to perform pickup and delivery services, including:</p>
+        <p>Riders perform pickup and delivery of:</p>
         <div className="service-grid mt-3">
-          <div className="service-chip">🍔 Restaurants</div>
-          <div className="service-chip">💊 Pharmacies</div>
+          <div className="service-chip">🍔 Food & Restaurant Items</div>
+          <div className="service-chip">💊 Medicines & Pharmacy</div>
           <div className="service-chip">📦 Parcels & Packages</div>
           <div className="service-chip">🚚 Goods & Bulk Items</div>
         </div>
         <div className="notice-pill mt-4">
-          📍 Delivery flow: Pickup → Transport → Drop
+          📍 Delivery model: Pickup → Transport → Drop
         </div>
       </>
     ),
   },
   {
-    id: "flexibility",
-    title: "Work Flexibility",
+    id: "otp",
+    title: "OTP & Verification",
     number: "06",
     content: (
       <>
-        <ul className="dot-list">
-          <li>You choose your own working hours</li>
-          <li>You may accept or reject orders freely</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Your performance impacts order allocation, platform visibility, and account status.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "earnings",
-    title: "Earnings & Payouts",
-    number: "07",
-    content: (
-      <>
-        <div className="two-col mt-3">
-          <div className="col-block yes-block">
-            <h4>Earnings Include</h4>
-            <ul className="dot-list">
-              <li>Base fare</li>
-              <li>Distance-based charges</li>
-              <li>Incentives / bonuses</li>
-            </ul>
-          </div>
-          <div className="col-block no-block">
-            <h4>Deductions May Include</h4>
-            <ul className="dot-list">
-              <li>Platform fees</li>
-              <li>Penalties</li>
-              <li>Cancellation charges</li>
-            </ul>
-          </div>
-        </div>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Earnings are dynamic and not guaranteed. Income depends on demand, location, and performance.
-        </div>
-        <div className="notice-pill mt-3">
-          💳 Payouts are processed periodically to your registered bank account.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "performance",
-    title: "Performance Standards",
-    number: "08",
-    content: (
-      <>
-        <p>Zipto may monitor:</p>
+        <p>Zipto uses OTP-based verification for security:</p>
         <ul className="dot-list mt-3">
-          <li>Acceptance rate</li>
-          <li>Cancellation rate</li>
-          <li>Delivery completion</li>
-          <li>Customer ratings</li>
+          <li>OTP may be sent via email or mobile for login</li>
+          <li>Pickup and delivery OTP must be verified before order completion</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Poor performance may result in reduced orders, temporary suspension, or permanent deactivation.
+        <div className="sub-block no-block mt-4">
+          <h4>Rider Obligation</h4>
+          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+            You must not share OTP with any unauthorized person. Zipto is not responsible for misuse due to rider negligence.
+          </p>
         </div>
       </>
     ),
@@ -183,187 +129,199 @@ const sections = [
   {
     id: "responsibilities",
     title: "Rider Responsibilities",
-    number: "09",
+    number: "07",
     content: (
       <>
-        <p>You agree to:</p>
+        <p>Riders agree to:</p>
         <ul className="dot-list mt-3">
-          <li>Follow all traffic laws</li>
+          <li>Follow traffic laws and regulations</li>
           <li>Maintain professional conduct</li>
-          <li>Ensure safe handling of items</li>
-          <li>Verify delivery details</li>
-          <li>Complete deliveries on time</li>
+          <li>Ensure safe and timely delivery</li>
+          <li>Verify pickup and drop details</li>
+          <li>Handle items with care</li>
         </ul>
         <div className="sub-block no-block mt-4">
           <h4>Strictly Prohibited</h4>
           <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            You must NOT open, tamper, or misuse any package under any circumstances.
+            Riders must NOT open, tamper, or misuse any item under any circumstances.
           </p>
         </div>
       </>
     ),
   },
   {
-    id: "penalties",
-    title: "Penalties & Platform Discipline",
+    id: "cancellation",
+    title: "Order Acceptance & Cancellation",
+    number: "08",
+    content: (
+      <>
+        <ul className="dot-list">
+          <li>Riders should accept orders responsibly</li>
+          <li>Frequent cancellations may affect account performance</li>
+          <li>Cancellation after pickup is strictly prohibited</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Zipto may apply penalties for misuse of the order system.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "earnings",
+    title: "Earnings & Payouts",
+    number: "09",
+    content: (
+      <>
+        <div className="two-col mt-3">
+          <div className="col-block yes-block">
+            <h4>Earnings Include</h4>
+            <ul className="dot-list">
+              <li>Base delivery fare</li>
+              <li>Distance-based charges</li>
+              <li>Incentives and bonuses</li>
+            </ul>
+          </div>
+          <div className="col-block no-block">
+            <h4>Deductions May Include</h4>
+            <ul className="dot-list">
+              <li>Platform fees</li>
+              <li>Penalties or deductions</li>
+            </ul>
+          </div>
+        </div>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Earnings are dynamic and not guaranteed.
+        </div>
+        <div className="notice-pill mt-3">
+          💳 Payouts processed periodically as per platform policy.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "cod",
+    title: "Payment Responsibility (COD)",
     number: "10",
     content: (
       <>
-        <p>To maintain service quality, Zipto may impose the following penalties:</p>
-
+        <p>Riders are responsible for handling <strong>Cash on Delivery (COD)</strong> amounts correctly. Any discrepancy, delay, or misuse may result in:</p>
         <div className="penalty-table mt-4">
           <div className="penalty-row">
             <div className="penalty-icon warn">⚠️</div>
             <div className="penalty-info">
-              <div className="penalty-title">Order Cancellation (after accept)</div>
-              <div className="penalty-desc">Repeated cancellations may lead to suspension</div>
+              <div className="penalty-title">Discrepancy / Delay</div>
+              <div className="penalty-desc">COD amount mismatch or delayed submission</div>
             </div>
-            <div className="penalty-badge warn">Suspension Risk</div>
+            <div className="penalty-badge warn">Penalties</div>
           </div>
-
           <div className="penalty-row">
-            <div className="penalty-icon red">📦</div>
+            <div className="penalty-icon red">💸</div>
             <div className="penalty-info">
-              <div className="penalty-title">Mishandling / Damage (negligence)</div>
-              <div className="penalty-desc">Severe cases may result in deactivation</div>
+              <div className="penalty-title">Recovery from Earnings</div>
+              <div className="penalty-desc">Amount deducted from pending payouts</div>
             </div>
-            <div className="penalty-badge red">₹100 – ₹500</div>
+            <div className="penalty-badge red">Deduction</div>
           </div>
-
           <div className="penalty-row">
             <div className="penalty-icon red">🚫</div>
             <div className="penalty-info">
-              <div className="penalty-title">Fraud / Fake Delivery</div>
-              <div className="penalty-desc">Earnings hold + legal action</div>
+              <div className="penalty-title">COD Misuse</div>
+              <div className="penalty-desc">Fraudulent handling of cash amounts</div>
             </div>
-            <div className="penalty-badge red">Immediate Termination</div>
+            <div className="penalty-badge red">Account Suspension</div>
           </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">📱</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Platform Misuse</div>
-              <div className="penalty-desc">Data misuse or app manipulation</div>
-            </div>
-            <div className="penalty-badge red">Permanent Ban</div>
-          </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">🚔</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Illegal Deliveries</div>
-              <div className="penalty-desc">Immediate deactivation</div>
-            </div>
-            <div className="penalty-badge red">Legal Action</div>
-          </div>
-        </div>
-
-        <div className="notice-pill notice-warn mt-4">
-          ⚖️ Zipto reserves the right to adjust penalties based on severity.
         </div>
       </>
     ),
   },
   {
-    id: "safety",
-    title: "Safety & Compliance",
+    id: "performance",
+    title: "Performance & Ratings",
     number: "11",
     content: (
       <>
-        <p>You are solely responsible for:</p>
+        <p>Zipto may monitor:</p>
         <ul className="dot-list mt-3">
-          <li>Vehicle condition &amp; maintenance</li>
-          <li>Valid documents &amp; insurance</li>
-          <li>Personal safety during deliveries</li>
-          <li>Legal compliance</li>
+          <li>Order acceptance rate</li>
+          <li>Cancellation rate</li>
+          <li>Customer ratings</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Zipto is NOT liable for accidents, injuries, or violations.
+          ⚠️ Poor performance may lead to reduced order allocation, temporary suspension, or permanent deactivation.
         </div>
       </>
     ),
   },
   {
-    id: "insurance",
-    title: "Insurance",
+    id: "prohibited",
+    title: "Prohibited Conduct",
     number: "12",
     content: (
       <>
-        <p>Zipto does <strong>not</strong> provide insurance unless explicitly stated.</p>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Riders must manage their own vehicle insurance and personal coverage.
+        <p>Riders must <strong>not</strong>:</p>
+        <ul className="dot-list mt-3">
+          <li>Engage in fraud or fake deliveries</li>
+          <li>Misuse customer data</li>
+          <li>Deliver illegal or restricted items</li>
+          <li>Behave abusively or unprofessionally</li>
+          <li>Delay or cancel orders intentionally</li>
+        </ul>
+        <div className="sub-block no-block mt-4">
+          <h4>Consequences</h4>
+          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+            Violations may lead to immediate deactivation and legal action.
+          </p>
         </div>
       </>
     ),
   },
   {
-    id: "equipment",
-    title: "Equipment & Expenses",
+    id: "vehicle",
+    title: "Vehicle & Safety Responsibility",
     number: "13",
     content: (
       <>
-        <p>You are responsible for providing and maintaining:</p>
-        <div className="service-grid mt-3">
-          <div className="service-chip">🚗 Vehicle</div>
-          <div className="service-chip">⛽ Fuel</div>
-          <div className="service-chip">📱 Mobile Device</div>
-          <div className="service-chip">📶 Internet</div>
+        <p>Riders are solely responsible for:</p>
+        <ul className="dot-list mt-3">
+          <li>Vehicle condition and maintenance</li>
+          <li>Valid insurance and documentation</li>
+          <li>Personal safety during deliveries</li>
+        </ul>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Zipto does not provide vehicle ownership or employment benefits.
         </div>
-        <p className="mt-3 text-muted">
-          Zipto does not reimburse operational costs unless specifically agreed upon.
-        </p>
       </>
     ),
   },
   {
-    id: "termination",
-    title: "Account Suspension & Termination",
+    id: "location",
+    title: "Location Requirement",
     number: "14",
     content: (
       <>
-        <p>Zipto may suspend or terminate your account for:</p>
+        <p>Riders must keep <strong>GPS and location services enabled</strong> while using the app. Disabling location may result in:</p>
         <ul className="dot-list mt-3">
-          <li>Fraud or misconduct</li>
-          <li>Policy violations</li>
-          <li>Poor performance</li>
-          <li>Legal non-compliance</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Severe violations may result in immediate termination without prior notice.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "privacy",
-    title: "Data & Privacy",
-    number: "15",
-    content: (
-      <>
-        <p>Your data is handled as per the Zipto Rider Privacy Policy. By using the app, you consent to:</p>
-        <ul className="dot-list mt-3">
-          <li>Data collection</li>
-          <li>Location tracking (including background GPS)</li>
+          <li>Reduced order allocation</li>
+          <li>Restricted platform access</li>
         </ul>
         <div className="notice-pill mt-4">
-          📍 Location data is used solely to facilitate deliveries and improve platform performance.
+          📍 Location data is used solely to facilitate efficient order allocation and delivery.
         </div>
       </>
     ),
   },
   {
     id: "liability",
-    title: "Limitation of Liability",
-    number: "16",
+    title: "Liability Limitation",
+    number: "15",
     content: (
       <>
-        <p>To the maximum extent permitted by law, Zipto shall not be liable for:</p>
+        <p>Zipto shall not be responsible for:</p>
         <ul className="dot-list mt-3">
-          <li>Loss of income</li>
-          <li>Accidents or injuries</li>
-          <li>Customer disputes</li>
-          <li>Third-party issues</li>
-          <li>App downtime</li>
+          <li>Rider negligence</li>
+          <li>Accidents during delivery</li>
+          <li>Legal violations by the rider</li>
+          <li>Product-related issues</li>
         </ul>
         <div className="notice-pill mt-4">
           📍 Zipto's role is limited to platform facilitation only.
@@ -372,38 +330,73 @@ const sections = [
     ),
   },
   {
-    id: "indemnification",
-    title: "Indemnification",
+    id: "fraud",
+    title: "Fraud & Misuse",
+    number: "16",
+    content: (
+      <>
+        <p>Zipto reserves the right to take the following actions in case of fraud, misuse, or policy violations:</p>
+        <div className="penalty-table mt-4">
+          <div className="penalty-row">
+            <div className="penalty-icon warn">⚠️</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Policy Violations</div>
+              <div className="penalty-desc">Breach of platform rules or guidelines</div>
+            </div>
+            <div className="penalty-badge warn">Account Suspension</div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon red">🚫</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Fraud or Misuse</div>
+              <div className="penalty-desc">Deliberate fraudulent activity on platform</div>
+            </div>
+            <div className="penalty-badge red">Termination + Legal Action</div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "thirdparty",
+    title: "Third-Party Services",
     number: "17",
     content: (
       <>
-        <p>You agree to indemnify and hold harmless Zipto against:</p>
-        <ul className="dot-list mt-3">
-          <li>Claims</li>
-          <li>Damages</li>
-          <li>Legal costs</li>
-        </ul>
-        <p className="mt-3 text-muted">
-          arising from your negligence, violations of this Agreement, or illegal activities.
-        </p>
+        <p>Zipto may use third-party services including maps, payment gateways, and communication tools.</p>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Zipto is not responsible for failures, downtime, or issues caused by third-party services.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "privacy",
+    title: "Privacy",
+    number: "18",
+    content: (
+      <>
+        <p>Rider data is handled as per the <strong>Zipto Rider Privacy Policy</strong>. By using the platform, you consent to data collection including location tracking.</p>
+        <div className="notice-pill mt-4">
+          📍 Your data is used solely to facilitate platform operations and improve services.
+        </div>
       </>
     ),
   },
   {
     id: "force",
     title: "Force Majeure",
-    number: "18",
+    number: "19",
     content: (
       <p>
-        Zipto is not liable for delays or failures caused by natural disasters,
-        government restrictions, network failures, or any other events beyond its reasonable control.
+        Zipto is not liable for delays or service interruptions caused by events beyond its reasonable control, including natural disasters, government restrictions, or network failures.
       </p>
     ),
   },
   {
     id: "law",
-    title: "Governing Law & Jurisdiction",
-    number: "19",
+    title: "Governing Law",
+    number: "20",
     content: (
       <ul className="info-list">
         <li><span className="label">Governing Law</span><span>Laws of India</span></li>
@@ -412,20 +405,20 @@ const sections = [
     ),
   },
   {
-    id: "modifications",
-    title: "Changes to Agreement",
-    number: "20",
+    id: "changes",
+    title: "Changes to Terms",
+    number: "21",
     content: (
       <p>
-        Zipto may update this Agreement at any time. Continued use of the platform
-        after changes constitutes your acceptance of the revised terms.
+        Zipto may update these Terms at any time. Continued use of the platform after changes
+        constitutes your acceptance of the revised Terms.
       </p>
     ),
   },
   {
     id: "contact",
     title: "Contact & Support",
-    number: "21",
+    number: "22",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
@@ -442,6 +435,22 @@ const sections = [
             <span>Bhubaneswar, Odisha, India</span>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    id: "grievance",
+    title: "Grievance Officer",
+    number: "23",
+    content: (
+      <div className="contact-grid">
+        <div className="contact-card">
+          <div className="icon">👤</div>
+          <div>
+            <div className="c-label">Grievance Officer</div>
+            <span>Zipto Support Team</span>
+          </div>
+        </div>
         <div className="contact-card">
           <div className="icon">⏱</div>
           <div>
@@ -455,21 +464,21 @@ const sections = [
   {
     id: "acceptance",
     title: "Acceptance",
-    number: "22",
+    number: "24",
     content: (
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By registering on the Zipto Rider platform, you confirm that you have{" "}
-          <strong>read, understood, and voluntarily agreed</strong> to all terms in this
-          Agreement and that you are joining as an independent delivery partner.
+          By using the Zipto Rider Platform, you confirm that you have{" "}
+          <strong>read, understood, and agreed</strong> to these Terms &amp; Conditions
+          in their entirety.
         </p>
       </div>
     ),
   },
 ];
 
-export default function RiderAgreement() {
+export default function RiderTerms() {
   const navigate = useNavigate();
   const [openSections, setOpenSections] = useState(new Set());
   const [scrolled, setScrolled] = useState(false);
@@ -673,7 +682,6 @@ export default function RiderAgreement() {
           display: flex; align-items: center; gap: 8px;
         }
 
-        /* Penalty Table */
         .penalty-table { display: flex; flex-direction: column; gap: 10px; }
         .penalty-row {
           display: flex; align-items: center; gap: 14px;
@@ -721,13 +729,6 @@ export default function RiderAgreement() {
         .acceptance-box p { font-size: 0.875rem; color: var(--blue-900); line-height: 1.7; }
 
         .text-muted { color: var(--text-muted) !important; font-style: italic; font-size: 0.82rem; }
-
-        .policy-footer {
-          text-align: center; padding: 32px 20px;
-          border-top: 1px solid var(--border); margin-top: 20px;
-        }
-        .policy-footer p { font-size: 0.78rem; color: var(--text-muted); }
-        .policy-footer .brand { font-weight: 700; color: var(--blue-600); }
       `}</style>
 
       {/* TOP BAR */}
@@ -739,11 +740,11 @@ export default function RiderAgreement() {
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Onboarding Agreement</div>
+        <div className="hero-badge">🛵 Rider Terms & Conditions</div>
         <div className="hero-logo">
           <img src={riderlogo} alt="Zipto Logo" />
         </div>
-        <h1>Rider Onboarding <em>Agreement</em></h1>
+        <h1>Rider Terms &amp; <em>Conditions</em></h1>
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>
           <span>🛵 Delivery Partner</span>
