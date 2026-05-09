@@ -18,7 +18,6 @@ export default function AppRoutes() {
       <Route path="/rider-agreement" element={<RiderAgreement />} />
       <Route path="/rider-privacy-policy" element={<RiderPrivacyPolicy />} />
       <Route path="/rider-terms-of-service" element={<RiderTerms/>} />
-
       <Route path="/delete-account" element={<DeleteAccount />} />
     </Routes>
   );

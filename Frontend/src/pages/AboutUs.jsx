@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
 import ziptoLogo from "../assets/zipto_logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
-import Navbar from "../components/layout/Navbar";
+import { motion } from "framer-motion";
 
 import bikeImg   from "../assets/bike.png";
 import scootyImg from "../assets/scooty.png";
@@ -10,28 +9,29 @@ import autoImg   from "../assets/auto.png";
 import carImg    from "../assets/car.png";
 import truckImg  from "../assets/truck.png";
 
-/* ─── Google Fonts — add to your index.html ────────────────────────────────
-   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-   ────────────────────────────────────────────────────────────────────────── */
+/* ─── Google Fonts — add to your index.html ─────────────────────────────────
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap" rel="stylesheet" />
+   ──────────────────────────────────────────────────────────────────────────── */
 
-const SERIF = "'Playfair Display', Georgia, serif";
+/* ── Design tokens (matching ForBusinessSection) ── */
+const SERIF = "'Fraunces', Georgia, serif";
 const SANS  = "'Plus Jakarta Sans', system-ui, sans-serif";
 
-/* ── Blue token palette ── */
-const BLUE_50  = "#E6F1FB";
-const BLUE_100 = "#B5D4F4";
-const BLUE_200 = "#85B7EB";
-const BLUE_400 = "#378ADD";
-const BLUE_600 = "#185FA5";
-const BLUE_800 = "#0C447C";
-const BLUE_900 = "#042C53";
+const BLUE_50  = "#EFF6FF";
+const BLUE_100 = "#BFDBFE";
+const BLUE_200 = "#93C5FD";
+const BLUE_400 = "#2563EB";
+const BLUE_600 = "#1D4ED8";
+const BLUE_800 = "#1e3a8a";
+const BLUE_900 = "#1e3a6e";
 
-const INK     = "#0d1822";
-const MUTED   = "#4b5c6b";
-const HINT    = "#8fa3b4";
-const BG      = "#f4f8fd";
-const SURFACE = "#ffffff";
-const BORDER  = "rgba(24,95,165,0.10)";
+const INK     = "#0F172A";
+const MUTED   = "#64748B";
+const HINT    = "#94A3B8";
+const BG      = "#F8FAFD";
+const SURFACE = "#FFFFFF";
+const BORDER  = "#E9EEF5";
+const BORDER_STRONG = "#E2E8F0";
 
 /* ── Data ── */
 const deliveries = [
@@ -77,29 +77,35 @@ const contactInfo = [
   { label: "Address", value: "Bhubaneswar, Odisha",    highlight: false },
 ];
 
+/* ── Shared styles ── */
+const dotGridStyle = {
+  backgroundImage: "radial-gradient(circle, #CBD5E1 1px, transparent 1px)",
+  backgroundSize: "28px 28px",
+};
+
 /* ── Primitives ── */
 
-function ThinRule() {
-  return <div style={{ height: "0.5px", background: BORDER }} />;
-}
-
-function Label({ children, color = BLUE_400 }) {
+function EyebrowPill({ children, color = BLUE_400, bg = BLUE_50, border = BLUE_100 }) {
   return (
-    <p style={{
-      fontFamily: SANS, fontSize: 10.5, fontWeight: 600,
-      letterSpacing: "0.14em", textTransform: "uppercase",
-      color, marginBottom: 10,
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 6,
+      fontSize: 11, fontWeight: 700, letterSpacing: "0.14em",
+      textTransform: "uppercase", color,
+      background: bg, border: `1.5px solid ${border}`,
+      padding: "5px 14px", borderRadius: 99,
+      fontFamily: SANS, marginBottom: 20,
     }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: color, display: "inline-block" }} />
       {children}
-    </p>
+    </span>
   );
 }
 
-function SectionTitle({ children, size = 34 }) {
+function SectionHeading({ children, size = "clamp(1.6rem, 2.8vw, 2.2rem)" }) {
   return (
     <h2 style={{
-      fontFamily: SERIF, fontSize: size, fontWeight: 400,
-      lineHeight: 1.15, letterSpacing: "-0.01em",
+      fontFamily: SERIF, fontSize: size, fontWeight: 900,
+      lineHeight: 1.1, letterSpacing: "-0.02em",
       color: INK, marginBottom: 16,
     }}>
       {children}
@@ -107,50 +113,77 @@ function SectionTitle({ children, size = 34 }) {
   );
 }
 
-function Divider() {
-  return <div style={{ width: 36, height: 2, background: BLUE_100, margin: "18px 0" }} />;
-}
-
-function BodyText({ children, style = {} }) {
+function SubText({ children, style = {} }) {
   return (
     <p style={{
-      fontFamily: SANS, fontSize: 14.5, fontWeight: 300,
-      color: MUTED, lineHeight: 1.75, ...style,
+      fontFamily: SANS, fontSize: 15, color: MUTED,
+      lineHeight: 1.7, ...style,
     }}>
       {children}
     </p>
   );
 }
 
-function Section({ bg = SURFACE, children, style = {} }) {
+function ThinDivider() {
   return (
-    <section style={{ background: bg, padding: "64px 48px", ...style }}>
+    <div style={{
+      height: 1,
+      background: `linear-gradient(90deg, transparent, ${BORDER_STRONG} 30%, ${BORDER_STRONG} 70%, transparent)`,
+    }} />
+  );
+}
+
+function WhiteCard({ children, style = {}, accentLeft = false }) {
+  return (
+    <div style={{
+      background: SURFACE,
+      border: `1.5px solid ${BORDER}`,
+      borderLeft: accentLeft ? `3px solid ${BLUE_400}` : `1.5px solid ${BORDER}`,
+      borderRadius: 20,
+      padding: "28px 24px",
+      boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+      ...style,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+function IconBox({ children }) {
+  return (
+    <div style={{
+      width: 44, height: 44, borderRadius: 12,
+      background: BLUE_50, border: `1.5px solid ${BLUE_100}`,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      fontSize: 20, marginBottom: 16,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+function SectionWrapper({ bg = SURFACE, children, style = {} }) {
+  return (
+    <section style={{
+      background: bg, padding: "72px 48px",
+      position: "relative", overflow: "hidden", ...style,
+    }}>
       {children}
     </section>
   );
 }
 
-function IconBox({ children, bg = BLUE_50 }) {
+/* ── Animated fade-up wrapper ── */
+function FadeUp({ children, delay = 0 }) {
   return (
-    <div style={{
-      width: 40, height: 40, borderRadius: 10,
-      background: bg, display: "flex",
-      alignItems: "center", justifyContent: "center",
-      fontSize: 18, marginBottom: 16,
-    }}>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       {children}
-    </div>
-  );
-}
-
-function Card({ children, style = {} }) {
-  return (
-    <div style={{
-      background: SURFACE, border: `0.5px solid ${BORDER}`,
-      borderRadius: 16, padding: "28px 24px", ...style,
-    }}>
-      {children}
-    </div>
+    </motion.div>
   );
 }
 
@@ -160,458 +193,648 @@ export default function AboutUs() {
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
 
-      {/* ── NAVBAR ── */}
-      <Navbar />
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
+        * { box-sizing: border-box; }
+      `}</style>
 
-     
-      {/* ════════════════════════════════
-          HERO
-      ════════════════════════════════ */}
-      <div style={{
-        background: `linear-gradient(145deg, ${BLUE_900} 0%, ${BLUE_800} 50%, #0a2a5e 100%)`,
-        padding: "72px 48px 80px",
-        position: "relative",
-        overflow: "hidden",
+
+      {/* ════════════ HERO ════════════ */}
+      <section style={{
+        background: "linear-gradient(145deg, #0C2461 0%, #1D4ED8 55%, #1e40af 100%)",
+        padding: "80px 48px 88px",
+        position: "relative", overflow: "hidden",
       }}>
+        {/* dot grid overlay */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.07,
+        }} />
+
+        {/* glow blobs */}
+        <div style={{
+          position: "absolute", top: -80, right: -80,
+          width: 480, height: 480, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(96,165,250,0.18) 0%, transparent 70%)",
+          filter: "blur(50px)", pointerEvents: "none",
+        }} />
+        <div style={{
+          position: "absolute", bottom: -60, left: "25%",
+          width: 360, height: 360, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+
         {/* decorative rings */}
         {[
-          { width: 500, height: 500, top: -120, right: -80 },
-          { width: 320, height: 320, bottom: -100, left: "30%" },
-          { width: 200, height: 200, top: 40, left: -60, borderColor: "rgba(55,138,221,0.15)" },
+          { width: 420, height: 420, top: -100, right: -60 },
+          { width: 260, height: 260, bottom: -80, left: "35%" },
         ].map((ring, i) => (
           <div key={i} style={{
             position: "absolute", borderRadius: "50%",
-            border: `1px solid ${ring.borderColor || "rgba(255,255,255,0.05)"}`,
+            border: "1px solid rgba(255,255,255,0.06)",
             pointerEvents: "none", ...ring,
           }} />
         ))}
 
-        {/* logo */}
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+
+          {/* logo icon */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              width: 56, height: 56, borderRadius: 14,
+              background: "rgba(255,255,255,0.12)",
+              border: "1.5px solid rgba(255,255,255,0.2)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 24, marginBottom: 28,
+            }}
+          >
+            🚀
+          </motion.div>
+
+          {/* eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 10,
+              fontSize: 11, fontWeight: 700, letterSpacing: "0.16em",
+              textTransform: "uppercase", color: "rgba(255,255,255,0.45)",
+              marginBottom: 24,
+            }}
+          >
+            <span style={{ width: 24, height: 1, background: "rgba(255,255,255,0.2)" }} />
+            Zipto Hyperlogistics Pvt. Ltd.
+          </motion.div>
+
+          {/* headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              fontFamily: SERIF, fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
+              fontWeight: 900, lineHeight: 1.06, color: "#fff",
+              letterSpacing: "-0.02em", maxWidth: 560, marginBottom: 20,
+            }}
+          >
+            Delivering{" "}
+            <em style={{ fontStyle: "italic", color: "#93C5FD" }}>smarter,</em>
+            <br />moving faster.
+          </motion.h1>
+
+          {/* subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            style={{
+              fontFamily: SANS, fontSize: 15, color: "rgba(255,255,255,0.5)",
+              maxWidth: 440, lineHeight: 1.75, marginBottom: 36,
+            }}
+          >
+            A technology-driven platform built to simplify and accelerate
+            last-mile delivery for businesses and individuals across India.
+          </motion.p>
+
+          {/* live badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: "rgba(255,255,255,0.08)",
+              border: "1.5px solid rgba(255,255,255,0.14)",
+              borderRadius: 99, padding: "7px 16px",
+              fontSize: 12, color: "rgba(255,255,255,0.55)",
+              fontFamily: SANS,
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", flexShrink: 0 }} />
+            Now live · Bhubaneswar – Cuttack corridor
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════ STATS BAR ════════════ */}
+      <SectionWrapper bg={SURFACE} style={{ padding: "48px 48px" }}>
+        {/* blue glow */}
         <div style={{
-          width: 56, height: 56, borderRadius: 14,
-          background: BLUE_50, border: "1px solid rgba(255,255,255,0.2)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 24, marginBottom: 24, position: "relative", zIndex: 1,
-        }}>
-          🚀
-        </div>
-
-        {/* eyebrow */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: 10,
-          fontSize: 10.5, fontWeight: 600, letterSpacing: "0.16em",
-          textTransform: "uppercase", color: "rgba(255,255,255,0.38)",
-          marginBottom: 22, position: "relative", zIndex: 1,
-        }}>
-          <span style={{ width: 24, height: 1, background: "rgba(255,255,255,0.2)" }} />
-          Zipto Hyperlogistics Pvt. Ltd.
-        </div>
-
-        {/* headline */}
-        <h1 style={{
-          fontFamily: SERIF, fontSize: 56, fontWeight: 400,
-          lineHeight: 1.06, color: "#ffffff",
-          letterSpacing: "-0.02em",
-          maxWidth: 540, marginBottom: 20,
-          position: "relative", zIndex: 1,
-        }}>
-          Delivering{" "}
-          <em style={{ fontStyle: "italic", color: BLUE_200 }}>smarter,</em>
-          <br />moving faster.
-        </h1>
-
-        {/* subtext */}
-        <p style={{
-          fontFamily: SANS, fontSize: 14.5, fontWeight: 300,
-          color: "rgba(255,255,255,0.45)", maxWidth: 440,
-          lineHeight: 1.75, marginBottom: 34,
-          position: "relative", zIndex: 1,
-        }}>
-          A technology-driven platform built to simplify and accelerate
-          last-mile delivery for businesses and individuals across India.
-        </p>
-
-        {/* live badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: 8,
-          background: "rgba(255,255,255,0.07)",
-          border: "0.5px solid rgba(255,255,255,0.12)",
-          borderRadius: 100, padding: "7px 16px",
-          fontSize: 12, color: "rgba(255,255,255,0.5)",
-          position: "relative", zIndex: 1,
-        }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", flexShrink: 0 }} />
-          Now live · Bhubaneswar – Cuttack corridor
-        </div>
-      </div>
-
-      {/* ════════════════════════════════
-          STATS BAR
-      ════════════════════════════════ */}
-      <Section bg={SURFACE} style={{ padding: "40px 48px" }}>
-        <div style={{
-          display: "grid", gridTemplateColumns: "repeat(3,1fr)",
-          border: `0.5px solid ${BORDER}`, borderRadius: 14, overflow: "hidden",
-        }}>
-          {stats.map(({ num, label }, i) => (
-            <div key={i} style={{
-              padding: "24px 28px", background: SURFACE,
-              borderRight: i < stats.length - 1 ? `0.5px solid ${BORDER}` : "none",
-            }}>
-              <div style={{
-                fontFamily: SERIF, fontSize: 36, fontWeight: 400,
-                color: BLUE_600, lineHeight: 1,
-              }}>
-                {num}
-              </div>
-              <div style={{ fontSize: 12, color: HINT, marginTop: 4, fontWeight: 400, fontFamily: SANS }}>
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <ThinRule />
-
-      {/* ════════════════════════════════
-          WHO WE ARE
-      ════════════════════════════════ */}
-      <Section bg={SURFACE}>
-        <Label>Who we are</Label>
-        <SectionTitle>Smart logistics,<br />built for everyone</SectionTitle>
-        <Divider />
-        <BodyText style={{ maxWidth: 580 }}>
-          Zipto redefines local delivery with a connected logistics network — from bikes to mini trucks.
-          We bring customers, businesses, and delivery partners onto a single ecosystem, enabling fast,
-          affordable, and reliable movement of goods across the city.
-        </BodyText>
-      </Section>
-
-      <ThinRule />
-
-      {/* ════════════════════════════════
-          VISION + MISSION
-      ════════════════════════════════ */}
-      <Section bg={BG}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-
-          {/* Vision */}
-          <Card>
-            <IconBox>🚀</IconBox>
-            <Label>Our vision</Label>
-            <h3 style={{
-              fontFamily: SERIF, fontSize: 19, fontWeight: 400,
-              lineHeight: 1.3, color: INK, marginBottom: 0,
-            }}>
-              India's most trusted<br />logistics network
-            </h3>
-            <Divider />
-            <BodyText style={{ fontSize: 13.5 }}>
-              To build one of the most trusted and scalable hyperlocal logistics networks across India —
-              empowering local businesses, creating delivery partner opportunities, and making city
-              logistics smarter.
-            </BodyText>
-          </Card>
-
-          {/* Mission */}
-          <Card style={{ borderLeft: `3px solid ${BLUE_400}` }}>
-            <IconBox>👥</IconBox>
-            <Label>Our mission</Label>
-            <h3 style={{
-              fontFamily: SERIF, fontSize: 19, fontWeight: 400,
-              lineHeight: 1.3, color: INK, marginBottom: 0,
-            }}>
-              Transform local logistics<br />with technology
-            </h3>
-            <Divider />
-            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-              {missionPoints.map((pt, i) => (
-                <div key={i} style={{
-                  display: "flex", alignItems: "flex-start", gap: 10,
-                  fontSize: 13.5, color: MUTED, lineHeight: 1.6, fontWeight: 300,
-                  fontFamily: SANS,
-                }}>
-                  <span style={{
-                    width: 5, height: 5, borderRadius: "50%",
-                    background: BLUE_200, flexShrink: 0, marginTop: 7,
-                  }} />
-                  {pt}
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
-      </Section>
-
-      <ThinRule />
-
-      {/* ════════════════════════════════
-          WHAT WE DO
-      ════════════════════════════════ */}
-      <Section bg={SURFACE}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}>
-          <div>
-            <IconBox>📦</IconBox>
-            <Label>What we do</Label>
-            <SectionTitle size={28}>Covering every<br />delivery need</SectionTitle>
-            <BodyText style={{ fontSize: 13.5, maxWidth: 340 }}>
-              Zipto connects customers and businesses with delivery partners through an intelligent
-              platform designed for speed and efficiency.
-            </BodyText>
-          </div>
+          position: "absolute", top: "-40px", left: "-40px",
+          width: 320, height: 320, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr",
-            gap: 10, marginTop: 8,
+            display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
+            border: `1.5px solid ${BORDER}`,
+            borderRadius: 18, overflow: "hidden",
+            boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
           }}>
-            {whatWeDo.map((item, i) => (
-              <div key={i} style={{
-                background: BLUE_50, border: `0.5px solid ${BLUE_100}`,
-                borderRadius: 10, padding: "14px 16px",
-                fontSize: 13, color: BLUE_800, fontFamily: SANS,
-                display: "flex", alignItems: "flex-start",
-                gap: 10, lineHeight: 1.55, fontWeight: 400,
-              }}>
-                <span style={{ color: BLUE_400, fontSize: 14, lineHeight: 1.55 }}>•</span>
-                {item}
-              </div>
+            {stats.map(({ num, label }, i) => (
+              <FadeUp key={i} delay={i * 0.1}>
+                <div style={{
+                  padding: "28px 32px", background: SURFACE,
+                  borderRight: i < stats.length - 1 ? `1.5px solid ${BORDER}` : "none",
+                }}>
+                  <div style={{
+                    fontFamily: SERIF, fontSize: 38, fontWeight: 900,
+                    color: BLUE_400, lineHeight: 1, marginBottom: 6,
+                  }}>
+                    {num}
+                  </div>
+                  <div style={{ fontSize: 12.5, color: HINT, fontWeight: 500, fontFamily: SANS }}>
+                    {label}
+                  </div>
+                </div>
+              </FadeUp>
             ))}
           </div>
         </div>
-      </Section>
+      </SectionWrapper>
 
-      <ThinRule />
+      <ThinDivider />
 
-      {/* ════════════════════════════════
-          FLEET
-      ════════════════════════════════ */}
-      <Section bg={BG}>
-        <Label>Our fleet</Label>
-        <SectionTitle size={28}>Delivery network</SectionTitle>
-        <BodyText style={{ fontSize: 13, marginBottom: 0 }}>
-          Five vehicle classes to match every parcel size and business need.
-        </BodyText>
+      {/* ════════════ WHO WE ARE ════════════ */}
+      <SectionWrapper bg={SURFACE}>
+        {/* dot grid */}
         <div style={{
-          display: "grid", gridTemplateColumns: "repeat(5,1fr)",
-          gap: 12, marginTop: 28,
-        }}>
-          {deliveries.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                background: SURFACE, border: `0.5px solid ${BORDER}`,
-                borderRadius: 14, padding: "22px 14px 18px",
-                textAlign: "center", cursor: "default",
-                transition: "border-color 0.2s, box-shadow 0.2s",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = BLUE_200;
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(24,95,165,0.08)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = BORDER;
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              {/* ── PNG image instead of emoji ── */}
-              <div style={{
-                width: 52, height: 52, borderRadius: 14,
-                background: BLUE_50, display: "flex",
-                alignItems: "center", justifyContent: "center",
-                margin: "0 auto 12px", overflow: "hidden",
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.35,
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeUp>
+            <EyebrowPill>Who we are</EyebrowPill>
+            <SectionHeading>Smart logistics,{" "}
+              <em style={{
+                fontStyle: "italic",
+                background: `linear-gradient(135deg, ${BLUE_400} 0%, #60A5FA 100%)`,
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  style={{ width: 34, height: 34, objectFit: "contain" }}
-                />
-              </div>
-              <div style={{ fontSize: 12, fontWeight: 500, color: INK, marginBottom: 5, fontFamily: SANS }}>
-                {item.title}
-              </div>
-              <div style={{ fontSize: 11, color: HINT, lineHeight: 1.55, fontWeight: 300, fontFamily: SANS }}>
-                {item.desc}
-              </div>
-            </div>
-          ))}
+                built for everyone
+              </em>
+            </SectionHeading>
+            <SubText style={{ maxWidth: 580 }}>
+              Zipto redefines local delivery with a connected logistics network — from bikes to mini trucks.
+              We bring customers, businesses, and delivery partners onto a single ecosystem, enabling fast,
+              affordable, and reliable movement of goods across the city.
+            </SubText>
+          </FadeUp>
         </div>
-      </Section>
+      </SectionWrapper>
 
-      <ThinRule />
+      <ThinDivider />
 
-      {/* ════════════════════════════════
-          WHY CHOOSE US
-      ════════════════════════════════ */}
-      <Section bg={SURFACE}>
-        <Label>Why Zipto</Label>
-        <SectionTitle size={28}>Built different</SectionTitle>
+      {/* ════════════ VISION + MISSION ════════════ */}
+      <SectionWrapper bg={BG}>
+        {/* dot grid */}
         <div style={{
-          display: "grid", gridTemplateColumns: "repeat(3,1fr)",
-          gap: 14, marginTop: 28,
-        }}>
-          {whyPoints.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                background: BG, border: `0.5px solid ${BORDER}`,
-                borderRadius: 14, padding: "24px 20px",
-                transition: "border-color 0.2s",
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = BLUE_200}
-              onMouseLeave={e => e.currentTarget.style.borderColor = BORDER}
-            >
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.4,
+        }} />
+        {/* glow */}
+        <div style={{
+          position: "absolute", top: -60, left: -60,
+          width: 400, height: 400, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+
+            {/* Vision */}
+            <FadeUp delay={0.1}>
+              <WhiteCard style={{ height: "100%" }}>
+                <IconBox>🚀</IconBox>
+                <EyebrowPill>Our Vision</EyebrowPill>
+                <h3 style={{
+                  fontFamily: SERIF, fontSize: 20, fontWeight: 900,
+                  lineHeight: 1.2, color: INK, marginBottom: 14,
+                  letterSpacing: "-0.01em",
+                }}>
+                  India's most trusted<br />logistics network
+                </h3>
+                <div style={{ height: 2, width: 36, background: BLUE_100, marginBottom: 16 }} />
+                <SubText style={{ fontSize: 13.5 }}>
+                  To build one of the most trusted and scalable hyperlocal logistics networks across India —
+                  empowering local businesses, creating delivery partner opportunities, and making city
+                  logistics smarter.
+                </SubText>
+              </WhiteCard>
+            </FadeUp>
+
+            {/* Mission */}
+            <FadeUp delay={0.2}>
+              <WhiteCard accentLeft style={{ height: "100%" }}>
+                <IconBox>👥</IconBox>
+                <EyebrowPill>Our Mission</EyebrowPill>
+                <h3 style={{
+                  fontFamily: SERIF, fontSize: 20, fontWeight: 900,
+                  lineHeight: 1.2, color: INK, marginBottom: 14,
+                  letterSpacing: "-0.01em",
+                }}>
+                  Transform local logistics<br />with technology
+                </h3>
+                <div style={{ height: 2, width: 36, background: BLUE_100, marginBottom: 16 }} />
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {missionPoints.map((pt, i) => (
+                    <div key={i} style={{
+                      display: "flex", alignItems: "flex-start", gap: 10,
+                      fontSize: 13.5, color: MUTED, lineHeight: 1.65, fontFamily: SANS,
+                    }}>
+                      <span style={{
+                        width: 5, height: 5, borderRadius: "50%",
+                        background: BLUE_200, flexShrink: 0, marginTop: 7,
+                      }} />
+                      {pt}
+                    </div>
+                  ))}
+                </div>
+              </WhiteCard>
+            </FadeUp>
+
+          </div>
+        </div>
+      </SectionWrapper>
+
+      <ThinDivider />
+
+      {/* ════════════ WHAT WE DO ════════════ */}
+      <SectionWrapper bg={SURFACE}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.3,
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
+            <FadeUp>
+              <IconBox>📦</IconBox>
+              <EyebrowPill>What we do</EyebrowPill>
+              <SectionHeading>Covering every{" "}
+                <em style={{
+                  fontStyle: "italic",
+                  background: "linear-gradient(135deg, #EA580C, #F97316)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                }}>
+                  delivery need
+                </em>
+              </SectionHeading>
+              <SubText style={{ fontSize: 14, maxWidth: 360 }}>
+                Zipto connects customers and businesses with delivery partners through an intelligent
+                platform designed for speed and efficiency.
+              </SubText>
+            </FadeUp>
+
+            <FadeUp delay={0.15}>
               <div style={{
-                fontFamily: SERIF, fontSize: 30, fontWeight: 400,
-                color: BLUE_100, marginBottom: 8, lineHeight: 1,
+                display: "grid", gridTemplateColumns: "1fr 1fr",
+                gap: 10, marginTop: 8,
               }}>
-                {item.num}
+                {whatWeDo.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(37,99,235,0.08)" }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      background: BLUE_50, border: `1.5px solid ${BLUE_100}`,
+                      borderRadius: 14, padding: "16px",
+                      fontSize: 13, color: "#1e3a8a", fontFamily: SANS,
+                      display: "flex", alignItems: "flex-start",
+                      gap: 10, lineHeight: 1.6, fontWeight: 500,
+                      cursor: "default",
+                    }}
+                  >
+                    <span style={{ color: BLUE_400, fontSize: 14, lineHeight: 1.6, flexShrink: 0 }}>•</span>
+                    {item}
+                  </motion.div>
+                ))}
               </div>
-              <div style={{ fontSize: 13.5, fontWeight: 500, color: INK, marginBottom: 6, fontFamily: SANS }}>
-                {item.title}
-              </div>
-              <div style={{ fontSize: 12.5, color: HINT, lineHeight: 1.6, fontWeight: 300, fontFamily: SANS }}>
-                {item.desc}
-              </div>
-            </div>
-          ))}
+            </FadeUp>
+          </div>
         </div>
-      </Section>
+      </SectionWrapper>
 
-      <ThinRule />
+      <ThinDivider />
 
-      {/* ════════════════════════════════
-          JOURNEY
-      ════════════════════════════════ */}
-      <Section bg={BG}>
-        <Label>Our journey</Label>
-        <SectionTitle size={28}>Starting from<br />Bhubaneswar – Cuttack</SectionTitle>
+      {/* ════════════ FLEET ════════════ */}
+      <SectionWrapper bg={BG}>
         <div style={{
-          background: `linear-gradient(135deg, ${BLUE_900} 0%, ${BLUE_800} 100%)`,
-          borderRadius: 18, padding: "36px 40px",
-          display: "grid", gridTemplateColumns: "auto 1fr",
-          gap: 28, alignItems: "flex-start",
-          border: "1px solid rgba(255,255,255,0.06)",
-        }}>
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.4,
+        }} />
+        <div style={{
+          position: "absolute", bottom: -60, right: -60,
+          width: 400, height: 400, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(234,88,12,0.06) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeUp>
+            <EyebrowPill color="#EA580C" bg="#FFF7ED" border="#FED7AA">Our Fleet</EyebrowPill>
+            <SectionHeading>Delivery network</SectionHeading>
+            <SubText style={{ fontSize: 13.5, marginBottom: 0 }}>
+              Five vehicle classes to match every parcel size and business need.
+            </SubText>
+          </FadeUp>
+
           <div style={{
-            width: 52, height: 52, borderRadius: "50%",
-            border: "0.5px solid rgba(255,255,255,0.12)",
-            display: "flex", alignItems: "center",
-            justifyContent: "center", fontSize: 20, flexShrink: 0,
+            display: "grid", gridTemplateColumns: "repeat(5, 1fr)",
+            gap: 12, marginTop: 28,
           }}>
-            📍
-          </div>
-          <div>
-            <p style={{
-              fontFamily: SANS, fontSize: 10.5, fontWeight: 600,
-              letterSpacing: "0.1em", textTransform: "uppercase",
-              color: "rgba(255,255,255,0.3)", marginBottom: 10,
-            }}>
-              Origin story
-            </p>
-            <h3 style={{
-              fontFamily: SERIF, fontSize: 22, fontWeight: 400,
-              color: "#ffffff", lineHeight: 1.2, marginBottom: 12,
-              letterSpacing: "-0.01em",
-            }}>
-              The Bhubaneswar – Cuttack corridor
-            </h3>
-            <p style={{
-              fontFamily: SANS, fontSize: 13.5, fontWeight: 300,
-              color: "rgba(255,255,255,0.45)", lineHeight: 1.7,
-            }}>
-              Zipto is launching initial operations along this critical urban corridor, with a long-term
-              vision to expand across Odisha and Eastern India. As we grow, our focus remains on building
-              a delivery network that is fast, reliable, and accessible for everyone.
-            </p>
-            <div style={{ marginTop: 16 }}>
-              <span style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                background: "rgba(255,255,255,0.06)",
-                border: "0.5px solid rgba(255,255,255,0.1)",
-                borderRadius: 100, padding: "5px 12px",
-                fontSize: 11.5, color: "rgba(255,255,255,0.5)",
-                fontFamily: SANS,
-              }}>
-                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4ade80", display: "inline-block" }} />
-                Bhubaneswar · Cuttack · Odisha
-              </span>
-            </div>
+            {deliveries.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4, boxShadow: "0 10px 28px rgba(37,99,235,0.1)", borderColor: BLUE_100 }}
+                style={{
+                  background: SURFACE,
+                  border: `1.5px solid ${BORDER}`,
+                  borderRadius: 18, padding: "24px 14px 20px",
+                  textAlign: "center", cursor: "default",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+                  transition: "border-color 0.25s",
+                }}
+              >
+                <div style={{
+                  width: 52, height: 52, borderRadius: 14,
+                  background: BLUE_50, border: `1.5px solid ${BLUE_100}`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  margin: "0 auto 14px", overflow: "hidden",
+                }}>
+                  <img
+                    src={item.img} alt={item.title}
+                    style={{ width: 34, height: 34, objectFit: "contain" }}
+                  />
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6, fontFamily: SANS }}>
+                  {item.title}
+                </div>
+                <div style={{ fontSize: 11.5, color: HINT, lineHeight: 1.55, fontFamily: SANS }}>
+                  {item.desc}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </Section>
+      </SectionWrapper>
+
+      <ThinDivider />
+
+      {/* ════════════ WHY CHOOSE US ════════════ */}
+      <SectionWrapper bg={SURFACE}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.3,
+        }} />
+        <div style={{
+          position: "absolute", top: -60, left: -60,
+          width: 400, height: 400, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeUp>
+            <EyebrowPill>Why Zipto</EyebrowPill>
+            <SectionHeading>Built{" "}
+              <em style={{
+                fontStyle: "italic",
+                background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+              }}>
+                different
+              </em>
+            </SectionHeading>
+          </FadeUp>
+
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 14, marginTop: 28,
+          }}>
+            {whyPoints.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -3, boxShadow: "0 8px 24px rgba(0,0,0,0.07)", borderColor: BLUE_100 }}
+                style={{
+                  background: BG,
+                  border: `1.5px solid ${BORDER}`,
+                  borderRadius: 18, padding: "24px 20px",
+                  cursor: "default",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.03)",
+                  transition: "border-color 0.25s",
+                }}
+              >
+                <div style={{
+                  fontFamily: SERIF, fontSize: 32, fontWeight: 900,
+                  color: BLUE_100, marginBottom: 10, lineHeight: 1,
+                }}>
+                  {item.num}
+                </div>
+                <div style={{
+                  fontSize: 14, fontWeight: 700, color: INK,
+                  marginBottom: 7, fontFamily: SANS,
+                }}>
+                  {item.title}
+                </div>
+                <div style={{
+                  fontSize: 12.5, color: HINT, lineHeight: 1.65,
+                  fontFamily: SANS,
+                }}>
+                  {item.desc}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      <ThinDivider />
+
+      {/* ════════════ JOURNEY ════════════ */}
+      <SectionWrapper bg={BG}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.4,
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeUp>
+            <EyebrowPill>Our Journey</EyebrowPill>
+            <SectionHeading>Starting from{" "}
+              <em style={{
+                fontStyle: "italic",
+                background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+              }}>
+                Bhubaneswar – Cuttack
+              </em>
+            </SectionHeading>
+          </FadeUp>
+
+          <FadeUp delay={0.15}>
+            <div style={{
+              background: `linear-gradient(145deg, #0C2461 0%, ${BLUE_600} 100%)`,
+              borderRadius: 22, padding: "36px 40px",
+              display: "grid", gridTemplateColumns: "auto 1fr",
+              gap: 28, alignItems: "flex-start",
+              border: "1px solid rgba(255,255,255,0.07)",
+              boxShadow: "0 8px 32px rgba(37,99,235,0.2)",
+              marginTop: 8,
+            }}>
+              {/* dot-grid overlay inside card */}
+              <div style={{
+                position: "absolute", inset: 0, borderRadius: 22,
+                ...dotGridStyle, opacity: 0.07, pointerEvents: "none",
+              }} />
+
+              <div style={{
+                width: 52, height: 52, borderRadius: "50%",
+                border: "1.5px solid rgba(255,255,255,0.15)",
+                background: "rgba(255,255,255,0.08)",
+                display: "flex", alignItems: "center",
+                justifyContent: "center", fontSize: 22, flexShrink: 0,
+              }}>
+                📍
+              </div>
+              <div>
+                <span style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  fontSize: 10.5, fontWeight: 700, letterSpacing: "0.14em",
+                  textTransform: "uppercase", color: "rgba(255,255,255,0.35)",
+                  marginBottom: 12, fontFamily: SANS,
+                }}>
+                  <span style={{ width: 20, height: 1, background: "rgba(255,255,255,0.2)" }} />
+                  Origin Story
+                </span>
+                <h3 style={{
+                  fontFamily: SERIF, fontSize: 22, fontWeight: 900,
+                  color: "#fff", lineHeight: 1.2, marginBottom: 14,
+                  letterSpacing: "-0.01em",
+                }}>
+                  The Bhubaneswar – Cuttack corridor
+                </h3>
+                <p style={{
+                  fontFamily: SANS, fontSize: 14, color: "rgba(255,255,255,0.5)",
+                  lineHeight: 1.75, marginBottom: 18,
+                }}>
+                  Zipto is launching initial operations along this critical urban corridor, with a long-term
+                  vision to expand across Odisha and Eastern India. As we grow, our focus remains on building
+                  a delivery network that is fast, reliable, and accessible for everyone.
+                </p>
+                <span style={{
+                  display: "inline-flex", alignItems: "center", gap: 7,
+                  background: "rgba(255,255,255,0.07)",
+                  border: "1.5px solid rgba(255,255,255,0.12)",
+                  borderRadius: 99, padding: "6px 14px",
+                  fontSize: 12, color: "rgba(255,255,255,0.5)", fontFamily: SANS,
+                }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", display: "inline-block" }} />
+                  Bhubaneswar · Cuttack · Odisha
+                </span>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </SectionWrapper>
 
       {/* ── WHY CHOOSE SECTION (existing component) ── */}
       <WhyChooseSection />
 
-      <ThinRule />
+      <ThinDivider />
 
-      {/* ════════════════════════════════
-          CONTACT
-      ════════════════════════════════ */}
-      <Section bg={SURFACE}>
-        <Label>Contact</Label>
-        <SectionTitle size={28}>Get in touch<br />with Zipto</SectionTitle>
-
+      {/* ════════════ CONTACT ════════════ */}
+      <SectionWrapper bg={SURFACE}>
         <div style={{
-          display: "grid", gridTemplateColumns: "1fr auto",
-          gap: 32, alignItems: "center",
-          borderTop: `0.5px solid ${BORDER}`, paddingTop: 36,
-          marginTop: 8,
-        }}>
-          <div>
-            <BodyText style={{ fontSize: 13.5, maxWidth: 420, marginBottom: 18 }}>
-              Have questions about our platform, partnership opportunities, or delivery services?
-              We'd love to hear from you.
-            </BodyText>
-            {contactInfo.map(({ label, value, highlight }) => (
-              <div key={label} style={{
-                display: "flex", alignItems: "center",
-                gap: 12, marginTop: 10,
+          position: "absolute", inset: 0, pointerEvents: "none",
+          ...dotGridStyle, opacity: 0.3,
+        }} />
+        <div style={{
+          position: "absolute", bottom: -60, right: -60,
+          width: 360, height: 360, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeUp>
+            <EyebrowPill>Contact</EyebrowPill>
+            <SectionHeading>Get in touch{" "}
+              <em style={{
+                fontStyle: "italic",
+                background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
-                <span style={{ fontSize: 11.5, color: HINT, minWidth: 56, fontFamily: SANS }}>
-                  {label}
-                </span>
-                <span style={{
-                  fontSize: 13, fontWeight: highlight ? 500 : 400,
-                  color: highlight ? BLUE_600 : MUTED, fontFamily: SANS,
-                }}>
-                  {value}
-                </span>
+                with Zipto
+              </em>
+            </SectionHeading>
+          </FadeUp>
+
+          <div style={{
+            display: "grid", gridTemplateColumns: "1fr auto",
+            gap: 32, alignItems: "center",
+            borderTop: `1.5px solid ${BORDER}`, paddingTop: 36, marginTop: 8,
+          }}>
+            <FadeUp delay={0.1}>
+              <SubText style={{ fontSize: 14, maxWidth: 420, marginBottom: 20 }}>
+                Have questions about our platform, partnership opportunities, or delivery services?
+                We'd love to hear from you.
+              </SubText>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {contactInfo.map(({ label, value, highlight }) => (
+                  <div key={label} style={{
+                    display: "flex", alignItems: "center", gap: 12,
+                  }}>
+                    <span style={{
+                      fontSize: 11.5, color: HINT, minWidth: 60,
+                      fontFamily: SANS, fontWeight: 500,
+                    }}>
+                      {label}
+                    </span>
+                    <span style={{
+                      fontSize: 13.5, fontWeight: highlight ? 700 : 500,
+                      color: highlight ? BLUE_400 : MUTED, fontFamily: SANS,
+                    }}>
+                      {value}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </FadeUp>
+
+            <FadeUp delay={0.2}>
+              <motion.a
+                href="mailto:contact@ridezipto.com"
+                whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(37,99,235,0.32)" }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: `linear-gradient(135deg, ${BLUE_600}, ${BLUE_400})`,
+                  borderRadius: 99, padding: "13px 28px",
+                  fontSize: 14, fontWeight: 700, color: "#fff",
+                  textDecoration: "none", whiteSpace: "nowrap", fontFamily: SANS,
+                  boxShadow: "0 4px 20px rgba(37,99,235,0.28)",
+                  letterSpacing: "0.02em",
+                  transition: "box-shadow 0.25s",
+                }}
+              >
+                Send a message →
+              </motion.a>
+            </FadeUp>
           </div>
+        </div>
+      </SectionWrapper>
 
-          <a
-            href="mailto:contact@ridezipto.com"
-            style={{
-              display: "inline-block",
-              background: BLUE_600, border: "none",
-              borderRadius: 10, padding: "12px 24px",
-              fontSize: 13, fontWeight: 500,
-              color: "#ffffff", textDecoration: "none",
-              whiteSpace: "nowrap", fontFamily: SANS,
-              transition: "background 0.15s",
-            }}
-            onMouseEnter={e => e.currentTarget.style.background = BLUE_800}
-            onMouseLeave={e => e.currentTarget.style.background = BLUE_600}
-          >
-            Send a message →
-          </a>
-        </div>
-      </Section>
 
-      {/* ── FOOTER ── */}
-      <div style={{
-        background: BLUE_900, padding: "36px 48px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-      }}>
-        <div style={{ fontFamily: SERIF, fontSize: 20, color: "#fff", fontWeight: 400 }}>
-          Zipto
-        </div>
-        <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", fontFamily: SANS }}>
-          © 2025 Zipto Hyperlogistics Pvt. Ltd. · Bhubaneswar, Odisha
-        </div>
-      </div>
 
     </div>
   );

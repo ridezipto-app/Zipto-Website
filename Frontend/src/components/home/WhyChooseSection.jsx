@@ -6,33 +6,37 @@ const features = [
     title: "Transparent Pricing",
     description: "Know the exact cost upfront. No hidden charges, no surprises — ever.",
     icon: IndianRupee,
-    accent: "#3B82F6",
+    accent: "#2563EB",
+    bg: "#EFF6FF",
+    border: "#BFDBFE",
     tag: "No hidden fees",
-    glyph: "₹",
   },
   {
     title: "Real-Time Tracking",
     description: "Track your delivery live on the map from pickup to drop-off.",
     icon: MapPin,
-    accent: "#F97316",
+    accent: "#EA580C",
+    bg: "#FFF7ED",
+    border: "#FED7AA",
     tag: "Live updates",
-    glyph: "📍",
   },
   {
     title: "Odia, Hindi & English",
     description: "Communicate in your preferred language with our local support team.",
     icon: Languages,
-    accent: "#22C55E",
+    accent: "#16A34A",
+    bg: "#F0FDF4",
+    border: "#BBF7D0",
     tag: "3 languages",
-    glyph: "🗣",
   },
   {
     title: "Verified Partners",
     description: "All riders are background-verified and trained delivery professionals.",
     icon: ShieldCheck,
-    accent: "#A855F7",
+    accent: "#7C3AED",
+    bg: "#F5F3FF",
+    border: "#DDD6FE",
     tag: "100% verified",
-    glyph: "🛡",
   },
 ];
 
@@ -41,126 +45,151 @@ function FeatureCard({ feature, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 44, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ delay: index * 0.11, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-      whileHover="hovered"
-      className="relative rounded-2xl overflow-hidden cursor-default"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        background: "linear-gradient(145deg, rgba(14,24,44,0.97) 0%, rgba(9,16,31,0.99) 100%)",
-        border: "1px solid rgba(255,255,255,0.07)",
-        fontFamily: "'DM Sans', sans-serif",
+        background: "#FFFFFF",
+        border: "1.5px solid #E9EEF5",
+        borderRadius: "20px",
+        padding: "24px",
+        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+        cursor: "default",
+        transition: "box-shadow 0.25s, border-color 0.25s, transform 0.25s",
+        position: "relative",
+        overflow: "hidden",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+      }}
+      whileHover={{
+        y: -4,
+        boxShadow: "0 12px 32px rgba(0,0,0,0.09)",
+        borderColor: feature.border,
       }}
     >
-      {/* hover border glow */}
+      {/* top accent line on hover via motion */}
       <motion.div
-        className="absolute inset-0 rounded-2xl pointer-events-none"
-        variants={{
-          hovered: { boxShadow: `0 0 0 1px ${feature.accent}44, 0 20px 60px rgba(0,0,0,0.4), 0 0 40px ${feature.accent}14` },
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileHover={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          position: "absolute",
+          top: 0, left: 0, right: 0,
+          height: "3px",
+          background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)`,
+          transformOrigin: "left",
         }}
-        initial={{ boxShadow: "0 0 0 0px transparent" }}
-        transition={{ duration: 0.3 }}
       />
 
-      {/* top accent line */}
-      <motion.div
-        className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-        style={{ background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)` }}
-        variants={{ hovered: { opacity: 1 } }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* radial bg glow */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse 80% 55% at 50% 0%, ${feature.accent}0e 0%, transparent 70%)` }}
-        variants={{ hovered: { opacity: 1 } }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* large watermark glyph */}
-      <div
-        className="absolute -bottom-3 -right-2 text-[80px] leading-none pointer-events-none select-none"
-        style={{ opacity: 0.04 }}
-      >
-        {feature.glyph}
+      {/* index number */}
+      <div style={{
+        position: "absolute",
+        top: "20px", right: "20px",
+        fontSize: "11px",
+        fontWeight: 700,
+        color: "#CBD5E1",
+        letterSpacing: "0.05em",
+        fontFamily: "monospace",
+      }}>
+        0{index + 1}
       </div>
 
-      <div className="relative z-10 p-7 flex flex-col gap-5">
+      {/* tag pill */}
+      <div style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "5px",
+        fontSize: "10px",
+        fontWeight: 700,
+        letterSpacing: "0.13em",
+        textTransform: "uppercase",
+        color: feature.accent,
+        background: feature.bg,
+        border: `1.5px solid ${feature.border}`,
+        padding: "4px 10px",
+        borderRadius: "99px",
+        marginBottom: "20px",
+      }}>
+        <span style={{
+          width: "5px", height: "5px",
+          borderRadius: "50%",
+          background: feature.accent,
+          display: "inline-block",
+          flexShrink: 0,
+        }} />
+        {feature.tag}
+      </div>
 
-        {/* tag */}
-        <div className="flex items-center justify-between">
-          <span
-            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-            style={{
-              color: feature.accent,
-              background: feature.accent + "18",
-              border: `1px solid ${feature.accent}28`,
-              fontFamily: "'Syne', sans-serif",
-            }}
-          >
-            {feature.tag}
-          </span>
-          <span className="text-[11px] text-gray-600 font-mono">0{index + 1}</span>
-        </div>
+      {/* icon */}
+      <motion.div
+        whileHover={{ y: -3, scale: 1.06 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        style={{
+          width: "52px", height: "52px",
+          borderRadius: "14px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: feature.bg,
+          border: `1.5px solid ${feature.border}`,
+          marginBottom: "18px",
+        }}
+      >
+        <Icon size={22} color={feature.accent} strokeWidth={2} />
+      </motion.div>
 
-        {/* icon */}
-        <motion.div
-          className="w-14 h-14 rounded-xl flex items-center justify-center"
-          style={{
-            background: feature.accent + "16",
-            border: `1px solid ${feature.accent}28`,
-          }}
-          variants={{ hovered: { y: -4, scale: 1.06 } }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-        >
-          <Icon size={24} color={feature.accent} />
-        </motion.div>
+      {/* text */}
+      <div>
+        <h3 style={{
+          fontFamily: "'Fraunces', Georgia, serif",
+          fontSize: "17px",
+          fontWeight: 800,
+          color: "#0F172A",
+          marginBottom: "8px",
+          lineHeight: 1.2,
+          letterSpacing: "-0.01em",
+        }}>
+          {feature.title}
+        </h3>
+        <p style={{
+          fontSize: "13px",
+          color: "#64748B",
+          lineHeight: 1.65,
+          margin: 0,
+        }}>
+          {feature.description}
+        </p>
+      </div>
 
-        {/* text */}
-        <div className="space-y-2">
-          <h3
-            className="text-lg font-black text-white leading-snug"
-            style={{ fontFamily: "'Syne', sans-serif" }}
-          >
-            {feature.title}
-          </h3>
-          <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-        </div>
-
-        {/* bottom rule */}
-        <motion.div
-          className="h-px"
-          style={{ background: `linear-gradient(90deg, ${feature.accent}40, transparent)` }}
-          variants={{ hovered: { opacity: 1 } }}
-          initial={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        {/* learn more */}
-        <motion.div
-          className="flex items-center gap-1.5"
-          variants={{ hovered: { opacity: 1, x: 0 } }}
-          initial={{ opacity: 0, x: -6 }}
-          transition={{ duration: 0.25 }}
-        >
-          <span className="text-xs font-semibold" style={{ color: feature.accent }}>
+      {/* bottom rule + learn more */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.25 }}
+        style={{ marginTop: "18px" }}
+      >
+        <div style={{
+          height: "1px",
+          background: `linear-gradient(90deg, ${feature.accent}40, transparent)`,
+          marginBottom: "12px",
+        }} />
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "4px",
+        }}>
+          <span style={{ fontSize: "12px", fontWeight: 700, color: feature.accent }}>
             Learn more
           </span>
           <motion.span
-            variants={{ hovered: { x: 4 } }}
+            whileHover={{ x: 4 }}
             transition={{ duration: 0.2 }}
-            className="text-xs"
-            style={{ color: feature.accent }}
+            style={{ fontSize: "12px", color: feature.accent }}
           >
             →
           </motion.span>
-        </motion.div>
-
-      </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -168,128 +197,191 @@ function FeatureCard({ feature, index }) {
 export default function WhyChooseSection() {
   return (
     <>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');`}</style>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
+
+        .why-section * { box-sizing: border-box; }
+
+        .why-section {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          background: #F8FAFD;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* dot grid */
+        .why-section::before {
+          content: '';
+          position: absolute; inset: 0; pointer-events: none;
+          background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+          background-size: 28px 28px;
+          opacity: 0.4;
+        }
+      `}</style>
 
       <section
-        className="relative py-24 px-5 sm:px-8 lg:px-14 overflow-hidden"
-        style={{ background: "#080F1E", fontFamily: "'DM Sans', sans-serif" }}
+        className="why-section"
+        style={{ padding: "96px 24px 88px" }}
       >
-        {/* grid */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+        {/* blue glow top-left */}
+        <div style={{
+          position: "absolute", top: "-60px", left: "-60px",
+          width: "480px", height: "480px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
+        {/* orange glow bottom-right */}
+        <div style={{
+          position: "absolute", bottom: "-60px", right: "-60px",
+          width: "400px", height: "400px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(234,88,12,0.07) 0%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none",
+        }} />
 
-        {/* ambient blobs */}
-        <motion.div
-          className="absolute top-0 left-1/3 w-96 h-96 rounded-full pointer-events-none"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.25, 0.45, 0.25] }}
-          transition={{ duration: 9, repeat: Infinity }}
-          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)", filter: "blur(50px)" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/3 w-96 h-96 rounded-full pointer-events-none"
-          animate={{ scale: [1, 1.12, 1], opacity: [0.2, 0.38, 0.2] }}
-          transition={{ duration: 11, repeat: Infinity, delay: 3 }}
-          style={{ background: "radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)", filter: "blur(50px)" }}
-        />
+        {/* top divider */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: "1px",
+          background: "linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent)",
+        }} />
+        {/* bottom divider */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "1px",
+          background: "linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent)",
+        }} />
 
-        <div
-          className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" }}
-        />
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)" }}
-        />
+        <div style={{ maxWidth: "1160px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* ── Heading ── */}
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
 
-          {/* ── heading ── */}
-          <div className="text-center mb-16 space-y-4">
+            {/* eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="flex items-center justify-center gap-3"
+              style={{ marginBottom: "18px" }}
             >
-              <div className="h-px w-10 bg-gradient-to-r from-transparent to-orange-500" />
-              <span
-                className="text-orange-500 text-xs font-semibold uppercase tracking-[0.2em]"
-                style={{ fontFamily: "'Syne', sans-serif" }}
-              >
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#EA580C",
+                background: "#FFF7ED",
+                border: "1.5px solid #FED7AA",
+                padding: "5px 14px",
+                borderRadius: "99px",
+              }}>
+                <span style={{
+                  width: "6px", height: "6px",
+                  borderRadius: "50%",
+                  background: "#EA580C",
+                  display: "inline-block",
+                }} />
                 Why Zipto
               </span>
-              <div className="h-px w-10 bg-gradient-to-l from-transparent to-orange-500" />
             </motion.div>
 
+            {/* main heading */}
             <motion.h2
-              initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl font-black text-white tracking-tight"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{
+                fontFamily: "'Fraunces', Georgia, serif",
+                fontSize: "clamp(2rem, 3.5vw, 3rem)",
+                fontWeight: 900,
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+                color: "#0F172A",
+                marginBottom: "16px",
+              }}
             >
               Why Choose{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+              <em style={{
+                fontStyle: "italic",
+                background: "linear-gradient(135deg, #EA580C 0%, #F97316 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
                 Zipto?
-              </span>
+              </em>
             </motion.h2>
 
+            {/* subtext */}
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.22, duration: 0.6 }}
-              className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              style={{
+                fontSize: "15px",
+                color: "#64748B",
+                lineHeight: 1.7,
+                maxWidth: "480px",
+                margin: "0 auto",
+              }}
             >
               Fast, reliable, and trustworthy delivery service built for everyone in Odisha.
             </motion.p>
           </div>
 
-          {/* ── cards ── */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {/* ── Cards Grid ── */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+            gap: "16px",
+            marginBottom: "48px",
+          }}>
             {features.map((f, i) => (
               <FeatureCard key={i} feature={f} index={i} />
             ))}
           </div>
 
-          {/* ── trust badge ── */}
+          {/* ── Trust badge ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-14 flex justify-center"
+            style={{ display: "flex", justifyContent: "center" }}
           >
             <motion.div
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-3 px-6 py-3 rounded-full cursor-default"
               style={{
-                background: "rgba(168,85,247,0.1)",
-                border: "1px solid rgba(168,85,247,0.25)",
-                boxShadow: "0 0 24px rgba(168,85,247,0.1)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                borderRadius: "99px",
+                background: "#F5F3FF",
+                border: "1.5px solid #DDD6FE",
+                boxShadow: "0 4px 16px rgba(124,58,237,0.1)",
+                cursor: "default",
               }}
             >
               <motion.div
                 animate={{ rotate: [0, 8, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <ShieldCheck size={18} color="#A855F7" />
+                <ShieldCheck size={18} color="#7C3AED" />
               </motion.div>
-              <p
-                className="text-sm font-semibold text-gray-300"
-                style={{ fontFamily: "'Syne', sans-serif" }}
-              >
+              <p style={{
+                fontSize: "13.5px",
+                fontWeight: 700,
+                color: "#475569",
+                margin: 0,
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+              }}>
                 Trusted by{" "}
-                <span className="text-purple-400">10,000+</span> users across Odisha
+                <span style={{ color: "#7C3AED" }}>10,000+</span>{" "}
+                users across Odisha
               </p>
             </motion.div>
           </motion.div>

@@ -1,14 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <div className="w-full min-h-screen overflow-x-hidden">
-        <AppRoutes />
-      </div>
+      <Navbar />
+      <AppRoutes />
+      <Footer />
     </BrowserRouter>
   );
 }
-
-export default App;
