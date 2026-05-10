@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ziptoTruck from "../../assets/zipto_truck.png";
+import appleLogo from "../../assets/apple.png";
+import androidLogo from "../../assets/android-logo.png";
 
 const heroStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;500;600&display=swap');
@@ -27,29 +29,57 @@ const heroStyles = `
     font-family: 'Syne', sans-serif;
   }
 
-  .hero-bg-text {
+  /* ── BG TEXT WRAPPER ── */
+  .hero-bg-text-wrap {
     position: absolute;
     top: 28%;
     left: 50%;
+    transform: translate(-50%, -52%);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .hero-bg-text {
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
-    font-size: clamp(140px, 24vw, 340px);
+    font-size: clamp(100px, 24vw, 340px);
     letter-spacing: 0.06em;
     color: rgba(180, 180, 180, 0.32);
-    white-space: nowrap;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
+    line-height: 1;
+    display: block;
     opacity: 0;
-    transform: translate(-50%, -52%);
     animation: zh-bgReveal 1.8s ease 0.5s forwards;
+  }
+
+  .hero-bg-text-blue {
+    font-family: 'Cocon', 'Bebas Neue', sans-serif;
+    font-size: clamp(100px, 24vw, 340px);
+    letter-spacing: 0.06em;
+    color: rgba(37, 99, 235, 0.38);
+    line-height: 1;
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    clip-path: inset(0 0 0 100%);
+    animation: zh-blueFill 1.89s cubic-bezier(0.84,0,0.9,1) 2.51s forwards;
+  }
+  @keyframes zh-blueFill {
+    0%   { clip-path: inset(0 0 0 100%); }
+    100% { clip-path: inset(0 0 0 0%); }
   }
   @keyframes zh-bgReveal {
     0%   { opacity: 0; }
     100% { opacity: 1; }
   }
 
-  .hero-bg-text.no-anim {
+  /* ── NO-ANIM OVERRIDES ── */
+  .hero-bg-text-wrap.no-anim .hero-bg-text {
     opacity: 1 !important;
+    animation: none !important;
+  }
+  .hero-bg-text-wrap.no-anim .hero-bg-text-blue {
+    clip-path: inset(0 0 0 0%) !important;
     animation: none !important;
   }
   .hero-rider-wrapper.no-anim {
@@ -68,6 +98,7 @@ const heroStyles = `
     display: none;
   }
 
+  /* ── SPEED LINES ── */
   .hero-speed-lines {
     position: absolute;
     top: 50%;
@@ -84,7 +115,6 @@ const heroStyles = `
     78%  { opacity: 0.7; }
     100% { opacity: 0; }
   }
-
   .hero-speed-line {
     height: 1.5px;
     background: linear-gradient(to right, transparent 0%, rgba(155,155,155,0.6) 50%, transparent 100%);
@@ -100,22 +130,22 @@ const heroStyles = `
   .hero-speed-line:nth-child(4) { width: 36%; margin-left: 14%; animation-delay: 0.65s; opacity: 0.32; }
   @keyframes zh-expandLine { to { transform: scaleX(1); } }
 
-  /* ── TRUCK ── */
+  /* ── TRUCK (DESKTOP) ── */
   .hero-rider-wrapper {
     position: absolute;
     bottom: 60px;
     left: 50%;
-    width: clamp(340px, 48vw, 640px);
+    width: clamp(220px, 48vw, 640px);
     z-index: 4;
     transform: translateX(-145vw) scaleX(-1);
-    animation: zh-riderSequence 6.5s linear 0.2s forwards;
+    animation: zh-riderSequence 4.2s linear 0.2s forwards;
     will-change: transform, opacity;
   }
   @keyframes zh-riderSequence {
     0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
     48% { transform: translateX(75vw) scaleX(-1); opacity: 1; animation-timing-function: steps(1, start); }
     49% { transform: translateX(75vw) scaleX(1); opacity: 0; }
-    54% { transform: translateX(75vw) scaleX(1); opacity: 0; animation-timing-function: cubic-bezier(0.16,1,0.3,1); }
+    54% { transform: translateX(75vw) scaleX(1); opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
     55% { transform: translateX(75vw) scaleX(1); opacity: 1; }
     100%{ transform: translateX(-50%) scaleX(1); opacity: 1; }
   }
@@ -125,6 +155,7 @@ const heroStyles = `
     filter: drop-shadow(0 24px 64px rgba(0,0,0,0.11)) drop-shadow(0 6px 18px rgba(0,0,0,0.07));
   }
 
+  /* ── BOTTOM BAR (DESKTOP) ── */
   .hero-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -137,7 +168,7 @@ const heroStyles = `
 
   .hero-left {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 6.2s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 3.9s forwards;
   }
 
   .hero-eyebrow {
@@ -162,6 +193,7 @@ const heroStyles = `
     display: flex;
     gap: 12px;
     margin-top: 16px;
+    flex-wrap: wrap;
   }
 
   .hero-btn-primary {
@@ -199,7 +231,6 @@ const heroStyles = `
     background: rgba(37,99,235,0.04);
     transform: scale(1.03);
   }
-  /* animated arrow on explore button */
   .hero-btn-outline .explore-arrow {
     display: inline-block;
     transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
@@ -211,9 +242,8 @@ const heroStyles = `
   /* ── STATS BOX ── */
   .hero-right {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 6.5s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 4.2s forwards;
   }
-
   .hero-stats-box {
     display: inline-flex;
     align-items: center;
@@ -223,7 +253,6 @@ const heroStyles = `
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     overflow: hidden;
   }
-
   .hero-stat-item {
     padding: 18px 30px;
     text-align: center;
@@ -253,7 +282,7 @@ const heroStyles = `
     font-weight: 600;
   }
 
-  /* ── BADGE ── */
+  /* ── BADGE (DESKTOP) ── */
   .hero-badge {
     position: absolute;
     top: 14%; right: 10%;
@@ -268,13 +297,13 @@ const heroStyles = `
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: zh-popIn 0.8s cubic-bezier(0.34,1.36,0.64,1) 7.0s forwards;
+    animation: zh-popIn 0.8s cubic-bezier(0.34,1.36,0.64,1) 4.7s forwards;
   }
   .hero-badge-dot {
     width: 9px; height: 9px;
     background: #22c55e; border-radius: 50%;
     flex-shrink: 0;
-    animation: zh-blink 2.2s ease-in-out 7.0s infinite;
+    animation: zh-blink 2.2s ease-in-out 4.7s infinite;
   }
   @keyframes zh-blink {
     0%,100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
@@ -283,7 +312,7 @@ const heroStyles = `
   .hero-badge-text { font-size: 0.78rem; font-weight: 500; color: var(--dark); font-family: 'Syne', sans-serif; }
   .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; font-family: 'Syne', sans-serif; }
 
-  /* ── SHARED MODAL BASE ── */
+  /* ── MODAL BASE ── */
   .zipto-overlay {
     position: fixed;
     inset: 0;
@@ -308,6 +337,7 @@ const heroStyles = `
     box-shadow: 0 32px 80px rgba(0,0,0,0.16);
     animation: zh-cardIn 0.4s cubic-bezier(0.34,1.26,0.64,1) forwards;
     font-family: 'Syne', sans-serif;
+    margin: 0 16px;
   }
   @keyframes zh-cardIn {
     from { opacity:0; transform: scale(0.88) translateY(18px); }
@@ -326,7 +356,7 @@ const heroStyles = `
   }
   .zipto-close-btn:hover { background: #e5e7eb; color: #111; }
 
-  /* ── ORDER MODAL ── */
+  /* ── ORDER MODAL CONTENT ── */
   .zm-launch-pill {
     display: inline-flex;
     align-items: center;
@@ -362,7 +392,7 @@ const heroStyles = `
     transition: border-color 0.22s, box-shadow 0.22s, transform 0.18s;
   }
   .zm-store:hover { border-color: #111; box-shadow: 0 4px 16px rgba(0,0,0,0.09); transform: translateY(-2px); }
-  .zm-store-icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+  .zm-store-icon { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
   .zm-store-sub  { font-size: 0.57rem; color: #9ca3af; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
   .zm-store-name { font-size: 0.82rem; font-weight: 700; color: #111; margin-top: 1px; }
   .zm-notify-btn {
@@ -373,6 +403,7 @@ const heroStyles = `
   }
   .zm-notify-btn:hover { background: var(--accent); transform: scale(1.02); }
 
+  /* ── SHARED KEYFRAMES ── */
   @keyframes zh-fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -380,6 +411,152 @@ const heroStyles = `
   @keyframes zh-popIn {
     from { opacity: 0; transform: scale(0.8) translateY(6px); }
     to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
+     MOBILE — stack: truck → content → stats
+  ═══════════════════════════════════════ */
+
+  @media (max-width: 768px) {
+
+    /* Hero: flex column, height fits content — no forced min-height gap */
+    .zipto-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      min-height: unset;
+      padding-bottom: 28px;
+      overflow-x: hidden;
+    }
+
+    /* BG text: sits at top, z-index behind truck so it reads as a watermark */
+    .hero-bg-text-wrap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      z-index: 1;
+    }
+    .hero-bg-text,
+    .hero-bg-text-blue {
+      font-size: clamp(80px, 26vw, 150px) !important;
+      letter-spacing: 0.08em;
+    }
+
+    /* Speed lines hidden on mobile */
+    .hero-speed-lines {
+      display: none !important;
+    }
+
+    /* ── 1. TRUCK — pushed down so ZIPTO text is fully visible above ── */
+    .hero-rider-wrapper {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      transform: none !important;
+      animation: zh-fadeUp 0.9s ease 0.3s both !important;
+      width: clamp(220px, 82vw, 360px);
+      margin-top: 110px;
+      z-index: 4;
+    }
+
+    /* ── 2. BADGE (below truck, flush left) ── */
+    .hero-badge {
+      position: relative;
+      top: auto; bottom: auto; right: auto; left: auto;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      opacity: 0;
+      animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 0.9s both !important;
+      align-self: flex-start;
+      margin-left: 20px;
+    }
+    .hero-badge-text { font-size: 0.72rem; }
+    .hero-badge-sub  { font-size: 0.60rem; }
+
+    /* ── 3. CONTENT (headline + buttons) ── */
+    .hero-bottom {
+      position: relative;
+      bottom: auto; left: auto; right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px 0;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .hero-left {
+      opacity: 0;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.0s forwards !important;
+      width: 100%;
+    }
+
+    .hero-headline {
+      font-size: clamp(36px, 11vw, 52px);
+      margin-top: 4px;
+    }
+
+    .hero-actions {
+      width: 100%;
+      margin-top: 12px;
+    }
+    .hero-btn-primary,
+    .hero-btn-outline {
+      flex: 1;
+      justify-content: center;
+      padding: 13px 16px;
+      font-size: 0.82rem;
+    }
+
+    /* ── 4. STATS BOX (bottom) ── */
+    .hero-right {
+      opacity: 0;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards !important;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .hero-stats-box {
+      display: flex;
+      width: 100%;
+      border-radius: 16px;
+    }
+    .hero-stat-item {
+      flex: 1;
+      padding: 14px 8px;
+    }
+    .hero-stat-num   { font-size: 1.4rem; }
+    .hero-stat-label { font-size: 0.48rem; letter-spacing: 1.2px; }
+
+    /* Modal */
+    .zipto-modal-card {
+      padding: 32px 24px 28px;
+      border-radius: 20px;
+    }
+    .zm-stores {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .hero-bg-text,
+    .hero-bg-text-blue {
+      font-size: 72px !important;
+    }
+    .hero-bottom,
+    .hero-right {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .hero-badge { margin-left: 16px; }
+    .hero-stat-item  { padding: 10px 6px; }
+    .hero-stat-num   { font-size: 1.15rem; }
+    .hero-stat-label { font-size: 0.44rem; }
   }
 `;
 
@@ -420,8 +597,13 @@ export default function ZiptoHero() {
     <>
       <section className="zipto-hero">
 
-        <div className={na("hero-bg-text")}>ZIPTO</div>
+        {/* BG text: gray base + blue fill layer */}
+        <div className={na("hero-bg-text-wrap")}>
+          <span className="hero-bg-text">ZIPTO</span>
+          <span className="hero-bg-text-blue">ZIPTO</span>
+        </div>
 
+        {/* Speed lines (desktop only — hidden on mobile via CSS) */}
         <div className={na("hero-speed-lines")}>
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
@@ -429,10 +611,12 @@ export default function ZiptoHero() {
           <div className="hero-speed-line" />
         </div>
 
+        {/* 1. Truck */}
         <div className={na("hero-rider-wrapper")}>
           <img src={ziptoTruck} alt="Zipto delivery truck" />
         </div>
 
+        {/* 2. Badge */}
         <div className={na("hero-badge")}>
           <div className="hero-badge-dot" />
           <div>
@@ -441,6 +625,7 @@ export default function ZiptoHero() {
           </div>
         </div>
 
+        {/* 3. Headline + buttons  4. Stats box */}
         <div className="hero-bottom">
           <div className={na("hero-left")}>
             <div className="hero-eyebrow">⚡ Fast. Reliable. Now.</div>
@@ -451,7 +636,6 @@ export default function ZiptoHero() {
               <button className="hero-btn-primary" onClick={() => setShowOrder(true)}>
                 Order Now
               </button>
-              {/* ── Explore More → navigates to About Us ── */}
               <button
                 className="hero-btn-outline"
                 onClick={() => navigate("/about")}
@@ -482,7 +666,7 @@ export default function ZiptoHero() {
 
       </section>
 
-      {/* ── ORDER NOW MODAL ── */}
+      {/* ORDER NOW MODAL */}
       {showOrder && (
         <div className="zipto-overlay" onClick={(e) => closeOnBackdrop(e, setShowOrder)}>
           <div className="zipto-modal-card">
@@ -495,14 +679,14 @@ export default function ZiptoHero() {
             <p className="zm-desc">Be the first to experience faster, smarter deliveries across Odisha.</p>
             <div className="zm-stores">
               <button className="zm-store">
-                <div className="zm-store-icon">🍎</div>
+                <img src={appleLogo} alt="Apple" className="zm-store-icon" />
                 <div>
                   <div className="zm-store-sub">iOS</div>
                   <div className="zm-store-name">App Store</div>
                 </div>
               </button>
               <button className="zm-store">
-                <div className="zm-store-icon">▶</div>
+                <img src={androidLogo} alt="Android" className="zm-store-icon" />
                 <div>
                   <div className="zm-store-sub">Android</div>
                   <div className="zm-store-name">Google Play</div>

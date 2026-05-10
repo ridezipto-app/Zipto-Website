@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import ziptoLogo from "../assets/zipto_logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
 import { motion } from "framer-motion";
@@ -9,11 +10,7 @@ import autoImg   from "../assets/auto.png";
 import carImg    from "../assets/car.png";
 import truckImg  from "../assets/truck.png";
 
-/* ─── Google Fonts — add to your index.html ─────────────────────────────────
-   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap" rel="stylesheet" />
-   ──────────────────────────────────────────────────────────────────────────── */
-
-/* ── Design tokens (matching ForBusinessSection) ── */
+/* ── Design tokens ── */
 const SERIF = "'Fraunces', Georgia, serif";
 const SANS  = "'Plus Jakarta Sans', system-ui, sans-serif";
 
@@ -83,6 +80,19 @@ const dotGridStyle = {
   backgroundSize: "28px 28px",
 };
 
+/* ── Hook ── */
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= breakpoint : false
+  );
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 /* ── Primitives ── */
 
 function EyebrowPill({ children, color = BLUE_400, bg = BLUE_50, border = BLUE_100 }) {
@@ -101,7 +111,7 @@ function EyebrowPill({ children, color = BLUE_400, bg = BLUE_50, border = BLUE_1
   );
 }
 
-function SectionHeading({ children, size = "clamp(1.6rem, 2.8vw, 2.2rem)" }) {
+function SectionHeading({ children, size = "clamp(1.5rem, 4vw, 2.2rem)" }) {
   return (
     <h2 style={{
       fontFamily: SERIF, fontSize: size, fontWeight: 900,
@@ -164,7 +174,7 @@ function IconBox({ children }) {
 
 function SectionWrapper({ bg = SURFACE, children, style = {} }) {
   return (
-    <section style={{
+    <section className="section-wrapper" style={{
       background: bg, padding: "72px 48px",
       position: "relative", overflow: "hidden", ...style,
     }}>
@@ -189,6 +199,7 @@ function FadeUp({ children, delay = 0 }) {
 
 export default function AboutUs() {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
@@ -196,11 +207,87 @@ export default function AboutUs() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
         * { box-sizing: border-box; }
+
+        /* ── Responsive overrides ── */
+        @media (max-width: 768px) {
+
+          /* Section padding */
+          .section-wrapper {
+            padding: 48px 20px !important;
+          }
+
+          /* Stats grid */
+          .stats-grid {
+            grid-template-columns: 1fr !important;
+            border-radius: 14px !important;
+          }
+          .stats-grid > * {
+            border-right: none !important;
+            border-bottom: 1.5px solid ${BORDER};
+          }
+          .stats-grid > *:last-child {
+            border-bottom: none !important;
+          }
+
+          /* Vision + Mission */
+          .two-col-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+
+          /* What we do */
+          .what-we-do-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .what-we-do-items {
+            margin-top: 0 !important;
+          }
+
+          /* Fleet */
+          .fleet-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+
+          /* Why choose */
+          .why-grid {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+
+          /* Contact */
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+
+          /* Journey card */
+          .journey-card {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            padding: 24px 20px !important;
+          }
+          .journey-icon {
+            display: none !important;
+          }
+
+          /* Hero */
+          .hero-section {
+            padding: 56px 20px 64px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .fleet-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
       `}</style>
 
 
       {/* ════════════ HERO ════════════ */}
-      <section style={{
+      <section className="hero-section" style={{
         background: "linear-gradient(145deg, #0C2461 0%, #1D4ED8 55%, #1e40af 100%)",
         padding: "80px 48px 88px",
         position: "relative", overflow: "hidden",
@@ -277,7 +364,8 @@ export default function AboutUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: SERIF, fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
+              fontFamily: SERIF,
+              fontSize: "clamp(2rem, 8vw, 3.6rem)",
               fontWeight: 900, lineHeight: 1.06, color: "#fff",
               letterSpacing: "-0.02em", maxWidth: 560, marginBottom: 20,
             }}
@@ -293,7 +381,8 @@ export default function AboutUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
             style={{
-              fontFamily: SANS, fontSize: 15, color: "rgba(255,255,255,0.5)",
+              fontFamily: SANS, fontSize: "clamp(13px, 3.5vw, 15px)",
+              color: "rgba(255,255,255,0.5)",
               maxWidth: 440, lineHeight: 1.75, marginBottom: 36,
             }}
           >
@@ -323,7 +412,6 @@ export default function AboutUs() {
 
       {/* ════════════ STATS BAR ════════════ */}
       <SectionWrapper bg={SURFACE} style={{ padding: "48px 48px" }}>
-        {/* blue glow */}
         <div style={{
           position: "absolute", top: "-40px", left: "-40px",
           width: 320, height: 320, borderRadius: "50%",
@@ -331,7 +419,7 @@ export default function AboutUs() {
           filter: "blur(40px)", pointerEvents: "none",
         }} />
         <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{
+          <div className="stats-grid" style={{
             display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
             border: `1.5px solid ${BORDER}`,
             borderRadius: 18, overflow: "hidden",
@@ -340,11 +428,14 @@ export default function AboutUs() {
             {stats.map(({ num, label }, i) => (
               <FadeUp key={i} delay={i * 0.1}>
                 <div style={{
-                  padding: "28px 32px", background: SURFACE,
+                  padding: isMobile ? "20px 24px" : "28px 32px",
+                  background: SURFACE,
                   borderRight: i < stats.length - 1 ? `1.5px solid ${BORDER}` : "none",
                 }}>
                   <div style={{
-                    fontFamily: SERIF, fontSize: 38, fontWeight: 900,
+                    fontFamily: SERIF,
+                    fontSize: isMobile ? 32 : 38,
+                    fontWeight: 900,
                     color: BLUE_400, lineHeight: 1, marginBottom: 6,
                   }}>
                     {num}
@@ -363,7 +454,6 @@ export default function AboutUs() {
 
       {/* ════════════ WHO WE ARE ════════════ */}
       <SectionWrapper bg={SURFACE}>
-        {/* dot grid */}
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
           ...dotGridStyle, opacity: 0.35,
@@ -380,7 +470,7 @@ export default function AboutUs() {
                 built for everyone
               </em>
             </SectionHeading>
-            <SubText style={{ maxWidth: 580 }}>
+            <SubText style={{ maxWidth: 580, fontSize: isMobile ? 14 : 15 }}>
               Zipto redefines local delivery with a connected logistics network — from bikes to mini trucks.
               We bring customers, businesses, and delivery partners onto a single ecosystem, enabling fast,
               affordable, and reliable movement of goods across the city.
@@ -393,12 +483,10 @@ export default function AboutUs() {
 
       {/* ════════════ VISION + MISSION ════════════ */}
       <SectionWrapper bg={BG}>
-        {/* dot grid */}
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
           ...dotGridStyle, opacity: 0.4,
         }} />
-        {/* glow */}
         <div style={{
           position: "absolute", top: -60, left: -60,
           width: 400, height: 400, borderRadius: "50%",
@@ -406,7 +494,11 @@ export default function AboutUs() {
           filter: "blur(40px)", pointerEvents: "none",
         }} />
         <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="two-col-grid" style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 16,
+          }}>
 
             {/* Vision */}
             <FadeUp delay={0.1}>
@@ -414,7 +506,7 @@ export default function AboutUs() {
                 <IconBox>🚀</IconBox>
                 <EyebrowPill>Our Vision</EyebrowPill>
                 <h3 style={{
-                  fontFamily: SERIF, fontSize: 20, fontWeight: 900,
+                  fontFamily: SERIF, fontSize: isMobile ? 18 : 20, fontWeight: 900,
                   lineHeight: 1.2, color: INK, marginBottom: 14,
                   letterSpacing: "-0.01em",
                 }}>
@@ -435,7 +527,7 @@ export default function AboutUs() {
                 <IconBox>👥</IconBox>
                 <EyebrowPill>Our Mission</EyebrowPill>
                 <h3 style={{
-                  fontFamily: SERIF, fontSize: 20, fontWeight: 900,
+                  fontFamily: SERIF, fontSize: isMobile ? 18 : 20, fontWeight: 900,
                   lineHeight: 1.2, color: INK, marginBottom: 14,
                   letterSpacing: "-0.01em",
                 }}>
@@ -472,7 +564,11 @@ export default function AboutUs() {
           ...dotGridStyle, opacity: 0.3,
         }} />
         <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
+          <div className="what-we-do-grid" style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 48, alignItems: "start",
+          }}>
             <FadeUp>
               <IconBox>📦</IconBox>
               <EyebrowPill>What we do</EyebrowPill>
@@ -492,7 +588,7 @@ export default function AboutUs() {
             </FadeUp>
 
             <FadeUp delay={0.15}>
-              <div style={{
+              <div className="what-we-do-items" style={{
                 display: "grid", gridTemplateColumns: "1fr 1fr",
                 gap: 10, marginTop: 8,
               }}>
@@ -543,7 +639,7 @@ export default function AboutUs() {
             </SubText>
           </FadeUp>
 
-          <div style={{
+          <div className="fleet-grid" style={{
             display: "grid", gridTemplateColumns: "repeat(5, 1fr)",
             gap: 12, marginTop: 28,
           }}>
@@ -615,7 +711,7 @@ export default function AboutUs() {
             </SectionHeading>
           </FadeUp>
 
-          <div style={{
+          <div className="why-grid" style={{
             display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
             gap: 14, marginTop: 28,
           }}>
@@ -683,14 +779,14 @@ export default function AboutUs() {
           </FadeUp>
 
           <FadeUp delay={0.15}>
-            <div style={{
+            <div className="journey-card" style={{
               background: `linear-gradient(145deg, #0C2461 0%, ${BLUE_600} 100%)`,
               borderRadius: 22, padding: "36px 40px",
               display: "grid", gridTemplateColumns: "auto 1fr",
               gap: 28, alignItems: "flex-start",
               border: "1px solid rgba(255,255,255,0.07)",
               boxShadow: "0 8px 32px rgba(37,99,235,0.2)",
-              marginTop: 8,
+              marginTop: 8, position: "relative",
             }}>
               {/* dot-grid overlay inside card */}
               <div style={{
@@ -698,7 +794,7 @@ export default function AboutUs() {
                 ...dotGridStyle, opacity: 0.07, pointerEvents: "none",
               }} />
 
-              <div style={{
+              <div className="journey-icon" style={{
                 width: 52, height: 52, borderRadius: "50%",
                 border: "1.5px solid rgba(255,255,255,0.15)",
                 background: "rgba(255,255,255,0.08)",
@@ -718,14 +814,17 @@ export default function AboutUs() {
                   Origin Story
                 </span>
                 <h3 style={{
-                  fontFamily: SERIF, fontSize: 22, fontWeight: 900,
+                  fontFamily: SERIF,
+                  fontSize: isMobile ? 18 : 22,
+                  fontWeight: 900,
                   color: "#fff", lineHeight: 1.2, marginBottom: 14,
                   letterSpacing: "-0.01em",
                 }}>
                   The Bhubaneswar – Cuttack corridor
                 </h3>
                 <p style={{
-                  fontFamily: SANS, fontSize: 14, color: "rgba(255,255,255,0.5)",
+                  fontFamily: SANS, fontSize: isMobile ? 13 : 14,
+                  color: "rgba(255,255,255,0.5)",
                   lineHeight: 1.75, marginBottom: 18,
                 }}>
                   Zipto is launching initial operations along this critical urban corridor, with a long-term
@@ -779,7 +878,7 @@ export default function AboutUs() {
             </SectionHeading>
           </FadeUp>
 
-          <div style={{
+          <div className="contact-grid" style={{
             display: "grid", gridTemplateColumns: "1fr auto",
             gap: 32, alignItems: "center",
             borderTop: `1.5px solid ${BORDER}`, paddingTop: 36, marginTop: 8,
@@ -803,6 +902,7 @@ export default function AboutUs() {
                     <span style={{
                       fontSize: 13.5, fontWeight: highlight ? 700 : 500,
                       color: highlight ? BLUE_400 : MUTED, fontFamily: SANS,
+                      wordBreak: "break-all",
                     }}>
                       {value}
                     </span>
@@ -833,8 +933,6 @@ export default function AboutUs() {
           </div>
         </div>
       </SectionWrapper>
-
-
 
     </div>
   );
