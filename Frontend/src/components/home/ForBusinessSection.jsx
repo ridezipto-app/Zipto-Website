@@ -219,7 +219,7 @@ export default function ForBusinessSection() {
               Reliable Logistics for{" "}
               <em style={{
                 fontStyle: "italic",
-                background: "linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)",
+                background: "linear-gradient(135deg, #2563eb 0%, #60A5FA 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
                 Local Businesses

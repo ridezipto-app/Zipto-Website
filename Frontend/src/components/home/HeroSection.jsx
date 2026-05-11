@@ -20,6 +20,10 @@ const heroStyles = `
     --accent: #2563eb;
   }
 
+  /* ═══════════════════════════════════════
+     BASE / DESKTOP (> 768px)
+  ═══════════════════════════════════════ */
+
   .zipto-hero {
     width: 100vw;
     height: calc(100vh - 72px);
@@ -121,7 +125,7 @@ const heroStyles = `
     49% { transform: translateX(75vw)   scaleX(1);  opacity: 0; }
     54% { transform: translateX(75vw)   scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
     55% { transform: translateX(75vw)   scaleX(1);  opacity: 1; }
-   100% { transform: translateX(-50%)  scaleX(1);  opacity: 1; }
+   100% { transform: translateX(-50%)   scaleX(1);  opacity: 1; }
   }
   .hero-rider-wrapper img {
     width: 100%;
@@ -366,70 +370,143 @@ const heroStyles = `
   .hero-left.no-anim, .hero-right.no-anim, .hero-badge.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
   .hero-speed-lines.no-anim { display: none; }
 
+  /* Mobile truck (parked) — hidden on desktop */
+  .zipto-truck-parked { display: none; }
+
   /* ═══════════════════════════════════════
-     MOBILE ≤ 768px
+     TABLET  769px – 1024px
+  ═══════════════════════════════════════ */
+  @media (min-width: 769px) and (max-width: 1024px) {
+
+    .zipto-hero {
+      height: calc(100vh - 64px);
+      min-height: 520px;
+    }
+
+    /* Scale down desktop truck */
+    .hero-rider-wrapper {
+      width: clamp(200px, 44vw, 480px);
+      bottom: 48px;
+    }
+
+    /* Tighter bottom padding */
+    .hero-bottom { padding: 0 36px 28px; }
+
+    /* Smaller headline */
+    .hero-headline { font-size: clamp(30px, 4vw, 52px); }
+
+    /* Tighter stats */
+    .hero-stat-item { padding: 14px 20px; }
+    .hero-stat-num  { font-size: 1.6rem; }
+
+    /* Badge */
+    .hero-badge { top: 12%; right: 6%; padding: 10px 14px; }
+    .hero-badge-text { font-size: 0.72rem; }
+    .hero-badge-sub  { font-size: 0.60rem; }
+  }
+
+  /* ═══════════════════════════════════════
+     MOBILE  ≤ 768px
+     Layout is completely restructured:
+     • Hero  →  display:flex + flex-direction:column
+     • hero-bottom  →  position:relative + margin-top:auto
+       (sits at bottom of flex column, NO gap possible)
+     • Truck  →  absolute, centered in remaining space
   ═══════════════════════════════════════ */
   @media (max-width: 768px) {
 
+    /* ① Hero is now a flex column that fills the viewport */
     .zipto-hero {
       height: 100svh;
-      min-height: 600px;
+      min-height: 0;
+      overflow: hidden;
+      display: flex !important;
+      flex-direction: column !important;
     }
 
-    /* Desktop truck hidden on mobile */
+    /* ② Hide desktop-only elements */
     .hero-rider-wrapper { display: none !important; }
+    .hero-speed-lines   { display: none !important; }
 
-    /* BG text */
+    /* ③ BG text — smaller, decorative overlay */
     .hero-bg-text-wrap {
-      top: 4px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
     }
     .hero-bg-text,
     .hero-bg-text-blue {
-      font-size: clamp(72px, 22vw, 120px) !important;
-      letter-spacing: 0.1em;
+      font-size: clamp(56px, 18vw, 96px) !important;
+      letter-spacing: 0.08em;
     }
 
-    .hero-speed-lines { display: none !important; }
-
-    /* BADGE */
+    /* ④ Badge — floats top-left, absolute */
     .hero-badge {
-      top: 52% !important;
+      position: absolute !important;
+      top: clamp(48px, 10svh, 80px) !important;
+      left: 16px !important;
       right: auto !important;
-      left: 20px !important;
-      padding: 8px 14px;
-      border-radius: 12px;
+      padding: 8px 13px;
+      border-radius: 11px;
+      z-index: 6;
       animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 3.8s both !important;
     }
-    .hero-badge-text { font-size: 0.72rem; }
-    .hero-badge-sub  { font-size: 0.60rem; }
+    .hero-badge-text { font-size: 0.70rem; }
+    .hero-badge-sub  { font-size: 0.57rem; }
 
-    /* CONTENT + STATS */
-    .hero-bottom {
+    /* ⑤ Truck — show on mobile, absolute, centered in upper zone */
+    .zipto-truck-parked {
+      display: block !important;
       position: absolute !important;
-      left: 0 !important; right: 0 !important;
-      bottom: 0 !important; top: auto !important;
+      /* Vertical center of the hero, shifted up 10% so it sits
+         above the bottom content without any gap */
+      top: 42% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: clamp(220px, 88vw, 340px) !important;
+      z-index: 4;
+      filter: drop-shadow(0 12px 36px rgba(0,0,0,0.12));
+    }
+    .zipto-truck-parked img { width: 100%; display: block; }
+
+    /* ⑥ hero-bottom — OUT of absolute flow.
+         margin-top:auto pushes it flush to the bottom
+         of the flex column. Zero gap guaranteed. */
+    .hero-bottom {
+      position: relative !important;
+      top: auto !important; left: auto !important;
+      right: auto !important; bottom: auto !important;
+      margin-top: auto !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: stretch !important;
-      gap: 12px !important;
-      padding: 0 20px 24px !important;
+      gap: 8px !important;
+      padding: 0 18px !important;
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important;
       box-sizing: border-box;
+      flex-shrink: 0;
       z-index: 10;
     }
+
+    /* hero-left */
     .hero-left {
       opacity: 0;
       animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 3.9s forwards !important;
       width: 100%;
     }
     .hero-left.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
-    .hero-headline { font-size: clamp(32px, 9.5vw, 48px); margin-top: 2px; }
-    .hero-actions { width: 100%; margin-top: 10px; gap: 10px; }
-    .hero-btn-primary, .hero-btn-outline {
-      flex: 1; justify-content: center;
-      padding: 12px 14px; font-size: 0.80rem;
+    .hero-eyebrow  { font-size: 0.62rem; margin-bottom: 3px; letter-spacing: 2.5px; }
+    .hero-headline { font-size: clamp(30px, 9vw, 44px); margin-top: 0; line-height: 0.9; }
+    .hero-actions  { width: 100%; margin-top: 10px; gap: 8px; flex-wrap: nowrap; }
+    .hero-btn-primary,
+    .hero-btn-outline {
+      flex: 1;
+      justify-content: center;
+      padding: 12px 10px;
+      font-size: 0.80rem;
     }
+
+    /* hero-right / stats */
     .hero-right {
       opacity: 0;
       animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 4.2s forwards !important;
@@ -437,32 +514,55 @@ const heroStyles = `
     }
     .hero-right.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
     .hero-stats-box { display: flex; width: 100%; border-radius: 14px; }
-    .hero-stat-item   { flex: 1; padding: 12px 6px; }
-    .hero-stat-num    { font-size: 1.35rem; }
-    .hero-stat-label  { font-size: 0.46rem; letter-spacing: 1px; }
+    .hero-stat-item { flex: 1; padding: 11px 4px; }
+    .hero-stat-num  { font-size: 1.25rem; }
+    .hero-stat-label { font-size: 0.44rem; letter-spacing: 0.9px; }
 
-    .zipto-modal-card { padding: 32px 22px 26px; border-radius: 20px; }
-    .zm-stores { flex-direction: column; }
+    /* Modal tweaks */
+    .zipto-modal-card { padding: 30px 20px 24px; border-radius: 20px; }
+    .zm-stores        { flex-direction: column; }
   }
 
+  /* ═══════════════════════════════════════
+     SMALL MOBILE  ≤ 390px
+  ═══════════════════════════════════════ */
   @media (max-width: 390px) {
-    .hero-bg-text, .hero-bg-text-blue { font-size: 64px !important; }
-    .hero-badge { top: 50% !important; left: 14px !important; }
-    .hero-bottom { padding: 0 14px 20px !important; }
-    .hero-stat-item { padding: 10px 4px; }
-    .hero-stat-num  { font-size: 1.1rem; }
-    .hero-stat-label { font-size: 0.42rem; }
+    .hero-bg-text,
+    .hero-bg-text-blue { font-size: 52px !important; }
+
+    .hero-badge {
+      top: clamp(42px, 9svh, 66px) !important;
+      left: 12px !important;
+    }
+
+    .zipto-truck-parked {
+      width: clamp(200px, 86vw, 300px) !important;
+      top: 41% !important;
+    }
+
+    .hero-bottom {
+      gap: 6px !important;
+      padding: 0 14px !important;
+      padding-bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
+    }
+    .hero-headline  { font-size: clamp(27px, 8.5vw, 36px); }
+    .hero-btn-primary,
+    .hero-btn-outline { padding: 11px 8px; font-size: 0.76rem; }
+    .hero-stat-item  { padding: 9px 3px; }
+    .hero-stat-num   { font-size: 1.1rem; }
+    .hero-stat-label { font-size: 0.40rem; }
   }
 
-  /* ── MOBILE TRUCK — portal-rendered, absolute inside body ──
-     During animation: position:absolute on body (scrolls with page, not fixed).
-     After animation: moved into hero as position:absolute inside hero.
-  */
+  /* ═══════════════════════════════════════
+     MOBILE TRUCK PORTAL
+     Rendered into document.body during animation
+     so overflow:hidden on hero cannot clip it.
+  ═══════════════════════════════════════ */
   .zipto-truck-portal {
     position: absolute;
     pointer-events: none;
     z-index: 9999;
-    width: clamp(200px, 84vw, 340px);
+    width: clamp(220px, 88vw, 340px);
   }
   .zipto-truck-portal img {
     width: 100%;
@@ -480,97 +580,61 @@ const heroStyles = `
     55% { transform: translateX(110vw)  scaleX(1);  opacity: 1; }
    100% { transform: translateX(0)      scaleX(1);  opacity: 1; }
   }
-
-  /* Parked inside hero: normal absolute, centred */
-  .zipto-truck-parked {
-    position: absolute;
-    pointer-events: none;
-    z-index: 4;
-    width: clamp(200px, 84vw, 340px);
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 1;
-  }
-  .zipto-truck-parked img {
-    width: 100%;
-    display: block;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.13));
-  }
 `;
 
 const SESSION_KEY = "zipto-hero-seen";
-const ANIM_MS = 4200 + 200; // total animation time incl. delay
+const ANIM_MS     = 4200 + 200; // total animation duration + delay
 
 export default function ZiptoHero() {
-  const [showOrder, setShowOrder] = useState(false);
-  const [playAnim, setPlayAnim]   = useState(false);
-  // mobile truck states: "hidden" | "portal-animating" | "hero-parked" | "hero-static"
-  const [mobileTruck, setMobileTruck] = useState("hidden");
-  const [portalStyle, setPortalStyle] = useState({});
-  const [parkedTop, setParkedTop]     = useState("14%");
+  const [showOrder,    setShowOrder]    = useState(false);
+  const [playAnim,     setPlayAnim]     = useState(false);
+  // "hidden" | "portal-animating" | "parked" | "static"
+  const [mobileTruck,  setMobileTruck]  = useState("hidden");
+  const [portalStyle,  setPortalStyle]  = useState({});
   const heroRef  = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Inject styles once
     if (!document.getElementById("zipto-hero-styles")) {
       const tag = document.createElement("style");
-      tag.id = "zipto-hero-styles";
+      tag.id    = "zipto-hero-styles";
       tag.innerHTML = heroStyles;
       document.head.appendChild(tag);
     }
 
+    // Clear session cache on hard nav (not back/forward)
     const navType = performance.getEntriesByType("navigation")[0]?.type;
     if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
 
-    const seen = sessionStorage.getItem(SESSION_KEY);
+    const seen       = sessionStorage.getItem(SESSION_KEY);
     const shouldPlay = !seen;
     if (shouldPlay) {
       setPlayAnim(true);
       sessionStorage.setItem(SESSION_KEY, "1");
     }
 
+    // Mobile-only truck animation logic
     const isMobile = window.innerWidth <= 768;
     if (!isMobile) return;
 
-    // Measure hero to find where truck should sit
-    const measure = () => {
-      if (!heroRef.current) return null;
-      const rect    = heroRef.current.getBoundingClientRect();
-      const truckW  = Math.min(Math.max(200, window.innerWidth * 0.84), 340);
-      const left    = rect.left + (rect.width - truckW) / 2;
-      // top = hero top + 14% of hero height, relative to document
-      const topAbs  = rect.top + window.scrollY + rect.height * 0.14;
-      const topPct  = (rect.height * 0.14 / rect.height * 100).toFixed(1) + "%";
-      return { left, topAbs, topPct };
-    };
-
     if (shouldPlay) {
-      const m = measure();
-      if (m) {
-        // Portal truck starts at absolute position on body (scrolls with page)
-        setPortalStyle({ left: `${m.left}px`, top: `${m.topAbs}px` });
-        setParkedTop(m.topPct);
-      }
+      // Position the portal truck at vertical center of the hero
+      const rect   = heroRef.current?.getBoundingClientRect();
+      const truckW = Math.min(Math.max(220, window.innerWidth * 0.88), 340);
+      const left   = rect ? rect.left + (rect.width  - truckW) / 2 : 0;
+      const top    = rect ? rect.top  + window.scrollY + rect.height * 0.42 - 60 : 0;
+      setPortalStyle({ left: `${left}px`, top: `${top}px` });
       setMobileTruck("portal-animating");
 
-      // After animation ends, move truck from portal into hero
-      const t = setTimeout(() => {
-        const m2 = measure();
-        if (m2) setParkedTop(m2.topPct);
-        setMobileTruck("hero-parked");
-      }, ANIM_MS);
-
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setMobileTruck("parked"), ANIM_MS);
+      return () => clearTimeout(timer);
     } else {
-      // Returning visitor — just show truck already parked in hero
-      const m = measure();
-      if (m) setParkedTop(m.topPct);
-      setMobileTruck("hero-static");
+      setMobileTruck("static");
     }
 
     return () => {
-      const tag = document.getElementById("zipto-hero-styles");
-      if (tag) tag.remove();
+      document.getElementById("zipto-hero-styles")?.remove();
     };
   }, []);
 
@@ -582,10 +646,7 @@ export default function ZiptoHero() {
 
   return (
     <>
-      {/* ── MOBILE TRUCK PORTAL ──
-          Rendered into document.body during animation so NO parent
-          overflow:hidden can clip it. Uses position:absolute (not fixed)
-          so it scrolls naturally with the page. */}
+      {/* Portal truck — lives on document.body during animation */}
       {mobileTruck === "portal-animating" && createPortal(
         <div
           className="zipto-truck-portal animating"
@@ -599,13 +660,13 @@ export default function ZiptoHero() {
 
       <section className="zipto-hero" ref={heroRef}>
 
-        {/* BG text */}
+        {/* Decorative BG text */}
         <div className={na("hero-bg-text-wrap")}>
           <span className="hero-bg-text">ZIPTO</span>
           <span className="hero-bg-text-blue">ZIPTO</span>
         </div>
 
-        {/* Speed lines — desktop only */}
+        {/* Speed lines — desktop / tablet only */}
         <div className={na("hero-speed-lines")}>
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
@@ -613,24 +674,20 @@ export default function ZiptoHero() {
           <div className="hero-speed-line" />
         </div>
 
-        {/* Desktop truck (hidden on mobile via CSS) */}
+        {/* Desktop / tablet truck (CSS hides on mobile) */}
         <div className={na("hero-rider-wrapper")}>
           <img src={ziptoTruck} alt="Zipto delivery truck" />
         </div>
 
-        {/* Mobile truck — shown inside hero AFTER animation completes,
-            or immediately for returning visitors */}
-        {(mobileTruck === "hero-parked" || mobileTruck === "hero-static") && (
-          <div
-            className="zipto-truck-parked"
-            style={{ top: parkedTop }}
-            aria-hidden="true"
-          >
+        {/* Mobile truck — shown after animation or immediately for
+            returning visitors. CSS positions it via top:42% + translateY(-50%) */}
+        {(mobileTruck === "parked" || mobileTruck === "static") && (
+          <div className="zipto-truck-parked" aria-hidden="true">
             <img src={ziptoTruck} alt="" />
           </div>
         )}
 
-        {/* Badge */}
+        {/* Rider nearby badge */}
         <div className={na("hero-badge")}>
           <div className="hero-badge-dot" />
           <div>
@@ -639,18 +696,27 @@ export default function ZiptoHero() {
           </div>
         </div>
 
-        {/* Headline + Buttons + Stats */}
+        {/* ── BOTTOM CONTENT ──
+            Desktop/Tablet: position:absolute, bottom:0
+            Mobile: position:relative, margin-top:auto  */}
         <div className="hero-bottom">
+
           <div className={na("hero-left")}>
             <div className="hero-eyebrow">⚡ Fast. Reliable. Now.</div>
             <h1 className="hero-headline">
               Delivered<br />in <span>Minutes.</span>
             </h1>
             <div className="hero-actions">
-              <button className="hero-btn-primary" onClick={() => setShowOrder(true)}>
+              <button
+                className="hero-btn-primary"
+                onClick={() => setShowOrder(true)}
+              >
                 Order Now
               </button>
-              <button className="hero-btn-outline" onClick={() => navigate("/about")}>
+              <button
+                className="hero-btn-outline"
+                onClick={() => navigate("/about")}
+              >
                 Explore More <span className="explore-arrow">→</span>
               </button>
             </div>
@@ -672,29 +738,56 @@ export default function ZiptoHero() {
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </section>
 
       {/* ORDER NOW MODAL */}
       {showOrder && (
-        <div className="zipto-overlay" onClick={(e) => closeOnBackdrop(e, setShowOrder)}>
+        <div
+          className="zipto-overlay"
+          onClick={(e) => closeOnBackdrop(e, setShowOrder)}
+        >
           <div className="zipto-modal-card">
-            <button className="zipto-close-btn" onClick={() => setShowOrder(false)} aria-label="Close">✕</button>
-            <div className="zm-launch-pill"><div className="zm-launch-dot" /> Launching Soon</div>
-            <div className="zm-title">Our app is<br /><span>almost here.</span></div>
-            <p className="zm-desc">Be the first to experience faster, smarter deliveries across Odisha.</p>
+            <button
+              className="zipto-close-btn"
+              onClick={() => setShowOrder(false)}
+              aria-label="Close"
+            >✕</button>
+
+            <div className="zm-launch-pill">
+              <div className="zm-launch-dot" /> Launching Soon
+            </div>
+            <div className="zm-title">
+              Our app is<br /><span>almost here.</span>
+            </div>
+            <p className="zm-desc">
+              Be the first to experience faster, smarter deliveries across Odisha.
+            </p>
+
             <div className="zm-stores">
               <button className="zm-store">
                 <img src={appleLogo} alt="Apple" className="zm-store-icon" />
-                <div><div className="zm-store-sub">iOS</div><div className="zm-store-name">App Store</div></div>
+                <div>
+                  <div className="zm-store-sub">iOS</div>
+                  <div className="zm-store-name">App Store</div>
+                </div>
               </button>
               <button className="zm-store">
                 <img src={androidLogo} alt="Android" className="zm-store-icon" />
-                <div><div className="zm-store-sub">Android</div><div className="zm-store-name">Google Play</div></div>
+                <div>
+                  <div className="zm-store-sub">Android</div>
+                  <div className="zm-store-name">Google Play</div>
+                </div>
               </button>
             </div>
-            <button className="zm-notify-btn" onClick={() => setShowOrder(false)}>Got it, notify me →</button>
+
+            <button
+              className="zm-notify-btn"
+              onClick={() => setShowOrder(false)}
+            >
+              Got it, notify me →
+            </button>
           </div>
         </div>
       )}
