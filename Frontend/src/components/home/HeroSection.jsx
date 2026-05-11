@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createPortal } from "react-dom";
 import ziptoTruck from "../../assets/zipto_truck.png";
 import appleLogo from "../../assets/apple.png";
 import androidLogo from "../../assets/android-logo.png";
@@ -22,14 +23,14 @@ const heroStyles = `
   .zipto-hero {
     width: 100vw;
     height: calc(100vh - 72px);
-    min-height: 520px;
+    min-height: 580px;
     position: relative;
     overflow: hidden;
     background: linear-gradient(110deg, #e4e4e4 0%, #eeeeee 35%, #f8f8f8 65%, #ffffff 100%);
     font-family: 'Syne', sans-serif;
   }
 
-  /* ── BG TEXT WRAPPER ── */
+  /* BG TEXT */
   .hero-bg-text-wrap {
     position: absolute;
     top: 28%;
@@ -40,23 +41,21 @@ const heroStyles = `
     user-select: none;
     white-space: nowrap;
   }
-
   .hero-bg-text {
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
     font-size: clamp(100px, 24vw, 340px);
     letter-spacing: 0.06em;
-    color: rgba(180, 180, 180, 0.32);
+    color: rgba(180,180,180,0.32);
     line-height: 1;
     display: block;
     opacity: 0;
     animation: zh-bgReveal 1.8s ease 0.5s forwards;
   }
-
   .hero-bg-text-blue {
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
     font-size: clamp(100px, 24vw, 340px);
     letter-spacing: 0.06em;
-    color: rgba(37, 99, 235, 0.38);
+    color: rgba(37,99,235,0.38);
     line-height: 1;
     display: block;
     position: absolute;
@@ -73,32 +72,7 @@ const heroStyles = `
     100% { opacity: 1; }
   }
 
-  /* ── NO-ANIM OVERRIDES ── */
-  .hero-bg-text-wrap.no-anim .hero-bg-text {
-    opacity: 1 !important;
-    animation: none !important;
-  }
-  .hero-bg-text-wrap.no-anim .hero-bg-text-blue {
-    clip-path: inset(0 0 0 0%) !important;
-    animation: none !important;
-  }
-  .hero-rider-wrapper.no-anim {
-    transform: translateX(-50%) scaleX(1) !important;
-    opacity: 1 !important;
-    animation: none !important;
-  }
-  .hero-left.no-anim,
-  .hero-right.no-anim,
-  .hero-badge.no-anim {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-  .hero-speed-lines.no-anim {
-    display: none;
-  }
-
-  /* ── SPEED LINES ── */
+  /* SPEED LINES */
   .hero-speed-lines {
     position: absolute;
     top: 50%;
@@ -122,7 +96,7 @@ const heroStyles = `
     margin: 14px 0;
     transform: scaleX(0);
     transform-origin: left center;
-    animation: zh-expandLine 0.9s cubic-bezier(0.2, 0, 0.4, 1) forwards;
+    animation: zh-expandLine 0.9s cubic-bezier(0.2,0,0.4,1) forwards;
   }
   .hero-speed-line:nth-child(1) { width: 82%; margin-left: 0%;  animation-delay: 0.35s; }
   .hero-speed-line:nth-child(2) { width: 68%; margin-left: 4%;  animation-delay: 0.55s; opacity: 0.75; }
@@ -130,7 +104,7 @@ const heroStyles = `
   .hero-speed-line:nth-child(4) { width: 36%; margin-left: 14%; animation-delay: 0.65s; opacity: 0.32; }
   @keyframes zh-expandLine { to { transform: scaleX(1); } }
 
-  /* ── TRUCK (DESKTOP) ── */
+  /* TRUCK — desktop */
   .hero-rider-wrapper {
     position: absolute;
     bottom: 60px;
@@ -143,11 +117,11 @@ const heroStyles = `
   }
   @keyframes zh-riderSequence {
     0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
-    48% { transform: translateX(75vw) scaleX(-1); opacity: 1; animation-timing-function: steps(1, start); }
-    49% { transform: translateX(75vw) scaleX(1); opacity: 0; }
-    54% { transform: translateX(75vw) scaleX(1); opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
-    55% { transform: translateX(75vw) scaleX(1); opacity: 1; }
-    100%{ transform: translateX(-50%) scaleX(1); opacity: 1; }
+    48% { transform: translateX(75vw)   scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
+    49% { transform: translateX(75vw)   scaleX(1);  opacity: 0; }
+    54% { transform: translateX(75vw)   scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
+    55% { transform: translateX(75vw)   scaleX(1);  opacity: 1; }
+   100% { transform: translateX(-50%)  scaleX(1);  opacity: 1; }
   }
   .hero-rider-wrapper img {
     width: 100%;
@@ -155,7 +129,7 @@ const heroStyles = `
     filter: drop-shadow(0 24px 64px rgba(0,0,0,0.11)) drop-shadow(0 6px 18px rgba(0,0,0,0.07));
   }
 
-  /* ── BOTTOM BAR (DESKTOP) ── */
+  /* BOTTOM BAR — desktop */
   .hero-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -165,12 +139,10 @@ const heroStyles = `
     justify-content: space-between;
     align-items: flex-end;
   }
-
   .hero-left {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 3.9s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 3.9s forwards;
   }
-
   .hero-eyebrow {
     font-size: 0.72rem;
     font-weight: 600;
@@ -178,9 +150,7 @@ const heroStyles = `
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 6px;
-    font-family: 'Syne', sans-serif;
   }
-
   .hero-headline {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(34px, 4.8vw, 66px);
@@ -188,14 +158,12 @@ const heroStyles = `
     color: var(--dark);
   }
   .hero-headline span { color: var(--accent); }
-
   .hero-actions {
     display: flex;
     gap: 12px;
     margin-top: 16px;
     flex-wrap: wrap;
   }
-
   .hero-btn-primary {
     background: var(--dark);
     color: #fff;
@@ -209,7 +177,6 @@ const heroStyles = `
     transition: background 0.3s, transform 0.25s;
   }
   .hero-btn-primary:hover { background: var(--accent); transform: scale(1.03); }
-
   .hero-btn-outline {
     background: transparent;
     color: var(--dark);
@@ -235,19 +202,17 @@ const heroStyles = `
     display: inline-block;
     transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
   }
-  .hero-btn-outline:hover .explore-arrow {
-    transform: translateX(4px);
-  }
+  .hero-btn-outline:hover .explore-arrow { transform: translateX(4px); }
 
-  /* ── STATS BOX ── */
+  /* STATS */
   .hero-right {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) 4.2s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 4.2s forwards;
   }
   .hero-stats-box {
     display: inline-flex;
     align-items: center;
-    background: #ffffff;
+    background: #fff;
     border: 1.5px solid #e5e7eb;
     border-radius: 18px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
@@ -278,18 +243,16 @@ const heroStyles = `
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 5px;
-    font-family: 'Syne', sans-serif;
     font-weight: 600;
   }
 
-  /* ── BADGE (DESKTOP) ── */
+  /* BADGE — desktop */
   .hero-badge {
     position: absolute;
     top: 14%; right: 10%;
     z-index: 6;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-radius: 14px;
     padding: 12px 18px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.09), 0 0 0 1px rgba(0,0,0,0.04);
@@ -309,24 +272,22 @@ const heroStyles = `
     0%,100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
     50%      { opacity: 0.3; box-shadow: none; }
   }
-  .hero-badge-text { font-size: 0.78rem; font-weight: 500; color: var(--dark); font-family: 'Syne', sans-serif; }
-  .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; font-family: 'Syne', sans-serif; }
+  .hero-badge-text { font-size: 0.78rem; font-weight: 500; color: var(--dark); }
+  .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; }
 
-  /* ── MODAL BASE ── */
+  /* MODAL */
   .zipto-overlay {
     position: fixed;
     inset: 0;
     z-index: 1000;
     background: rgba(0,0,0,0.42);
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: center;
     animation: zh-overlayIn 0.25s ease forwards;
   }
   @keyframes zh-overlayIn { from { opacity:0; } to { opacity:1; } }
-
   .zipto-modal-card {
     background: #fff;
     border-radius: 24px;
@@ -343,7 +304,6 @@ const heroStyles = `
     from { opacity:0; transform: scale(0.88) translateY(18px); }
     to   { opacity:1; transform: scale(1) translateY(0); }
   }
-
   .zipto-close-btn {
     position: absolute;
     top: 16px; right: 18px;
@@ -355,31 +315,17 @@ const heroStyles = `
     transition: background 0.2s;
   }
   .zipto-close-btn:hover { background: #e5e7eb; color: #111; }
-
-  /* ── ORDER MODAL CONTENT ── */
   .zm-launch-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    border-radius: 100px;
-    padding: 5px 12px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #eff6ff; border: 1px solid #bfdbfe;
+    border-radius: 100px; padding: 5px 12px;
+    font-size: 0.68rem; font-weight: 700; color: var(--accent);
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
   }
   .zm-launch-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
   .zm-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    color: var(--dark);
-    line-height: 0.95;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+    color: var(--dark); line-height: 0.95; letter-spacing: 0.5px; margin-bottom: 12px;
   }
   .zm-title span { color: var(--accent); }
   .zm-desc { font-size: 0.82rem; color: #6b7280; line-height: 1.65; font-weight: 400; margin-bottom: 26px; }
@@ -403,7 +349,7 @@ const heroStyles = `
   }
   .zm-notify-btn:hover { background: var(--accent); transform: scale(1.02); }
 
-  /* ── SHARED KEYFRAMES ── */
+  /* SHARED KEYFRAMES */
   @keyframes zh-fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -413,158 +359,156 @@ const heroStyles = `
     to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* ═══════════════════════════════════════
-     MOBILE — stack: truck → content → stats
-  ═══════════════════════════════════════ */
+  /* NO-ANIM OVERRIDES */
+  .hero-bg-text-wrap.no-anim .hero-bg-text { opacity: 1 !important; animation: none !important; }
+  .hero-bg-text-wrap.no-anim .hero-bg-text-blue { clip-path: inset(0 0 0 0%) !important; animation: none !important; }
+  .hero-rider-wrapper.no-anim { transform: translateX(-50%) scaleX(1) !important; opacity: 1 !important; animation: none !important; }
+  .hero-left.no-anim, .hero-right.no-anim, .hero-badge.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .hero-speed-lines.no-anim { display: none; }
 
+  /* ═══════════════════════════════════════
+     MOBILE ≤ 768px
+  ═══════════════════════════════════════ */
   @media (max-width: 768px) {
 
-    /* Hero: flex column, height fits content — no forced min-height gap */
     .zipto-hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: auto;
-      min-height: unset;
-      padding-bottom: 28px;
-      overflow-x: hidden;
+      height: 100svh;
+      min-height: 600px;
     }
 
-    /* BG text: sits at top, z-index behind truck so it reads as a watermark */
+    /* Desktop truck hidden on mobile */
+    .hero-rider-wrapper { display: none !important; }
+
+    /* BG text */
     .hero-bg-text-wrap {
-      position: absolute;
-      top: 0;
+      top: 4px;
       left: 50%;
-      transform: translate(-50%, 0);
-      z-index: 1;
+      transform: translateX(-50%);
     }
     .hero-bg-text,
     .hero-bg-text-blue {
-      font-size: clamp(80px, 26vw, 150px) !important;
-      letter-spacing: 0.08em;
+      font-size: clamp(72px, 22vw, 120px) !important;
+      letter-spacing: 0.1em;
     }
 
-    /* Speed lines hidden on mobile */
-    .hero-speed-lines {
-      display: none !important;
-    }
+    .hero-speed-lines { display: none !important; }
 
-    /* ── 1. TRUCK — pushed down so ZIPTO text is fully visible above ── */
-    .hero-rider-wrapper {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      transform: none !important;
-      animation: zh-fadeUp 0.9s ease 0.3s both !important;
-      width: clamp(220px, 82vw, 360px);
-      margin-top: 110px;
-      z-index: 4;
-    }
-
-    /* ── 2. BADGE (below truck, flush left) ── */
+    /* BADGE */
     .hero-badge {
-      position: relative;
-      top: auto; bottom: auto; right: auto; left: auto;
-      margin-top: 10px;
+      top: 52% !important;
+      right: auto !important;
+      left: 20px !important;
       padding: 8px 14px;
       border-radius: 12px;
-      opacity: 0;
-      animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 0.9s both !important;
-      align-self: flex-start;
-      margin-left: 20px;
+      animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 3.8s both !important;
     }
     .hero-badge-text { font-size: 0.72rem; }
     .hero-badge-sub  { font-size: 0.60rem; }
 
-    /* ── 3. CONTENT (headline + buttons) ── */
+    /* CONTENT + STATS */
     .hero-bottom {
-      position: relative;
-      bottom: auto; left: auto; right: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 16px 20px 0;
-      width: 100%;
+      position: absolute !important;
+      left: 0 !important; right: 0 !important;
+      bottom: 0 !important; top: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 12px !important;
+      padding: 0 20px 24px !important;
       box-sizing: border-box;
       z-index: 10;
     }
-
     .hero-left {
       opacity: 0;
-      animation: zh-fadeUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.0s forwards !important;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 3.9s forwards !important;
       width: 100%;
     }
-
-    .hero-headline {
-      font-size: clamp(36px, 11vw, 52px);
-      margin-top: 4px;
+    .hero-left.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+    .hero-headline { font-size: clamp(32px, 9.5vw, 48px); margin-top: 2px; }
+    .hero-actions { width: 100%; margin-top: 10px; gap: 10px; }
+    .hero-btn-primary, .hero-btn-outline {
+      flex: 1; justify-content: center;
+      padding: 12px 14px; font-size: 0.80rem;
     }
-
-    .hero-actions {
-      width: 100%;
-      margin-top: 12px;
-    }
-    .hero-btn-primary,
-    .hero-btn-outline {
-      flex: 1;
-      justify-content: center;
-      padding: 13px 16px;
-      font-size: 0.82rem;
-    }
-
-    /* ── 4. STATS BOX (bottom) ── */
     .hero-right {
       opacity: 0;
-      animation: zh-fadeUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards !important;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 4.2s forwards !important;
       width: 100%;
-      padding: 0 20px;
-      box-sizing: border-box;
     }
-    .hero-stats-box {
-      display: flex;
-      width: 100%;
-      border-radius: 16px;
-    }
-    .hero-stat-item {
-      flex: 1;
-      padding: 14px 8px;
-    }
-    .hero-stat-num   { font-size: 1.4rem; }
-    .hero-stat-label { font-size: 0.48rem; letter-spacing: 1.2px; }
+    .hero-right.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+    .hero-stats-box { display: flex; width: 100%; border-radius: 14px; }
+    .hero-stat-item   { flex: 1; padding: 12px 6px; }
+    .hero-stat-num    { font-size: 1.35rem; }
+    .hero-stat-label  { font-size: 0.46rem; letter-spacing: 1px; }
 
-    /* Modal */
-    .zipto-modal-card {
-      padding: 32px 24px 28px;
-      border-radius: 20px;
-    }
-    .zm-stores {
-      flex-direction: column;
-    }
+    .zipto-modal-card { padding: 32px 22px 26px; border-radius: 20px; }
+    .zm-stores { flex-direction: column; }
   }
 
-  @media (max-width: 400px) {
-    .hero-bg-text,
-    .hero-bg-text-blue {
-      font-size: 72px !important;
-    }
-    .hero-bottom,
-    .hero-right {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .hero-badge { margin-left: 16px; }
-    .hero-stat-item  { padding: 10px 6px; }
-    .hero-stat-num   { font-size: 1.15rem; }
-    .hero-stat-label { font-size: 0.44rem; }
+  @media (max-width: 390px) {
+    .hero-bg-text, .hero-bg-text-blue { font-size: 64px !important; }
+    .hero-badge { top: 50% !important; left: 14px !important; }
+    .hero-bottom { padding: 0 14px 20px !important; }
+    .hero-stat-item { padding: 10px 4px; }
+    .hero-stat-num  { font-size: 1.1rem; }
+    .hero-stat-label { font-size: 0.42rem; }
+  }
+
+  /* ── MOBILE TRUCK — portal-rendered, absolute inside body ──
+     During animation: position:absolute on body (scrolls with page, not fixed).
+     After animation: moved into hero as position:absolute inside hero.
+  */
+  .zipto-truck-portal {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    width: clamp(200px, 84vw, 340px);
+  }
+  .zipto-truck-portal img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.13));
+  }
+  .zipto-truck-portal.animating {
+    animation: zh-portalTruck 4.2s linear 0.2s forwards;
+  }
+  @keyframes zh-portalTruck {
+    0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
+    48% { transform: translateX(110vw)  scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
+    49% { transform: translateX(110vw)  scaleX(1);  opacity: 0; }
+    54% { transform: translateX(110vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
+    55% { transform: translateX(110vw)  scaleX(1);  opacity: 1; }
+   100% { transform: translateX(0)      scaleX(1);  opacity: 1; }
+  }
+
+  /* Parked inside hero: normal absolute, centred */
+  .zipto-truck-parked {
+    position: absolute;
+    pointer-events: none;
+    z-index: 4;
+    width: clamp(200px, 84vw, 340px);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+  .zipto-truck-parked img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.13));
   }
 `;
 
 const SESSION_KEY = "zipto-hero-seen";
+const ANIM_MS = 4200 + 200; // total animation time incl. delay
 
 export default function ZiptoHero() {
   const [showOrder, setShowOrder] = useState(false);
   const [playAnim, setPlayAnim]   = useState(false);
+  // mobile truck states: "hidden" | "portal-animating" | "hero-parked" | "hero-static"
+  const [mobileTruck, setMobileTruck] = useState("hidden");
+  const [portalStyle, setPortalStyle] = useState({});
+  const [parkedTop, setParkedTop]     = useState("14%");
+  const heroRef  = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -575,10 +519,53 @@ export default function ZiptoHero() {
       document.head.appendChild(tag);
     }
 
+    const navType = performance.getEntriesByType("navigation")[0]?.type;
+    if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
+
     const seen = sessionStorage.getItem(SESSION_KEY);
-    if (!seen) {
+    const shouldPlay = !seen;
+    if (shouldPlay) {
       setPlayAnim(true);
       sessionStorage.setItem(SESSION_KEY, "1");
+    }
+
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+
+    // Measure hero to find where truck should sit
+    const measure = () => {
+      if (!heroRef.current) return null;
+      const rect    = heroRef.current.getBoundingClientRect();
+      const truckW  = Math.min(Math.max(200, window.innerWidth * 0.84), 340);
+      const left    = rect.left + (rect.width - truckW) / 2;
+      // top = hero top + 14% of hero height, relative to document
+      const topAbs  = rect.top + window.scrollY + rect.height * 0.14;
+      const topPct  = (rect.height * 0.14 / rect.height * 100).toFixed(1) + "%";
+      return { left, topAbs, topPct };
+    };
+
+    if (shouldPlay) {
+      const m = measure();
+      if (m) {
+        // Portal truck starts at absolute position on body (scrolls with page)
+        setPortalStyle({ left: `${m.left}px`, top: `${m.topAbs}px` });
+        setParkedTop(m.topPct);
+      }
+      setMobileTruck("portal-animating");
+
+      // After animation ends, move truck from portal into hero
+      const t = setTimeout(() => {
+        const m2 = measure();
+        if (m2) setParkedTop(m2.topPct);
+        setMobileTruck("hero-parked");
+      }, ANIM_MS);
+
+      return () => clearTimeout(t);
+    } else {
+      // Returning visitor — just show truck already parked in hero
+      const m = measure();
+      if (m) setParkedTop(m.topPct);
+      setMobileTruck("hero-static");
     }
 
     return () => {
@@ -595,15 +582,30 @@ export default function ZiptoHero() {
 
   return (
     <>
-      <section className="zipto-hero">
+      {/* ── MOBILE TRUCK PORTAL ──
+          Rendered into document.body during animation so NO parent
+          overflow:hidden can clip it. Uses position:absolute (not fixed)
+          so it scrolls naturally with the page. */}
+      {mobileTruck === "portal-animating" && createPortal(
+        <div
+          className="zipto-truck-portal animating"
+          style={portalStyle}
+          aria-hidden="true"
+        >
+          <img src={ziptoTruck} alt="" />
+        </div>,
+        document.body
+      )}
 
-        {/* BG text: gray base + blue fill layer */}
+      <section className="zipto-hero" ref={heroRef}>
+
+        {/* BG text */}
         <div className={na("hero-bg-text-wrap")}>
           <span className="hero-bg-text">ZIPTO</span>
           <span className="hero-bg-text-blue">ZIPTO</span>
         </div>
 
-        {/* Speed lines (desktop only — hidden on mobile via CSS) */}
+        {/* Speed lines — desktop only */}
         <div className={na("hero-speed-lines")}>
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
@@ -611,12 +613,24 @@ export default function ZiptoHero() {
           <div className="hero-speed-line" />
         </div>
 
-        {/* 1. Truck */}
+        {/* Desktop truck (hidden on mobile via CSS) */}
         <div className={na("hero-rider-wrapper")}>
           <img src={ziptoTruck} alt="Zipto delivery truck" />
         </div>
 
-        {/* 2. Badge */}
+        {/* Mobile truck — shown inside hero AFTER animation completes,
+            or immediately for returning visitors */}
+        {(mobileTruck === "hero-parked" || mobileTruck === "hero-static") && (
+          <div
+            className="zipto-truck-parked"
+            style={{ top: parkedTop }}
+            aria-hidden="true"
+          >
+            <img src={ziptoTruck} alt="" />
+          </div>
+        )}
+
+        {/* Badge */}
         <div className={na("hero-badge")}>
           <div className="hero-badge-dot" />
           <div>
@@ -625,7 +639,7 @@ export default function ZiptoHero() {
           </div>
         </div>
 
-        {/* 3. Headline + buttons  4. Stats box */}
+        {/* Headline + Buttons + Stats */}
         <div className="hero-bottom">
           <div className={na("hero-left")}>
             <div className="hero-eyebrow">⚡ Fast. Reliable. Now.</div>
@@ -636,12 +650,8 @@ export default function ZiptoHero() {
               <button className="hero-btn-primary" onClick={() => setShowOrder(true)}>
                 Order Now
               </button>
-              <button
-                className="hero-btn-outline"
-                onClick={() => navigate("/about")}
-              >
-                Explore More
-                <span className="explore-arrow">→</span>
+              <button className="hero-btn-outline" onClick={() => navigate("/about")}>
+                Explore More <span className="explore-arrow">→</span>
               </button>
             </div>
           </div>
@@ -671,31 +681,20 @@ export default function ZiptoHero() {
         <div className="zipto-overlay" onClick={(e) => closeOnBackdrop(e, setShowOrder)}>
           <div className="zipto-modal-card">
             <button className="zipto-close-btn" onClick={() => setShowOrder(false)} aria-label="Close">✕</button>
-            <div className="zm-launch-pill">
-              <div className="zm-launch-dot" />
-              Launching Soon
-            </div>
+            <div className="zm-launch-pill"><div className="zm-launch-dot" /> Launching Soon</div>
             <div className="zm-title">Our app is<br /><span>almost here.</span></div>
             <p className="zm-desc">Be the first to experience faster, smarter deliveries across Odisha.</p>
             <div className="zm-stores">
               <button className="zm-store">
                 <img src={appleLogo} alt="Apple" className="zm-store-icon" />
-                <div>
-                  <div className="zm-store-sub">iOS</div>
-                  <div className="zm-store-name">App Store</div>
-                </div>
+                <div><div className="zm-store-sub">iOS</div><div className="zm-store-name">App Store</div></div>
               </button>
               <button className="zm-store">
                 <img src={androidLogo} alt="Android" className="zm-store-icon" />
-                <div>
-                  <div className="zm-store-sub">Android</div>
-                  <div className="zm-store-name">Google Play</div>
-                </div>
+                <div><div className="zm-store-sub">Android</div><div className="zm-store-name">Google Play</div></div>
               </button>
             </div>
-            <button className="zm-notify-btn" onClick={() => setShowOrder(false)}>
-              Got it, notify me →
-            </button>
+            <button className="zm-notify-btn" onClick={() => setShowOrder(false)}>Got it, notify me →</button>
           </div>
         </div>
       )}
