@@ -6,7 +6,7 @@ import appleLogo from "../../assets/apple.png";
 import androidLogo from "../../assets/android-logo.png";
 
 const heroStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;500;600;700&display=swap');
 
   @font-face {
     font-family: 'Cocon';
@@ -20,17 +20,16 @@ const heroStyles = `
     --accent: #2563eb;
   }
 
-  /* ═══════════════════════════════════════
-     BASE / DESKTOP (> 768px)
-  ═══════════════════════════════════════ */
-
+  /* ════════════════════════════════
+     BASE / DESKTOP
+  ════════════════════════════════ */
   .zipto-hero {
     width: 100vw;
     height: calc(100vh - 72px);
     min-height: 580px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(110deg, #e4e4e4 0%, #eeeeee 35%, #f8f8f8 65%, #ffffff 100%);
+    background: linear-gradient(145deg, #dbeafe 0%, #eff6ff 40%, #f8fbff 70%, #ffffff 100%);
     font-family: 'Syne', sans-serif;
   }
 
@@ -49,7 +48,7 @@ const heroStyles = `
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
     font-size: clamp(100px, 24vw, 340px);
     letter-spacing: 0.06em;
-    color: rgba(180,180,180,0.32);
+    color: rgba(150,168,200,0.38);
     line-height: 1;
     display: block;
     opacity: 0;
@@ -59,22 +58,16 @@ const heroStyles = `
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
     font-size: clamp(100px, 24vw, 340px);
     letter-spacing: 0.06em;
-    color: rgba(37,99,235,0.38);
+    color: rgba(37,99,235,0.30);
     line-height: 1;
     display: block;
     position: absolute;
     top: 0; left: 0;
     clip-path: inset(0 0 0 100%);
-    animation: zh-blueFill 1.89s cubic-bezier(0.84,0,0.9,1) 2.51s forwards;
+    animation: zh-blueFill 1.9s cubic-bezier(0.84,0,0.9,1) 2.5s forwards;
   }
-  @keyframes zh-blueFill {
-    0%   { clip-path: inset(0 0 0 100%); }
-    100% { clip-path: inset(0 0 0 0%); }
-  }
-  @keyframes zh-bgReveal {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
+  @keyframes zh-blueFill { to { clip-path: inset(0 0 0 0%); } }
+  @keyframes zh-bgReveal  { to { opacity: 1; } }
 
   /* SPEED LINES */
   .hero-speed-lines {
@@ -95,7 +88,7 @@ const heroStyles = `
   }
   .hero-speed-line {
     height: 1.5px;
-    background: linear-gradient(to right, transparent 0%, rgba(155,155,155,0.6) 50%, transparent 100%);
+    background: linear-gradient(to right, transparent 0%, rgba(155,155,155,0.5) 50%, transparent 100%);
     border-radius: 2px;
     margin: 14px 0;
     transform: scaleX(0);
@@ -104,11 +97,11 @@ const heroStyles = `
   }
   .hero-speed-line:nth-child(1) { width: 82%; margin-left: 0%;  animation-delay: 0.35s; }
   .hero-speed-line:nth-child(2) { width: 68%; margin-left: 4%;  animation-delay: 0.55s; opacity: 0.75; }
-  .hero-speed-line:nth-child(3) { width: 52%; margin-left: 9%;  animation-delay: 0.48s; opacity: 0.5; }
+  .hero-speed-line:nth-child(3) { width: 52%; margin-left: 9%;  animation-delay: 0.48s; opacity: 0.50; }
   .hero-speed-line:nth-child(4) { width: 36%; margin-left: 14%; animation-delay: 0.65s; opacity: 0.32; }
   @keyframes zh-expandLine { to { transform: scaleX(1); } }
 
-  /* TRUCK — desktop */
+  /* DESKTOP TRUCK */
   .hero-rider-wrapper {
     position: absolute;
     bottom: 60px;
@@ -250,12 +243,12 @@ const heroStyles = `
     font-weight: 600;
   }
 
-  /* BADGE — desktop */
+  /* BADGE */
   .hero-badge {
     position: absolute;
     top: 14%; right: 10%;
     z-index: 6;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
     backdrop-filter: blur(10px);
     border-radius: 14px;
     padding: 12px 18px;
@@ -268,7 +261,8 @@ const heroStyles = `
   }
   .hero-badge-dot {
     width: 9px; height: 9px;
-    background: #22c55e; border-radius: 50%;
+    background: #22c55e;
+    border-radius: 50%;
     flex-shrink: 0;
     animation: zh-blink 2.2s ease-in-out 4.7s infinite;
   }
@@ -276,28 +270,22 @@ const heroStyles = `
     0%,100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
     50%      { opacity: 0.3; box-shadow: none; }
   }
-  .hero-badge-text { font-size: 0.78rem; font-weight: 500; color: var(--dark); }
+  .hero-badge-text { font-size: 0.78rem; font-weight: 600; color: var(--dark); }
   .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; }
 
   /* MODAL */
   .zipto-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
+    position: fixed; inset: 0; z-index: 1000;
     background: rgba(0,0,0,0.42);
     backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     animation: zh-overlayIn 0.25s ease forwards;
   }
   @keyframes zh-overlayIn { from { opacity:0; } to { opacity:1; } }
   .zipto-modal-card {
-    background: #fff;
-    border-radius: 24px;
+    background: #fff; border-radius: 24px;
     padding: 40px 36px 32px;
-    width: 100%;
-    max-width: 420px;
+    width: 100%; max-width: 420px;
     position: relative;
     box-shadow: 0 32px 80px rgba(0,0,0,0.16);
     animation: zh-cardIn 0.4s cubic-bezier(0.34,1.26,0.64,1) forwards;
@@ -309,10 +297,8 @@ const heroStyles = `
     to   { opacity:1; transform: scale(1) translateY(0); }
   }
   .zipto-close-btn {
-    position: absolute;
-    top: 16px; right: 18px;
-    background: #f3f4f6; border: none;
-    border-radius: 50%;
+    position: absolute; top: 16px; right: 18px;
+    background: #f3f4f6; border: none; border-radius: 50%;
     width: 32px; height: 32px;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; font-size: 0.9rem; color: #555;
@@ -364,58 +350,35 @@ const heroStyles = `
   }
 
   /* NO-ANIM OVERRIDES */
-  .hero-bg-text-wrap.no-anim .hero-bg-text { opacity: 1 !important; animation: none !important; }
-  .hero-bg-text-wrap.no-anim .hero-bg-text-blue { clip-path: inset(0 0 0 0%) !important; animation: none !important; }
-  .hero-rider-wrapper.no-anim { transform: translateX(-50%) scaleX(1) !important; opacity: 1 !important; animation: none !important; }
-  .hero-left.no-anim, .hero-right.no-anim, .hero-badge.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
-  .hero-speed-lines.no-anim { display: none; }
+  .hero-bg-text-wrap.no-anim .hero-bg-text        { opacity: 1 !important; animation: none !important; }
+  .hero-bg-text-wrap.no-anim .hero-bg-text-blue   { clip-path: inset(0 0 0 0%) !important; animation: none !important; }
+  .hero-rider-wrapper.no-anim                     { transform: translateX(-50%) scaleX(1) !important; opacity: 1 !important; animation: none !important; }
+  .hero-left.no-anim, .hero-right.no-anim,
+  .hero-badge.no-anim                             { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .hero-speed-lines.no-anim                       { display: none; }
+  .zipto-truck-parked                             { display: none; }
 
-  /* Mobile truck (parked) — hidden on desktop */
-  .zipto-truck-parked { display: none; }
-
-  /* ═══════════════════════════════════════
+  /* ════════════════════════════════
      TABLET  769px – 1024px
-  ═══════════════════════════════════════ */
+  ════════════════════════════════ */
   @media (min-width: 769px) and (max-width: 1024px) {
-
-    .zipto-hero {
-      height: calc(100vh - 64px);
-      min-height: 520px;
-    }
-
-    /* Scale down desktop truck */
-    .hero-rider-wrapper {
-      width: clamp(200px, 44vw, 480px);
-      bottom: 48px;
-    }
-
-    /* Tighter bottom padding */
-    .hero-bottom { padding: 0 36px 28px; }
-
-    /* Smaller headline */
-    .hero-headline { font-size: clamp(30px, 4vw, 52px); }
-
-    /* Tighter stats */
-    .hero-stat-item { padding: 14px 20px; }
-    .hero-stat-num  { font-size: 1.6rem; }
-
-    /* Badge */
-    .hero-badge { top: 12%; right: 6%; padding: 10px 14px; }
-    .hero-badge-text { font-size: 0.72rem; }
-    .hero-badge-sub  { font-size: 0.60rem; }
+    .zipto-hero       { height: calc(100vh - 64px); min-height: 520px; }
+    .hero-rider-wrapper { width: clamp(200px, 44vw, 480px); bottom: 48px; }
+    .hero-bottom      { padding: 0 36px 28px; }
+    .hero-headline    { font-size: clamp(30px, 4vw, 52px); }
+    .hero-stat-item   { padding: 14px 20px; }
+    .hero-stat-num    { font-size: 1.6rem; }
+    .hero-badge       { top: 12%; right: 6%; padding: 10px 14px; }
+    .hero-badge-text  { font-size: 0.72rem; }
+    .hero-badge-sub   { font-size: 0.60rem; }
   }
 
-  /* ═══════════════════════════════════════
+  /* ════════════════════════════════
      MOBILE  ≤ 768px
-     Layout is completely restructured:
-     • Hero  →  display:flex + flex-direction:column
-     • hero-bottom  →  position:relative + margin-top:auto
-       (sits at bottom of flex column, NO gap possible)
-     • Truck  →  absolute, centered in remaining space
-  ═══════════════════════════════════════ */
+  ════════════════════════════════ */
   @media (max-width: 768px) {
 
-    /* ① Hero is now a flex column that fills the viewport */
+    /* Hero is a flex column */
     .zipto-hero {
       height: 100svh;
       min-height: 0;
@@ -424,11 +387,11 @@ const heroStyles = `
       flex-direction: column !important;
     }
 
-    /* ② Hide desktop-only elements */
+    /* Hide desktop elements */
     .hero-rider-wrapper { display: none !important; }
     .hero-speed-lines   { display: none !important; }
 
-    /* ③ BG text — smaller, decorative overlay */
+    /* BG text — smaller */
     .hero-bg-text-wrap {
       top: 0;
       left: 50%;
@@ -436,42 +399,41 @@ const heroStyles = `
     }
     .hero-bg-text,
     .hero-bg-text-blue {
-      font-size: clamp(56px, 18vw, 96px) !important;
+      font-size: clamp(60px, 20vw, 100px) !important;
       letter-spacing: 0.08em;
     }
 
-    /* ④ Badge — floats top-left, absolute */
+    /* Badge — top-left */
     .hero-badge {
       position: absolute !important;
-      top: clamp(48px, 10svh, 80px) !important;
+      top: clamp(52px, 11svh, 84px) !important;
       left: 16px !important;
       right: auto !important;
-      padding: 8px 13px;
-      border-radius: 11px;
+      padding: 9px 14px;
+      border-radius: 12px;
       z-index: 6;
       animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 3.8s both !important;
     }
-    .hero-badge-text { font-size: 0.70rem; }
-    .hero-badge-sub  { font-size: 0.57rem; }
+    .hero-badge-text { font-size: 0.72rem; }
+    .hero-badge-sub  { font-size: 0.58rem; }
 
-    /* ⑤ Truck — show on mobile, absolute, centered in upper zone */
+    /* Parked truck — shown after animation */
     .zipto-truck-parked {
       display: block !important;
       position: absolute !important;
-      /* Vertical center of the hero, shifted up 10% so it sits
-         above the bottom content without any gap */
       top: 42% !important;
       left: 50% !important;
       transform: translate(-50%, -50%) !important;
-      width: clamp(220px, 88vw, 340px) !important;
+      width: clamp(220px, 86vw, 340px) !important;
       z-index: 4;
-      filter: drop-shadow(0 12px 36px rgba(0,0,0,0.12));
     }
-    .zipto-truck-parked img { width: 100%; display: block; }
+    .zipto-truck-parked img {
+      width: 100%;
+      display: block;
+      filter: drop-shadow(0 14px 40px rgba(0,0,0,0.12));
+    }
 
-    /* ⑥ hero-bottom — OUT of absolute flow.
-         margin-top:auto pushes it flush to the bottom
-         of the flex column. Zero gap guaranteed. */
+    /* Bottom content — flex column, flush to bottom */
     .hero-bottom {
       position: relative !important;
       top: auto !important; left: auto !important;
@@ -480,9 +442,9 @@ const heroStyles = `
       display: flex !important;
       flex-direction: column !important;
       align-items: stretch !important;
-      gap: 8px !important;
+      gap: 10px !important;
       padding: 0 18px !important;
-      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important;
+      padding-bottom: max(22px, env(safe-area-inset-bottom, 22px)) !important;
       box-sizing: border-box;
       flex-shrink: 0;
       z-index: 10;
@@ -495,15 +457,15 @@ const heroStyles = `
       width: 100%;
     }
     .hero-left.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
-    .hero-eyebrow  { font-size: 0.62rem; margin-bottom: 3px; letter-spacing: 2.5px; }
-    .hero-headline { font-size: clamp(30px, 9vw, 44px); margin-top: 0; line-height: 0.9; }
-    .hero-actions  { width: 100%; margin-top: 10px; gap: 8px; flex-wrap: nowrap; }
+    .hero-eyebrow   { font-size: 0.64rem; margin-bottom: 4px; letter-spacing: 3px; }
+    .hero-headline  { font-size: clamp(32px, 10vw, 46px); line-height: 0.90; }
+    .hero-actions   { width: 100%; margin-top: 12px; gap: 10px; flex-wrap: nowrap; }
     .hero-btn-primary,
     .hero-btn-outline {
       flex: 1;
       justify-content: center;
-      padding: 12px 10px;
-      font-size: 0.80rem;
+      padding: 13px 10px;
+      font-size: 0.82rem;
     }
 
     /* hero-right / stats */
@@ -513,89 +475,77 @@ const heroStyles = `
       width: 100%;
     }
     .hero-right.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
-    .hero-stats-box { display: flex; width: 100%; border-radius: 14px; }
-    .hero-stat-item { flex: 1; padding: 11px 4px; }
-    .hero-stat-num  { font-size: 1.25rem; }
-    .hero-stat-label { font-size: 0.44rem; letter-spacing: 0.9px; }
+    .hero-stats-box   { display: flex; width: 100%; border-radius: 16px; }
+    .hero-stat-item   { flex: 1; padding: 12px 4px; }
+    .hero-stat-num    { font-size: 1.3rem; }
+    .hero-stat-label  { font-size: 0.44rem; letter-spacing: 1px; }
 
-    /* Modal tweaks */
+    /* Modal */
     .zipto-modal-card { padding: 30px 20px 24px; border-radius: 20px; }
     .zm-stores        { flex-direction: column; }
   }
 
-  /* ═══════════════════════════════════════
+  /* ════════════════════════════════
      SMALL MOBILE  ≤ 390px
-  ═══════════════════════════════════════ */
+  ════════════════════════════════ */
   @media (max-width: 390px) {
     .hero-bg-text,
-    .hero-bg-text-blue { font-size: 52px !important; }
-
-    .hero-badge {
-      top: clamp(42px, 9svh, 66px) !important;
-      left: 12px !important;
-    }
-
-    .zipto-truck-parked {
-      width: clamp(200px, 86vw, 300px) !important;
-      top: 41% !important;
-    }
-
-    .hero-bottom {
-      gap: 6px !important;
-      padding: 0 14px !important;
-      padding-bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
-    }
-    .hero-headline  { font-size: clamp(27px, 8.5vw, 36px); }
+    .hero-bg-text-blue { font-size: 54px !important; }
+    .hero-badge        { top: clamp(44px, 9svh, 68px) !important; left: 12px !important; }
+    .zipto-truck-parked { width: clamp(200px, 88vw, 290px) !important; top: 40% !important; }
+    .hero-bottom       { gap: 8px !important; padding: 0 14px !important; padding-bottom: max(18px, env(safe-area-inset-bottom, 18px)) !important; }
+    .hero-headline     { font-size: clamp(28px, 9vw, 38px); }
     .hero-btn-primary,
-    .hero-btn-outline { padding: 11px 8px; font-size: 0.76rem; }
-    .hero-stat-item  { padding: 9px 3px; }
-    .hero-stat-num   { font-size: 1.1rem; }
-    .hero-stat-label { font-size: 0.40rem; }
+    .hero-btn-outline  { padding: 12px 8px; font-size: 0.78rem; }
+    .hero-stat-item    { padding: 10px 3px; }
+    .hero-stat-num     { font-size: 1.15rem; }
+    .hero-stat-label   { font-size: 0.40rem; }
   }
 
-  /* ═══════════════════════════════════════
+  /* ════════════════════════════════
      MOBILE TRUCK PORTAL
-     Rendered into document.body during animation
-     so overflow:hidden on hero cannot clip it.
-  ═══════════════════════════════════════ */
+     Rendered into document.body so hero overflow:hidden
+     cannot clip the animation.
+  ════════════════════════════════ */
   .zipto-truck-portal {
-    position: absolute;
+    position: fixed;
     pointer-events: none;
     z-index: 9999;
-    width: clamp(220px, 88vw, 340px);
+    width: clamp(220px, 86vw, 340px);
   }
   .zipto-truck-portal img {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.13));
+    filter: drop-shadow(0 14px 40px rgba(0,0,0,0.13));
   }
   .zipto-truck-portal.animating {
     animation: zh-portalTruck 4.2s linear 0.2s forwards;
   }
+  /* L→R (facing right, scaleX(-1)), flip at edge, R→center (facing left, scaleX(1)) */
   @keyframes zh-portalTruck {
-    0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
-    48% { transform: translateX(110vw)  scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
-    49% { transform: translateX(110vw)  scaleX(1);  opacity: 0; }
-    54% { transform: translateX(110vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
-    55% { transform: translateX(110vw)  scaleX(1);  opacity: 1; }
-   100% { transform: translateX(0)      scaleX(1);  opacity: 1; }
+    0%  { transform: translateX(-160vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
+    46% { transform: translateX(115vw)  scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
+    47% { transform: translateX(115vw)  scaleX(1);  opacity: 0; }
+    53% { transform: translateX(115vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.08,1,0.18,1); }
+    54% { transform: translateX(115vw)  scaleX(1);  opacity: 1; }
+   100% { transform: translateX(var(--zh-park-x, 0px)) scaleX(1); opacity: 1; }
   }
 `;
 
 const SESSION_KEY = "zipto-hero-seen";
-const ANIM_MS     = 4200 + 200; // total animation duration + delay
+const ANIM_MS     = 4200 + 200;
 
 export default function ZiptoHero() {
-  const [showOrder,    setShowOrder]    = useState(false);
-  const [playAnim,     setPlayAnim]     = useState(false);
+  const [showOrder,   setShowOrder]   = useState(false);
+  const [playAnim,    setPlayAnim]    = useState(false);
   // "hidden" | "portal-animating" | "parked" | "static"
-  const [mobileTruck,  setMobileTruck]  = useState("hidden");
-  const [portalStyle,  setPortalStyle]  = useState({});
+  const [mobileTruck, setMobileTruck] = useState("hidden");
+  const [portalStyle, setPortalStyle] = useState({});
   const heroRef  = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Inject styles once
+    // Inject styles
     if (!document.getElementById("zipto-hero-styles")) {
       const tag = document.createElement("style");
       tag.id    = "zipto-hero-styles";
@@ -603,7 +553,7 @@ export default function ZiptoHero() {
       document.head.appendChild(tag);
     }
 
-    // Clear session cache on hard nav (not back/forward)
+    // Clear session cache on hard nav
     const navType = performance.getEntriesByType("navigation")[0]?.type;
     if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
 
@@ -614,17 +564,26 @@ export default function ZiptoHero() {
       sessionStorage.setItem(SESSION_KEY, "1");
     }
 
-    // Mobile-only truck animation logic
     const isMobile = window.innerWidth <= 768;
     if (!isMobile) return;
 
     if (shouldPlay) {
-      // Position the portal truck at vertical center of the hero
+      // Compute portal truck starting position (vertically centered in hero)
       const rect   = heroRef.current?.getBoundingClientRect();
-      const truckW = Math.min(Math.max(220, window.innerWidth * 0.88), 340);
-      const left   = rect ? rect.left + (rect.width  - truckW) / 2 : 0;
-      const top    = rect ? rect.top  + window.scrollY + rect.height * 0.42 - 60 : 0;
-      setPortalStyle({ left: `${left}px`, top: `${top}px` });
+      const truckW = Math.min(Math.max(220, window.innerWidth * 0.86), 340);
+      const left   = rect ? rect.left + (rect.width - truckW) / 2 : 0;
+      // Vertical: 42% of hero height minus half truck height (~60px approx)
+      const truckH = truckW * 0.55; // truck aspect ratio ~0.55
+      const top    = rect ? rect.top + rect.height * 0.42 - truckH / 2 : 0;
+
+      // --zh-park-x: offset so truck lands exactly centred when animation ends
+      // The portal starts absolutely at `left`, and `translateX(0)` keeps it there.
+      // We need translateX(0) = centered → left is already centered, so 0 works.
+      setPortalStyle({
+        left: `${left}px`,
+        top:  `${top}px`,
+        "--zh-park-x": "0px",
+      });
       setMobileTruck("portal-animating");
 
       const timer = setTimeout(() => setMobileTruck("parked"), ANIM_MS);
@@ -642,45 +601,45 @@ export default function ZiptoHero() {
     if (e.target === e.currentTarget) setter(false);
   };
 
-  const na = (base) => playAnim ? base : `${base} no-anim`;
+  const na = (base) => (playAnim ? base : `${base} no-anim`);
 
   return (
     <>
-      {/* Portal truck — lives on document.body during animation */}
-      {mobileTruck === "portal-animating" && createPortal(
-        <div
-          className="zipto-truck-portal animating"
-          style={portalStyle}
-          aria-hidden="true"
-        >
-          <img src={ziptoTruck} alt="" />
-        </div>,
-        document.body
-      )}
+      {/* Portal truck — animates across full viewport, unclipped */}
+      {mobileTruck === "portal-animating" &&
+        createPortal(
+          <div
+            className="zipto-truck-portal animating"
+            style={portalStyle}
+            aria-hidden="true"
+          >
+            <img src={ziptoTruck} alt="" />
+          </div>,
+          document.body
+        )}
 
-      <section className="zipto-hero" ref={heroRef}>
+      <section className="zipto-hero" ref={heroRef} aria-label="Zipto hero">
 
         {/* Decorative BG text */}
-        <div className={na("hero-bg-text-wrap")}>
+        <div className={na("hero-bg-text-wrap")} aria-hidden="true">
           <span className="hero-bg-text">ZIPTO</span>
           <span className="hero-bg-text-blue">ZIPTO</span>
         </div>
 
-        {/* Speed lines — desktop / tablet only */}
-        <div className={na("hero-speed-lines")}>
+        {/* Speed lines — desktop/tablet only */}
+        <div className={na("hero-speed-lines")} aria-hidden="true">
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
           <div className="hero-speed-line" />
         </div>
 
-        {/* Desktop / tablet truck (CSS hides on mobile) */}
-        <div className={na("hero-rider-wrapper")}>
+        {/* Desktop truck */}
+        <div className={na("hero-rider-wrapper")} aria-hidden="true">
           <img src={ziptoTruck} alt="Zipto delivery truck" />
         </div>
 
-        {/* Mobile truck — shown after animation or immediately for
-            returning visitors. CSS positions it via top:42% + translateY(-50%) */}
+        {/* Mobile truck — shown after animation finishes (or immediately for returning visitors) */}
         {(mobileTruck === "parked" || mobileTruck === "static") && (
           <div className="zipto-truck-parked" aria-hidden="true">
             <img src={ziptoTruck} alt="" />
@@ -688,17 +647,17 @@ export default function ZiptoHero() {
         )}
 
         {/* Rider nearby badge */}
-        <div className={na("hero-badge")}>
-          <div className="hero-badge-dot" />
+        <div className={na("hero-badge")} role="status" aria-label="Rider nearby, 2 minutes away">
+          <div className="hero-badge-dot" aria-hidden="true" />
           <div>
             <div className="hero-badge-text">Rider nearby</div>
             <div className="hero-badge-sub">2 min away</div>
           </div>
         </div>
 
-        {/* ── BOTTOM CONTENT ──
-            Desktop/Tablet: position:absolute, bottom:0
-            Mobile: position:relative, margin-top:auto  */}
+        {/* Bottom content
+            Desktop/Tablet : position absolute, bottom 0
+            Mobile         : position relative, margin-top auto  */}
         <div className="hero-bottom">
 
           <div className={na("hero-left")}>
@@ -723,16 +682,16 @@ export default function ZiptoHero() {
           </div>
 
           <div className={na("hero-right")}>
-            <div className="hero-stats-box">
-              <div className="hero-stat-item">
+            <div className="hero-stats-box" role="list" aria-label="Key stats">
+              <div className="hero-stat-item" role="listitem">
                 <div className="hero-stat-num">12K+</div>
                 <div className="hero-stat-label">Expected Deliveries</div>
               </div>
-              <div className="hero-stat-item">
+              <div className="hero-stat-item" role="listitem">
                 <div className="hero-stat-num">4.9★</div>
                 <div className="hero-stat-label">Rating</div>
               </div>
-              <div className="hero-stat-item">
+              <div className="hero-stat-item" role="listitem">
                 <div className="hero-stat-num">&lt;20m</div>
                 <div className="hero-stat-label">Avg. Time</div>
               </div>
@@ -747,13 +706,18 @@ export default function ZiptoHero() {
         <div
           className="zipto-overlay"
           onClick={(e) => closeOnBackdrop(e, setShowOrder)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Order now — app coming soon"
         >
           <div className="zipto-modal-card">
             <button
               className="zipto-close-btn"
               onClick={() => setShowOrder(false)}
               aria-label="Close"
-            >✕</button>
+            >
+              ✕
+            </button>
 
             <div className="zm-launch-pill">
               <div className="zm-launch-dot" /> Launching Soon
@@ -767,14 +731,14 @@ export default function ZiptoHero() {
 
             <div className="zm-stores">
               <button className="zm-store">
-                <img src={appleLogo} alt="Apple" className="zm-store-icon" />
+                <img src={appleLogo} alt="Apple App Store" className="zm-store-icon" />
                 <div>
                   <div className="zm-store-sub">iOS</div>
                   <div className="zm-store-name">App Store</div>
                 </div>
               </button>
               <button className="zm-store">
-                <img src={androidLogo} alt="Android" className="zm-store-icon" />
+                <img src={androidLogo} alt="Google Play Store" className="zm-store-icon" />
                 <div>
                   <div className="zm-store-sub">Android</div>
                   <div className="zm-store-name">Google Play</div>
