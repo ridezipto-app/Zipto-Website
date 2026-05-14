@@ -5,9 +5,7 @@ import ziptoTruck from "../../assets/zipto_truck.png";
 import appleLogo from "../../assets/apple.png";
 import androidLogo from "../../assets/android-logo.png";
 
-// ── Paste your Google Apps Script Web App URL here ──────────────
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzQ6kMhV0nudurNUXx0g4XjXIA3NTyEqwqvgU-_JknW_8OHyV7tafs-_TtMZEs0VDND/exec";
-// ────────────────────────────────────────────────────────────────
 
 const heroStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;500;600;700&display=swap');
@@ -268,7 +266,7 @@ const heroStyles = `
   .hero-badge-text { font-size: 0.78rem; font-weight: 600; color: var(--dark); }
   .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; }
 
-  /* ── MODAL ── */
+  /* MODAL */
   .zipto-overlay {
     position: fixed; inset: 0; z-index: 1000;
     background: rgba(0,0,0,0.42);
@@ -327,30 +325,15 @@ const heroStyles = `
   .zm-store-sub  { font-size: 0.57rem; color: #9ca3af; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
   .zm-store-name { font-size: 0.82rem; font-weight: 700; color: #111; margin-top: 1px; }
 
-  /* ── EMAIL INPUT ── */
+  /* ── ONLY NEW CSS ADDED BELOW ── */
   .zm-email-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .zm-email-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #374151;
-    text-transform: uppercase;
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;
   }
   .zm-email-input {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 12px;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.86rem;
-    color: #111;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%; padding: 12px 16px;
+    border: 1.5px solid #e5e7eb; border-radius: 12px;
+    font-family: 'Syne', sans-serif; font-size: 0.86rem; color: #111;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
     box-sizing: border-box;
   }
   .zm-email-input::placeholder { color: #9ca3af; }
@@ -362,43 +345,31 @@ const heroStyles = `
     border-color: #ef4444;
     box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
   }
-  .zm-email-error {
-    font-size: 0.72rem;
-    color: #ef4444;
-    font-weight: 500;
-  }
-
-  .zm-notify-btn {
-    width: 100%; padding: 13px; background: #111; color: #fff;
-    border: none; border-radius: 100px; font-family: 'Syne', sans-serif;
-    font-size: 0.86rem; font-weight: 600; cursor: pointer;
-    letter-spacing: 0.2px; transition: background 0.25s, transform 0.18s; margin-top: 4px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .zm-notify-btn:hover:not(:disabled) { background: var(--accent); transform: scale(1.02); }
-  .zm-notify-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-  /* success state */
+  .zm-email-error { font-size: 0.72rem; color: #ef4444; font-weight: 500; }
   .zm-success {
     display: flex; flex-direction: column; align-items: center;
     text-align: center; padding: 16px 0 8px;
     animation: zh-cardIn 0.4s cubic-bezier(0.34,1.26,0.64,1) forwards;
   }
   .zm-success-icon {
-    width: 52px; height: 52px;
-    background: #dcfce7; border-radius: 50%;
+    width: 52px; height: 52px; background: #dcfce7; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.4rem; margin-bottom: 14px;
   }
-  .zm-success-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem; color: #111; margin-bottom: 6px;
-  }
-  .zm-success-sub {
-    font-size: 0.82rem; color: #6b7280; line-height: 1.6;
-  }
+  .zm-success-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #111; margin-bottom: 6px; }
+  .zm-success-sub   { font-size: 0.82rem; color: #6b7280; line-height: 1.6; }
+  /* ── END NEW CSS ── */
 
-  /* SHARED KEYFRAMES */
+  .zm-notify-btn {
+    width: 100%; padding: 13px; background: #111; color: #fff;
+    border: none; border-radius: 100px; font-family: 'Syne', sans-serif;
+    font-size: 0.86rem; font-weight: 600; cursor: pointer;
+    letter-spacing: 0.2px; transition: background 0.25s, transform 0.18s; margin-top: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zm-notify-btn:hover:not(:disabled) { background: var(--accent); transform: scale(1.02); }
+  .zm-notify-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
   @keyframes zh-fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -408,7 +379,6 @@ const heroStyles = `
     to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* NO-ANIM OVERRIDES */
   .hero-bg-text-wrap.no-anim .hero-bg-text        { opacity: 1 !important; animation: none !important; }
   .hero-bg-text-wrap.no-anim .hero-bg-text-blue   { clip-path: inset(0 0 0 0%) !important; animation: none !important; }
   .hero-rider-wrapper.no-anim                     { transform: translateX(-50%) scaleX(1) !important; opacity: 1 !important; animation: none !important; }
@@ -431,8 +401,11 @@ const heroStyles = `
 
   @media (max-width: 768px) {
     .zipto-hero {
-      height: 100svh; min-height: 0; overflow: hidden;
-      display: flex !important; flex-direction: column !important;
+      height: 100svh;
+      min-height: 0;
+      overflow: hidden;
+      display: flex !important;
+      flex-direction: column !important;
     }
     .hero-rider-wrapper { display: none !important; }
     .hero-speed-lines   { display: none !important; }
@@ -441,30 +414,44 @@ const heroStyles = `
     .hero-bg-text-blue  { font-size: clamp(60px, 20vw, 100px) !important; letter-spacing: 0.08em; }
     .hero-badge {
       position: absolute !important;
-      top: clamp(52px, 11svh, 84px) !important; left: 16px !important; right: auto !important;
-      padding: 9px 14px; border-radius: 12px; z-index: 6;
+      top: clamp(52px, 11svh, 84px) !important;
+      left: 16px !important;
+      right: auto !important;
+      padding: 9px 14px;
+      border-radius: 12px;
+      z-index: 6;
       animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 3.8s both !important;
     }
     .hero-badge-text { font-size: 0.72rem; }
     .hero-badge-sub  { font-size: 0.58rem; }
     .zipto-truck-parked {
-      display: block !important; position: absolute !important;
-      top: 42% !important; left: 50% !important;
+      display: block !important;
+      position: absolute !important;
+      top: 42% !important;
+      left: 50% !important;
       transform: translate(-50%, -50%) !important;
-      width: clamp(220px, 86vw, 340px) !important; z-index: 4;
+      width: clamp(220px, 86vw, 340px) !important;
+      z-index: 4;
     }
     .zipto-truck-parked img {
-      width: 100%; display: block;
+      width: 100%;
+      display: block;
       filter: drop-shadow(0 14px 40px rgba(0,0,0,0.12));
     }
     .hero-bottom {
-      position: relative !important; top: auto !important; left: auto !important;
-      right: auto !important; bottom: auto !important; margin-top: auto !important;
-      display: flex !important; flex-direction: column !important;
-      align-items: stretch !important; gap: 10px !important;
+      position: relative !important;
+      top: auto !important; left: auto !important;
+      right: auto !important; bottom: auto !important;
+      margin-top: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 10px !important;
       padding: 0 18px !important;
       padding-bottom: max(22px, env(safe-area-inset-bottom, 22px)) !important;
-      box-sizing: border-box; flex-shrink: 0; z-index: 10;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      z-index: 10;
     }
     .hero-left {
       opacity: 0;
@@ -476,7 +463,12 @@ const heroStyles = `
     .hero-headline  { font-size: clamp(32px, 10vw, 46px); line-height: 0.90; }
     .hero-actions   { width: 100%; margin-top: 12px; gap: 10px; flex-wrap: nowrap; }
     .hero-btn-primary,
-    .hero-btn-outline { flex: 1; justify-content: center; padding: 13px 10px; font-size: 0.82rem; }
+    .hero-btn-outline {
+      flex: 1;
+      justify-content: center;
+      padding: 13px 10px;
+      font-size: 0.82rem;
+    }
     .hero-right {
       opacity: 0;
       animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 4.2s forwards !important;
@@ -506,11 +498,19 @@ const heroStyles = `
   }
 
   .zipto-truck-portal {
-    position: fixed; pointer-events: none; z-index: 9999;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
     width: clamp(220px, 86vw, 340px);
   }
-  .zipto-truck-portal img { width: 100%; display: block; filter: drop-shadow(0 14px 40px rgba(0,0,0,0.13)); }
-  .zipto-truck-portal.animating { animation: zh-portalTruck 4.2s linear 0.2s forwards; }
+  .zipto-truck-portal img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 14px 40px rgba(0,0,0,0.13));
+  }
+  .zipto-truck-portal.animating {
+    animation: zh-portalTruck 4.2s linear 0.2s forwards;
+  }
   @keyframes zh-portalTruck {
     0%  { transform: translateX(-160vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
     46% { transform: translateX(115vw)  scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
@@ -530,12 +530,11 @@ export default function ZiptoHero() {
   const [mobileTruck, setMobileTruck] = useState("hidden");
   const [portalStyle, setPortalStyle] = useState({});
 
-  // ── email state ──────────────────────────────────────────────────
-  const [email,       setEmail]       = useState("");
-  const [emailError,  setEmailError]  = useState("");
-  const [submitting,  setSubmitting]  = useState(false);
-  const [submitted,   setSubmitted]   = useState(false);
-  // ────────────────────────────────────────────────────────────────
+  // ── new state ──
+  const [email,      setEmail]      = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted,  setSubmitted]  = useState(false);
 
   const heroRef  = useRef(null);
   const navigate = useNavigate();
@@ -578,7 +577,10 @@ export default function ZiptoHero() {
     return () => { document.getElementById("zipto-hero-styles")?.remove(); };
   }, []);
 
-  // ── reset email form when modal closes ──────────────────────────
+  const closeOnBackdrop = (e) => {
+    if (e.target === e.currentTarget) handleCloseModal();
+  };
+
   const handleCloseModal = () => {
     setShowOrder(false);
     setTimeout(() => {
@@ -588,29 +590,22 @@ export default function ZiptoHero() {
     }, 300);
   };
 
-  // ── submit handler ───────────────────────────────────────────────
+  const focusEmail = () => {
+    setTimeout(() => document.getElementById("notify-email")?.focus(), 100);
+  };
+
   const handleNotify = async () => {
     const trimmed = email.trim();
-
-    // basic validation
-    if (!trimmed) {
-      setEmailError("Please enter your email address.");
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
-      setEmailError("Please enter a valid email address.");
-      return;
-    }
-
+    if (!trimmed) { setEmailError("Please enter your email address."); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) { setEmailError("Please enter a valid email address."); return; }
     setEmailError("");
     setSubmitting(true);
-
     try {
       await fetch(WEBHOOK_URL, {
-        method: "POST",
-        mode:   "no-cors",        // Google Apps Script requires no-cors
+        method:  "POST",
+        mode:    "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed }),
+        body:    JSON.stringify({ email: trimmed }),
       });
       setSubmitted(true);
     } catch {
@@ -620,9 +615,6 @@ export default function ZiptoHero() {
     }
   };
 
-  const closeOnBackdrop = (e, setter) => {
-    if (e.target === e.currentTarget) setter(false);
-  };
   const na = (base) => (playAnim ? base : `${base} no-anim`);
 
   return (
@@ -701,11 +693,11 @@ export default function ZiptoHero() {
         </div>
       </section>
 
-      {/* ── ORDER NOW MODAL ── */}
+      {/* ORDER NOW MODAL */}
       {showOrder && (
         <div
           className="zipto-overlay"
-          onClick={(e) => closeOnBackdrop(e, handleCloseModal)}
+          onClick={closeOnBackdrop}
           role="dialog"
           aria-modal="true"
           aria-label="Order now — app coming soon"
@@ -726,7 +718,7 @@ export default function ZiptoHero() {
                 </p>
               </div>
             ) : (
-              /* ── FORM VIEW ── */
+              /* ── FORM VIEW — same UI as before ── */
               <>
                 <div className="zm-launch-pill">
                   <div className="zm-launch-dot" /> Launching Soon
@@ -739,14 +731,15 @@ export default function ZiptoHero() {
                 </p>
 
                 <div className="zm-stores">
-                  <button className="zm-store">
+                  {/* clicking focuses the email input below */}
+                  <button className="zm-store" onClick={focusEmail}>
                     <img src={appleLogo} alt="Apple App Store" className="zm-store-icon" />
                     <div>
                       <div className="zm-store-sub">iOS</div>
                       <div className="zm-store-name">App Store</div>
                     </div>
                   </button>
-                  <button className="zm-store">
+                  <button className="zm-store" onClick={focusEmail}>
                     <img src={androidLogo} alt="Google Play Store" className="zm-store-icon" />
                     <div>
                       <div className="zm-store-sub">Android</div>
@@ -755,16 +748,13 @@ export default function ZiptoHero() {
                   </button>
                 </div>
 
-                {/* ── EMAIL INPUT ── */}
+                {/* email input — only functional addition */}
                 <div className="zm-email-wrap">
-                  <label className="zm-email-label" htmlFor="notify-email">
-                    Get notified at launch
-                  </label>
                   <input
                     id="notify-email"
                     type="email"
                     className={`zm-email-input${emailError ? " error" : ""}`}
-                    placeholder="you@example.com"
+                    placeholder="Enter your email to get notified"
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
                     onKeyDown={(e) => e.key === "Enter" && handleNotify()}
