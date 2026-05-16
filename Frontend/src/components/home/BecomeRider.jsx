@@ -3,8 +3,44 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Rocket, IndianRupee, Clock, Bike, Users } from "lucide-react";
 
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzQ6kMhV0nudurNUXx0g4XjXIA3NTyEqwqvgU-_JknW_8OHyV7tafs-_TtMZEs0VDND/exec";
+
 export default function BecomeRider() {
   const [showPopup, setShowPopup] = useState(false);
+  const [email,      setEmail]      = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted,  setSubmitted]  = useState(false);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    setTimeout(() => {
+      setEmail("");
+      setEmailError("");
+      setSubmitted(false);
+    }, 300);
+  };
+
+  const handleNotify = async () => {
+    const trimmed = email.trim();
+    if (!trimmed) { setEmailError("Please enter your email address."); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) { setEmailError("Please enter a valid email address."); return; }
+    setEmailError("");
+    setSubmitting(true);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method:  "POST",
+        mode:    "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ email: trimmed, type: "rider" }),
+      });
+      setSubmitted(true);
+    } catch {
+      setEmailError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const benefits = [
     {
@@ -56,7 +92,6 @@ export default function BecomeRider() {
           padding: 96px 24px 88px;
         }
 
-        /* dot grid */
         .rider-section::before {
           content: '';
           position: absolute; inset: 0; pointer-events: none;
@@ -65,7 +100,6 @@ export default function BecomeRider() {
           opacity: 0.4;
         }
 
-        /* top/bottom dividers */
         .rider-section::after {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 1px;
@@ -131,16 +165,60 @@ export default function BecomeRider() {
         }
         .float-badge { animation: float-badge 4s ease-in-out infinite; }
 
-        .popup-btn {
+        /* email input styles */
+        .rider-email-wrap {
+          display: flex; flex-direction: column; gap: 7px;
+          margin-bottom: 10px;
+          text-align: left;
+        }
+        .rider-email-input {
+          width: 100%; padding: 11px 14px;
+          border: 1.5px solid #E2E8F0; border-radius: 12px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px; color: #0F172A;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          box-sizing: border-box;
+        }
+        .rider-email-input::placeholder { color: #94A3B8; }
+        .rider-email-input:focus {
+          border-color: #2563EB;
+          box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+        .rider-email-input.error {
+          border-color: #EF4444;
+          box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+        }
+        .rider-email-error {
+          font-size: 11.5px; color: #EF4444; font-weight: 500;
+        }
+
+        .rider-notify-btn {
           width: 100%; padding: 12px;
-          border-radius: 12px; border: 1.5px solid #2563EB;
-          background: #EFF6FF; color: #2563EB;
+          border-radius: 12px; border: none;
+          background: linear-gradient(135deg, #1D4ED8, #2563EB);
+          color: #fff;
           font-size: 13.5px; font-weight: 700;
           font-family: 'Plus Jakarta Sans', sans-serif;
           cursor: pointer;
-          transition: background 0.2s, color 0.2s;
+          transition: opacity 0.2s, transform 0.18s;
+          display: flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .popup-btn:hover { background: #2563EB; color: #fff; }
+        .rider-notify-btn:hover:not(:disabled) {
+          opacity: 0.92; transform: translateY(-1px);
+        }
+        .rider-notify-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .rider-success {
+          display: flex; flex-direction: column; align-items: center;
+          text-align: center; padding: 8px 0 4px;
+        }
+        .rider-success-icon {
+          width: 56px; height: 56px; background: #DCFCE7; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 1.5rem; margin-bottom: 14px;
+          border: 1.5px solid #BBF7D0;
+        }
 
         @media (max-width: 860px) {
           .rider-inner { grid-template-columns: 1fr !important; }
@@ -175,7 +253,6 @@ export default function BecomeRider() {
             gap: "72px", alignItems: "center",
           }}
         >
-
           {/* ── LEFT: IMAGE ── */}
           <motion.div
             className="rider-img-col"
@@ -186,7 +263,6 @@ export default function BecomeRider() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="float-img" style={{ position: "relative" }}>
-              {/* image frame */}
               <div style={{
                 borderRadius: "24px", overflow: "hidden",
                 border: "1.5px solid #E5EAF3",
@@ -360,7 +436,6 @@ export default function BecomeRider() {
               </p>
             </motion.div>
           </motion.div>
-
         </div>
       </section>
 
@@ -381,7 +456,7 @@ export default function BecomeRider() {
               WebkitBackdropFilter: "blur(10px)",
               fontFamily: "'Plus Jakarta Sans', sans-serif",
             }}
-            onClick={(e) => e.target === e.currentTarget && setShowPopup(false)}
+            onClick={(e) => e.target === e.currentTarget && handleClosePopup()}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.88, y: 20 }}
@@ -390,7 +465,7 @@ export default function BecomeRider() {
               transition={{ type: "spring", stiffness: 300, damping: 26 }}
               style={{
                 position: "relative",
-                width: "100%", maxWidth: "320px",
+                width: "100%", maxWidth: "340px",
                 background: "#FFFFFF",
                 borderRadius: "20px",
                 border: "1.5px solid #BFDBFE",
@@ -408,7 +483,7 @@ export default function BecomeRider() {
 
               {/* close */}
               <motion.button
-                onClick={() => setShowPopup(false)}
+                onClick={handleClosePopup}
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 style={{
@@ -422,41 +497,96 @@ export default function BecomeRider() {
                 <X size={13} />
               </motion.button>
 
-              {/* icon */}
-              <motion.div
-                initial={{ scale: 0, rotate: -10 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.1 }}
-                style={{
-                  width: "64px", height: "64px", borderRadius: "18px",
-                  background: "#EFF6FF", border: "1.5px solid #BFDBFE",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  margin: "0 auto 20px",
-                  boxShadow: "0 4px 16px rgba(37,99,235,0.15)",
-                }}
-              >
-                <Rocket size={26} color="#2563EB" />
-              </motion.div>
+              {submitted ? (
+                /* ── SUCCESS VIEW ── */
+                <motion.div
+                  className="rider-success"
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                >
+                  <div className="rider-success-icon">✅</div>
+                  <h2 style={{
+                    fontFamily: "'Fraunces', serif",
+                    fontSize: "20px", fontWeight: 900,
+                    color: "#0F172A", marginBottom: "8px",
+                  }}>
+                    You're on the list!
+                  </h2>
+                  <p style={{ fontSize: "13px", color: "#64748B", lineHeight: 1.65, marginBottom: "20px" }}>
+                    We'll notify <strong>{email.trim()}</strong> the moment
+                    the Rider app launches. Get ready to earn!
+                  </p>
+                  <button
+                    className="rider-notify-btn"
+                    onClick={handleClosePopup}
+                    style={{ background: "linear-gradient(135deg, #16A34A, #22C55E)" }}
+                  >
+                    Awesome, thanks! 🎉
+                  </button>
+                </motion.div>
+              ) : (
+                /* ── FORM VIEW ── */
+                <>
+                  {/* icon */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -10 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.1 }}
+                    style={{
+                      width: "64px", height: "64px", borderRadius: "18px",
+                      background: "#EFF6FF", border: "1.5px solid #BFDBFE",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      margin: "0 auto 20px",
+                      boxShadow: "0 4px 16px rgba(37,99,235,0.15)",
+                    }}
+                  >
+                    <Rocket size={26} color="#2563EB" />
+                  </motion.div>
 
-              <h2 style={{
-                fontFamily: "'Fraunces', serif",
-                fontSize: "22px", fontWeight: 900,
-                color: "#0F172A", marginBottom: "10px",
-              }}>
-                Coming Soon
-              </h2>
+                  <h2 style={{
+                    fontFamily: "'Fraunces', serif",
+                    fontSize: "22px", fontWeight: 900,
+                    color: "#0F172A", marginBottom: "8px",
+                  }}>
+                    Coming Soon
+                  </h2>
 
-              <p style={{
-                fontSize: "13px", color: "#64748B",
-                lineHeight: 1.65, marginBottom: "24px",
-              }}>
-                The Zipto Rider app is on its way. Get ready for a smarter,
-                faster way to earn on your own schedule.
-              </p>
+                  <p style={{
+                    fontSize: "13px", color: "#64748B",
+                    lineHeight: 1.65, marginBottom: "20px",
+                  }}>
+                    The Zipto Rider app is on its way. Drop your email and
+                    we'll let you know the moment it's live.
+                  </p>
 
-              <button className="popup-btn" onClick={() => setShowPopup(false)}>
-                Got it 👍
-              </button>
+                  {/* email input */}
+                  <div className="rider-email-wrap">
+                    <input
+                      id="rider-notify-email"
+                      type="email"
+                      className={`rider-email-input${emailError ? " error" : ""}`}
+                      placeholder="Enter your email to get notified"
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
+                      onKeyDown={(e) => e.key === "Enter" && handleNotify()}
+                      disabled={submitting}
+                      autoComplete="email"
+                    />
+                    {emailError && (
+                      <span className="rider-email-error">{emailError}</span>
+                    )}
+                  </div>
+
+                  <button
+                    className="rider-notify-btn"
+                    onClick={handleNotify}
+                    disabled={submitting}
+                  >
+                    {submitting ? "Saving..." : <><Rocket size={14} /> Notify me when it's live</>}
+                  </button>
+                </>
+              )}
             </motion.div>
           </motion.div>
         )}

@@ -9,10 +9,17 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzQ6kMhV0nudurNUXx0g4XjXIA3NTyEqwqvgU-_JknW_8OHyV7tafs-_TtMZEs0VDND/exec";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const [email,      setEmail]      = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted,  setSubmitted]  = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,7 +32,6 @@ export default function Navbar() {
     { name: "Become a Rider", id: "rider"                             },
   ];
 
-  // Derive activeLink from current path
   const getActiveLinkFromPath = (pathname) => {
     if (pathname === "/about") return "About Us";
     if (pathname === "/") return "Home";
@@ -36,7 +42,6 @@ export default function Navbar() {
     getActiveLinkFromPath(location.pathname)
   );
 
-  // Sync activeLink whenever route changes
   useEffect(() => {
     setActiveLink(getActiveLinkFromPath(location.pathname));
   }, [location.pathname]);
@@ -49,7 +54,6 @@ export default function Navbar() {
     setOpen(false);
 
     if (location.pathname !== "/") {
-      // Navigate home first, then scroll after page loads
       navigate("/");
       setTimeout(() => {
         const section = document.getElementById(link.id);
@@ -58,6 +62,36 @@ export default function Navbar() {
     } else {
       const section = document.getElementById(link.id);
       if (section) section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    setTimeout(() => {
+      setEmail("");
+      setEmailError("");
+      setSubmitted(false);
+    }, 300);
+  };
+
+  const handleNotify = async () => {
+    const trimmed = email.trim();
+    if (!trimmed) { setEmailError("Please enter your email address."); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) { setEmailError("Please enter a valid email address."); return; }
+    setEmailError("");
+    setSubmitting(true);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method:  "POST",
+        mode:    "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ email: trimmed, type: "download" }),
+      });
+      setSubmitted(true);
+    } catch {
+      setEmailError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -94,7 +128,6 @@ export default function Navbar() {
         transition={{ type: "spring", stiffness: 220, damping: 28, delay: 0.08 }}
         className={`${navBase} ${scrolled ? navScrolled : navDefault}`}
       >
-        {/* top accent line */}
         <div style={{ height: 2, background: "linear-gradient(90deg, transparent, #1d4ed8 40%, #3b82f6 60%, transparent)", opacity: 0.7 }} />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center justify-between gap-6">
@@ -141,7 +174,6 @@ export default function Navbar() {
 
               const cls = "relative flex items-center px-4 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer list-none";
 
-              // "About Us" — uses React Router Link
               if (link.path && link.path !== "/") {
                 return (
                   <motion.div key={i} whileTap={{ scale: 0.96 }}>
@@ -157,7 +189,6 @@ export default function Navbar() {
                 );
               }
 
-              // "Home" — navigate to "/" then scroll to #home
               if (link.path === "/" && link.id) {
                 return (
                   <motion.li key={i} whileTap={{ scale: 0.96 }}
@@ -168,7 +199,6 @@ export default function Navbar() {
                 );
               }
 
-              // Scroll-only links (Vehicles, For Business, Become a Rider)
               return (
                 <motion.li key={i} whileTap={{ scale: 0.96 }}
                   onClick={() => handleNavigation(link)}
@@ -278,42 +308,139 @@ export default function Navbar() {
             initial="hidden" animate="visible" exit="exit"
             className="fixed inset-0 z-50 flex items-center justify-center px-4"
             style={{ backgroundColor: "rgba(15,23,42,0.5)", backdropFilter: "blur(10px)" }}
-            onClick={(e) => { if (e.target === e.currentTarget) setShowPopup(false); }}
+            onClick={(e) => { if (e.target === e.currentTarget) handleClosePopup(); }}
           >
-            <motion.div variants={popupCardVariants} style={{ width: "100%", maxWidth: 360 }}>
+            <motion.div variants={popupCardVariants} style={{ width: "100%", maxWidth: 380 }}>
               <div style={{ background: "#ffffff", borderRadius: 20, border: "1px solid #bfdbfe", boxShadow: "0 24px 64px rgba(29,78,216,0.14), 0 4px 16px rgba(0,0,0,0.06)", padding: "32px 28px", position: "relative", overflow: "hidden" }}>
+
+                {/* top gradient bar */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: "linear-gradient(90deg, #1d4ed8, #3b82f6)" }} />
-                <motion.button onClick={() => setShowPopup(false)} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.9 }}
-                  style={{ position: "absolute", top: 16, right: 16, width: 28, height: 28, borderRadius: "50%", border: "0.5px solid #e5e7eb", background: "#f9fafb", color: "#6b7280", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13 }}>
+
+                {/* close btn */}
+                <motion.button
+                  onClick={handleClosePopup}
+                  whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.9 }}
+                  style={{ position: "absolute", top: 16, right: 16, width: 28, height: 28, borderRadius: "50%", border: "0.5px solid #e5e7eb", background: "#f9fafb", color: "#6b7280", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13 }}
+                >
                   ✕
                 </motion.button>
-                <motion.div initial={{ scale: 0, rotate: -15 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.12 }}
-                  style={{ width: 56, height: 56, margin: "0 auto 20px", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", background: "#1d4ed8", boxShadow: "0 8px 24px rgba(29,78,216,0.32)" }}>
-                  <FaDownload style={{ color: "#fff", fontSize: 18 }} />
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18, duration: 0.28 }} style={{ textAlign: "center", marginBottom: 24 }}>
-                  <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111827", marginBottom: 8, letterSpacing: "-0.01em" }}>Launching Soon</h2>
-                  <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.65 }}>Our app is almost here. Be the first to experience faster, smarter deliveries across Odisha.</p>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.28 }} style={{ display: "flex", gap: 10, marginBottom: 20 }}>
-                  {[
-                    { icon: <FaApple />, label: "App Store", sub: "iOS" },
-                    { icon: <FaGooglePlay />, label: "Google Play", sub: "Android" },
-                  ].map((p, i) => (
-                    <div key={i} style={{ flex: 1, display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 12, background: "#f0f7ff", border: "0.5px solid #bfdbfe", color: "#374151" }}>
-                      <span style={{ fontSize: 16, color: "#1d4ed8" }}>{p.icon}</span>
-                      <div style={{ lineHeight: 1.3 }}>
-                        <p style={{ fontSize: 10, color: "#6b7280", marginBottom: 1 }}>{p.sub}</p>
-                        <p style={{ fontSize: 12, fontWeight: 600, color: "#111827" }}>{p.label}</p>
+
+                <AnimatePresence mode="wait">
+                  {submitted ? (
+                    /* ── SUCCESS VIEW ── */
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.92 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                      style={{ textAlign: "center", paddingTop: 8 }}
+                    >
+                      <div style={{ width: 60, height: 60, borderRadius: "50%", background: "#DCFCE7", border: "1.5px solid #BBF7D0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.6rem", margin: "0 auto 18px" }}>
+                        ✅
                       </div>
-                    </div>
-                  ))}
-                </motion.div>
-                <motion.button onClick={() => setShowPopup(false)} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-                  initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.30, duration: 0.26 }}
-                  style={{ width: "100%", padding: "12px 0", borderRadius: 12, background: "#1d4ed8", color: "#fff", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer", fontFamily: "inherit", letterSpacing: "0.01em" }}>
-                  Got it, notify me
-                </motion.button>
+                      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111827", marginBottom: 8, letterSpacing: "-0.01em" }}>
+                        You're on the list!
+                      </h2>
+                      <p style={{ fontSize: 13.5, color: "#6b7280", lineHeight: 1.65, marginBottom: 22 }}>
+                        We'll notify <strong>{email.trim()}</strong> the moment the app goes live. Stay tuned!
+                      </p>
+                      <motion.button
+                        onClick={handleClosePopup}
+                        whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
+                        style={{ width: "100%", padding: "12px 0", borderRadius: 12, background: "#16a34a", color: "#fff", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer", fontFamily: "inherit" }}
+                      >
+                        Awesome, thanks! 🎉
+                      </motion.button>
+                    </motion.div>
+                  ) : (
+                    /* ── FORM VIEW ── */
+                    <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      <motion.div
+                        initial={{ scale: 0, rotate: -15 }} animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.12 }}
+                        style={{ width: 56, height: 56, margin: "0 auto 20px", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", background: "#1d4ed8", boxShadow: "0 8px 24px rgba(29,78,216,0.32)" }}
+                      >
+                        <FaDownload style={{ color: "#fff", fontSize: 18 }} />
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.18, duration: 0.28 }}
+                        style={{ textAlign: "center", marginBottom: 20 }}
+                      >
+                        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111827", marginBottom: 8, letterSpacing: "-0.01em" }}>Launching Soon</h2>
+                        <p style={{ fontSize: 13.5, color: "#6b7280", lineHeight: 1.65 }}>
+                          Our app is almost here. Be the first to experience faster, smarter deliveries across Odisha.
+                        </p>
+                      </motion.div>
+
+                      {/* store badges */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.24, duration: 0.28 }}
+                        style={{ display: "flex", gap: 10, marginBottom: 18 }}
+                      >
+                        {[
+                          { icon: <FaApple />, label: "App Store", sub: "iOS" },
+                          { icon: <FaGooglePlay />, label: "Google Play", sub: "Android" },
+                        ].map((p, i) => (
+                          <div key={i} style={{ flex: 1, display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 12, background: "#f0f7ff", border: "0.5px solid #bfdbfe", color: "#374151" }}>
+                            <span style={{ fontSize: 16, color: "#1d4ed8" }}>{p.icon}</span>
+                            <div style={{ lineHeight: 1.3 }}>
+                              <p style={{ fontSize: 10, color: "#6b7280", marginBottom: 1 }}>{p.sub}</p>
+                              <p style={{ fontSize: 12, fontWeight: 600, color: "#111827" }}>{p.label}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </motion.div>
+
+                      {/* email input */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.30, duration: 0.28 }}
+                        style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 10 }}
+                      >
+                        <input
+                          type="email"
+                          placeholder="Enter your email to get notified"
+                          value={email}
+                          onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
+                          onKeyDown={(e) => e.key === "Enter" && handleNotify()}
+                          disabled={submitting}
+                          autoComplete="email"
+                          style={{
+                            width: "100%", padding: "11px 14px",
+                            border: `1.5px solid ${emailError ? "#ef4444" : "#e2e8f0"}`,
+                            borderRadius: 12,
+                            fontFamily: "inherit", fontSize: 13.5, color: "#111827",
+                            outline: "none", boxSizing: "border-box",
+                            boxShadow: emailError ? "0 0 0 3px rgba(239,68,68,0.1)" : "none",
+                            transition: "border-color 0.2s, box-shadow 0.2s",
+                          }}
+                          onFocus={e => { if (!emailError) e.target.style.borderColor = "#2563eb"; e.target.style.boxShadow = "0 0 0 3px rgba(37,99,235,0.1)"; }}
+                          onBlur={e => { if (!emailError) e.target.style.borderColor = "#e2e8f0"; e.target.style.boxShadow = "none"; }}
+                        />
+                        {emailError && (
+                          <span style={{ fontSize: 11.5, color: "#ef4444", fontWeight: 500 }}>{emailError}</span>
+                        )}
+                      </motion.div>
+
+                      <motion.button
+                        onClick={handleNotify}
+                        disabled={submitting}
+                        whileHover={{ scale: submitting ? 1 : 1.02 }}
+                        whileTap={{ scale: submitting ? 1 : 0.97 }}
+                        initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.36, duration: 0.26 }}
+                        style={{ width: "100%", padding: "12px 0", borderRadius: 12, background: submitting ? "#93c5fd" : "#1d4ed8", color: "#fff", fontSize: 14, fontWeight: 600, border: "none", cursor: submitting ? "not-allowed" : "pointer", fontFamily: "inherit", letterSpacing: "0.01em", transition: "background 0.2s" }}
+                      >
+                        {submitting ? "Saving..." : "Got it, notify me →"}
+                      </motion.button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
               </div>
             </motion.div>
           </motion.div>

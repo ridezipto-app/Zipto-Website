@@ -108,14 +108,21 @@ const heroStyles = `
     animation: zh-riderSequence 4.2s linear 0.2s forwards;
     will-change: transform, opacity;
   }
+
+  /*
+   * FIX: After the truck exits right (scaleX flip moment), we now place it
+   * at 120vw (fully off-screen right) before fading back in and sliding left.
+   * Previously it reappeared at 75vw (mid-screen), causing the visible jump.
+   */
   @keyframes zh-riderSequence {
     0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
     48% { transform: translateX(75vw)   scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
-    49% { transform: translateX(75vw)   scaleX(1);  opacity: 0; }
-    54% { transform: translateX(75vw)   scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.10,1,0.16,1); }
-    55% { transform: translateX(75vw)   scaleX(1);  opacity: 1; }
+    49% { transform: translateX(120vw)  scaleX(1);  opacity: 0; }
+    54% { transform: translateX(120vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.22,1,0.36,1); }
+    56% { transform: translateX(118vw)  scaleX(1);  opacity: 1; }
    100% { transform: translateX(-50%)   scaleX(1);  opacity: 1; }
   }
+
   .hero-rider-wrapper img {
     width: 100%;
     display: block;
@@ -325,7 +332,6 @@ const heroStyles = `
   .zm-store-sub  { font-size: 0.57rem; color: #9ca3af; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
   .zm-store-name { font-size: 0.82rem; font-weight: 700; color: #111; margin-top: 1px; }
 
-  /* ── ONLY NEW CSS ADDED BELOW ── */
   .zm-email-wrap {
     display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;
   }
@@ -358,7 +364,6 @@ const heroStyles = `
   }
   .zm-success-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #111; margin-bottom: 6px; }
   .zm-success-sub   { font-size: 0.82rem; color: #6b7280; line-height: 1.6; }
-  /* ── END NEW CSS ── */
 
   .zm-notify-btn {
     width: 100%; padding: 13px; background: #111; color: #fff;
@@ -530,7 +535,6 @@ export default function ZiptoHero() {
   const [mobileTruck, setMobileTruck] = useState("hidden");
   const [portalStyle, setPortalStyle] = useState({});
 
-  // ── new state ──
   const [email,      setEmail]      = useState("");
   const [emailError, setEmailError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -708,7 +712,6 @@ export default function ZiptoHero() {
             </button>
 
             {submitted ? (
-              /* ── SUCCESS VIEW ── */
               <div className="zm-success">
                 <div className="zm-success-icon">✅</div>
                 <div className="zm-success-title">You're on the list!</div>
@@ -718,7 +721,6 @@ export default function ZiptoHero() {
                 </p>
               </div>
             ) : (
-              /* ── FORM VIEW — same UI as before ── */
               <>
                 <div className="zm-launch-pill">
                   <div className="zm-launch-dot" /> Launching Soon
@@ -731,7 +733,6 @@ export default function ZiptoHero() {
                 </p>
 
                 <div className="zm-stores">
-                  {/* clicking focuses the email input below */}
                   <button className="zm-store" onClick={focusEmail}>
                     <img src={appleLogo} alt="Apple App Store" className="zm-store-icon" />
                     <div>
@@ -748,7 +749,6 @@ export default function ZiptoHero() {
                   </button>
                 </div>
 
-                {/* email input — only functional addition */}
                 <div className="zm-email-wrap">
                   <input
                     id="notify-email"
