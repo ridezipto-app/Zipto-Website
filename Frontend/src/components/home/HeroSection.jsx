@@ -85,11 +85,11 @@ const heroStyles = `
   }
   .hero-speed-line {
     height: 1.5px;
-    background: linear-gradient(to right, transparent 0%, rgba(155,155,155,0.5) 50%, transparent 100%);
+    background: linear-gradient(to left, transparent 0%, rgba(155,155,155,0.5) 50%, transparent 100%);
     border-radius: 2px;
     margin: 14px 0;
     transform: scaleX(0);
-    transform-origin: left center;
+    transform-origin: right center;
     animation: zh-expandLine 0.9s cubic-bezier(0.2,0,0.4,1) forwards;
   }
   .hero-speed-line:nth-child(1) { width: 82%; margin-left: 0%;  animation-delay: 0.35s; }
@@ -104,23 +104,14 @@ const heroStyles = `
     left: 50%;
     width: clamp(220px, 48vw, 640px);
     z-index: 4;
-    transform: translateX(-145vw) scaleX(-1);
-    animation: zh-riderSequence 4.2s linear 0.2s forwards;
+    transform: translateX(120vw) scaleX(1);
+    animation: zh-riderSequence 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
     will-change: transform, opacity;
   }
 
-  /*
-   * FIX: After the truck exits right (scaleX flip moment), we now place it
-   * at 120vw (fully off-screen right) before fading back in and sliding left.
-   * Previously it reappeared at 75vw (mid-screen), causing the visible jump.
-   */
   @keyframes zh-riderSequence {
-    0%  { transform: translateX(-145vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
-    48% { transform: translateX(75vw)   scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
-    49% { transform: translateX(120vw)  scaleX(1);  opacity: 0; }
-    54% { transform: translateX(120vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.22,1,0.36,1); }
-    56% { transform: translateX(118vw)  scaleX(1);  opacity: 1; }
-   100% { transform: translateX(-50%)   scaleX(1);  opacity: 1; }
+    0%   { transform: translateX(120vw) scaleX(1); opacity: 1; }
+    100% { transform: translateX(-50%)  scaleX(1); opacity: 1; }
   }
 
   .hero-rider-wrapper img {
@@ -140,7 +131,7 @@ const heroStyles = `
   }
   .hero-left {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 3.9s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 2.3s forwards;
   }
   .hero-eyebrow {
     font-size: 0.72rem;
@@ -205,7 +196,7 @@ const heroStyles = `
 
   .hero-right {
     opacity: 0;
-    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 4.2s forwards;
+    animation: zh-fadeUp 1.1s cubic-bezier(0.4,0,0.2,1) 2.6s forwards;
   }
   .hero-stats-box {
     display: inline-flex;
@@ -257,14 +248,14 @@ const heroStyles = `
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: zh-popIn 0.8s cubic-bezier(0.34,1.36,0.64,1) 4.7s forwards;
+    animation: zh-popIn 0.8s cubic-bezier(0.34,1.36,0.64,1) 3.0s forwards;
   }
   .hero-badge-dot {
     width: 9px; height: 9px;
     background: #22c55e;
     border-radius: 50%;
     flex-shrink: 0;
-    animation: zh-blink 2.2s ease-in-out 4.7s infinite;
+    animation: zh-blink 2.2s ease-in-out 3.0s infinite;
   }
   @keyframes zh-blink {
     0%,100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
@@ -425,7 +416,7 @@ const heroStyles = `
       padding: 9px 14px;
       border-radius: 12px;
       z-index: 6;
-      animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 3.8s both !important;
+      animation: zh-popIn 0.7s cubic-bezier(0.34,1.36,0.64,1) 2.3s both !important;
     }
     .hero-badge-text { font-size: 0.72rem; }
     .hero-badge-sub  { font-size: 0.58rem; }
@@ -460,7 +451,7 @@ const heroStyles = `
     }
     .hero-left {
       opacity: 0;
-      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 3.9s forwards !important;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 2.3s forwards !important;
       width: 100%;
     }
     .hero-left.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
@@ -476,7 +467,7 @@ const heroStyles = `
     }
     .hero-right {
       opacity: 0;
-      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 4.2s forwards !important;
+      animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 2.6s forwards !important;
       width: 100%;
     }
     .hero-right.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
@@ -514,20 +505,16 @@ const heroStyles = `
     filter: drop-shadow(0 14px 40px rgba(0,0,0,0.13));
   }
   .zipto-truck-portal.animating {
-    animation: zh-portalTruck 4.2s linear 0.2s forwards;
+    animation: zh-portalTruck 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
   }
   @keyframes zh-portalTruck {
-    0%  { transform: translateX(-160vw) scaleX(-1); opacity: 1; animation-timing-function: cubic-bezier(0.2,0,0.5,1); }
-    46% { transform: translateX(115vw)  scaleX(-1); opacity: 1; animation-timing-function: steps(1,start); }
-    47% { transform: translateX(115vw)  scaleX(1);  opacity: 0; }
-    53% { transform: translateX(115vw)  scaleX(1);  opacity: 0; animation-timing-function: cubic-bezier(0.08,1,0.18,1); }
-    54% { transform: translateX(115vw)  scaleX(1);  opacity: 1; }
-   100% { transform: translateX(var(--zh-park-x, 0px)) scaleX(1); opacity: 1; }
+    0%   { transform: translateX(160vw) scaleX(1); opacity: 1; }
+    100% { transform: translateX(var(--zh-park-x, 0px)) scaleX(1); opacity: 1; }
   }
 `;
 
 const SESSION_KEY = "zipto-hero-seen";
-const ANIM_MS     = 4200 + 200;
+const ANIM_MS     = 2500 + 200;
 
 export default function ZiptoHero() {
   const [showOrder,   setShowOrder]   = useState(false);
@@ -544,13 +531,6 @@ export default function ZiptoHero() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!document.getElementById("zipto-hero-styles")) {
-      const tag = document.createElement("style");
-      tag.id    = "zipto-hero-styles";
-      tag.innerHTML = heroStyles;
-      document.head.appendChild(tag);
-    }
-
     const navType = performance.getEntriesByType("navigation")[0]?.type;
     if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
 
@@ -577,8 +557,6 @@ export default function ZiptoHero() {
     } else {
       setMobileTruck("static");
     }
-
-    return () => { document.getElementById("zipto-hero-styles")?.remove(); };
   }, []);
 
   const closeOnBackdrop = (e) => {
@@ -623,6 +601,7 @@ export default function ZiptoHero() {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: heroStyles }} />
       {mobileTruck === "portal-animating" &&
         createPortal(
           <div className="zipto-truck-portal animating" style={portalStyle} aria-hidden="true">
