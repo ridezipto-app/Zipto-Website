@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPortal } from "react-dom";
 import ziptoTruck from "../../assets/zipto_truck.png";
 import appleLogo from "../../assets/apple.png";
 import androidLogo from "../../assets/android-logo.png";
@@ -403,7 +402,16 @@ const heroStyles = `
       display: flex !important;
       flex-direction: column !important;
     }
-    .hero-rider-wrapper { display: none !important; }
+    .hero-rider-wrapper {
+      bottom: auto !important;
+      top: 36% !important;
+      width: clamp(200px, 80vw, 320px) !important;
+      animation: zh-riderSequence 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards !important;
+    }
+    .hero-rider-wrapper.no-anim {
+      transform: translateX(-50%) scaleX(1) !important;
+      animation: none !important;
+    }
     .hero-speed-lines   { display: none !important; }
     .hero-bg-text-wrap  { top: 0; left: 50%; transform: translateX(-50%); }
     .hero-bg-text,
@@ -420,20 +428,7 @@ const heroStyles = `
     }
     .hero-badge-text { font-size: 0.72rem; }
     .hero-badge-sub  { font-size: 0.58rem; }
-    .zipto-truck-parked {
-      display: block !important;
-      position: absolute !important;
-      top: 42% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      width: clamp(220px, 86vw, 340px) !important;
-      z-index: 4;
-    }
-    .zipto-truck-parked img {
-      width: 100%;
-      display: block;
-      filter: drop-shadow(0 14px 40px rgba(0,0,0,0.12));
-    }
+    .zipto-truck-parked { display: none !important; }
     .hero-bottom {
       position: relative !important;
       top: auto !important; left: auto !important;
@@ -483,7 +478,7 @@ const heroStyles = `
     .hero-bg-text,
     .hero-bg-text-blue { font-size: 54px !important; }
     .hero-badge        { top: clamp(44px, 9svh, 68px) !important; left: 12px !important; }
-    .zipto-truck-parked { width: clamp(200px, 88vw, 290px) !important; top: 40% !important; }
+    .hero-rider-wrapper { width: clamp(180px, 82vw, 280px) !important; top: 35% !important; }
     .hero-bottom       { gap: 8px !important; padding: 0 14px !important; padding-bottom: max(18px, env(safe-area-inset-bottom, 18px)) !important; }
     .hero-headline     { font-size: clamp(28px, 9vw, 38px); }
     .hero-btn-primary,
@@ -493,71 +488,32 @@ const heroStyles = `
     .hero-stat-label   { font-size: 0.40rem; }
   }
 
-  .zipto-truck-portal {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    width: clamp(220px, 86vw, 340px);
-  }
-  .zipto-truck-portal img {
-    width: 100%;
-    display: block;
-    filter: drop-shadow(0 14px 40px rgba(0,0,0,0.13));
-  }
-  .zipto-truck-portal.animating {
-    animation: zh-portalTruck 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
-  }
-  @keyframes zh-portalTruck {
-    0%   { transform: translateX(160vw) scaleX(1); opacity: 1; }
-    100% { transform: translateX(var(--zh-park-x, 0px)) scaleX(1); opacity: 1; }
-  }
+
 `;
 
 const SESSION_KEY = "zipto-hero-seen";
-const ANIM_MS     = 2500 + 200;
 
 export default function ZiptoHero() {
-  const [showOrder,   setShowOrder]   = useState(false);
-  const [playAnim,    setPlayAnim]    = useState(false);
-  const [mobileTruck, setMobileTruck] = useState("hidden");
-  const [portalStyle, setPortalStyle] = useState({});
+  const [showOrder, setShowOrder] = useState(false);
+  const [playAnim] = useState(() => {
+    try {
+      const navType = performance.getEntriesByType("navigation")[0]?.type;
+      if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
+      const seen = sessionStorage.getItem(SESSION_KEY);
+      if (!seen) {
+        sessionStorage.setItem(SESSION_KEY, "1");
+        return true;
+      }
+    } catch {}
+    return false;
+  });
 
   const [email,      setEmail]      = useState("");
   const [emailError, setEmailError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted,  setSubmitted]  = useState(false);
 
-  const heroRef  = useRef(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const navType = performance.getEntriesByType("navigation")[0]?.type;
-    if (navType !== "back_forward") sessionStorage.removeItem(SESSION_KEY);
-
-    const seen       = sessionStorage.getItem(SESSION_KEY);
-    const shouldPlay = !seen;
-    if (shouldPlay) {
-      setPlayAnim(true);
-      sessionStorage.setItem(SESSION_KEY, "1");
-    }
-
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) return;
-
-    if (shouldPlay) {
-      const rect   = heroRef.current?.getBoundingClientRect();
-      const truckW = Math.min(Math.max(220, window.innerWidth * 0.86), 340);
-      const left   = rect ? rect.left + (rect.width - truckW) / 2 : 0;
-      const truckH = truckW * 0.55;
-      const top    = rect ? rect.top + rect.height * 0.42 - truckH / 2 : 0;
-      setPortalStyle({ left: `${left}px`, top: `${top}px`, "--zh-park-x": "0px" });
-      setMobileTruck("portal-animating");
-      const timer = setTimeout(() => setMobileTruck("parked"), ANIM_MS);
-      return () => clearTimeout(timer);
-    } else {
-      setMobileTruck("static");
-    }
-  }, []);
 
   const closeOnBackdrop = (e) => {
     if (e.target === e.currentTarget) handleCloseModal();
@@ -602,15 +558,8 @@ export default function ZiptoHero() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: heroStyles }} />
-      {mobileTruck === "portal-animating" &&
-        createPortal(
-          <div className="zipto-truck-portal animating" style={portalStyle} aria-hidden="true">
-            <img src={ziptoTruck} alt="" />
-          </div>,
-          document.body
-        )}
 
-      <section className="zipto-hero" ref={heroRef} aria-label="Zipto hero">
+      <section className="zipto-hero" aria-label="Zipto hero">
         <div className={na("hero-bg-text-wrap")} aria-hidden="true">
           <span className="hero-bg-text">ZIPTO</span>
           <span className="hero-bg-text-blue">ZIPTO</span>
@@ -626,12 +575,6 @@ export default function ZiptoHero() {
         <div className={na("hero-rider-wrapper")} aria-hidden="true">
           <img src={ziptoTruck} alt="Zipto delivery truck" />
         </div>
-
-        {(mobileTruck === "parked" || mobileTruck === "static") && (
-          <div className="zipto-truck-parked" aria-hidden="true">
-            <img src={ziptoTruck} alt="" />
-          </div>
-        )}
 
         <div className={na("hero-badge")} role="status" aria-label="Rider nearby, 2 minutes away">
           <div className="hero-badge-dot" aria-hidden="true" />
