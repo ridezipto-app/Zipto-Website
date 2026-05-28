@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import riderlogo from "../assets/ride_zipto.png";
-import Footer from "../components/layout/Footer";
 
 const sections = [
   {
@@ -472,15 +471,11 @@ const sections = [
 export default function RiderAgreement() {
   const navigate = useNavigate();
   const [openSections, setOpenSections] = useState(new Set());
-  const [scrolled, setScrolled] = useState(false);
   const allIds = sections.map((s) => s.id);
   const allOpen = openSections.size === allIds.length;
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggle = (id) =>
@@ -497,7 +492,7 @@ export default function RiderAgreement() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *, *::before, *::after { box-sizing: border-box; }
         :root {
           --blue-950: #03122b; --blue-900: #062553; --blue-800: #0a3880;
           --blue-700: #0d4db3; --blue-600: #1563d4; --blue-500: #2979f5;
@@ -514,21 +509,6 @@ export default function RiderAgreement() {
         }
         body { font-family: var(--font-body); background: var(--blue-50); color: var(--text-primary); }
 
-        .top-bar {
-          position: sticky; top: 0; z-index: 100;
-          background: rgba(255,255,255,0.85); backdrop-filter: blur(16px);
-          border-bottom: 1px solid var(--border); padding: 14px 24px;
-          display: flex; align-items: center; transition: box-shadow 0.3s;
-        }
-        .top-bar.scrolled { box-shadow: var(--shadow-md); }
-        .back-btn {
-          display: flex; align-items: center; gap: 6px;
-          font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
-          color: var(--blue-600); background: var(--blue-100);
-          border: none; padding: 7px 14px; border-radius: 99px;
-          cursor: pointer; transition: background 0.2s, transform 0.2s;
-        }
-        .back-btn:hover { background: var(--blue-200); transform: translateX(-2px); }
 
         .hero {
           background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
@@ -730,13 +710,6 @@ export default function RiderAgreement() {
         .policy-footer .brand { font-weight: 700; color: var(--blue-600); }
       `}</style>
 
-      {/* TOP BAR */}
-      <div className={`top-bar ${scrolled ? "scrolled" : ""}`}>
-        <button className="back-btn" onClick={() => navigate("/")}>
-          ← Back to Home
-        </button>
-      </div>
-
       {/* HERO */}
       <div className="hero">
         <div className="hero-badge">🛵 Rider Onboarding Agreement</div>
@@ -775,7 +748,6 @@ export default function RiderAgreement() {
           );
         })}
       </div>
-      <Footer />
     </>
   );
 }

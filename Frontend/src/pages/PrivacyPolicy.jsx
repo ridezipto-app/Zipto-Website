@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/layout/Footer"; // adjust path if needed
 // Replace with your actual logo import:
 import logo from "../assets/zipto.png";
 
@@ -289,13 +288,8 @@ const sections = [
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggleSection = (id) =>
@@ -306,7 +300,7 @@ export default function PrivacyPolicy() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *, *::before, *::after { box-sizing: border-box; }
 
         :root {
           --blue-950: #03122b;
@@ -336,26 +330,6 @@ export default function PrivacyPolicy() {
 
         body { font-family: var(--font-body); background: var(--blue-50); color: var(--text-primary); }
 
-        /* ─── TOP BAR ─── */
-        .top-bar {
-          position: sticky; top: 0; z-index: 100;
-          background: rgba(255,255,255,0.85);
-          backdrop-filter: blur(16px);
-          border-bottom: 1px solid var(--border);
-          padding: 14px 24px;
-          display: flex; align-items: center;
-          transition: box-shadow 0.3s;
-        }
-        .top-bar.scrolled { box-shadow: var(--shadow-md); }
-        .back-btn {
-          display: flex; align-items: center; gap: 6px;
-          font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
-          color: var(--blue-600); text-decoration: none; cursor: pointer;
-          background: var(--blue-100); border: none;
-          padding: 7px 14px; border-radius: 99px;
-          transition: background 0.2s, transform 0.2s;
-        }
-        .back-btn:hover { background: var(--blue-200); transform: translateX(-2px); }
 
         /* ─── HERO BANNER ─── */
         .hero {
@@ -576,13 +550,6 @@ export default function PrivacyPolicy() {
         .expand-btn:hover { background: var(--blue-600); color: white; }
       `}</style>
 
-      {/* TOP BAR */}
-      <div className={`top-bar ${scrolled ? "scrolled" : ""}`}>
-        <button className="back-btn" onClick={() => navigate("/")}>
-          ← Back to Home
-        </button>
-      </div>
-
       {/* HERO */}
    <div className="hero">
   <div className="hero-badge">🔒 Legal &amp; Privacy</div>
@@ -635,7 +602,6 @@ export default function PrivacyPolicy() {
 
 
       </div>
-      <Footer/>
     </>
   );
 }

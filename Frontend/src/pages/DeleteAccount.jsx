@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function DeleteAccount() {
   const navigate = useNavigate();
-  const [scrolled, setScrolled] = useState(false);
-
   // Form state
   const [email, setEmail] = useState("");
   const [confirmed, setConfirmed] = useState(false);
@@ -13,9 +11,6 @@ export default function DeleteAccount() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -64,7 +59,7 @@ export default function DeleteAccount() {
   return (
     <>
       <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *, *::before, *::after { box-sizing: border-box; }
         :root {
           --blue-900: #062553; --blue-800: #0a3880;
           --blue-700: #0d4db3; --blue-600: #1563d4; --blue-500: #2979f5;
@@ -80,23 +75,6 @@ export default function DeleteAccount() {
         }
         body { font-family: 'Sora', 'Inter', sans-serif; background: var(--blue-50); color: var(--text-primary); }
 
-        .top-bar {
-          position: sticky; top: 0; z-index: 100;
-          background: rgba(255,255,255,0.88); backdrop-filter: blur(16px);
-          border-bottom: 1px solid var(--border); padding: 14px 24px;
-          display: flex; align-items: center;
-          transition: box-shadow 0.3s;
-        }
-        .top-bar.scrolled { box-shadow: var(--shadow-md); }
-        .back-btn {
-          display: flex; align-items: center; gap: 6px;
-          font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
-          color: var(--blue-600); background: var(--blue-100);
-          border: none; padding: 7px 14px; border-radius: 99px;
-          cursor: pointer; transition: background 0.2s, transform 0.2s;
-          font-family: inherit;
-        }
-        .back-btn:hover { background: var(--blue-200); transform: translateX(-2px); }
 
         .hero {
           background: linear-gradient(135deg, #3b0000 0%, #7f1d1d 50%, #dc2626 100%);
@@ -275,13 +253,6 @@ export default function DeleteAccount() {
         .footer-note p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; }
         .footer-note strong { color: var(--blue-600); }
       `}</style>
-
-      {/* TOP BAR */}
-      <div className={`top-bar ${scrolled ? "scrolled" : ""}`}>
-        <button className="back-btn" onClick={() => navigate("/")}>
-          ← Back to Home
-        </button>
-      </div>
 
       {/* HERO */}
       <div className="hero">
