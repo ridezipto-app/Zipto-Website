@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 import riderlogo from "../assets/ride_zipto.png";
 
@@ -490,6 +491,10 @@ export default function RiderAgreement() {
 
   return (
     <>
+      <Helmet>
+        <title>Rider Agreement — Zipto</title>
+        <meta name="description" content="Rider Agreement: terms, responsibilities, and onboarding requirements for delivery partners on the Zipto platform." />
+      </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
         *, *::before, *::after { box-sizing: border-box; }

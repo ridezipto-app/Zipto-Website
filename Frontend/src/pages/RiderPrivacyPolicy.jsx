@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 import riderlogo from "../assets/ride_zipto.png"; // adjust path if needed
 const sections = [
@@ -430,6 +431,10 @@ export default function RiderPrivacyPolicy() {
 
   return (
     <>
+      <Helmet>
+        <title>Rider Privacy Policy — Zipto</title>
+        <meta name="description" content="Privacy policy for Zipto delivery partners: data collection, usage, and retention policies for riders." />
+      </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }
         :root {
@@ -634,21 +639,21 @@ export default function RiderPrivacyPolicy() {
       `}</style>
 
       {/* HERO */}
-   <div className="hero">
-  <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
+      <div className="hero">
+        <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
 
-  <div className="hero-logo">
-    <img src={riderlogo} alt="Zipto Logo" />
-  </div>
+        <div className="hero-logo">
+          <img src={riderlogo} alt="Zipto Logo" />
+        </div>
 
-  <h1>Rider Onboarding <em>Privacy Policy</em></h1>
+        <h1>Rider Onboarding <em>Privacy Policy</em></h1>
 
-  <div className="hero-meta">
-    <span>📅 Effective: 11 April 2026</span>
-    <span>🛵 Delivery Partner</span>
-    <span>⚖️ Governed by Indian Law</span>
-  </div>
-</div>
+        <div className="hero-meta">
+          <span>📅 Effective: 11 April 2026</span>
+          <span>🛵 Delivery Partner</span>
+          <span>⚖️ Governed by Indian Law</span>
+        </div>
+      </div>
 
 
       {/* CONTENT */}
@@ -675,7 +680,7 @@ export default function RiderPrivacyPolicy() {
           );
         })}
 
-      
+
       </div>
     </>
   );

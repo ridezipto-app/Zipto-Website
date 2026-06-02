@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 
 export default function DeleteAccount() {
@@ -58,6 +59,10 @@ export default function DeleteAccount() {
 
   return (
     <>
+      <Helmet>
+        <title>Delete Your Zipto Account — Data & Privacy</title>
+        <meta name="description" content="Request deletion of your Zipto account. This page explains the deletion process, timelines, and data retained for legal purposes." />
+      </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }
         :root {

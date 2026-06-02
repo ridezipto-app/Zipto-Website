@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Replace the URL below with your production domain
+Sitemap: https://REPLACE_WITH_YOUR_DOMAIN/sitemap.xml
+
+# You can add disallow rules for private paths, e.g.:
+# Disallow: /admin/

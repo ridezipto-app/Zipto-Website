@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/zipto_logo.jpeg";
 
@@ -396,6 +397,10 @@ export default function RiderAgreement() {
 
   return (
     <>
+      <Helmet>
+        <title>Terms & Conditions — Zipto</title>
+        <meta name="description" content="Terms and Conditions for using Zipto services, including rider and customer obligations, liabilities, and policies." />
+      </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
         *, *::before, *::after { box-sizing: border-box; }
@@ -588,21 +593,21 @@ export default function RiderAgreement() {
         .policy-footer .brand { font-weight: 700; color: var(--blue-600); }
       `}</style>
 
-<div className="hero">
-  <div className="hero-badge">🛵 Terms & Conditions</div>
+      <div className="hero">
+        <div className="hero-badge">🛵 Terms & Conditions</div>
 
-  <div className="hero-logo">
-    <img src={logo} alt="Zipto Logo" />
-  </div>
+        <div className="hero-logo">
+          <img src={logo} alt="Zipto Logo" />
+        </div>
 
-  <h1>Customer <em>Terms & Conditions</em></h1>
+        <h1>Customer <em>Terms & Conditions</em></h1>
 
-  <div className="hero-meta">
-    <span>📅 Effective: 11 April 2026</span>
-    <span>🛵 Delivery Partner</span>
-    <span>⚖️ Governed by Indian Law</span>
-  </div>
-</div>
+        <div className="hero-meta">
+          <span>📅 Effective: 11 April 2026</span>
+          <span>🛵 Delivery Partner</span>
+          <span>⚖️ Governed by Indian Law</span>
+        </div>
+      </div>
       {/* CONTENT */}
       <div className="page-wrap">
         <div className="toolbar">
@@ -627,7 +632,7 @@ export default function RiderAgreement() {
           );
         })}
 
-     
+
       </div>
     </>
   );

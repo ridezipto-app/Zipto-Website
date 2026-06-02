@@ -3,18 +3,19 @@ import { useState, useEffect } from "react";
 import ziptoLogo from "../assets/zipto_logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 
-import bikeImg   from "../assets/bike.png";
+import bikeImg from "../assets/bike.png";
 import scootyImg from "../assets/scooty.png";
-import autoImg   from "../assets/auto.png";
-import carImg    from "../assets/car.png";
-import truckImg  from "../assets/truck.png";
+import autoImg from "../assets/auto.png";
+import carImg from "../assets/car.png";
+import truckImg from "../assets/truck.png";
 
 /* ── Design tokens ── */
 const SERIF = "'Fraunces', Georgia, serif";
-const SANS  = "'Plus Jakarta Sans', system-ui, sans-serif";
+const SANS = "'Plus Jakarta Sans', system-ui, sans-serif";
 
-const BLUE_50  = "#EFF6FF";
+const BLUE_50 = "#EFF6FF";
 const BLUE_100 = "#BFDBFE";
 const BLUE_200 = "#93C5FD";
 const BLUE_400 = "#2563EB";
@@ -22,21 +23,21 @@ const BLUE_600 = "#1D4ED8";
 const BLUE_800 = "#1e3a8a";
 const BLUE_900 = "#1e3a6e";
 
-const INK     = "#0F172A";
-const MUTED   = "#64748B";
-const HINT    = "#94A3B8";
-const BG      = "#F8FAFD";
+const INK = "#0F172A";
+const MUTED = "#64748B";
+const HINT = "#94A3B8";
+const BG = "#F8FAFD";
 const SURFACE = "#FFFFFF";
-const BORDER  = "#E9EEF5";
+const BORDER = "#E9EEF5";
 const BORDER_STRONG = "#E2E8F0";
 
 /* ── Data ── */
 const deliveries = [
-  { img: bikeImg,   title: "Bike",       desc: "Documents, medicines & food deliveries" },
-  { img: scootyImg, title: "Scooty",     desc: "Lightweight & quick hyperlocal runs"     },
-  { img: autoImg,   title: "Auto",       desc: "Medium parcels & business shipments"     },
-  { img: carImg,    title: "Pickup",     desc: "Larger goods & retail inventory"         },
-  { img: truckImg,  title: "Mini Truck", desc: "Bulk shipments & heavy goods"            },
+  { img: bikeImg, title: "Bike", desc: "Documents, medicines & food deliveries" },
+  { img: scootyImg, title: "Scooty", desc: "Lightweight & quick hyperlocal runs" },
+  { img: autoImg, title: "Auto", desc: "Medium parcels & business shipments" },
+  { img: carImg, title: "Pickup", desc: "Larger goods & retail inventory" },
+  { img: truckImg, title: "Mini Truck", desc: "Bulk shipments & heavy goods" },
 ];
 
 const missionPoints = [
@@ -54,24 +55,24 @@ const whatWeDo = [
 ];
 
 const whyPoints = [
-  { num: "01", title: "Real-time tracking",   desc: "Live delivery status with accurate ETAs so you're always in the know."        },
-  { num: "02", title: "Flexible fleet",        desc: "Five vehicle types to match any parcel — from envelopes to bulk freight."     },
-  { num: "03", title: "Partner ecosystem",     desc: "A growing network of verified delivery partners built for reliability."       },
-  { num: "04", title: "Transparent pricing",   desc: "No hidden fees. Competitive rates for businesses and individuals alike."      },
-  { num: "05", title: "Local-first focus",     desc: "Designed specifically for Odisha's cities — not a generic national template." },
-  { num: "06", title: "Seamless onboarding",   desc: "Quick setup for businesses. Start dispatching within minutes of signing up."  },
+  { num: "01", title: "Real-time tracking", desc: "Live delivery status with accurate ETAs so you're always in the know." },
+  { num: "02", title: "Flexible fleet", desc: "Five vehicle types to match any parcel — from envelopes to bulk freight." },
+  { num: "03", title: "Partner ecosystem", desc: "A growing network of verified delivery partners built for reliability." },
+  { num: "04", title: "Transparent pricing", desc: "No hidden fees. Competitive rates for businesses and individuals alike." },
+  { num: "05", title: "Local-first focus", desc: "Designed specifically for Odisha's cities — not a generic national template." },
+  { num: "06", title: "Seamless onboarding", desc: "Quick setup for businesses. Start dispatching within minutes of signing up." },
 ];
 
 const stats = [
-  { num: "5+",  label: "Vehicle classes in fleet"   },
-  { num: "2",   label: "Cities currently active"     },
+  { num: "5+", label: "Vehicle classes in fleet" },
+  { num: "2", label: "Cities currently active" },
   { num: "24h", label: "Real-time delivery tracking" },
 ];
 
 const contactInfo = [
-  { label: "Email",   value: "contact@ridezipto.com", highlight: true  },
-  { label: "Phone",   value: "+91 9090029996",         highlight: false },
-  { label: "Address", value: "Bhubaneswar, Odisha",    highlight: false },
+  { label: "Email", value: "contact@ridezipto.com", highlight: true },
+  { label: "Phone", value: "+91 9090029996", highlight: false },
+  { label: "Address", value: "Bhubaneswar, Odisha", highlight: false },
 ];
 
 /* ── Shared styles ── */
@@ -203,6 +204,10 @@ export default function AboutUs() {
 
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
+      <Helmet>
+        <title>About Zipto — Our mission and fleet</title>
+        <meta name="description" content="Learn about Zipto Hyperlogistics, our mission to simplify last-mile delivery, fleet options, and how we support local businesses." />
+      </Helmet>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');

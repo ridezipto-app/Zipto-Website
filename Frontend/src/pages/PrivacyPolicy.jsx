@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 // Replace with your actual logo import:
 import logo from "../assets/zipto.png";
@@ -12,7 +13,7 @@ const sections = [
       <>
         <p>
           This Privacy Policy describes how <strong>Zipto Hyperlogistics Private
-          Limited</strong> ("Zipto", "Company", "We", "Us") collects, uses, and
+            Limited</strong> ("Zipto", "Company", "We", "Us") collects, uses, and
           protects your information when you use the Zipto Customer Application,
           website, and related services.
         </p>
@@ -297,6 +298,10 @@ export default function PrivacyPolicy() {
 
   return (
     <>
+      <Helmet>
+        <title>Zipto Privacy Policy — Data Use & Rights</title>
+        <meta name="description" content="Zipto Privacy Policy: how we collect, use, and protect user data for customers of the Zipto platform." />
+      </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
 
@@ -551,21 +556,21 @@ export default function PrivacyPolicy() {
       `}</style>
 
       {/* HERO */}
-   <div className="hero">
-  <div className="hero-badge">🔒 Legal &amp; Privacy</div>
+      <div className="hero">
+        <div className="hero-badge">🔒 Legal &amp; Privacy</div>
 
-  <div className="hero-logo">
-    <img src={logo} alt="Zipto Logo" />
-  </div>
+        <div className="hero-logo">
+          <img src={logo} alt="Zipto Logo" />
+        </div>
 
-  <h1>Zipto <em>Privacy</em> Policy</h1>
+        <h1>Zipto <em>Privacy</em> Policy</h1>
 
-  <div className="hero-meta">
-    <span>📅 Effective: 11 April 2026</span>
-    <span>🔄 Last Updated: 11 April 2026</span>
-    <span>🏢 Customer App</span>
-  </div>
-</div>
+        <div className="hero-meta">
+          <span>📅 Effective: 11 April 2026</span>
+          <span>🔄 Last Updated: 11 April 2026</span>
+          <span>🏢 Customer App</span>
+        </div>
+      </div>
 
       {/* CONTENT */}
       <div className="page-wrap">
