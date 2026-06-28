@@ -42,7 +42,7 @@ const contactItems = [
       </svg>
     ),
     label: "Address",
-    value: "Bhubaneswar, Odisha",
+    value: "Bhubaneswar, Odisha – 751007",
     href: "https://maps.google.com/?q=Bhubaneswar+Odisha",
   },
 ];
