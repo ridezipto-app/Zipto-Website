@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/bookfleet_logo.png";
 
 const sections = [
   {

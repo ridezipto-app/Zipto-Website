@@ -539,7 +539,8 @@ export default function RiderAgreement() {
         }
         .hero-logo {
           width: 160px; height: 160px;
-          border-radius: 28px;
+          border-radius: 50%;
+          overflow: hidden;
           border: 3px solid rgba(255,255,255,0.3);
           box-shadow: 0 10px 40px rgba(0,0,0,0.3);
           margin: 0 auto 24px;
@@ -722,11 +723,11 @@ export default function RiderAgreement() {
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Onboarding Agreement</div>
+        <div className="hero-badge">🛵 Rider Agreement</div>
         <div className="hero-logo">
           <img src={riderlogo} alt="bookfleet Logo" />
         </div>
-        <h1>Rider Onboarding <em>Agreement</em></h1>
+        <h1>Rider <em>Agreement</em></h1>
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>
           <span>🛵 Delivery Partner</span>

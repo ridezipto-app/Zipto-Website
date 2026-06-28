@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ziptoLogo from "../assets/logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
+import VehiclePopup from "../components/home/VehiclePopup";
 
 import bikeImg from "../assets/bike.png";
 import scootyImg from "../assets/scooty.png";
@@ -33,11 +34,41 @@ const BORDER_STRONG = "#E2E8F0";
 
 /* ── Data ── */
 const deliveries = [
-  { img: bikeImg,   title: "Bike",      desc: "Documents, medicines & food deliveries", capacity: "Up to 20 kg",    tag: "Fastest",  accent: "#2563EB", accentLight: "#EFF6FF", accentBorder: "#BFDBFE", tagColor: "#16A34A", tagBg: "#F0FDF4", tagBorder: "#BBF7D0" },
-  { img: scootyImg, title: "Scooty",    desc: "Lightweight & quick hyperlocal runs",    capacity: "Up to 22 kg",    tag: "Popular",  accent: "#EA580C", accentLight: "#FFF7ED", accentBorder: "#FED7AA", tagColor: "#EA580C", tagBg: "#FFF7ED", tagBorder: "#FED7AA" },
-  { img: autoImg,   title: "Auto",      desc: "Medium parcels & business shipments",    capacity: "500 – 800 kg",   tag: "Business", accent: "#7C3AED", accentLight: "#F5F3FF", accentBorder: "#DDD6FE", tagColor: "#7C3AED", tagBg: "#F5F3FF", tagBorder: "#DDD6FE" },
-  { img: carImg,    title: "Pickup",    desc: "Larger goods & retail inventory",        capacity: "1 – 1.5 tonnes", tag: "Heavy",    accent: "#D97706", accentLight: "#FFFBEB", accentBorder: "#FDE68A", tagColor: "#B45309", tagBg: "#FFFBEB", tagBorder: "#FDE68A" },
-  { img: truckImg,  title: "Mini Truck",desc: "Bulk shipments & heavy goods",           capacity: "2 – 2.5 tonnes", tag: "B2B",      accent: "#DC2626", accentLight: "#FEF2F2", accentBorder: "#FECACA", tagColor: "#DC2626", tagBg: "#FEF2F2", tagBorder: "#FECACA" },
+  {
+    img: bikeImg, icon: bikeImg, title: "Bike Delivery", subtitle: "Best for small urgent deliveries",
+    desc: "Documents, medicines & food deliveries", capacity: "Up to 20 kg", price: "₹35",
+    tag: "Fastest", accent: "#2563EB", accentLight: "#EFF6FF", accentBorder: "#BFDBFE",
+    tagColor: "#16A34A", tagBg: "#F0FDF4", tagBorder: "#BBF7D0",
+    details: { uses: ["Documents", "Food delivery", "Medicines", "Small parcels"], benefits: ["Fastest delivery option", "Easy navigation in traffic", "Affordable for short distances"] },
+  },
+  {
+    img: scootyImg, icon: scootyImg, title: "Scooty Delivery", subtitle: "Lightweight parcel deliveries",
+    desc: "Lightweight & quick hyperlocal runs", capacity: "Up to 22 kg", price: "₹40",
+    tag: "Popular", accent: "#EA580C", accentLight: "#FFF7ED", accentBorder: "#FED7AA",
+    tagColor: "#EA580C", tagBg: "#FFF7ED", tagBorder: "#FED7AA",
+    details: { uses: ["Groceries", "E-commerce parcels", "Gift delivery"], benefits: ["Cost efficient", "Reliable for daily deliveries", "Quick pickup and drop"] },
+  },
+  {
+    img: autoImg, icon: autoImg, title: "Auto Delivery", subtitle: "Medium size shipments",
+    desc: "Medium parcels & business shipments", capacity: "500 – 800 kg", price: "₹80",
+    tag: "Business", accent: "#7C3AED", accentLight: "#F5F3FF", accentBorder: "#DDD6FE",
+    tagColor: "#7C3AED", tagBg: "#F5F3FF", tagBorder: "#DDD6FE",
+    details: { uses: ["Restaurant bulk orders", "Shop deliveries", "Business parcels"], benefits: ["Higher capacity", "Perfect for business logistics", "Affordable city transport"] },
+  },
+  {
+    img: carImg, icon: carImg, title: "Pickup Delivery", subtitle: "Bulky goods transport",
+    desc: "Larger goods & retail inventory", capacity: "1 – 1.5 tonnes", price: "₹150",
+    tag: "Heavy", accent: "#D97706", accentLight: "#FFFBEB", accentBorder: "#FDE68A",
+    tagColor: "#B45309", tagBg: "#FFFBEB", tagBorder: "#FDE68A",
+    details: { uses: ["Furniture", "Electronics", "Marketplace deliveries"], benefits: ["Large loading space", "Ideal for bulky items", "Reliable logistics"] },
+  },
+  {
+    img: truckImg, icon: truckImg, title: "Mini Truck", subtitle: "Heavy bulk shipments",
+    desc: "Bulk shipments & heavy goods", capacity: "2 – 2.5 tonnes", price: "₹250",
+    tag: "B2B", accent: "#DC2626", accentLight: "#FEF2F2", accentBorder: "#FECACA",
+    tagColor: "#DC2626", tagBg: "#FEF2F2", tagBorder: "#FECACA",
+    details: { uses: ["Warehouse supply", "Construction materials", "Bulk groceries"], benefits: ["High load capacity", "Perfect for large shipments", "Best for B2B logistics"] },
+  },
 ];
 
 const missionPoints = [
@@ -65,7 +96,7 @@ const whyPoints = [
 
 const stats = [
   { num: "5+", label: "Vehicle classes in fleet" },
-  { num: "2", label: "Cities currently active" },
+  { num: "4", label: "Cities currently active" },
   { num: "24h", label: "Real-time delivery tracking" },
 ];
 
@@ -82,7 +113,7 @@ const dotGridStyle = {
 };
 
 /* ── Fleet Card ── */
-function FleetCard({ item, index }) {
+function FleetCard({ item, index, onClick }) {
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
@@ -92,12 +123,13 @@ function FleetCard({ item, index }) {
       transition={{ delay: index * 0.09, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={onClick}
       style={{
         background: "#FFFFFF",
         border: `1.5px solid ${hovered ? item.accentBorder : "#E9EEF5"}`,
         borderRadius: "22px",
         overflow: "hidden",
-        cursor: "default",
+        cursor: "pointer",
         transform: hovered ? "translateY(-8px)" : "translateY(0)",
         boxShadow: hovered
           ? `0 22px 52px ${item.accent}28, 0 6px 18px rgba(0,0,0,0.07)`
@@ -180,10 +212,10 @@ function FleetCard({ item, index }) {
           }}>📦 {item.capacity}</div>
           <div style={{
             fontSize: "11px", fontWeight: 700,
-            color: hovered ? item.accent : "#CBD5E1",
+            color: hovered ? item.accent : "#94A3B8",
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             letterSpacing: "0.03em", transition: "color 0.3s",
-          }}>View →</div>
+          }}>View Details →</div>
         </div>
       </div>
     </motion.div>
@@ -310,6 +342,7 @@ function FadeUp({ children, delay = 0 }) {
 export default function AboutUs() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
 
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
@@ -468,22 +501,6 @@ export default function AboutUs() {
             🚀
           </motion.div>
 
-          {/* eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 10,
-              fontSize: 11, fontWeight: 700, letterSpacing: "0.16em",
-              textTransform: "uppercase", color: "rgba(255,255,255,0.45)",
-              marginBottom: 24,
-            }}
-          >
-            <span style={{ width: 24, height: 1, background: "rgba(255,255,255,0.2)" }} />
-            Zipto Hyperlogistics Pvt. Ltd.
-          </motion.div>
-
           {/* headline */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
@@ -516,23 +533,6 @@ export default function AboutUs() {
             last-mile delivery for businesses and individuals across India.
           </motion.p>
 
-          {/* live badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "rgba(255,255,255,0.08)",
-              border: "1.5px solid rgba(255,255,255,0.14)",
-              borderRadius: 99, padding: "7px 16px",
-              fontSize: 12, color: "rgba(255,255,255,0.55)",
-              fontFamily: SANS,
-            }}
-          >
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", flexShrink: 0 }} />
-            Now live · Bhubaneswar – Cuttack corridor
-          </motion.div>
         </div>
       </section>
 
@@ -770,7 +770,7 @@ export default function AboutUs() {
             gap: 18, marginTop: 32,
           }}>
             {deliveries.map((item, i) => (
-              <FleetCard key={i} item={item} index={i} />
+              <FleetCard key={i} item={item} index={i} onClick={() => setSelectedVehicle(item)} />
             ))}
           </div>
         </div>
@@ -939,6 +939,13 @@ export default function AboutUs() {
           </FadeUp>
         </div>
       </SectionWrapper>
+
+      {/* ── VEHICLE POPUP ── */}
+      <AnimatePresence>
+        {selectedVehicle && (
+          <VehiclePopup vehicle={selectedVehicle} close={() => setSelectedVehicle(null)} />
+        )}
+      </AnimatePresence>
 
       {/* ── WHY CHOOSE SECTION (existing component) ── */}
       <WhyChooseSection />

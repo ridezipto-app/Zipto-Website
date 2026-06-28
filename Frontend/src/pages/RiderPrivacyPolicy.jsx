@@ -479,7 +479,7 @@ export default function RiderPrivacyPolicy() {
        .hero-logo {
   width: 120px;
   height: 120px;
-  border-radius: 32px;
+  border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(255,255,255,0.3);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
@@ -645,13 +645,13 @@ export default function RiderPrivacyPolicy() {
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
+        <div className="hero-badge">🛵 Rider Privacy Policy</div>
 
         <div className="hero-logo">
           <img src={riderlogo} alt="bookfleet Logo" />
         </div>
 
-        <h1>Rider Onboarding <em>Privacy Policy</em></h1>
+        <h1>Rider <em>Privacy Policy</em></h1>
 
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>

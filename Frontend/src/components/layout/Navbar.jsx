@@ -1,4 +1,4 @@
-import ziptoLogo from "../../assets/logo.jpeg";
+import ziptoLogo from "../../assets/b_logo.png";
 import { FaDownload, FaBars, FaTimes, FaApple, FaGooglePlay } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -147,7 +147,16 @@ export default function Navbar() {
           >
             <div className="relative">
               <div style={{ position: "absolute", inset: 0, borderRadius: 12, background: "rgba(59,130,246,0.15)", filter: "blur(8px)", transform: "scale(1.1)", pointerEvents: "none" }} />
-              <img src={ziptoLogo} alt="bookfleet logo" className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-cover" style={{ border: isDark ? "1.5px solid rgba(255,255,255,0.2)" : "1.5px solid rgba(59,130,246,0.25)" }} />
+              <div
+                className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl flex items-center justify-center overflow-hidden"
+                style={{
+                  background: isDark ? "rgba(29,78,216,0.35)" : "#1d4ed8",
+                  border: isDark ? "1.5px solid rgba(255,255,255,0.2)" : "1.5px solid rgba(29,78,216,0.4)",
+                  transition: "background 0.4s, border-color 0.4s",
+                }}
+              >
+                <img src={ziptoLogo} alt="bookfleet logo" className="w-full h-full object-contain" />
+              </div>
             </div>
             <span style={{ fontWeight: 700, fontSize: 20, color: isDark ? "#FFFFFF" : "#1e3a8a", letterSpacing: "0.3px", fontFamily: "Cocon, sans-serif", transition: "color 0.4s" }} className="hidden sm:block">
               bookfleet
