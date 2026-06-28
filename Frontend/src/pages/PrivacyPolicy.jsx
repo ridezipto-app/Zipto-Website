@@ -305,13 +305,23 @@ const sections = [
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState(null);
+  const [openSections, setOpenSections] = useState(new Set());
+  const allIds = sections.map((s) => s.id);
+  const allOpen = openSections.size === allIds.length;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const toggleSection = (id) =>
-    setActiveSection((prev) => (prev === id ? null : id));
+    setOpenSections((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+
+  const toggleAll = () =>
+    setOpenSections(allOpen ? new Set() : new Set(allIds));
 
   return (
     <>
@@ -462,7 +472,7 @@ export default function PrivacyPolicy() {
           padding: 0 22px;
         }
         .card-body.open {
-          max-height: 1200px;
+          max-height: 6000px;
           padding: 0 22px 22px;
           border-top: 1px solid var(--border);
         }
@@ -594,22 +604,13 @@ export default function PrivacyPolicy() {
       {/* CONTENT */}
       <div className="page-wrap">
         <div className="toolbar">
-          <button
-            className="expand-btn"
-            onClick={() =>
-              setActiveSection(
-                activeSection ? null : sections.map((s) => s.id).join(",")
-              )
-            }
-          >
-            {activeSection ? "Collapse All ↑" : "Expand All ↓"}
+          <button className="expand-btn" onClick={toggleAll}>
+            {allOpen ? "Collapse All ↑" : "Expand All ↓"}
           </button>
         </div>
 
         {sections.map((sec) => {
-          const isOpen =
-            activeSection === sec.id ||
-            (activeSection && activeSection.includes(sec.id));
+          const isOpen = openSections.has(sec.id);
           return (
             <div key={sec.id} className={`policy-card ${isOpen ? "open" : ""}`}>
               <div className="card-header" onClick={() => toggleSection(sec.id)}>

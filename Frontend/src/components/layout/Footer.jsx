@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import ziptoLogo from "../../assets/b_logo.png";
+import ziptoLogo from "../../assets/bookfleet_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
@@ -223,7 +223,7 @@ export default function Footer() {
         <div style={s.bottomBar}>
           <div className="footer-bottom-inner">
             <p style={s.copyright}>
-              © {new Date().getFullYear()} Zipto Hyperlogistics Pvt. Ltd. · Made with care in Bhubaneswar
+              © {new Date().getFullYear()} Bookfleet. Operated by Zipto Hyperlogistics Private Limited. All Rights Reserved.
             </p>
           </div>
         </div>

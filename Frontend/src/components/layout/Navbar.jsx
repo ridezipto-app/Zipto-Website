@@ -1,4 +1,4 @@
-import ziptoLogo from "../../assets/b_logo.png";
+import ziptoLogo from "../../assets/bookfleet_logo.png";
 import { FaDownload, FaBars, FaTimes, FaApple, FaGooglePlay } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
