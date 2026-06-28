@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   const socials = [
-    { Icon: Instagram,  href: "https://www.instagram.com/ridezipto",         label: "Instagram" },
+    { Icon: Instagram,  href: "https://www.instagram.com/bookfleet.in?igsh=ZDNldGp6YjN2YXZx", label: "Instagram" },
     { Icon: FaXTwitter, href: "https://x.com/ridezipto",                     label: "X"         },
     { Icon: Linkedin,   href: "https://www.linkedin.com/company/zipto-com/", label: "LinkedIn"  },
   ];

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -60,6 +60,10 @@ export default function ContactUs() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const inView = useInView(formRef, { once: true, margin: "-80px" });
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
