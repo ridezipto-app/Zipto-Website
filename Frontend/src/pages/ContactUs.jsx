@@ -31,8 +31,8 @@ const contactItems = [
       </svg>
     ),
     label: "Email",
-    value: "contact@ridebookfleet.com",
-    href: "mailto:contact@ridebookfleet.com",
+    value: "contact@bookfleet.com",
+    href: "mailto:contact@bookfleet.com",
   },
   {
     icon: (
@@ -425,8 +425,8 @@ export default function ContactUs() {
                     <motion.p custom={4} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
                       style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: "#94A3B8", textAlign: "center", margin: 0 }}>
                       We typically respond within 24 hours. You can also email us at{" "}
-                      <a href="mailto:contact@ridebookfleet.com" style={{ color: BLUE, textDecoration: "none", fontWeight: 600 }}>
-                        contact@ridebookfleet.com
+                      <a href="mailto:contact@bookfleet.com" style={{ color: BLUE, textDecoration: "none", fontWeight: 600 }}>
+                        contact@bookfleet.com
                       </a>
                     </motion.p>
                   </form>
