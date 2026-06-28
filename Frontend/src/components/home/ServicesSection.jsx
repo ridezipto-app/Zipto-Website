@@ -274,10 +274,10 @@ export default function ServicesSection() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-        .zipto-services-section * { box-sizing: border-box; }
+        .bookfleet-services-section * { box-sizing: border-box; }
 
         /* subtle dot pattern */
-        .zipto-services-section::before {
+        .bookfleet-services-section::before {
           content: '';
           position: absolute; inset: 0; pointer-events: none;
           background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
@@ -286,7 +286,7 @@ export default function ServicesSection() {
         }
 
         /* bottom divider line fade */
-        .zipto-services-section::after {
+        .bookfleet-services-section::after {
           content: '';
           position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
           background: linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent);
@@ -298,7 +298,7 @@ export default function ServicesSection() {
 
       <section
         id="Our Delivery Vehicles"
-        className="zipto-services-section"
+        className="bookfleet-services-section"
         style={{
           position: "relative",
           background: "#FFFFFF",

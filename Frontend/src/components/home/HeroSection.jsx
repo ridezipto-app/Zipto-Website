@@ -21,7 +21,7 @@ const heroStyles = `
     --accent: #2563eb;
   }
 
-  .zipto-hero {
+  .bookfleet-hero {
     width: 100vw;
     height: calc(100vh - 72px);
     min-height: 580px;
@@ -32,7 +32,7 @@ const heroStyles = `
   }
 
   /* Subtle dot grid for premium dark texture */
-  .zipto-hero::before {
+  .bookfleet-hero::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -43,7 +43,7 @@ const heroStyles = `
   }
 
   /* Ambient blue glow top-right */
-  .zipto-hero::after {
+  .bookfleet-hero::after {
     content: '';
     position: absolute;
     top: -120px; right: -80px;
@@ -290,7 +290,7 @@ const heroStyles = `
   .hero-badge-sub  { font-size: 0.66rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
   /* MODAL */
-  .zipto-overlay {
+  .bookfleet-overlay {
     position: fixed; inset: 0; z-index: 1000;
     background: rgba(0,0,0,0.42);
     backdrop-filter: blur(6px);
@@ -298,7 +298,7 @@ const heroStyles = `
     animation: zh-overlayIn 0.25s ease forwards;
   }
   @keyframes zh-overlayIn { from { opacity:0; } to { opacity:1; } }
-  .zipto-modal-card {
+  .bookfleet-modal-card {
     background: #fff; border-radius: 24px;
     padding: 40px 36px 32px;
     width: 100%; max-width: 420px;
@@ -312,7 +312,7 @@ const heroStyles = `
     from { opacity:0; transform: scale(0.88) translateY(18px); }
     to   { opacity:1; transform: scale(1) translateY(0); }
   }
-  .zipto-close-btn {
+  .bookfleet-close-btn {
     position: absolute; top: 16px; right: 18px;
     background: #f3f4f6; border: none; border-radius: 50%;
     width: 32px; height: 32px;
@@ -320,7 +320,7 @@ const heroStyles = `
     cursor: pointer; font-size: 0.9rem; color: #555;
     transition: background 0.2s;
   }
-  .zipto-close-btn:hover { background: #e5e7eb; color: #111; }
+  .bookfleet-close-btn:hover { background: #e5e7eb; color: #111; }
   .zm-launch-pill {
     display: inline-flex; align-items: center; gap: 6px;
     background: #eff6ff; border: 1px solid #bfdbfe;
@@ -406,10 +406,10 @@ const heroStyles = `
   .hero-left.no-anim, .hero-right.no-anim,
   .hero-badge.no-anim                             { opacity: 1 !important; transform: none !important; animation: none !important; }
   .hero-speed-lines.no-anim                       { display: none; }
-  .zipto-truck-parked                             { display: none; }
+  .bookfleet-truck-parked                             { display: none; }
 
   @media (min-width: 769px) and (max-width: 1024px) {
-    .zipto-hero       { height: calc(100vh - 64px); min-height: 520px; }
+    .bookfleet-hero       { height: calc(100vh - 64px); min-height: 520px; }
     .hero-rider-wrapper { width: clamp(200px, 44vw, 480px); bottom: 48px; }
     .hero-bottom      { padding: 0 36px 28px; }
     .hero-headline    { font-size: clamp(30px, 4vw, 52px); }
@@ -421,7 +421,7 @@ const heroStyles = `
   }
 
   @media (max-width: 768px) {
-    .zipto-hero {
+    .bookfleet-hero {
       height: 100svh;
       min-height: 0;
       overflow: hidden;
@@ -454,7 +454,7 @@ const heroStyles = `
     }
     .hero-badge-text { font-size: 0.72rem; }
     .hero-badge-sub  { font-size: 0.58rem; }
-    .zipto-truck-parked { display: none !important; }
+    .bookfleet-truck-parked { display: none !important; }
     .hero-bottom {
       position: relative !important;
       top: auto !important; left: auto !important;
@@ -496,7 +496,7 @@ const heroStyles = `
     .hero-stat-item   { flex: 1; padding: 12px 4px; }
     .hero-stat-num    { font-size: 1.3rem; }
     .hero-stat-label  { font-size: 0.44rem; letter-spacing: 1px; }
-    .zipto-modal-card { padding: 30px 20px 24px; border-radius: 20px; }
+    .bookfleet-modal-card { padding: 30px 20px 24px; border-radius: 20px; }
     .zm-stores        { flex-direction: column; }
   }
 
@@ -517,7 +517,7 @@ const heroStyles = `
 
 `;
 
-const SESSION_KEY = "zipto-hero-seen";
+const SESSION_KEY = "bookfleet-hero-seen";
 
 export default function bookfleetHero() {
   const [showOrder, setShowOrder] = useState(false);
@@ -585,7 +585,7 @@ export default function bookfleetHero() {
     <>
       <style dangerouslySetInnerHTML={{ __html: heroStyles }} />
 
-      <section className="zipto-hero" aria-label="bookfleet hero">
+      <section className="bookfleet-hero" aria-label="bookfleet hero">
         <div className={na("hero-bg-text-wrap")} aria-hidden="true">
           <span className="hero-bg-text">bookfleet</span>
           <span className="hero-bg-text-blue">bookfleet</span>
@@ -648,14 +648,14 @@ export default function bookfleetHero() {
       {/* ORDER NOW MODAL */}
       {showOrder && (
         <div
-          className="zipto-overlay"
+          className="bookfleet-overlay"
           onClick={closeOnBackdrop}
           role="dialog"
           aria-modal="true"
           aria-label="Order now — app coming soon"
         >
-          <div className="zipto-modal-card">
-            <button className="zipto-close-btn" onClick={handleCloseModal} aria-label="Close">
+          <div className="bookfleet-modal-card">
+            <button className="bookfleet-close-btn" onClick={handleCloseModal} aria-label="Close">
               ✕
             </button>
 

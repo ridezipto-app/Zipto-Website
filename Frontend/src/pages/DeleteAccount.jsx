@@ -43,7 +43,7 @@ export default function DeleteAccount() {
           type: "error",
           message:
             data.message ||
-            "Something went wrong. Please try again or contact support@ridezipto.com.",
+            "Something went wrong. Please try again or contact support@ridebookfleet.com.",
         });
       }
     } catch {
@@ -396,7 +396,7 @@ export default function DeleteAccount() {
               <div className="icon">📧</div>
               <div>
                 <div className="c-label">Support Email</div>
-                <a href="mailto:support@ridezipto.com">support@ridezipto.com</a>
+                <a href="mailto:support@ridebookfleet.com">support@ridebookfleet.com</a>
               </div>
             </div>
           </div>

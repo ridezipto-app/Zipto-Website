@@ -70,7 +70,7 @@ const stats = [
 ];
 
 const contactInfo = [
-  { label: "Email", value: "contact@ridezipto.com", highlight: true },
+  { label: "Email", value: "contact@ridebookfleet.com", highlight: true },
   { label: "Phone", value: "+91 9090029996", highlight: false },
   { label: "Address", value: "Bhubaneswar, Odisha", highlight: false },
 ];
@@ -994,7 +994,7 @@ export default function AboutUs() {
 
             <FadeUp delay={0.2}>
               <motion.a
-                href="mailto:contact@ridezipto.com"
+                href="mailto:contact@ridebookfleet.com"
                 whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(37,99,235,0.32)" }}
                 whileTap={{ scale: 0.97 }}
                 style={{

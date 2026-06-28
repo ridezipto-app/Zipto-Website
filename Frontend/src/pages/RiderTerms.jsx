@@ -425,7 +425,7 @@ const sections = [
           <div className="icon">📧</div>
           <div>
             <div className="c-label">Email</div>
-            <a href="mailto:rider.support@ridezipto.com">rider.support@ridezipto.com</a>
+            <a href="mailto:rider.support@ridebookfleet.com">rider.support@ridebookfleet.com</a>
           </div>
         </div>
         <div className="contact-card">
