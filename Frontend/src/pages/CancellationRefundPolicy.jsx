@@ -13,13 +13,13 @@ const sections = [
         <p>
           This Cancellation &amp; Refund Policy outlines the rules governing booking
           cancellations, cancellation charges, refunds, and related processes for
-          services offered through the Bookfleet Customer App, website, and related
+          services offered through the bookfleet Customer App, website, and related
           platforms operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet",
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet",
           "Company", "we", "our", or "us").
         </p>
         <div className="notice-pill mt-4">
-          ✅ By using Bookfleet, you agree to this Cancellation &amp; Refund Policy.
+          ✅ By using bookfleet, you agree to this Cancellation &amp; Refund Policy.
         </div>
       </>
     ),
@@ -31,7 +31,7 @@ const sections = [
     content: (
       <>
         <p>
-          Customers may cancel a booking at any time through the Bookfleet App,
+          Customers may cancel a booking at any time through the bookfleet App,
           subject to the following conditions:
         </p>
         <div className="sub-sections mt-3">
@@ -57,7 +57,7 @@ const sections = [
             <h4>After Pickup</h4>
             <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
               Once the shipment has been picked up by the delivery partner, the
-              booking generally cannot be cancelled unless approved by Bookfleet
+              booking generally cannot be cancelled unless approved by bookfleet
               under exceptional circumstances.
             </p>
           </div>
@@ -67,11 +67,11 @@ const sections = [
   },
   {
     id: "cancellation-by-bookfleet",
-    title: "Cancellation by Bookfleet",
+    title: "Cancellation by bookfleet",
     number: "03",
     content: (
       <>
-        <p>Bookfleet reserves the right to cancel any booking due to:</p>
+        <p>bookfleet reserves the right to cancel any booking due to:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">🚫 Rider unavailability</div>
           <div className="service-chip">🚗 Vehicle unavailability</div>
@@ -103,7 +103,7 @@ const sections = [
           <li>Other valid operational reasons.</li>
         </ul>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet will make reasonable efforts to assign another available delivery partner.
+          ℹ️ bookfleet will make reasonable efforts to assign another available delivery partner.
         </div>
       </>
     ),
@@ -135,7 +135,7 @@ const sections = [
           <div className="penalty-row">
             <div className="penalty-icon warn">❌</div>
             <div className="penalty-info">
-              <div className="penalty-title">Booking Cancelled by Bookfleet</div>
+              <div className="penalty-title">Booking Cancelled by bookfleet</div>
               <div className="penalty-desc">Cancellation initiated by the platform.</div>
             </div>
             <div className="penalty-badge warn">Eligible</div>
@@ -173,7 +173,7 @@ const sections = [
         <ul className="dot-list mt-3">
           <li>The customer entered incorrect booking details.</li>
           <li>The customer was unavailable at pickup or delivery.</li>
-          <li>The shipment violated Bookfleet policies.</li>
+          <li>The shipment violated bookfleet policies.</li>
           <li>Cancellation occurred after pickup without valid reason.</li>
           <li>The service was successfully completed.</li>
         </ul>
@@ -210,7 +210,7 @@ const sections = [
           during booking.
         </p>
         <p className="mt-3 text-muted">
-          Where this is not possible, Bookfleet may process the refund through another
+          Where this is not possible, bookfleet may process the refund through another
           suitable method permitted by law.
         </p>
       </>
@@ -228,7 +228,7 @@ const sections = [
         </p>
         <div className="notice-pill mt-4">
           📧 If the amount has been debited but the booking was not created, contact
-          Bookfleet Support for assistance.
+          bookfleet Support for assistance.
         </div>
       </>
     ),
@@ -239,9 +239,9 @@ const sections = [
     number: "10",
     content: (
       <>
-        <p>Any cancellation or refund dispute will be reviewed by Bookfleet.</p>
+        <p>Any cancellation or refund dispute will be reviewed by bookfleet.</p>
         <div className="notice-pill notice-warn mt-4">
-          ⚖️ Bookfleet's decision regarding refunds, after reviewing the relevant
+          ⚖️ bookfleet's decision regarding refunds, after reviewing the relevant
           facts and applicable policies, shall be final to the extent permitted by law.
         </div>
       </>
@@ -254,10 +254,10 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet may modify this Cancellation &amp; Refund Policy from time to time.
+          bookfleet may modify this Cancellation &amp; Refund Policy from time to time.
         </p>
         <p className="mt-3 text-muted">
-          The latest version will always be available on the Bookfleet website and
+          The latest version will always be available on the bookfleet website and
           application.
         </p>
       </>
@@ -322,7 +322,7 @@ export default function CancellationRefundPolicy() {
     <>
       <Helmet>
         <title>Cancellation & Refund Policy – bookfleet | bookfleet.in</title>
-        <meta name="description" content="Learn about Bookfleet's cancellation and refund policy, including cancellation fees, refund eligibility, processing times, and how to raise disputes." />
+        <meta name="description" content="Learn about bookfleet's cancellation and refund policy, including cancellation fees, refund eligibility, processing times, and how to raise disputes." />
         <link rel="canonical" href="https://bookfleet.in/cancellation-refund-policy" />
         <meta property="og:title" content="Cancellation & Refund Policy – bookfleet" />
         <meta property="og:url" content="https://bookfleet.in/cancellation-refund-policy" />

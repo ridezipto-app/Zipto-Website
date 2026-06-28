@@ -10,20 +10,20 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet.</p>
+        <p>Welcome to bookfleet.</p>
         <p className="mt-3">
-          Bookfleet is a technology platform owned and operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          bookfleet is a technology platform owned and operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet", "Company",
           "we", "our", or "us"). We are committed to protecting your privacy and ensuring
           that your personal information is handled responsibly, securely, and transparently.
         </p>
         <p className="mt-3">
           This Privacy Policy explains how we collect, use, store, process, share, and
-          protect your personal information when you access or use the Bookfleet Customer
-          App, Bookfleet Website, and any related products or services offered by Bookfleet.
+          protect your personal information when you access or use the bookfleet Customer
+          App, bookfleet Website, and any related products or services offered by bookfleet.
         </p>
         <div className="notice-pill mt-4">
-          ✅ By accessing or using the Bookfleet Platform, you acknowledge that you have
+          ✅ By accessing or using the bookfleet Platform, you acknowledge that you have
           read, understood, and agreed to this Privacy Policy.
         </div>
       </>
@@ -36,7 +36,7 @@ const sections = [
     content: (
       <ul className="info-list">
         <li><span className="label">Legal Entity</span><span>Zipto Hyperlogistics Private Limited</span></li>
-        <li><span className="label">Brand Name</span><span>Bookfleet</span></li>
+        <li><span className="label">Brand Name</span><span>bookfleet</span></li>
         <li><span className="label">Registered Office</span><span>781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
         <li><span className="label">Website</span><a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer">www.bookfleet.in</a></li>
         <li><span className="label">Support Email</span><a href="mailto:support@bookfleet.in">support@bookfleet.in</a></li>
@@ -51,13 +51,13 @@ const sections = [
       <>
         <p>This Privacy Policy applies to:</p>
         <ul className="dot-list mt-3">
-          <li>Bookfleet Customer App</li>
-          <li>Bookfleet Website</li>
+          <li>bookfleet Customer App</li>
+          <li>bookfleet Website</li>
           <li>Customer Support Services</li>
           <li>Online Booking Platform</li>
           <li>Payment Services</li>
           <li>Promotional Communications</li>
-          <li>Any other services provided by Bookfleet</li>
+          <li>Any other services provided by bookfleet</li>
         </ul>
       </>
     ),
@@ -104,7 +104,7 @@ const sections = [
             <li>Invoice Details</li>
             <li>Refund Information</li>
           </ul>
-          <div className="notice-pill mt-3">🔐 Bookfleet does not store complete debit or credit card information.</div>
+          <div className="notice-pill mt-3">🔐 bookfleet does not store complete debit or credit card information.</div>
         </div>
         <div className="sub-block">
           <h4>Device Information</h4>
@@ -160,7 +160,7 @@ const sections = [
     number: "06",
     content: (
       <>
-        <p>Bookfleet may request access to:</p>
+        <p>bookfleet may request access to:</p>
         <ul className="dot-list mt-3">
           <li>Device Location</li>
           <li>Camera</li>
@@ -180,14 +180,14 @@ const sections = [
     number: "07",
     content: (
       <>
-        <p>Bookfleet may share limited information with:</p>
+        <p>bookfleet may share limited information with:</p>
         <ul className="dot-list mt-3">
           <li>Delivery Partners</li>
           <li>Payment Service Providers</li>
           <li>Technology Service Providers</li>
           <li>Government Authorities (where required by law)</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">🚫 Bookfleet does <strong>not</strong> sell your personal information to third parties.</div>
+        <div className="notice-pill notice-warn mt-4">🚫 bookfleet does <strong>not</strong> sell your personal information to third parties.</div>
       </>
     ),
   },
@@ -238,7 +238,7 @@ const sections = [
     content: (
       <>
         <p>
-          You may request deletion of your Bookfleet account by contacting our support team.
+          You may request deletion of your bookfleet account by contacting our support team.
         </p>
         <p className="mt-3 text-muted">
           Certain information may be retained where required by law or for legitimate business purposes.
@@ -252,7 +252,7 @@ const sections = [
     number: "12",
     content: (
       <>
-        <p>Bookfleet services are intended only for individuals who are legally eligible to use our platform.</p>
+        <p>bookfleet services are intended only for individuals who are legally eligible to use our platform.</p>
         <p className="mt-3 text-muted">We do not knowingly collect personal information from children.</p>
       </>
     ),

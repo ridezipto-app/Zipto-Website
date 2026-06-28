@@ -10,15 +10,15 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet Rider.</p>
+        <p>Welcome to bookfleet Rider.</p>
         <p className="mt-3">
           These Rider Terms &amp; Conditions ("Terms") govern your registration and use
-          of the Bookfleet Rider App and related services operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          of the bookfleet Rider App and related services operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet", "Company",
           "we", "our", or "us").
         </p>
         <div className="notice-pill mt-4">
-          ✅ By registering as a Bookfleet Delivery Partner, you agree to comply with
+          ✅ By registering as a bookfleet Delivery Partner, you agree to comply with
           these Terms &amp; Conditions.
         </div>
       </>
@@ -26,16 +26,16 @@ const sections = [
   },
   {
     id: "about",
-    title: "About Bookfleet",
+    title: "About bookfleet",
     number: "02",
     content: (
       <>
         <p>
-          Bookfleet is a technology platform that connects customers with independent
+          bookfleet is a technology platform that connects customers with independent
           delivery partners for on-demand logistics services.
         </p>
         <p className="mt-3">
-          Bookfleet provides access to delivery opportunities through various vehicle
+          bookfleet provides access to delivery opportunities through various vehicle
           categories, including:
         </p>
         <ul className="dot-list mt-3">
@@ -47,7 +47,7 @@ const sections = [
           <li>Other approved vehicles</li>
         </ul>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet acts only as a technology platform and does not employ riders as employees.
+          ℹ️ bookfleet acts only as a technology platform and does not employ riders as employees.
         </div>
       </>
     ),
@@ -58,7 +58,7 @@ const sections = [
     number: "03",
     content: (
       <>
-        <p>To register as a Bookfleet Delivery Partner, you must:</p>
+        <p>To register as a bookfleet Delivery Partner, you must:</p>
         <ul className="dot-list mt-3">
           <li>Be at least 18 years of age.</li>
           <li>Possess a valid Government-issued ID.</li>
@@ -68,7 +68,7 @@ const sections = [
           <li>Maintain a valid bank account for payouts.</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet reserves the right to approve or reject any application.
+          ⚠️ bookfleet reserves the right to approve or reject any application.
         </div>
       </>
     ),
@@ -117,10 +117,10 @@ const sections = [
     number: "06",
     content: (
       <>
-        <p>Bookfleet Delivery Partners are independent contractors.</p>
+        <p>bookfleet Delivery Partners are independent contractors.</p>
         <p className="mt-3">
           Nothing in these Terms creates an employer-employee relationship, partnership,
-          agency, or joint venture between Bookfleet and the Delivery Partner.
+          agency, or joint venture between bookfleet and the Delivery Partner.
         </p>
         <div className="notice-pill notice-warn mt-4">
           ⚠️ Delivery Partners remain responsible for their own taxes, insurance,
@@ -147,7 +147,7 @@ const sections = [
             </ul>
           </div>
           <div className="col-block no-block">
-            <h4>Bookfleet May Deduct</h4>
+            <h4>bookfleet May Deduct</h4>
             <ul className="dot-list">
               <li>Platform Fees (if applicable)</li>
               <li>Taxes</li>
@@ -157,7 +157,7 @@ const sections = [
           </div>
         </div>
         <div className="notice-pill mt-4">
-          💳 Payouts are processed according to the Bookfleet payout schedule.
+          💳 Payouts are processed according to the bookfleet payout schedule.
         </div>
       </>
     ),
@@ -168,7 +168,7 @@ const sections = [
     number: "08",
     content: (
       <>
-        <p>While online, riders must allow Bookfleet to access real-time and background location.</p>
+        <p>While online, riders must allow bookfleet to access real-time and background location.</p>
         <p className="mt-3">Location data is required for:</p>
         <ul className="dot-list mt-3">
           <li>Order Allocation</li>
@@ -224,7 +224,7 @@ const sections = [
           <li>Vehicle documents remain up to date.</li>
         </ul>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet may request updated documents at any time.
+          ℹ️ bookfleet may request updated documents at any time.
         </div>
       </>
     ),
@@ -235,7 +235,7 @@ const sections = [
     number: "11",
     content: (
       <>
-        <p>Bookfleet reserves the right to suspend or permanently terminate Rider Accounts for:</p>
+        <p>bookfleet reserves the right to suspend or permanently terminate Rider Accounts for:</p>
         <ul className="dot-list mt-3">
           <li>Fraud</li>
           <li>Fake Documents</li>
@@ -244,7 +244,7 @@ const sections = [
           <li>Customer Abuse</li>
           <li>Repeated Policy Violations</li>
           <li>Low Service Standards</li>
-          <li>Any activity that may harm the Bookfleet Platform or its users</li>
+          <li>Any activity that may harm the bookfleet Platform or its users</li>
         </ul>
       </>
     ),
@@ -256,10 +256,10 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet acts solely as a technology platform connecting customers with
+          bookfleet acts solely as a technology platform connecting customers with
           independent delivery partners.
         </p>
-        <p className="mt-3">To the fullest extent permitted by law, Bookfleet shall not be liable for:</p>
+        <p className="mt-3">To the fullest extent permitted by law, bookfleet shall not be liable for:</p>
         <ul className="dot-list mt-3">
           <li>Loss or damage resulting from rider negligence.</li>
           <li>Road accidents.</li>
@@ -277,7 +277,7 @@ const sections = [
     number: "13",
     content: (
       <>
-        <p>Bookfleet may revise these Terms &amp; Conditions from time to time.</p>
+        <p>bookfleet may revise these Terms &amp; Conditions from time to time.</p>
         <p className="mt-3 text-muted">
           Updated Terms become effective immediately upon publication on the Rider App
           or website. Continued use of the Rider Platform constitutes acceptance of the

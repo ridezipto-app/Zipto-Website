@@ -10,15 +10,15 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet.</p>
+        <p>Welcome to bookfleet.</p>
         <p className="mt-3">
           These Terms &amp; Conditions ("Terms") govern your access to and use of the
-          Bookfleet Customer App, website, and all related services operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          bookfleet Customer App, website, and all related services operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet", "Company",
           "we", "our", or "us").
         </p>
         <div className="notice-pill mt-4">
-          ✅ By accessing or using the Bookfleet Platform, you agree to be legally bound
+          ✅ By accessing or using the bookfleet Platform, you agree to be legally bound
           by these Terms &amp; Conditions. If you do not agree with these Terms, please
           do not use our Platform.
         </div>
@@ -27,16 +27,16 @@ const sections = [
   },
   {
     id: "about",
-    title: "About Bookfleet",
+    title: "About bookfleet",
     number: "02",
     content: (
       <>
         <p>
-          Bookfleet is a technology-enabled logistics platform that connects customers
+          bookfleet is a technology-enabled logistics platform that connects customers
           with independent delivery partners for on-demand transportation and delivery
           services.
         </p>
-        <p className="mt-3">Bookfleet provides access to multiple vehicle categories including, but not limited to:</p>
+        <p className="mt-3">bookfleet provides access to multiple vehicle categories including, but not limited to:</p>
         <ul className="dot-list mt-3">
           <li>Bike Delivery</li>
           <li>Scooter Delivery</li>
@@ -47,7 +47,7 @@ const sections = [
           <li>Parcel &amp; Document Delivery</li>
         </ul>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet acts only as a technology platform facilitating bookings between
+          ℹ️ bookfleet acts only as a technology platform facilitating bookings between
           customers and independent delivery partners.
         </div>
       </>
@@ -59,7 +59,7 @@ const sections = [
     number: "03",
     content: (
       <>
-        <p>To use Bookfleet services, you must:</p>
+        <p>To use bookfleet services, you must:</p>
         <ul className="dot-list mt-3">
           <li>Be at least 18 years of age.</li>
           <li>Provide accurate and complete information.</li>
@@ -67,7 +67,7 @@ const sections = [
           <li>Comply with all applicable laws and these Terms.</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet reserves the right to refuse or terminate services if incorrect,
+          ⚠️ bookfleet reserves the right to refuse or terminate services if incorrect,
           misleading, or fraudulent information is provided.
         </div>
       </>
@@ -88,7 +88,7 @@ const sections = [
           <li>Be responsible for all activities conducted through your account.</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet shall not be liable for losses arising from unauthorized use of your account.
+          ⚠️ bookfleet shall not be liable for losses arising from unauthorized use of your account.
         </div>
       </>
     ),
@@ -99,7 +99,7 @@ const sections = [
     number: "05",
     content: (
       <>
-        <p>Customers may book available logistics services through the Bookfleet Platform.</p>
+        <p>Customers may book available logistics services through the bookfleet Platform.</p>
         <p className="mt-3">Bookings are subject to:</p>
         <ul className="dot-list mt-3">
           <li>Vehicle availability</li>
@@ -109,7 +109,7 @@ const sections = [
           <li>Safety guidelines</li>
         </ul>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet does not guarantee immediate availability of delivery partners.
+          ℹ️ bookfleet does not guarantee immediate availability of delivery partners.
         </div>
       </>
     ),
@@ -153,7 +153,7 @@ const sections = [
           <li>Cash (where available)</li>
         </ul>
         <div className="notice-pill mt-4">
-          🔐 Bookfleet does not store complete card or banking credentials. Payment
+          🔐 bookfleet does not store complete card or banking credentials. Payment
           processing may be handled by authorized third-party payment providers.
         </div>
       </>
@@ -199,7 +199,7 @@ const sections = [
           <li>Items prohibited by Indian law</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          🚫 Bookfleet reserves the right to refuse any booking involving prohibited goods.
+          🚫 bookfleet reserves the right to refuse any booking involving prohibited goods.
         </div>
       </>
     ),
@@ -210,10 +210,10 @@ const sections = [
     number: "10",
     content: (
       <>
-        <p>Customers may cancel bookings in accordance with the Bookfleet Cancellation Policy.</p>
+        <p>Customers may cancel bookings in accordance with the bookfleet Cancellation Policy.</p>
         <p className="mt-3 text-muted">Cancellation charges may apply depending on the booking stage.</p>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet reserves the right to cancel bookings due to operational, safety,
+          ⚠️ bookfleet reserves the right to cancel bookings due to operational, safety,
           legal, or technical reasons.
         </div>
       </>
@@ -226,10 +226,10 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet acts solely as a technology platform connecting customers with
+          bookfleet acts solely as a technology platform connecting customers with
           independent delivery partners.
         </p>
-        <p className="mt-3">To the maximum extent permitted by law, Bookfleet shall not be liable for:</p>
+        <p className="mt-3">To the maximum extent permitted by law, bookfleet shall not be liable for:</p>
         <ul className="dot-list mt-3">
           <li>Delay caused by traffic or weather</li>
           <li>Incorrect addresses</li>
@@ -246,7 +246,7 @@ const sections = [
     number: "12",
     content: (
       <>
-        <p>Bookfleet may suspend or permanently terminate customer accounts for:</p>
+        <p>bookfleet may suspend or permanently terminate customer accounts for:</p>
         <ul className="dot-list mt-3">
           <li>Fraudulent activity</li>
           <li>Misuse of the platform</li>
@@ -263,7 +263,7 @@ const sections = [
     number: "13",
     content: (
       <>
-        <p>Bookfleet may revise these Terms from time to time.</p>
+        <p>bookfleet may revise these Terms from time to time.</p>
         <p className="mt-3 text-muted">
           Updated Terms become effective immediately upon publication unless otherwise
           stated. Continued use of the Platform constitutes acceptance of the revised Terms.

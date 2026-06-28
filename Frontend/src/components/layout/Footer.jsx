@@ -223,7 +223,7 @@ export default function Footer() {
         <div style={s.bottomBar}>
           <div className="footer-bottom-inner">
             <p style={s.copyright}>
-              © {new Date().getFullYear()} Bookfleet. Operated by Zipto Hyperlogistics Private Limited. All Rights Reserved.
+              © {new Date().getFullYear()} bookfleet. Operated by Zipto Hyperlogistics Private Limited. All Rights Reserved.
             </p>
           </div>
         </div>

@@ -12,9 +12,9 @@ const sections = [
       <>
         <p>
           This Prohibited Items Policy outlines the categories of goods and materials
-          that must not be booked, transported, or delivered through the Bookfleet
+          that must not be booked, transported, or delivered through the bookfleet
           platform operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet",
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet",
           "Company", "we", "our", or "us").
         </p>
         <div className="notice-pill notice-warn mt-4">
@@ -30,7 +30,7 @@ const sections = [
     number: "02",
     content: (
       <>
-        <p>The following items are <strong>strictly prohibited</strong> from being transported through Bookfleet:</p>
+        <p>The following items are <strong>strictly prohibited</strong> from being transported through bookfleet:</p>
 
         <div className="proh-block mt-4">
           <div className="proh-header">🚫 Illegal Goods</div>
@@ -129,11 +129,11 @@ const sections = [
         <div className="proh-block mt-3">
           <div className="proh-header">📦 Other Restricted Items</div>
           <ul className="dot-list mt-2">
-            <li>Perishable goods requiring special storage unless specifically supported by Bookfleet</li>
+            <li>Perishable goods requiring special storage unless specifically supported by bookfleet</li>
             <li>Items emitting strong odours</li>
             <li>Leaking packages</li>
             <li>Unsafe or improperly packed goods</li>
-            <li>Any shipment considered unsafe by Bookfleet</li>
+            <li>Any shipment considered unsafe by bookfleet</li>
           </ul>
         </div>
       </>
@@ -164,7 +164,7 @@ const sections = [
     number: "04",
     content: (
       <>
-        <p>Bookfleet reserves the right to:</p>
+        <p>bookfleet reserves the right to:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">🚫 Refuse any shipment</div>
           <div className="service-chip">❌ Cancel any booking</div>
@@ -172,7 +172,7 @@ const sections = [
           <div className="service-chip">🚨 Report to authorities</div>
         </div>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet may refuse transportation if it reasonably believes a
+          ℹ️ bookfleet may refuse transportation if it reasonably believes a
           shipment violates this Policy or applicable laws.
         </div>
       </>
@@ -206,7 +206,7 @@ const sections = [
             <div className="penalty-icon red">🔒</div>
             <div className="penalty-info">
               <div className="penalty-title">Refusal of Future Services</div>
-              <div className="penalty-desc">The customer may be barred from using Bookfleet.</div>
+              <div className="penalty-desc">The customer may be barred from using bookfleet.</div>
             </div>
             <div className="penalty-badge red">Permanent Ban</div>
           </div>
@@ -222,7 +222,7 @@ const sections = [
             <div className="penalty-icon red">💸</div>
             <div className="penalty-info">
               <div className="penalty-title">Recovery of Losses</div>
-              <div className="penalty-desc">Recovery of any losses or damages suffered by Bookfleet, where permitted by law.</div>
+              <div className="penalty-desc">Recovery of any losses or damages suffered by bookfleet, where permitted by law.</div>
             </div>
             <div className="penalty-badge red">Financial</div>
           </div>
@@ -237,16 +237,16 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet is a technology platform that connects customers with independent
+          bookfleet is a technology platform that connects customers with independent
           delivery partners.
         </p>
         <p className="mt-3">
-          Bookfleet does not verify the contents of every shipment and shall not be
+          bookfleet does not verify the contents of every shipment and shall not be
           liable for any prohibited or illegal items submitted by customers.
         </p>
         <div className="notice-pill notice-warn mt-4">
           ⚠️ Customers remain solely responsible for the legality, safety, and
-          compliance of all items transported using the Bookfleet platform.
+          compliance of all items transported using the bookfleet platform.
         </div>
       </>
     ),
@@ -257,9 +257,9 @@ const sections = [
     number: "07",
     content: (
       <>
-        <p>Bookfleet may update this Prohibited Items Policy from time to time.</p>
+        <p>bookfleet may update this Prohibited Items Policy from time to time.</p>
         <p className="mt-3 text-muted">
-          The latest version will always be available on the Bookfleet website and
+          The latest version will always be available on the bookfleet website and
           applications.
         </p>
       </>
@@ -324,7 +324,7 @@ export default function ProhibitedItemsPolicy() {
     <>
       <Helmet>
         <title>Prohibited Items Policy – bookfleet | bookfleet.in</title>
-        <meta name="description" content="List of items prohibited from being transported through Bookfleet, including illegal goods, hazardous materials, weapons, and restricted items." />
+        <meta name="description" content="List of items prohibited from being transported through bookfleet, including illegal goods, hazardous materials, weapons, and restricted items." />
         <link rel="canonical" href="https://bookfleet.in/prohibited-items-policy" />
         <meta property="og:title" content="Prohibited Items Policy – bookfleet" />
         <meta property="og:url" content="https://bookfleet.in/prohibited-items-policy" />

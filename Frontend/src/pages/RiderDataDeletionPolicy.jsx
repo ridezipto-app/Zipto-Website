@@ -11,8 +11,8 @@ const sections = [
     content: (
       <>
         <p>
-          This Rider Data Deletion Policy explains how Bookfleet, operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          This Rider Data Deletion Policy explains how bookfleet, operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet", "Company",
           "we", "our", or "us"), handles requests from delivery partners to delete their
           personal information and Rider Account.
         </p>
@@ -31,7 +31,7 @@ const sections = [
     content: (
       <>
         <p>
-          Registered Bookfleet Delivery Partners may request deletion of their Rider
+          Registered bookfleet Delivery Partners may request deletion of their Rider
           Account at any time, subject to:
         </p>
         <ul className="dot-list mt-3">
@@ -51,8 +51,8 @@ const sections = [
       <>
         <p>You may request deletion of your Rider Account by:</p>
         <ul className="dot-list mt-3">
-          <li>Using the <strong>Delete Account</strong> option available in the Bookfleet Rider App (where available), or</li>
-          <li>Contacting Bookfleet Support directly.</li>
+          <li>Using the <strong>Delete Account</strong> option available in the bookfleet Rider App (where available), or</li>
+          <li>Contacting bookfleet Support directly.</li>
         </ul>
         <div className="contact-grid mt-4">
           <div className="contact-card">
@@ -76,7 +76,7 @@ const sections = [
     content: (
       <>
         <p>
-          Before processing your request, Bookfleet may verify your identity to protect
+          Before processing your request, bookfleet may verify your identity to protect
           your account and prevent unauthorized deletion requests.
         </p>
         <div className="notice-pill notice-warn mt-4">
@@ -91,7 +91,7 @@ const sections = [
     number: "05",
     content: (
       <>
-        <p>Upon successful verification, Bookfleet may delete or anonymize eligible personal information, including:</p>
+        <p>Upon successful verification, bookfleet may delete or anonymize eligible personal information, including:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">👤 Rider Profile</div>
           <div className="service-chip">📋 Personal Details</div>
@@ -135,7 +135,7 @@ const sections = [
       <>
         <p>Once your Rider Account is deleted:</p>
         <ul className="dot-list mt-3">
-          <li>You will no longer be able to access the Bookfleet Rider App.</li>
+          <li>You will no longer be able to access the bookfleet Rider App.</li>
           <li>You will stop receiving delivery requests.</li>
           <li>Your rider profile will be permanently deactivated.</li>
           <li>Previous earnings history may no longer be accessible through the Rider App.</li>
@@ -169,9 +169,9 @@ const sections = [
     number: "09",
     content: (
       <>
-        <p>Bookfleet may update this Rider Data Deletion Policy from time to time.</p>
+        <p>bookfleet may update this Rider Data Deletion Policy from time to time.</p>
         <p className="mt-3 text-muted">
-          The latest version will always be available on the Bookfleet website and Rider App.
+          The latest version will always be available on the bookfleet website and Rider App.
         </p>
       </>
     ),
@@ -235,7 +235,7 @@ export default function RiderDataDeletionPolicy() {
     <>
       <Helmet>
         <title>Rider Data Deletion Policy – bookfleet | bookfleet.in</title>
-        <meta name="description" content="Learn how Bookfleet delivery partners can request deletion of their Rider Account and personal data, what information is retained, and how long processing takes." />
+        <meta name="description" content="Learn how bookfleet delivery partners can request deletion of their Rider Account and personal data, what information is retained, and how long processing takes." />
         <link rel="canonical" href="https://bookfleet.in/rider-data-deletion-policy" />
         <meta property="og:title" content="Rider Data Deletion Policy – bookfleet" />
         <meta property="og:url" content="https://bookfleet.in/rider-data-deletion-policy" />

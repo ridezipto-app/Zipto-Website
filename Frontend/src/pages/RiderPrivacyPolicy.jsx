@@ -9,19 +9,19 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet Rider.</p>
+        <p>Welcome to bookfleet Rider.</p>
         <p className="mt-3">
-          Bookfleet Rider is operated by <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
-          ("Bookfleet", "Company", "we", "our", or "us"). We are committed to protecting
+          bookfleet Rider is operated by <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
+          ("bookfleet", "Company", "we", "our", or "us"). We are committed to protecting
           the privacy and personal information of our delivery partners.
         </p>
         <p className="mt-3">
           This Privacy Policy explains how we collect, use, store, process, share, and
           protect your personal information when you register as a delivery partner or use
-          the Bookfleet Rider App and related services.
+          the bookfleet Rider App and related services.
         </p>
         <div className="notice-pill mt-4">
-          ✅ By registering with or using the Bookfleet Rider Platform, you acknowledge
+          ✅ By registering with or using the bookfleet Rider Platform, you acknowledge
           that you have read, understood, and agreed to this Privacy Policy.
         </div>
       </>
@@ -34,7 +34,7 @@ const sections = [
     content: (
       <ul className="info-list">
         <li><span className="label">Legal Entity</span><span>Zipto Hyperlogistics Private Limited</span></li>
-        <li><span className="label">Brand Name</span><span>Bookfleet</span></li>
+        <li><span className="label">Brand Name</span><span>bookfleet</span></li>
         <li><span className="label">Registered Office</span><span>781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
         <li><span className="label">Website</span><a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue-600)", textDecoration: "none" }}>www.bookfleet.in</a></li>
         <li><span className="label">Support Email</span><a href="mailto:support@bookfleet.in" style={{ color: "var(--blue-600)", textDecoration: "none" }}>support@bookfleet.in</a></li>
@@ -49,14 +49,14 @@ const sections = [
       <>
         <p>This Privacy Policy applies to:</p>
         <ul className="dot-list mt-3">
-          <li>Bookfleet Rider App</li>
+          <li>bookfleet Rider App</li>
           <li>Rider Registration</li>
           <li>KYC Verification</li>
           <li>Delivery Operations</li>
           <li>Rider Wallet &amp; Payout Services</li>
           <li>Customer Support</li>
           <li>Communication Services</li>
-          <li>Any other services offered through the Bookfleet Rider Platform</li>
+          <li>Any other services offered through the bookfleet Rider Platform</li>
         </ul>
       </>
     ),
@@ -172,7 +172,7 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet Rider requires access to your device location, including background
+          bookfleet Rider requires access to your device location, including background
           location while you are online, to:
         </p>
         <ul className="dot-list mt-3">
@@ -191,7 +191,7 @@ const sections = [
     number: "07",
     content: (
       <>
-        <p>Bookfleet may share limited rider information with:</p>
+        <p>bookfleet may share limited rider information with:</p>
         <ul className="dot-list mt-3">
           <li>Customers (such as first name, profile photo, vehicle details, and live trip location)</li>
           <li>Payment Service Providers</li>
@@ -199,7 +199,7 @@ const sections = [
           <li>Government Authorities where legally required</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          🚫 Bookfleet does not sell rider personal information to third parties.
+          🚫 bookfleet does not sell rider personal information to third parties.
         </div>
       </>
     ),
@@ -251,12 +251,12 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet may suspend or permanently terminate rider accounts for fraud, policy
+          bookfleet may suspend or permanently terminate rider accounts for fraud, policy
           violations, unsafe conduct, submission of false documents, or any activity that
-          violates applicable laws or Bookfleet policies.
+          violates applicable laws or bookfleet policies.
         </p>
         <p className="mt-3 text-muted">
-          You may also request deletion of your rider account by contacting Bookfleet
+          You may also request deletion of your rider account by contacting bookfleet
           Support, subject to legal and operational requirements.
         </p>
       </>
@@ -269,7 +269,7 @@ const sections = [
     content: (
       <p>
         Only individuals who are legally eligible to work and enter into a contract under
-        applicable laws may register as Bookfleet delivery partners.
+        applicable laws may register as bookfleet delivery partners.
       </p>
     ),
   },
@@ -279,7 +279,7 @@ const sections = [
     number: "13",
     content: (
       <>
-        <p>Bookfleet may update this Privacy Policy from time to time.</p>
+        <p>bookfleet may update this Privacy Policy from time to time.</p>
         <p className="mt-3 text-muted">
           Any changes will be published on our website and/or Rider App and will become
           effective immediately upon publication unless otherwise stated.

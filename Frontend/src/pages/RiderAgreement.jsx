@@ -11,7 +11,7 @@ const sections = [
     content: (
       <>
         <p>
-          Bookfleet is a technology platform that connects customers with independent
+          bookfleet is a technology platform that connects customers with independent
           delivery partners.
         </p>
         <p className="mt-3">The Delivery Partner acknowledges that:</p>
@@ -22,7 +22,7 @@ const sections = [
           <li>The Delivery Partner controls when to go online and accept deliveries.</li>
         </ul>
         <div className="notice-pill mt-4">
-          ✅ By registering on the Bookfleet Rider App, you agree to be legally bound by this Agreement.
+          ✅ By registering on the bookfleet Rider App, you agree to be legally bound by this Agreement.
         </div>
       </>
     ),
@@ -70,7 +70,7 @@ const sections = [
     number: "04",
     content: (
       <>
-        <p>Bookfleet may verify:</p>
+        <p>bookfleet may verify:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">🪪 Aadhaar</div>
           <div className="service-chip">📄 PAN</div>
@@ -93,7 +93,7 @@ const sections = [
     number: "05",
     content: (
       <>
-        <p>Bookfleet may send delivery requests based on:</p>
+        <p>bookfleet may send delivery requests based on:</p>
         <ul className="dot-list mt-3">
           <li>Rider availability</li>
           <li>Live location</li>
@@ -125,7 +125,7 @@ const sections = [
             </ul>
           </div>
           <div className="col-block no-block">
-            <h4>Bookfleet May Deduct</h4>
+            <h4>bookfleet May Deduct</h4>
             <ul className="dot-list">
               <li>Applicable Taxes</li>
               <li>Government Charges</li>
@@ -135,7 +135,7 @@ const sections = [
           </div>
         </div>
         <div className="notice-pill mt-4">
-          💳 Payouts shall be processed according to Bookfleet's payout schedule.
+          💳 Payouts shall be processed according to bookfleet's payout schedule.
         </div>
       </>
     ),
@@ -211,7 +211,7 @@ const sections = [
           <li>Any statutory obligations applicable to them</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet shall not be responsible for the Delivery Partner's personal tax liabilities.
+          ⚠️ bookfleet shall not be responsible for the Delivery Partner's personal tax liabilities.
         </div>
       </>
     ),
@@ -222,7 +222,7 @@ const sections = [
     number: "11",
     content: (
       <>
-        <p>Bookfleet may suspend or permanently terminate Rider Accounts for:</p>
+        <p>bookfleet may suspend or permanently terminate Rider Accounts for:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">🚫 Fraud</div>
           <div className="service-chip">📄 Fake Documents</div>
@@ -233,7 +233,7 @@ const sections = [
           <div className="service-chip">📱 Misuse of Platform</div>
         </div>
         <div className="notice-pill mt-4">
-          ℹ️ Bookfleet reserves the right to investigate any suspected misconduct.
+          ℹ️ bookfleet reserves the right to investigate any suspected misconduct.
         </div>
       </>
     ),
@@ -244,8 +244,8 @@ const sections = [
     number: "12",
     content: (
       <>
-        <p>Bookfleet is solely a technology platform.</p>
-        <p className="mt-3">Bookfleet shall not be liable for:</p>
+        <p>bookfleet is solely a technology platform.</p>
+        <p className="mt-3">bookfleet shall not be liable for:</p>
         <ul className="dot-list mt-3">
           <li>Vehicle Damage</li>
           <li>Personal Injury</li>
@@ -267,7 +267,7 @@ const sections = [
         <p>
           Delivery Partners shall keep confidential any customer information, pricing
           information, operational processes, and business information obtained while
-          using the Bookfleet Platform.
+          using the bookfleet Platform.
         </p>
         <div className="notice-pill notice-warn mt-4">
           ⚠️ Breach of confidentiality may result in immediate termination and legal action.
@@ -281,7 +281,7 @@ const sections = [
     number: "14",
     content: (
       <>
-        <p>Bookfleet may update this Agreement from time to time.</p>
+        <p>bookfleet may update this Agreement from time to time.</p>
         <p className="mt-3 text-muted">
           Continued use of the Rider Platform constitutes acceptance of the updated Agreement.
         </p>
@@ -337,7 +337,7 @@ const sections = [
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By registering as a Bookfleet Delivery Partner, you confirm that you have{" "}
+          By registering as a bookfleet Delivery Partner, you confirm that you have{" "}
           <strong>read, understood, and agreed</strong> to this Delivery Partner Agreement.
         </p>
       </div>

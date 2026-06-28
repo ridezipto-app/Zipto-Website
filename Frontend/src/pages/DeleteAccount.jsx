@@ -43,7 +43,7 @@ export default function DeleteAccount() {
           type: "error",
           message:
             data.message ||
-            "Something went wrong. Please try again or contact support@bookfleet.com.",
+            "Something went wrong. Please try again or contact support@bookfleet.in.",
         });
       }
     } catch {
@@ -398,7 +398,7 @@ export default function DeleteAccount() {
               <div className="icon">📧</div>
               <div>
                 <div className="c-label">Support Email</div>
-                <a href="mailto:support@bookfleet.com">support@bookfleet.com</a>
+                <a href="mailto:support@bookfleet.in">support@bookfleet.in</a>
               </div>
             </div>
           </div>
@@ -406,7 +406,7 @@ export default function DeleteAccount() {
 
         {/* Footer note */}
         <div className="footer-note">
-          <p>© {new Date().getFullYear()} Bookfleet. Operated by <strong>Zipto Hyperlogistics Private Limited</strong>. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} bookfleet. Operated by <strong>Zipto Hyperlogistics Private Limited</strong>. All Rights Reserved.</p>
           <p style={{ marginTop: 4 }}>This page exists to comply with Google Play Store data deletion requirements.</p>
         </div>
 

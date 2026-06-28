@@ -11,8 +11,8 @@ const sections = [
     content: (
       <>
         <p>
-          This Data Deletion Policy explains how Bookfleet, operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          This Data Deletion Policy explains how bookfleet, operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("bookfleet", "Company",
           "we", "our", or "us"), handles requests for deletion of personal information
           and user accounts.
         </p>
@@ -30,7 +30,7 @@ const sections = [
     number: "02",
     content: (
       <>
-        <p>The following users may request deletion of their Bookfleet account and associated personal information:</p>
+        <p>The following users may request deletion of their bookfleet account and associated personal information:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">👤 Customers</div>
           <div className="service-chip">🛵 Delivery Partners (Riders)</div>
@@ -44,9 +44,9 @@ const sections = [
     number: "03",
     content: (
       <>
-        <p>You may request deletion of your Bookfleet account by:</p>
+        <p>You may request deletion of your bookfleet account by:</p>
         <ul className="dot-list mt-3">
-          <li>Using the <strong>Delete Account</strong> option available within the Bookfleet App (where available), or</li>
+          <li>Using the <strong>Delete Account</strong> option available within the bookfleet App (where available), or</li>
           <li>Contacting our support team directly.</li>
         </ul>
         <div className="contact-grid mt-4">
@@ -137,10 +137,10 @@ const sections = [
           <div className="col-block no-block">
             <h4>What You Lose</h4>
             <ul className="dot-list mt-2">
-              <li>Access to your Bookfleet account.</li>
+              <li>Access to your bookfleet account.</li>
               <li>Booking history may no longer be accessible.</li>
               <li>Saved addresses and preferences will be removed.</li>
-              <li>Wallet balance (if applicable) may be forfeited unless otherwise required by law or Bookfleet policy.</li>
+              <li>Wallet balance (if applicable) may be forfeited unless otherwise required by law or bookfleet policy.</li>
             </ul>
           </div>
           <div className="col-block" style={{ background: "#fff8ee", border: "1px solid #ffd591" }}>
@@ -184,7 +184,7 @@ const sections = [
           information will be subject to their respective legal and contractual obligations.
         </p>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet cannot guarantee deletion timelines for data held by third-party service providers.
+          ⚠️ bookfleet cannot guarantee deletion timelines for data held by third-party service providers.
         </div>
       </>
     ),
@@ -195,9 +195,9 @@ const sections = [
     number: "09",
     content: (
       <>
-        <p>Bookfleet may update this Data Deletion Policy from time to time.</p>
+        <p>bookfleet may update this Data Deletion Policy from time to time.</p>
         <p className="mt-3 text-muted">
-          Any changes will be published on the Bookfleet website and applications.
+          Any changes will be published on the bookfleet website and applications.
         </p>
       </>
     ),
@@ -261,7 +261,7 @@ export default function DataDeletionPolicy() {
     <>
       <Helmet>
         <title>Data Deletion Policy – bookfleet | bookfleet.in</title>
-        <meta name="description" content="Learn how to request deletion of your Bookfleet account and personal data, what information is retained, and how long processing takes." />
+        <meta name="description" content="Learn how to request deletion of your bookfleet account and personal data, what information is retained, and how long processing takes." />
         <link rel="canonical" href="https://bookfleet.in/data-deletion-policy" />
         <meta property="og:title" content="Data Deletion Policy – bookfleet" />
         <meta property="og:url" content="https://bookfleet.in/data-deletion-policy" />
