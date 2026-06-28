@@ -625,13 +625,16 @@ export default function bookfleetHero() {
           </h1>
 
           <p className="hero-subtitle">
-            Same-day logistics across Bhubaneswar.<br />
-            Bikes, Autos &amp; Trucks — all on demand.
+            On-demand logistics for businesses &amp; individuals.<br />
+            Bikes, Autos &amp; Trucks — all in one platform.
           </p>
 
           <div className="hero-actions">
-            <button className="hero-btn-primary" onClick={() => setShowOrder(true)}>
-              Order Now
+            <button className="hero-btn-primary" onClick={() => {
+              const el = document.getElementById("Our Delivery Vehicles");
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}>
+              Get Started
             </button>
             <button className="hero-btn-outline" onClick={() => navigate("/about")}>
               Explore More <span className="explore-arrow">→</span>

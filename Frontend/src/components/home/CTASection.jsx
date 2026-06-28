@@ -1,6 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LaunchingSoon() {
+  const [showComingSoon, setShowComingSoon] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
@@ -129,17 +133,23 @@ export default function LaunchingSoon() {
 
           {/* CTA buttons */}
           <div style={s.ctaRow} className="ls-cta-row ls-a-u5">
-            <button style={s.btnPrimary} className="ls-btn-primary">
+            <button style={s.btnPrimary} className="ls-btn-primary" onClick={() => setShowComingSoon(true)}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-              Book a delivery
+              Get the app
             </button>
-            <button style={s.btnSecondary} className="ls-btn-secondary">
+            <button style={s.btnSecondary} className="ls-btn-secondary" onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                const el = document.getElementById("rider");
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 100);
+            }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round">
                 <circle cx="12" cy="12" r="10" /><path d="M10 8l6 4-6 4V8z" fill="#2563eb" />
               </svg>
-              Become a rider
+              Learn more
             </button>
           </div>
 
@@ -152,13 +162,63 @@ export default function LaunchingSoon() {
             <div>
               <div style={s.missionLabel}>Our mission</div>
               <div style={s.missionText}>
-                Building Odisha's fastest hyperlocal delivery network — one delivery at a time.
+                Building India's trusted on-demand logistics network — one delivery at a time.
               </div>
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* ── Coming Soon Modal ── */}
+      {showComingSoon && (
+        <div
+          onClick={() => setShowComingSoon(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 1000,
+            background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "20px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#fff", borderRadius: 24, padding: "48px 40px 40px",
+              maxWidth: 400, width: "100%", textAlign: "center",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.18)",
+              animation: "fadeUp 0.35s ease both",
+            }}
+          >
+            <div style={{ fontSize: 52, marginBottom: 16 }}>🚀</div>
+            <h2 style={{
+              fontFamily: "'Space Grotesk', sans-serif", fontSize: 26,
+              fontWeight: 700, color: "#0b0f1a", marginBottom: 10, letterSpacing: "-0.02em",
+            }}>
+              Coming Soon!
+            </h2>
+            <p style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14.5,
+              color: "#64748b", lineHeight: 1.7, marginBottom: 28,
+            }}>
+              The bookfleet app is launching soon.<br />
+              Stay tuned for something amazing.
+            </p>
+            <button
+              onClick={() => setShowComingSoon(false)}
+              style={{
+                background: "#1d4ed8", color: "#fff", border: "none",
+                borderRadius: 12, padding: "12px 32px",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: 14, fontWeight: 700, cursor: "pointer",
+                boxShadow: "0 4px 16px rgba(29,78,216,0.35)",
+              }}
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
