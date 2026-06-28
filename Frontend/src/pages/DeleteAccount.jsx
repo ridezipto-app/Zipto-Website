@@ -60,8 +60,10 @@ export default function DeleteAccount() {
   return (
     <>
       <Helmet>
-        <title>Delete Your bookfleet Account — Data & Privacy</title>
-        <meta name="description" content="Request deletion of your bookfleet account. This page explains the deletion process, timelines, and data retained for legal purposes." />
+        <title>Delete Account – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Request deletion of your bookfleet account. Understand the deletion process, timelines, and data retained for legal compliance." />
+        <link rel="canonical" href="https://bookfleet.in/delete-account" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }

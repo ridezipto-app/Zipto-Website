@@ -432,8 +432,13 @@ export default function RiderPrivacyPolicy() {
   return (
     <>
       <Helmet>
-        <title>Rider Privacy Policy — bookfleet</title>
-        <meta name="description" content="Privacy policy for bookfleet delivery partners: data collection, usage, and retention policies for riders." />
+        <title>Rider Privacy Policy – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Privacy policy for bookfleet delivery partners. Learn how we collect, use, and protect rider data on the bookfleet platform." />
+        <link rel="canonical" href="https://bookfleet.in/rider-privacy-policy" />
+        <meta property="og:title" content="Rider Privacy Policy – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/rider-privacy-policy" />
+        <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }

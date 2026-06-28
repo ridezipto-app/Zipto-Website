@@ -298,8 +298,13 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Helmet>
-        <title>bookfleet Privacy Policy — Data Use & Rights</title>
-        <meta name="description" content="bookfleet Privacy Policy: how we collect, use, and protect user data for customers of the bookfleet platform." />
+        <title>Privacy Policy – bookfleet | bookfleet.in</title>
+        <meta name="description" content="bookfleet Privacy Policy: how we collect, use, and protect your data on the bookfleet delivery platform." />
+        <link rel="canonical" href="https://bookfleet.in/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/privacy-policy" />
+        <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');

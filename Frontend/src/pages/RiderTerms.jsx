@@ -501,8 +501,13 @@ export default function RiderTerms() {
   return (
     <>
       <Helmet>
-        <title>Rider Terms & Conditions — bookfleet</title>
-        <meta name="description" content="Terms and conditions for delivery partners using the bookfleet Rider app, including responsibilities and policies." />
+        <title>Rider Terms & Conditions – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Terms and conditions for delivery partners using the bookfleet Rider app, including rider responsibilities, obligations, and policies." />
+        <link rel="canonical" href="https://bookfleet.in/rider-terms-of-service" />
+        <meta property="og:title" content="Rider Terms & Conditions – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/rider-terms-of-service" />
+        <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');

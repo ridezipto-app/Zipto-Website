@@ -398,8 +398,13 @@ export default function RiderAgreement() {
   return (
     <>
       <Helmet>
-        <title>Terms & Conditions — bookfleet</title>
-        <meta name="description" content="Terms and Conditions for using bookfleet services, including rider and customer obligations, liabilities, and policies." />
+        <title>Terms & Conditions – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Terms and Conditions for using bookfleet delivery services, including customer obligations, liabilities, and policies." />
+        <link rel="canonical" href="https://bookfleet.in/terms-of-service" />
+        <meta property="og:title" content="Terms & Conditions – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/terms-of-service" />
+        <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');

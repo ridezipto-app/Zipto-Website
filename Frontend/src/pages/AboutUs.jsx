@@ -314,8 +314,20 @@ export default function AboutUs() {
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
       <Helmet>
-        <title>About bookfleet — Our mission and fleet</title>
-        <meta name="description" content="Learn about Zipto Hyperlogistics, our mission to simplify last-mile delivery, fleet options, and how we support local businesses." />
+        <title>About bookfleet – Hyperlocal Delivery Platform in Odisha | bookfleet.in</title>
+        <meta name="description" content="Learn about bookfleet – Odisha's hyperlocal delivery platform. Our mission, fleet of 5 vehicle classes, and how we support local businesses in Bhubaneswar." />
+        <meta name="keywords" content="bookfleet about, hyperlocal delivery Odisha, last-mile delivery Bhubaneswar, delivery platform India" />
+        <link rel="canonical" href="https://bookfleet.in/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="bookfleet" />
+        <meta property="og:title" content="About bookfleet – Hyperlocal Delivery Platform in Odisha" />
+        <meta property="og:description" content="Odisha's hyperlocal delivery platform. Five vehicle classes, local-first focus, real-time tracking." />
+        <meta property="og:url" content="https://bookfleet.in/about" />
+        <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About bookfleet – Hyperlocal Delivery Platform in Odisha" />
+        <meta name="twitter:description" content="Our mission: fast, reliable last-mile delivery for businesses and individuals across Odisha." />
+        <meta name="twitter:image" content="https://bookfleet.in/logo.jpeg" />
       </Helmet>
 
       <style>{`
