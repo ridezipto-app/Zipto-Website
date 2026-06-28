@@ -92,6 +92,17 @@ const heroStyles = `
     animation: zh-blink 2s ease-in-out infinite;
   }
 
+  .hero-brand-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: zh-fadeUp 0.8s cubic-bezier(0.4,0,0.2,1) 0.35s forwards;
+  }
+
   .hero-headline {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(58px, 9vw, 116px);
@@ -317,6 +328,7 @@ const heroStyles = `
 
   /* ── NO-ANIM ── */
   .hero-content.no-anim .hero-eyebrow-pill,
+  .hero-content.no-anim .hero-brand-name,
   .hero-content.no-anim .hero-headline,
   .hero-content.no-anim .hero-subtitle,
   .hero-content.no-anim .hero-actions,
@@ -604,6 +616,8 @@ export default function bookfleetHero() {
             <div className="hero-eyebrow-dot" />
             ⚡ Fast · Reliable · Now
           </div>
+
+          <div className="hero-brand-name">bookfleet</div>
 
           <h1 className="hero-headline">
             Move <span className="hl-outline">Anything,</span><br />
