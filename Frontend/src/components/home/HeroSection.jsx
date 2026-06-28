@@ -93,11 +93,11 @@ const heroStyles = `
   }
 
   .hero-brand-name {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-family: 'Cocon', 'Space Grotesk', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
     font-weight: 700;
     color: #FFFFFF;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.3px;
     margin-bottom: 16px;
     opacity: 0;
     animation: zh-fadeUp 0.8s cubic-bezier(0.4,0,0.2,1) 0.35s forwards;
