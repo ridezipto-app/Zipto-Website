@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
-// Replace with your actual logo import:
-import logo from "../assets/zipto.png";
+import logo from "../assets/logo.jpeg";
 
 const sections = [
   {
