@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
-import riderlogo from "../assets/ride_zipto.png"; // adjust path if needed
+import riderlogo from "../assets/rider_logo.png"; // adjust path if needed
 const sections = [
   {
     id: "introduction",
