@@ -485,7 +485,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         this.composer=new EffectComposer(this.renderer);
         container.append(this.renderer.domElement);
         this.camera=new THREE.PerspectiveCamera(options.fov,initW/initH,0.1,10000);
-        this.camera.position.z=-5; this.camera.position.y=8; this.camera.position.x=0;
+        this.camera.position.z=-5; this.camera.position.y=3; this.camera.position.x=0;
         this.scene=new THREE.Scene();
         this.scene.background=null;
         let fog=new THREE.Fog(options.colors.background,options.length*0.2,options.length*500);
