@@ -11,7 +11,7 @@ export default function Footer() {
     { name: "Our Delivery Vehicles", id: "Our Delivery Vehicles" },
     { name: "For Business",          id: "for-business"          },
     { name: "Become a Rider",        id: "rider"                 },
-    { name: "Contact",               id: "contact"               },
+    { name: "Contact",               path: "/contact"            },
   ];
 
   const legalLinks = [
@@ -135,12 +135,19 @@ export default function Footer() {
           <div>
             <p style={s.colLabel}>Quick links</p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 2 }}>
-              {quickLinks.map(({ name, id }) => (
-                <li key={id}>
-                  <button onClick={() => handleNavigation(id)} style={s.linkBtn} className="footer-link-btn">
-                    <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.35 }} />
-                    {name}
-                  </button>
+              {quickLinks.map(({ name, id, path }) => (
+                <li key={name}>
+                  {path ? (
+                    <Link to={path} style={s.linkBtn} className="footer-link-btn">
+                      <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.35 }} />
+                      {name}
+                    </Link>
+                  ) : (
+                    <button onClick={() => handleNavigation(id)} style={s.linkBtn} className="footer-link-btn">
+                      <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.35 }} />
+                      {name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
