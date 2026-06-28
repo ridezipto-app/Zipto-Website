@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import riderImg from "../assets/Rider-DDQ112CI.png";
+import Lottie from "lottie-react";
+import deliveryAnimation from "../assets/delivery-rider.json";
 
 const BLUE = "#2563EB";
 const BLUE_DARK = "#1D4ED8";
@@ -104,11 +105,6 @@ export default function ContactUs() {
           box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
         }
         .contact-input::placeholder { color: #94A3B8; }
-        .rider-float { animation: riderFloat 3.2s ease-in-out infinite; }
-        @keyframes riderFloat {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-14px); }
-        }
         .wave-hand { display: inline-block; animation: wave 1.8s ease-in-out infinite; transform-origin: 70% 70%; }
         @keyframes wave {
           0%,100% { transform: rotate(0deg); }
@@ -234,16 +230,19 @@ export default function ContactUs() {
                 }} />
               </motion.div>
 
-              {/* Rider image */}
-              <motion.img
-                src={riderImg}
-                alt="bookfleet rider waving hello"
-                className="rider-float"
+              {/* Rider Lottie animation */}
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                style={{ width: "100%", maxWidth: 260, objectFit: "contain", position: "relative", zIndex: 1 }}
-              />
+                style={{ width: "100%", maxWidth: 340, position: "relative", zIndex: 1 }}
+              >
+                <Lottie
+                  animationData={deliveryAnimation}
+                  loop={true}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </motion.div>
 
               {/* Contact items below rider */}
               <div style={{ marginTop: 32, width: "100%", zIndex: 1, position: "relative" }}>
