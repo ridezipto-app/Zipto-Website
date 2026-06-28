@@ -122,24 +122,35 @@ const heroStyles = `
 
   .hero-rider-wrapper {
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 50%;
-    width: clamp(220px, 48vw, 640px);
+    width: clamp(260px, 52vw, 700px);
     z-index: 4;
-    transform: translateX(120vw) scaleX(1);
-    animation: zh-riderSequence 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+    transform: translateX(-130vw);
+    animation: zh-riderSequence 5s linear 0.3s forwards;
     will-change: transform, opacity;
   }
 
   @keyframes zh-riderSequence {
-    0%   { transform: translateX(120vw) scaleX(1); opacity: 1; }
-    100% { transform: translateX(-50%)  scaleX(1); opacity: 1; }
+    0%   { transform: translateX(-130vw); animation-timing-function: cubic-bezier(0.55, 0, 0.65, 0.4); }
+    44%  { transform: translateX(120vw);  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+    100% { transform: translateX(-50%); }
   }
 
-  .hero-rider-wrapper img {
+  .truck-3d-container {
     width: 100%;
+    aspect-ratio: 16 / 10;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    filter: sepia(1) hue-rotate(190deg) saturate(6) brightness(0.82);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.55), 0 8px 24px rgba(37,99,235,0.25);
+  }
+  .truck-3d-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
     display: block;
-    filter: drop-shadow(0 24px 80px rgba(0,0,0,0.65)) drop-shadow(0 8px 24px rgba(37,99,235,0.18));
   }
 
   .hero-bottom {
@@ -402,7 +413,7 @@ const heroStyles = `
 
   .hero-bg-text-wrap.no-anim .hero-bg-text        { opacity: 1 !important; animation: none !important; }
   .hero-bg-text-wrap.no-anim .hero-bg-text-blue   { clip-path: inset(0 0 0 0%) !important; animation: none !important; }
-  .hero-rider-wrapper.no-anim                     { transform: translateX(-50%) scaleX(1) !important; opacity: 1 !important; animation: none !important; }
+  .hero-rider-wrapper.no-anim                     { transform: translateX(-50%) !important; opacity: 1 !important; animation: none !important; }
   .hero-left.no-anim, .hero-right.no-anim,
   .hero-badge.no-anim                             { opacity: 1 !important; transform: none !important; animation: none !important; }
   .hero-speed-lines.no-anim                       { display: none; }
@@ -430,12 +441,12 @@ const heroStyles = `
     }
     .hero-rider-wrapper {
       bottom: auto !important;
-      top: 36% !important;
-      width: clamp(200px, 80vw, 320px) !important;
-      animation: zh-riderSequence 2.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards !important;
+      top: 34% !important;
+      width: clamp(220px, 82vw, 360px) !important;
+      animation: zh-riderSequence 5s linear 0.3s forwards !important;
     }
     .hero-rider-wrapper.no-anim {
-      transform: translateX(-50%) scaleX(1) !important;
+      transform: translateX(-50%) !important;
       animation: none !important;
     }
     .hero-speed-lines   { display: none !important; }
@@ -599,7 +610,17 @@ export default function bookfleetHero() {
         </div>
 
         <div className={na("hero-rider-wrapper")} aria-hidden="true">
-          <img src={ziptoTruck} alt="bookfleet delivery truck" />
+          <div className="truck-3d-container">
+            <iframe
+              title="Truck"
+              frameBorder="0"
+              allowFullScreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/58142f4a645147f7be4833b276a9f326/embed?autostart=1&ui_infos=0&ui_controls=0&ui_stop=0&dnt=1"
+            />
+          </div>
         </div>
 
         <div className={na("hero-badge")} role="status" aria-label="Rider nearby, 2 minutes away">
