@@ -17,43 +17,14 @@ const heroStyles = `
     min-height: 640px;
     position: relative;
     overflow: hidden;
-    background: #030810;
+    background: #000000;
     font-family: 'Space Grotesk', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* dot grid */
-  .bookfleet-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-    pointer-events: none;
-    z-index: 0;
-  }
 
-
-  /* ── BG TEXT ── */
-  .hero-bg-text-wrap {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-  }
-  .hero-bg-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(90px, 17vw, 240px);
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.022);
-    line-height: 1;
-    display: block;
-  }
 
   /* ── MAIN CONTENT ── */
   .hero-content {
@@ -533,14 +504,14 @@ export default function bookfleetHero() {
     carShiftX: [-0.8, 0.8],
     carFloorSeparation: [0, 5],
     colors: {
-      roadColor: 0x050c1e,
-      islandColor: 0x091528,
-      background: 0x030810,
-      shoulderLines: 0x1e40af,
-      brokenLines: 0x1e40af,
-      leftCars:  [0x2563eb, 0x3b82f6, 0x60a5fa],
-      rightCars: [0x1d4ed8, 0x1e40af, 0x93c5fd],
-      sticks: 0x60a5fa,
+      roadColor:    0x080808,
+      islandColor:  0x0a0a0a,
+      background:   0x000000,
+      shoulderLines: 0xffffff,
+      brokenLines:   0xffffff,
+      leftCars:  [0xd856bf, 0x6750a2, 0xc247ac],
+      rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+      sticks:    0x03b3c3,
     },
   }), []);
 
@@ -555,11 +526,6 @@ export default function bookfleetHero() {
 
         {/* Hyperspeed road animation background */}
         <Hyperspeed effectOptions={hyperspeedOptions} />
-
-        {/* Faint background text */}
-        <div className="hero-bg-text-wrap" aria-hidden="true">
-          <span className="hero-bg-text">bookfleet</span>
-        </div>
 
         {/* ── Floating service cards (desktop) ── */}
         <div className={nafc("hero-float-card-1")} aria-hidden="true">
