@@ -7,6 +7,7 @@ import RiderPrivacyPolicy from "../pages/RiderPrivacyPolicy";
 import DeleteAccount from "../pages/DeleteAccount";
 import RiderTerms from "../pages/RiderTerms";
 import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
       <Route path="/rider-privacy-policy" element={<RiderPrivacyPolicy />} />
       <Route path="/rider-terms-of-service" element={<RiderTerms/>} />
       <Route path="/delete-account" element={<DeleteAccount />} />
+      <Route path="/contact" element={<ContactUs />} />
     </Routes>
   );
 }

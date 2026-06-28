@@ -30,10 +30,12 @@ export default function Navbar() {
     { name: "Vehicles",       id: "Our Delivery Vehicles"             },
     { name: "For Business",   id: "for-business"                      },
     { name: "Become a Rider", id: "rider"                             },
+    { name: "Contact",        path: "/contact"                         },
   ];
 
   const getActiveLinkFromPath = (pathname) => {
     if (pathname === "/about") return "About Us";
+    if (pathname === "/contact") return "Contact";
     if (pathname === "/") return "Home";
     return "Home";
   };
