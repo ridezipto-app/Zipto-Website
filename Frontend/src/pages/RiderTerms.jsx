@@ -548,7 +548,8 @@ export default function RiderTerms() {
         }
         .hero-logo {
           width: 160px; height: 160px;
-          border-radius: 28px;
+          border-radius: 36px;
+          overflow: hidden;
           border: 3px solid rgba(255,255,255,0.3);
           box-shadow: 0 10px 40px rgba(0,0,0,0.3);
           margin: 0 auto 24px;
