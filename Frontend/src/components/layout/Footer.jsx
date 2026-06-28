@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import ziptoLogo from "../../assets/logo.jpeg";
+import ziptoLogo from "../../assets/b_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
@@ -170,8 +170,8 @@ export default function Footer() {
               </li>
               <li style={s.contactItem}>
                 <div style={s.contactIcon}><Mail size={14} style={{ color: "#60A5FA" }} /></div>
-                <a href="mailto:support@bookfleet.com" style={{ ...s.contactText, color: "#60A5FA", textDecoration: "none" }}>
-                  support@bookfleet.com
+                <a href="mailto:support@bookfleet.in" style={{ ...s.contactText, color: "#60A5FA", textDecoration: "none" }}>
+                  support@bookfleet.in
                 </a>
               </li>
             </ul>
@@ -240,7 +240,7 @@ const s = {
 
   brandCol: { display: "flex", flexDirection: "column", gap: 0 },
   logoWrap: { display: "flex", alignItems: "center", gap: 12, marginBottom: 20 },
-  logo: { width: 44, height: 44, borderRadius: 12, objectFit: "cover", border: "1px solid rgba(255,255,255,0.12)" },
+  logo: { width: 44, height: 44, borderRadius: 12, objectFit: "contain", background: "#1d4ed8", border: "1px solid rgba(255,255,255,0.12)", padding: 4 },
   brandName: { fontSize: 20, fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.01em", fontFamily: "Cocon, sans-serif" },
   tagline: { fontSize: 14, color: "rgba(255,255,255,0.42)", lineHeight: 1.75, marginBottom: 16 },
   badge: {
