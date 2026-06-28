@@ -265,7 +265,6 @@ export default function WhyChooseSection() {
                 fontSize: "11px",
                 fontWeight: 700,
                 letterSpacing: "0.14em",
-                textTransform: "uppercase",
                 color: "#EA580C",
                 background: "#FFF7ED",
                 border: "1.5px solid #FED7AA",
@@ -323,7 +322,7 @@ export default function WhyChooseSection() {
                 margin: "0 auto",
               }}
             >
-              Fast, reliable, and trustworthy delivery service built for everyone in Odisha.
+              Fast, reliable, and trusted logistics platform built for businesses and individuals across India.
             </motion.p>
           </div>
 
@@ -375,9 +374,7 @@ export default function WhyChooseSection() {
                 margin: 0,
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
               }}>
-                Trusted by{" "}
-                <span style={{ color: "#7C3AED" }}>10,000+</span>{" "}
-                users across Odisha
+                🛡️ Secure, Reliable &amp; Built for Every Delivery
               </p>
             </motion.div>
           </motion.div>

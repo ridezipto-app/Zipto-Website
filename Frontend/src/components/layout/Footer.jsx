@@ -114,13 +114,11 @@ export default function Footer() {
               <span style={s.brandName}>bookfleet</span>
             </div>
             <p style={s.tagline}>
-              Deliver anything, anytime —<br />
-              fast, reliable, and hassle-free<br />
-              across Odisha.
+              Move Anything. Anytime. Nationwide.
             </p>
             <div style={s.badge}>
               <span style={s.badgeDot} />
-              Serving Bhubaneswar · Cuttack & beyond
+              Serving Customers Across India
             </div>
             <div style={s.socialRow}>
               {socials.map(({ Icon, href, label }) => (
