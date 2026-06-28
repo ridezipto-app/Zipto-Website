@@ -13,12 +13,12 @@ const sections = [
       <>
         <p>
           This Privacy Policy describes how <strong>Zipto Hyperlogistics Private
-            Limited</strong> ("Zipto", "Company", "We", "Us") collects, uses, and
-          protects your information when you use the Zipto Customer Application,
+            Limited</strong> ("bookfleet", "Company", "We", "Us") collects, uses, and
+          protects your information when you use the bookfleet Customer Application,
           website, and related services.
         </p>
         <p className="mt-3">
-          By using Zipto, you explicitly consent to the collection and use of
+          By using bookfleet, you explicitly consent to the collection and use of
           your data as described in this policy.
         </p>
       </>
@@ -85,7 +85,7 @@ const sections = [
     number: "04",
     content: (
       <>
-        <p>Zipto uses secure verification mechanisms for authentication and delivery operations:</p>
+        <p>bookfleet uses secure verification mechanisms for authentication and delivery operations:</p>
         <ul className="dot-list mt-3">
           <li>Email OTP may be used for account login and verification</li>
           <li>Pickup and Delivery OTPs are generated within the application</li>
@@ -114,10 +114,10 @@ const sections = [
     number: "06",
     content: (
       <>
-        <p>Zipto is a <strong>logistics facilitation platform</strong> that facilitates the movement of goods.</p>
+        <p>bookfleet is a <strong>logistics facilitation platform</strong> that facilitates the movement of goods.</p>
         <div className="two-col mt-4">
           <div className="col-block no-block">
-            <h4>Zipto Does NOT</h4>
+            <h4>bookfleet Does NOT</h4>
             <ul className="dot-list">
               <li>Sell, manufacture, or own any products</li>
               <li>Control product quality, legality, or condition</li>
@@ -148,7 +148,7 @@ const sections = [
           <li>Service providers (analytics, support, infrastructure)</li>
           <li>Legal authorities (if required by law)</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">🚫 Zipto does <strong>NOT</strong> sell personal data.</div>
+        <div className="notice-pill notice-warn mt-4">🚫 bookfleet does <strong>NOT</strong> sell personal data.</div>
       </>
     ),
   },
@@ -158,13 +158,13 @@ const sections = [
     number: "08",
     content: (
       <>
-        <p>All payments are processed through secure third-party providers. Zipto does <strong>not</strong> store:</p>
+        <p>All payments are processed through secure third-party providers. bookfleet does <strong>not</strong> store:</p>
         <ul className="dot-list mt-3">
           <li>Card details</li>
           <li>UPI PIN</li>
           <li>Payment authentication credentials</li>
         </ul>
-        <div className="notice-pill mt-4">🔐 Zipto does not send OTPs for payment authentication.</div>
+        <div className="notice-pill mt-4">🔐 bookfleet does not send OTPs for payment authentication.</div>
       </>
     ),
   },
@@ -191,7 +191,7 @@ const sections = [
           <li>Correct item description</li>
           <li>Items are legal and safe for transport</li>
         </ul>
-        <p className="mt-3 text-muted">Zipto reserves the right to refuse unsafe or restricted items.</p>
+        <p className="mt-3 text-muted">bookfleet reserves the right to refuse unsafe or restricted items.</p>
       </>
     ),
   },
@@ -201,14 +201,14 @@ const sections = [
     number: "11",
     content: (
       <>
-        <p>Zipto shall not be responsible for:</p>
+        <p>bookfleet shall not be responsible for:</p>
         <ul className="dot-list mt-3">
           <li>Product quality or condition</li>
           <li>Incorrect or incomplete items</li>
           <li>Expired or damaged goods</li>
           <li>Indirect or consequential losses</li>
         </ul>
-        <p className="mt-3 text-muted">Zipto's responsibility is limited strictly to logistics services.</p>
+        <p className="mt-3 text-muted">bookfleet's responsibility is limited strictly to logistics services.</p>
       </>
     ),
   },
@@ -246,7 +246,7 @@ const sections = [
     id: "children",
     title: "Children's Privacy",
     number: "15",
-    content: <p>Zipto services are <strong>not intended</strong> for individuals under the age of 18.</p>,
+    content: <p>bookfleet services are <strong>not intended</strong> for individuals under the age of 18.</p>,
   },
   {
     id: "changes",
@@ -299,8 +299,8 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Helmet>
-        <title>Zipto Privacy Policy — Data Use & Rights</title>
-        <meta name="description" content="Zipto Privacy Policy: how we collect, use, and protect user data for customers of the Zipto platform." />
+        <title>bookfleet Privacy Policy — Data Use & Rights</title>
+        <meta name="description" content="bookfleet Privacy Policy: how we collect, use, and protect user data for customers of the bookfleet platform." />
       </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
@@ -560,10 +560,10 @@ export default function PrivacyPolicy() {
         <div className="hero-badge">🔒 Legal &amp; Privacy</div>
 
         <div className="hero-logo">
-          <img src={logo} alt="Zipto Logo" />
+          <img src={logo} alt="bookfleet Logo" />
         </div>
 
-        <h1>Zipto <em>Privacy</em> Policy</h1>
+        <h1>bookfleet <em>Privacy</em> Policy</h1>
 
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>

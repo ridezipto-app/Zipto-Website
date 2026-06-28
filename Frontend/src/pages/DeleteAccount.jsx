@@ -60,8 +60,8 @@ export default function DeleteAccount() {
   return (
     <>
       <Helmet>
-        <title>Delete Your Zipto Account — Data & Privacy</title>
-        <meta name="description" content="Request deletion of your Zipto account. This page explains the deletion process, timelines, and data retained for legal purposes." />
+        <title>Delete Your bookfleet Account — Data & Privacy</title>
+        <meta name="description" content="Request deletion of your bookfleet account. This page explains the deletion process, timelines, and data retained for legal purposes." />
       </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }
@@ -263,7 +263,7 @@ export default function DeleteAccount() {
       <div className="hero">
         <div className="hero-badge">⚠️ Account Management</div>
         <div className="hero-logo">🗑️</div>
-        <h1>Delete Your <span>Zipto Account</span></h1>
+        <h1>Delete Your <span>bookfleet Account</span></h1>
         <div className="hero-meta">
           <span>📋 Quick in-app process</span>
           <span>⏱️ Processed in 24–48 hours</span>

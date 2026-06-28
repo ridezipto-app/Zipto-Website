@@ -10,14 +10,14 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to <strong>Zipto Rider Platform</strong> — powering fast, reliable intra-city delivery.</p>
+        <p>Welcome to <strong>bookfleet Rider Platform</strong> — powering fast, reliable intra-city delivery.</p>
         <p className="mt-3">This Rider Agreement ("Agreement") is entered into between:</p>
         <div className="two-col mt-4">
           <div className="col-block yes-block">
             <h4>Company</h4>
             <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
               Zipto Hyperlogistics Pvt. Ltd.<br />
-              ("Company", "Zipto", "We")
+              ("Company", "bookfleet", "We")
             </p>
           </div>
           <div className="col-block yes-block">
@@ -28,29 +28,29 @@ const sections = [
           </div>
         </div>
         <div className="notice-pill mt-4">
-          ✅ By registering or using the Zipto platform, you agree to this Agreement.
+          ✅ By registering or using the bookfleet platform, you agree to this Agreement.
         </div>
       </>
     ),
   },
   {
     id: "about",
-    title: "About Zipto",
+    title: "About bookfleet",
     number: "02",
     content: (
       <>
-        <p>Zipto is a technology-enabled logistics platform that connects users with delivery partners.</p>
+        <p>bookfleet is a technology-enabled logistics platform that connects users with delivery partners.</p>
         <div className="sub-block mt-4">
-          <h4>What Zipto Does</h4>
+          <h4>What bookfleet Does</h4>
           <ul className="dot-list mt-2">
             <li>Facilitates pickup &amp; delivery</li>
           </ul>
         </div>
         <div className="sub-block no-block mt-3">
-          <h4>What Zipto Does NOT Do</h4>
+          <h4>What bookfleet Does NOT Do</h4>
           <ul className="dot-list mt-2">
-            <li>Zipto does NOT own goods</li>
-            <li>Zipto does NOT act as a seller</li>
+            <li>bookfleet does NOT own goods</li>
+            <li>bookfleet does NOT act as a seller</li>
           </ul>
         </div>
       </>
@@ -62,7 +62,7 @@ const sections = [
     number: "03",
     content: (
       <>
-        <p>By joining Zipto, you operate as an <strong>independent delivery partner</strong>. This Agreement does NOT create:</p>
+        <p>By joining bookfleet, you operate as an <strong>independent delivery partner</strong>. This Agreement does NOT create:</p>
         <ul className="dot-list mt-3">
           <li>Employment</li>
           <li>Partnership</li>
@@ -80,7 +80,7 @@ const sections = [
     number: "04",
     content: (
       <>
-        <p>To join Zipto, you must be at least <strong>18 years old</strong> and hold a valid driving license. You must provide:</p>
+        <p>To join bookfleet, you must be at least <strong>18 years old</strong> and hold a valid driving license. You must provide:</p>
         <div className="service-grid mt-3">
           <div className="service-chip">🪪 Driving License</div>
           <div className="service-chip">🚗 Vehicle RC</div>
@@ -88,7 +88,7 @@ const sections = [
           <div className="service-chip">🏦 Bank Details</div>
         </div>
         <p className="mt-3 text-muted">
-          Zipto reserves the right to approve or reject applications at its sole discretion.
+          bookfleet reserves the right to approve or reject applications at its sole discretion.
         </p>
       </>
     ),
@@ -167,7 +167,7 @@ const sections = [
     number: "08",
     content: (
       <>
-        <p>Zipto may monitor:</p>
+        <p>bookfleet may monitor:</p>
         <ul className="dot-list mt-3">
           <li>Acceptance rate</li>
           <li>Cancellation rate</li>
@@ -209,7 +209,7 @@ const sections = [
     number: "10",
     content: (
       <>
-        <p>To maintain service quality, Zipto may impose the following penalties:</p>
+        <p>To maintain service quality, bookfleet may impose the following penalties:</p>
 
         <div className="penalty-table mt-4">
           <div className="penalty-row">
@@ -259,7 +259,7 @@ const sections = [
         </div>
 
         <div className="notice-pill notice-warn mt-4">
-          ⚖️ Zipto reserves the right to adjust penalties based on severity.
+          ⚖️ bookfleet reserves the right to adjust penalties based on severity.
         </div>
       </>
     ),
@@ -278,7 +278,7 @@ const sections = [
           <li>Legal compliance</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Zipto is NOT liable for accidents, injuries, or violations.
+          ⚠️ bookfleet is NOT liable for accidents, injuries, or violations.
         </div>
       </>
     ),
@@ -289,7 +289,7 @@ const sections = [
     number: "12",
     content: (
       <>
-        <p>Zipto does <strong>not</strong> provide insurance unless explicitly stated.</p>
+        <p>bookfleet does <strong>not</strong> provide insurance unless explicitly stated.</p>
         <div className="notice-pill notice-warn mt-4">
           ⚠️ Riders must manage their own vehicle insurance and personal coverage.
         </div>
@@ -310,7 +310,7 @@ const sections = [
           <div className="service-chip">📶 Internet</div>
         </div>
         <p className="mt-3 text-muted">
-          Zipto does not reimburse operational costs unless specifically agreed upon.
+          bookfleet does not reimburse operational costs unless specifically agreed upon.
         </p>
       </>
     ),
@@ -321,7 +321,7 @@ const sections = [
     number: "14",
     content: (
       <>
-        <p>Zipto may suspend or terminate your account for:</p>
+        <p>bookfleet may suspend or terminate your account for:</p>
         <ul className="dot-list mt-3">
           <li>Fraud or misconduct</li>
           <li>Policy violations</li>
@@ -340,7 +340,7 @@ const sections = [
     number: "15",
     content: (
       <>
-        <p>Your data is handled as per the Zipto Rider Privacy Policy. By using the app, you consent to:</p>
+        <p>Your data is handled as per the bookfleet Rider Privacy Policy. By using the app, you consent to:</p>
         <ul className="dot-list mt-3">
           <li>Data collection</li>
           <li>Location tracking (including background GPS)</li>
@@ -357,7 +357,7 @@ const sections = [
     number: "16",
     content: (
       <>
-        <p>To the maximum extent permitted by law, Zipto shall not be liable for:</p>
+        <p>To the maximum extent permitted by law, bookfleet shall not be liable for:</p>
         <ul className="dot-list mt-3">
           <li>Loss of income</li>
           <li>Accidents or injuries</li>
@@ -366,7 +366,7 @@ const sections = [
           <li>App downtime</li>
         </ul>
         <div className="notice-pill mt-4">
-          📍 Zipto's role is limited to platform facilitation only.
+          📍 bookfleet's role is limited to platform facilitation only.
         </div>
       </>
     ),
@@ -377,7 +377,7 @@ const sections = [
     number: "17",
     content: (
       <>
-        <p>You agree to indemnify and hold harmless Zipto against:</p>
+        <p>You agree to indemnify and hold harmless bookfleet against:</p>
         <ul className="dot-list mt-3">
           <li>Claims</li>
           <li>Damages</li>
@@ -395,7 +395,7 @@ const sections = [
     number: "18",
     content: (
       <p>
-        Zipto is not liable for delays or failures caused by natural disasters,
+        bookfleet is not liable for delays or failures caused by natural disasters,
         government restrictions, network failures, or any other events beyond its reasonable control.
       </p>
     ),
@@ -417,7 +417,7 @@ const sections = [
     number: "20",
     content: (
       <p>
-        Zipto may update this Agreement at any time. Continued use of the platform
+        bookfleet may update this Agreement at any time. Continued use of the platform
         after changes constitutes your acceptance of the revised terms.
       </p>
     ),
@@ -460,7 +460,7 @@ const sections = [
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By registering on the Zipto Rider platform, you confirm that you have{" "}
+          By registering on the bookfleet Rider platform, you confirm that you have{" "}
           <strong>read, understood, and voluntarily agreed</strong> to all terms in this
           Agreement and that you are joining as an independent delivery partner.
         </p>
@@ -492,8 +492,8 @@ export default function RiderAgreement() {
   return (
     <>
       <Helmet>
-        <title>Rider Agreement — Zipto</title>
-        <meta name="description" content="Rider Agreement: terms, responsibilities, and onboarding requirements for delivery partners on the Zipto platform." />
+        <title>Rider Agreement — bookfleet</title>
+        <meta name="description" content="Rider Agreement: terms, responsibilities, and onboarding requirements for delivery partners on the bookfleet platform." />
       </Helmet>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
@@ -719,7 +719,7 @@ export default function RiderAgreement() {
       <div className="hero">
         <div className="hero-badge">🛵 Rider Onboarding Agreement</div>
         <div className="hero-logo">
-          <img src={riderlogo} alt="Zipto Logo" />
+          <img src={riderlogo} alt="bookfleet Logo" />
         </div>
         <h1>Rider Onboarding <em>Agreement</em></h1>
         <div className="hero-meta">

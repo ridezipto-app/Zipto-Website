@@ -122,7 +122,7 @@ export default function VehiclePopup({ vehicle, close }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             style={{
-              fontFamily: "'Fraunces', Georgia, serif",
+              fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "19px", fontWeight: 800,
               color: "#0F172A", marginBottom: "4px", lineHeight: 1.2,
             }}

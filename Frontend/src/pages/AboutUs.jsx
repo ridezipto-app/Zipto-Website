@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ziptoLogo from "../assets/zipto_logo.jpeg";
+import ziptoLogo from "../assets/logo.jpeg";
 import WhyChooseSection from "../components/home/WhyChooseSection";
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
@@ -8,11 +8,11 @@ import { Helmet } from 'react-helmet-async';
 import bikeImg from "../assets/bike.png";
 import scootyImg from "../assets/scooty.png";
 import autoImg from "../assets/auto.png";
-import carImg from "../assets/car.png";
+import carImg from "../assets/pickup.png";
 import truckImg from "../assets/truck.png";
 
 /* ── Design tokens ── */
-const SERIF = "'Fraunces', Georgia, serif";
+const SERIF = "'Space Grotesk', sans-serif";
 const SANS = "'Plus Jakarta Sans', system-ui, sans-serif";
 
 const BLUE_50 = "#EFF6FF";
@@ -33,11 +33,11 @@ const BORDER_STRONG = "#E2E8F0";
 
 /* ── Data ── */
 const deliveries = [
-  { img: bikeImg, title: "Bike", desc: "Documents, medicines & food deliveries" },
-  { img: scootyImg, title: "Scooty", desc: "Lightweight & quick hyperlocal runs" },
-  { img: autoImg, title: "Auto", desc: "Medium parcels & business shipments" },
-  { img: carImg, title: "Pickup", desc: "Larger goods & retail inventory" },
-  { img: truckImg, title: "Mini Truck", desc: "Bulk shipments & heavy goods" },
+  { img: bikeImg,   title: "Bike",      desc: "Documents, medicines & food deliveries", capacity: "Up to 20 kg",    tag: "Fastest",  accent: "#2563EB", accentLight: "#EFF6FF", accentBorder: "#BFDBFE", tagColor: "#16A34A", tagBg: "#F0FDF4", tagBorder: "#BBF7D0" },
+  { img: scootyImg, title: "Scooty",    desc: "Lightweight & quick hyperlocal runs",    capacity: "Up to 22 kg",    tag: "Popular",  accent: "#EA580C", accentLight: "#FFF7ED", accentBorder: "#FED7AA", tagColor: "#EA580C", tagBg: "#FFF7ED", tagBorder: "#FED7AA" },
+  { img: autoImg,   title: "Auto",      desc: "Medium parcels & business shipments",    capacity: "500 – 800 kg",   tag: "Business", accent: "#7C3AED", accentLight: "#F5F3FF", accentBorder: "#DDD6FE", tagColor: "#7C3AED", tagBg: "#F5F3FF", tagBorder: "#DDD6FE" },
+  { img: carImg,    title: "Pickup",    desc: "Larger goods & retail inventory",        capacity: "1 – 1.5 tonnes", tag: "Heavy",    accent: "#D97706", accentLight: "#FFFBEB", accentBorder: "#FDE68A", tagColor: "#B45309", tagBg: "#FFFBEB", tagBorder: "#FDE68A" },
+  { img: truckImg,  title: "Mini Truck",desc: "Bulk shipments & heavy goods",           capacity: "2 – 2.5 tonnes", tag: "B2B",      accent: "#DC2626", accentLight: "#FEF2F2", accentBorder: "#FECACA", tagColor: "#DC2626", tagBg: "#FEF2F2", tagBorder: "#FECACA" },
 ];
 
 const missionPoints = [
@@ -80,6 +80,115 @@ const dotGridStyle = {
   backgroundImage: "radial-gradient(circle, #CBD5E1 1px, transparent 1px)",
   backgroundSize: "28px 28px",
 };
+
+/* ── Fleet Card ── */
+function FleetCard({ item, index }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.09, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "#FFFFFF",
+        border: `1.5px solid ${hovered ? item.accentBorder : "#E9EEF5"}`,
+        borderRadius: "22px",
+        overflow: "hidden",
+        cursor: "default",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
+        boxShadow: hovered
+          ? `0 22px 52px ${item.accent}28, 0 6px 18px rgba(0,0,0,0.07)`
+          : "0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)",
+        transition: "border-color 0.35s, box-shadow 0.35s, transform 0.35s cubic-bezier(0.22,1,0.36,1)",
+      }}
+    >
+      {/* gradient top panel */}
+      <div style={{
+        height: "170px",
+        background: hovered
+          ? `linear-gradient(145deg, ${item.accent}22 0%, ${item.accentLight} 100%)`
+          : `linear-gradient(145deg, ${item.accent}0D 0%, ${item.accentLight}92 100%)`,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        position: "relative", overflow: "hidden",
+        transition: "background 0.4s ease",
+      }}>
+        {/* dot grid texture */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: `radial-gradient(circle, ${item.accent}25 1px, transparent 1px)`,
+          backgroundSize: "18px 18px",
+          opacity: hovered ? 0.6 : 0.25,
+          transition: "opacity 0.4s",
+        }} />
+        {/* tag pill */}
+        <div style={{
+          position: "absolute", top: "10px", left: "10px",
+          background: item.tagBg, color: item.tagColor,
+          border: `1px solid ${item.tagBorder}`,
+          fontSize: "9px", fontWeight: 700, letterSpacing: "0.12em",
+          textTransform: "uppercase", padding: "3px 8px", borderRadius: "99px",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+        }}>{item.tag}</div>
+        {/* icon box */}
+        <div style={{
+          width: "100px", height: "100px", borderRadius: "22px",
+          background: hovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.75)",
+          backdropFilter: "blur(10px)",
+          border: `1.5px solid ${hovered ? item.accentBorder : "rgba(255,255,255,0.9)"}`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          boxShadow: hovered
+            ? `0 12px 30px ${item.accent}32, 0 4px 10px rgba(0,0,0,0.08)`
+            : "0 4px 14px rgba(0,0,0,0.07)",
+          transform: hovered ? "translateY(-5px) scale(1.07)" : "translateY(0) scale(1)",
+          transition: "all 0.38s cubic-bezier(0.22,1,0.36,1)",
+          position: "relative", zIndex: 1,
+        }}>
+          <img src={item.img} alt={item.title} style={{ width: "68px", height: "68px", objectFit: "contain" }} />
+        </div>
+        {/* left accent bar */}
+        <div style={{
+          position: "absolute", left: 0, top: 0, bottom: 0, width: "3px",
+          background: `linear-gradient(180deg, transparent, ${item.accent}, transparent)`,
+          opacity: hovered ? 1 : 0, transition: "opacity 0.3s",
+        }} />
+      </div>
+
+      {/* info section */}
+      <div style={{ padding: "14px 16px 16px" }}>
+        <div style={{
+          fontSize: "14.5px", fontWeight: 700, color: "#0F172A",
+          marginBottom: "4px", letterSpacing: "-0.01em",
+          fontFamily: "'Space Grotesk', sans-serif",
+        }}>{item.title}</div>
+        <div style={{
+          fontSize: "11.5px", color: "#64748B", lineHeight: 1.55,
+          fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "10px",
+        }}>{item.desc}</div>
+        {/* capacity + CTA row */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "4px",
+            background: hovered ? item.accentLight : "#F1F5F9",
+            border: `1px solid ${hovered ? item.accentBorder : "#E2E8F0"}`,
+            borderRadius: "99px", padding: "3px 9px",
+            fontSize: "10px", fontWeight: 600,
+            color: hovered ? item.accent : "#64748B",
+            transition: "all 0.3s",
+          }}>📦 {item.capacity}</div>
+          <div style={{
+            fontSize: "11px", fontWeight: 700,
+            color: hovered ? item.accent : "#CBD5E1",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            letterSpacing: "0.03em", transition: "color 0.3s",
+          }}>View →</div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 /* ── Hook ── */
 function useIsMobile(breakpoint = 768) {
@@ -205,12 +314,12 @@ export default function AboutUs() {
   return (
     <div style={{ fontFamily: SANS, background: BG, minHeight: "100vh" }}>
       <Helmet>
-        <title>About Zipto — Our mission and fleet</title>
+        <title>About bookfleet — Our mission and fleet</title>
         <meta name="description" content="Learn about Zipto Hyperlogistics, our mission to simplify last-mile delivery, fleet options, and how we support local businesses." />
       </Helmet>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; }
 
         /* ── Responsive overrides ── */
@@ -376,7 +485,7 @@ export default function AboutUs() {
             }}
           >
             Delivering{" "}
-            <em style={{ fontStyle: "italic", color: "#93C5FD" }}>smarter,</em>
+            <em style={{ fontStyle: "italic", fontFamily: "'DM Serif Display', serif", color: "#93C5FD" }}>smarter,</em>
             <br />moving faster.
           </motion.h1>
 
@@ -468,7 +577,7 @@ export default function AboutUs() {
             <EyebrowPill>Who we are</EyebrowPill>
             <SectionHeading>Smart logistics,{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: `linear-gradient(135deg, ${BLUE_400} 0%, #60A5FA 100%)`,
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
@@ -476,7 +585,7 @@ export default function AboutUs() {
               </em>
             </SectionHeading>
             <SubText style={{ maxWidth: 580, fontSize: isMobile ? 14 : 15 }}>
-              Zipto redefines local delivery with a connected logistics network — from bikes to mini trucks.
+              bookfleet redefines local delivery with a connected logistics network — from bikes to mini trucks.
               We bring customers, businesses, and delivery partners onto a single ecosystem, enabling fast,
               affordable, and reliable movement of goods across the city.
             </SubText>
@@ -579,7 +688,7 @@ export default function AboutUs() {
               <EyebrowPill>What we do</EyebrowPill>
               <SectionHeading>Covering every{" "}
                 <em style={{
-                  fontStyle: "italic",
+                  fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                   background: "linear-gradient(135deg, #EA580C, #F97316)",
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                 }}>
@@ -587,7 +696,7 @@ export default function AboutUs() {
                 </em>
               </SectionHeading>
               <SubText style={{ fontSize: 14, maxWidth: 360 }}>
-                Zipto connects customers and businesses with delivery partners through an intelligent
+                bookfleet connects customers and businesses with delivery partners through an intelligent
                 platform designed for speed and efficiency.
               </SubText>
             </FadeUp>
@@ -645,44 +754,11 @@ export default function AboutUs() {
           </FadeUp>
 
           <div className="fleet-grid" style={{
-            display: "grid", gridTemplateColumns: "repeat(5, 1fr)",
-            gap: 12, marginTop: 28,
+            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gap: 18, marginTop: 32,
           }}>
             {deliveries.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4, boxShadow: "0 10px 28px rgba(37,99,235,0.1)", borderColor: BLUE_100 }}
-                style={{
-                  background: SURFACE,
-                  border: `1.5px solid ${BORDER}`,
-                  borderRadius: 18, padding: "24px 14px 20px",
-                  textAlign: "center", cursor: "default",
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-                  transition: "border-color 0.25s",
-                }}
-              >
-                <div style={{
-                  width: 52, height: 52, borderRadius: 14,
-                  background: BLUE_50, border: `1.5px solid ${BLUE_100}`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  margin: "0 auto 14px", overflow: "hidden",
-                }}>
-                  <img
-                    src={item.img} alt={item.title}
-                    style={{ width: 34, height: 34, objectFit: "contain" }}
-                  />
-                </div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6, fontFamily: SANS }}>
-                  {item.title}
-                </div>
-                <div style={{ fontSize: 11.5, color: HINT, lineHeight: 1.55, fontFamily: SANS }}>
-                  {item.desc}
-                </div>
-              </motion.div>
+              <FleetCard key={i} item={item} index={i} />
             ))}
           </div>
         </div>
@@ -704,10 +780,10 @@ export default function AboutUs() {
         }} />
         <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <FadeUp>
-            <EyebrowPill>Why Zipto</EyebrowPill>
+            <EyebrowPill>Why bookfleet</EyebrowPill>
             <SectionHeading>Built{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
@@ -774,7 +850,7 @@ export default function AboutUs() {
             <EyebrowPill>Our Journey</EyebrowPill>
             <SectionHeading>Starting from{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
@@ -832,7 +908,7 @@ export default function AboutUs() {
                   color: "rgba(255,255,255,0.5)",
                   lineHeight: 1.75, marginBottom: 18,
                 }}>
-                  Zipto is launching initial operations along this critical urban corridor, with a long-term
+                  bookfleet is launching initial operations along this critical urban corridor, with a long-term
                   vision to expand across Odisha and Eastern India. As we grow, our focus remains on building
                   a delivery network that is fast, reliable, and accessible for everyone.
                 </p>
@@ -874,11 +950,11 @@ export default function AboutUs() {
             <EyebrowPill>Contact</EyebrowPill>
             <SectionHeading>Get in touch{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: `linear-gradient(135deg, ${BLUE_400}, #60A5FA)`,
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
-                with Zipto
+                with bookfleet
               </em>
             </SectionHeading>
           </FadeUp>

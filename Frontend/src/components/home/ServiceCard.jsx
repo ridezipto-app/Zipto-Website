@@ -61,7 +61,7 @@ export default function ServiceCard({
                 color: tagColor,
                 background: tagColor + "18",
                 border: `1px solid ${tagColor}30`,
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'Space Grotesk', sans-serif",
               }}
             >
               {tag}
@@ -69,7 +69,7 @@ export default function ServiceCard({
           )}
           <span
             className="text-lg font-black ml-auto"
-            style={{ color: accent, fontFamily: "'Syne', sans-serif" }}
+            style={{ color: accent, fontFamily: "'Space Grotesk', sans-serif" }}
           >
             {price}
             <span className="text-[10px] font-normal text-gray-500 ml-0.5">/ trip</span>
@@ -102,7 +102,7 @@ export default function ServiceCard({
         <div className="text-center space-y-1">
           <h3
             className="text-base font-bold text-white"
-            style={{ fontFamily: "'Syne', sans-serif" }}
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             {title}
           </h3>

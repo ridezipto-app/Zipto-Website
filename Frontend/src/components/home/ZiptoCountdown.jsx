@@ -212,7 +212,7 @@
 //   return Math.min(max, Math.max(min, n));
 // }
 
-// export default function ZiptoCountdown({ onComplete }) {
+// export default function bookfleetCountdown({ onComplete }) {
 //   // ── setup state ──
 //   const [screen, setScreen]       = useState("setup"); // "setup" | "counting"
 //   const [inputMin, setInputMin]   = useState(20);

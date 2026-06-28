@@ -1,4 +1,4 @@
-import ziptoLogo from "../../assets/zipto_logo.jpeg";
+import ziptoLogo from "../../assets/logo.jpeg";
 import { FaDownload, FaBars, FaTimes, FaApple, FaGooglePlay } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -115,8 +115,12 @@ export default function Navbar() {
     exit:    { opacity: 0, scale: 0.93, y: 12, transition: { duration: 0.16 } },
   };
 
-  const navBase = "w-full sticky top-0 z-50 transition-all duration-300";
+  const isHome = location.pathname === "/";
+  const isDark = isHome && !scrolled;
+
+  const navBase = "w-full sticky top-0 z-50 transition-all duration-500";
   const navScrolled = "bg-white/95 backdrop-blur-xl shadow-[0_1px_24px_rgba(30,64,175,0.10)] border-b border-blue-100";
+  const navDark     = "border-b border-white/10";
   const navDefault  = "bg-white border-b border-blue-50";
 
   return (
@@ -126,9 +130,10 @@ export default function Navbar() {
         initial={{ y: -72, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 220, damping: 28, delay: 0.08 }}
-        className={`${navBase} ${scrolled ? navScrolled : navDefault}`}
+        className={`${navBase} ${scrolled ? navScrolled : isDark ? navDark : navDefault}`}
+        style={isDark ? { background: "linear-gradient(145deg, #07101f 0%, #0d1830 100%)" } : {}}
       >
-        <div style={{ height: 2, background: "linear-gradient(90deg, transparent, #1d4ed8 40%, #3b82f6 60%, transparent)", opacity: 0.7 }} />
+        <div style={{ height: 2, background: isDark ? "linear-gradient(90deg, transparent, rgba(96,165,250,0.6) 40%, rgba(147,197,253,0.6) 60%, transparent)" : "linear-gradient(90deg, transparent, #1d4ed8 40%, #3b82f6 60%, transparent)", opacity: 0.8 }} />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center justify-between gap-6">
 
@@ -140,10 +145,10 @@ export default function Navbar() {
           >
             <div className="relative">
               <div style={{ position: "absolute", inset: 0, borderRadius: 12, background: "rgba(59,130,246,0.15)", filter: "blur(8px)", transform: "scale(1.1)", pointerEvents: "none" }} />
-              <img src={ziptoLogo} alt="Zipto logo" className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-cover" style={{ border: "1.5px solid rgba(59,130,246,0.25)" }} />
+              <img src={ziptoLogo} alt="bookfleet logo" className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-cover" style={{ border: isDark ? "1.5px solid rgba(255,255,255,0.2)" : "1.5px solid rgba(59,130,246,0.25)" }} />
             </div>
-            <span style={{ fontWeight: 700, fontSize: 20, color: "#1e3a8a", letterSpacing: "0.3px", fontFamily: "Cocon, sans-serif" }} className="hidden sm:block">
-              Zipto
+            <span style={{ fontWeight: 700, fontSize: 20, color: isDark ? "#FFFFFF" : "#1e3a8a", letterSpacing: "0.3px", fontFamily: "Cocon, sans-serif", transition: "color 0.4s" }} className="hidden sm:block">
+              bookfleet
             </span>
           </motion.div>
 
@@ -154,25 +159,27 @@ export default function Navbar() {
 
               const inner = (
                 <>
-                  <span style={{ position: "relative", zIndex: 1, color: isActive ? "#1d4ed8" : "#4b5563" }}>{link.name}</span>
+                  <span style={{ position: "relative", zIndex: 1, color: isActive ? (isDark ? "#93C5FD" : "#1d4ed8") : (isDark ? "rgba(255,255,255,0.75)" : "#4b5563"), transition: "color 0.3s" }}>{link.name}</span>
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      style={{ position: "absolute", inset: 0, background: "#eff6ff", borderRadius: 8 }}
+                      style={{ position: "absolute", inset: 0, background: isDark ? "rgba(255,255,255,0.08)" : "#eff6ff", borderRadius: 8 }}
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
                     />
                   )}
                   {isActive && (
                     <motion.span
                       layoutId="nav-dot"
-                      style={{ position: "absolute", bottom: 5, left: "50%", transform: "translateX(-50%)", width: 4, height: 4, borderRadius: "50%", background: "#1d4ed8" }}
+                      style={{ position: "absolute", bottom: 5, left: "50%", transform: "translateX(-50%)", width: 4, height: 4, borderRadius: "50%", background: isDark ? "#93C5FD" : "#1d4ed8" }}
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
                     />
                   )}
                 </>
               );
 
-              const cls = "relative flex items-center px-4 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer list-none";
+              const cls = "relative flex items-center px-4 py-2 rounded-lg transition-colors duration-150 cursor-pointer list-none";
+              const hoverEnter = (e) => { e.currentTarget.style.background = isDark ? "rgba(255,255,255,0.08)" : "#eff6ff"; };
+              const hoverLeave = (e) => { e.currentTarget.style.background = "transparent"; };
 
               if (link.path && link.path !== "/") {
                 return (
@@ -180,8 +187,10 @@ export default function Navbar() {
                     <Link
                       to={link.path}
                       onClick={() => setActiveLink(link.name)}
-                      className="relative flex items-center px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors duration-150"
-                      style={{ color: isActive ? "#1d4ed8" : "#4b5563" }}
+                      className="relative flex items-center px-4 py-2 rounded-lg transition-colors duration-150"
+                      style={{ color: isActive ? (isDark ? "#93C5FD" : "#1d4ed8") : (isDark ? "rgba(255,255,255,0.75)" : "#4b5563") }}
+                      onMouseEnter={hoverEnter}
+                      onMouseLeave={hoverLeave}
                     >
                       {inner}
                     </Link>
@@ -193,6 +202,8 @@ export default function Navbar() {
                 return (
                   <motion.li key={i} whileTap={{ scale: 0.96 }}
                     onClick={() => handleNavigation(link)}
+                    onMouseEnter={hoverEnter}
+                    onMouseLeave={hoverLeave}
                     className={cls}>
                     {inner}
                   </motion.li>
@@ -202,6 +213,8 @@ export default function Navbar() {
               return (
                 <motion.li key={i} whileTap={{ scale: 0.96 }}
                   onClick={() => handleNavigation(link)}
+                  onMouseEnter={hoverEnter}
+                  onMouseLeave={hoverLeave}
                   className={cls}>
                   {inner}
                 </motion.li>
@@ -214,8 +227,16 @@ export default function Navbar() {
             onClick={() => setShowPopup(true)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="hidden md:flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white"
-            style={{ background: "#1d4ed8", boxShadow: "0 4px 18px rgba(29,78,216,0.28)", border: "none", cursor: "pointer", fontFamily: "inherit" }}
+            className="hidden md:flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold"
+            style={{
+              background: isDark ? "rgba(255,255,255,0.12)" : "#1d4ed8",
+              color: isDark ? "#FFFFFF" : "#FFFFFF",
+              border: isDark ? "1.5px solid rgba(255,255,255,0.2)" : "none",
+              backdropFilter: isDark ? "blur(12px)" : "none",
+              boxShadow: isDark ? "0 4px 16px rgba(0,0,0,0.3)" : "0 4px 18px rgba(29,78,216,0.28)",
+              cursor: "pointer", fontFamily: "inherit",
+              transition: "all 0.4s ease",
+            }}
           >
             <FaDownload style={{ fontSize: 11 }} />
             Download App
@@ -224,7 +245,7 @@ export default function Navbar() {
           {/* ── MOBILE HAMBURGER ── */}
           <motion.button
             className="md:hidden p-2 rounded-lg transition"
-            style={{ color: "#1d4ed8", background: "transparent", border: "none", cursor: "pointer" }}
+            style={{ color: isDark ? "#FFFFFF" : "#1d4ed8", background: "transparent", border: "none", cursor: "pointer" }}
             onClick={() => setOpen(!open)}
             whileTap={{ scale: 0.9 }}
             aria-label="Toggle menu"

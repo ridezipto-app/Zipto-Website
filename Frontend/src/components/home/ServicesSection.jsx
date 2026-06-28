@@ -4,7 +4,7 @@ import VehiclePopup from "./VehiclePopup";
 import bikeIcon   from "../../assets/bike.png";
 import scootyIcon from "../../assets/scooty.png";
 import autoIcon   from "../../assets/auto.png";
-import pickupIcon from "../../assets/car.png";
+import pickupIcon from "../../assets/pickup.png";
 import truckIcon  from "../../assets/truck.png";
 
 /* ─── data ─────────────────────────────────────────────────────────── */
@@ -107,116 +107,158 @@ function VehicleCard({ vehicle, index, onClick }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 36, filter: "blur(6px)" }}
+      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.09, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay: index * 0.09, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       onClick={onClick}
       style={{
-        background: hovered ? vehicle.accentLight : "#FFFFFF",
-        border: `1.5px solid ${hovered ? vehicle.accentBorder : "#E5E9F0"}`,
-        borderRadius: "20px",
+        background: "#FFFFFF",
+        border: `1.5px solid ${hovered ? vehicle.accentBorder : "#E8EDF5"}`,
+        borderRadius: "24px",
         boxShadow: hovered
-          ? `0 16px 48px ${vehicle.accent}1A, 0 2px 8px rgba(0,0,0,0.06)`
-          : "0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)",
+          ? `0 24px 56px ${vehicle.accent}28, 0 8px 20px rgba(0,0,0,0.08)`
+          : "0 2px 8px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)",
         cursor: "pointer",
         overflow: "hidden",
         position: "relative",
-        transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
+        transform: hovered ? "translateY(-7px)" : "translateY(0px)",
+        transition: "border-color 0.35s, box-shadow 0.35s, transform 0.35s cubic-bezier(0.22,1,0.36,1)",
       }}
     >
-      {/* top accent stripe */}
-      <motion.div
-        style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: "3px",
-          background: `linear-gradient(90deg, transparent, ${vehicle.accent}, transparent)`,
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.3s",
-        }}
-      />
+      {/* ── top panel: gradient background + icon ── */}
+      <div style={{
+        height: "200px",
+        background: hovered
+          ? `linear-gradient(145deg, ${vehicle.accent}22 0%, ${vehicle.accentLight} 100%)`
+          : `linear-gradient(145deg, ${vehicle.accent}0D 0%, ${vehicle.accentLight}95 100%)`,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        position: "relative", overflow: "hidden",
+        transition: "background 0.4s ease",
+      }}>
+        {/* dot grid texture */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: `radial-gradient(circle, ${vehicle.accent}25 1px, transparent 1px)`,
+          backgroundSize: "20px 20px",
+          opacity: hovered ? 0.65 : 0.3,
+          transition: "opacity 0.4s",
+        }} />
 
-      <div style={{ padding: "22px 18px", display: "flex", flexDirection: "column", gap: "16px" }}>
-
-        {/* tag + price row */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span style={{
-            fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em",
-            textTransform: "uppercase", fontFamily: "'Clash Display', 'Plus Jakarta Sans', sans-serif",
-            color: vehicle.tagColor,
-            background: vehicle.tagBg,
-            border: `1px solid ${vehicle.tagBorder}`,
-            padding: "3px 10px", borderRadius: "99px",
-          }}>
-            {vehicle.tag}
-          </span>
-          <span style={{
-            fontFamily: "'Clash Display', 'Plus Jakarta Sans', sans-serif",
-            fontSize: "17px", fontWeight: 800, color: vehicle.accent,
-          }}>
-            {vehicle.price}
-            <span style={{ fontSize: "10px", fontWeight: 400, color: "#94A3B8", marginLeft: "2px" }}>/trip</span>
-          </span>
+        {/* tag pill — top left */}
+        <div style={{
+          position: "absolute", top: "12px", left: "12px",
+          background: vehicle.tagBg,
+          color: vehicle.tagColor,
+          border: `1px solid ${vehicle.tagBorder}`,
+          fontSize: "9.5px", fontWeight: 700,
+          letterSpacing: "0.12em", textTransform: "uppercase",
+          padding: "3px 9px", borderRadius: "99px",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+        }}>
+          {vehicle.tag}
         </div>
 
-        {/* icon */}
+        {/* price badge — top right */}
+        <div style={{
+          position: "absolute", top: "10px", right: "12px",
+          background: vehicle.accent,
+          color: "#FFFFFF",
+          fontSize: "13px", fontWeight: 800,
+          padding: "5px 11px", borderRadius: "99px",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          boxShadow: `0 3px 10px ${vehicle.accent}55`,
+          letterSpacing: "-0.01em",
+        }}>
+          {vehicle.price}
+          <span style={{ fontSize: "9px", fontWeight: 400, opacity: 0.78, marginLeft: "2px" }}>/trip</span>
+        </div>
+
+        {/* vehicle icon */}
         <motion.div
-          animate={{ y: hovered ? -5 : 0 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          style={{ display: "flex", justifyContent: "center", padding: "4px 0" }}
-        >
-          <div style={{
-            width: "80px", height: "80px", borderRadius: "18px",
-            background: hovered ? `${vehicle.accent}12` : "#F8FAFC",
-            border: `1.5px solid ${hovered ? vehicle.accentBorder : "#EEF2F7"}`,
+          animate={{ y: hovered ? -7 : 0, scale: hovered ? 1.07 : 1 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            width: "120px", height: "120px", borderRadius: "24px",
+            background: hovered ? "rgba(255,255,255,0.88)" : "rgba(255,255,255,0.72)",
+            backdropFilter: "blur(10px)",
+            border: `1.5px solid ${hovered ? vehicle.accentBorder : "rgba(255,255,255,0.9)"}`,
             display: "flex", alignItems: "center", justifyContent: "center",
-            transition: "background 0.3s, border-color 0.3s",
-          }}>
-            <img src={vehicle.icon} alt={vehicle.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
-          </div>
+            boxShadow: hovered
+              ? `0 14px 36px ${vehicle.accent}35, 0 4px 12px rgba(0,0,0,0.09)`
+              : "0 4px 16px rgba(0,0,0,0.07)",
+            position: "relative", zIndex: 1,
+            transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
+          }}
+        >
+          <img src={vehicle.icon} alt={vehicle.title} style={{ width: "84px", height: "84px", objectFit: "contain" }} />
         </motion.div>
 
+        {/* left accent bar slides in on hover */}
+        <motion.div
+          animate={{ scaleY: hovered ? 1 : 0 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            position: "absolute", left: 0, top: 0, bottom: 0, width: "3px",
+            background: `linear-gradient(180deg, transparent, ${vehicle.accent}, transparent)`,
+            transformOrigin: "center",
+          }}
+        />
+      </div>
+
+      {/* ── bottom info ── */}
+      <div style={{ padding: "16px 18px 18px", display: "flex", flexDirection: "column", gap: "10px" }}>
+
         {/* title + subtitle */}
-        <div style={{ textAlign: "center" }}>
+        <div>
           <h3 style={{
-            fontFamily: "'Clash Display', 'Plus Jakarta Sans', sans-serif",
-            fontSize: "14.5px", fontWeight: 700,
-            color: "#0F172A", marginBottom: "4px", lineHeight: 1.3,
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontSize: "16px", fontWeight: 800,
+            color: "#0F172A", marginBottom: "3px", lineHeight: 1.25,
+            letterSpacing: "-0.015em",
           }}>
             {vehicle.title}
           </h3>
-          <p style={{ fontSize: "11.5px", color: "#64748B", lineHeight: 1.4 }}>
+          <p style={{ fontSize: "12px", color: "#64748B", lineHeight: 1.5, margin: 0 }}>
             {vehicle.subtitle}
           </p>
         </div>
 
-        {/* capacity */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <span style={{
-            fontSize: "11px", color: "#64748B",
-            background: "#F1F5F9", border: "1px solid #E2E8F0",
-            padding: "4px 12px", borderRadius: "99px",
-          }}>
-            📦 {vehicle.capacity}
-          </span>
+        {/* capacity pill */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: "5px",
+          background: "#F1F5F9", border: "1px solid #E2E8F0",
+          borderRadius: "99px", padding: "4px 11px", width: "fit-content",
+          fontSize: "11px", color: "#475569", fontWeight: 500,
+        }}>
+          <span>📦</span>
+          <span>{vehicle.capacity}</span>
         </div>
 
-        {/* view details cta */}
-        <motion.div
-          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 4 }}
-          transition={{ duration: 0.2 }}
-          style={{ textAlign: "center" }}
-        >
+        {/* CTA button — always in layout, lights up on hover */}
+        <div style={{
+          background: hovered
+            ? `linear-gradient(135deg, ${vehicle.accent} 0%, ${vehicle.accent}CC 100%)`
+            : "#F8FAFC",
+          border: `1.5px solid ${hovered ? vehicle.accent : "#E8EDF5"}`,
+          borderRadius: "12px",
+          padding: "9px 14px",
+          textAlign: "center",
+          boxShadow: hovered ? `0 6px 18px ${vehicle.accent}40` : "none",
+          transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
+        }}>
           <span style={{
-            fontSize: "11.5px", fontWeight: 700,
-            color: vehicle.accent,
-            fontFamily: "'Clash Display', 'Plus Jakarta Sans', sans-serif",
-            letterSpacing: "0.03em",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: "12px", fontWeight: 700,
+            color: hovered ? "#FFFFFF" : "#94A3B8",
+            letterSpacing: "0.04em",
+            transition: "color 0.3s",
           }}>
             View Details →
           </span>
-        </motion.div>
+        </div>
 
       </div>
     </motion.div>
@@ -230,7 +272,7 @@ export default function ServicesSection() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;0,900;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
         .zipto-services-section * { box-sizing: border-box; }
 
@@ -240,7 +282,7 @@ export default function ServicesSection() {
           position: absolute; inset: 0; pointer-events: none;
           background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
           background-size: 28px 28px;
-          opacity: 0.45;
+          opacity: 0.3;
         }
 
         /* bottom divider line fade */
@@ -259,8 +301,8 @@ export default function ServicesSection() {
         className="zipto-services-section"
         style={{
           position: "relative",
-          background: "#F8FAFD",
-          padding: "96px 20px 80px",
+          background: "#FFFFFF",
+          padding: "100px 20px 88px",
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           overflow: "hidden",
         }}
@@ -305,7 +347,7 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                fontFamily: "'Fraunces', Georgia, serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
                 fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.02em",
                 color: "#0F172A", marginBottom: "16px",
@@ -313,7 +355,7 @@ export default function ServicesSection() {
             >
               Delivery{" "}
               <em style={{
-                fontStyle: "italic", color: "#2563EB",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: "linear-gradient(135deg, #2563EB, #60A5FA)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
@@ -339,8 +381,8 @@ export default function ServicesSection() {
           {/* ── CARDS GRID ── */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: "16px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "20px",
           }}>
             {vehicles.map((v, i) => (
               <VehicleCard
@@ -400,7 +442,7 @@ export default function ServicesSection() {
               fontSize: "12.5px", color: "#94A3B8", lineHeight: 1.6,
             }}
           >
-            Zipto's multi-vehicle network ensures every delivery is matched with the right vehicle for{" "}
+            bookfleet's multi-vehicle network ensures every delivery is matched with the right vehicle for{" "}
             <span style={{ color: "#2563EB", fontWeight: 600 }}>speed</span>,{" "}
             <span style={{ color: "#16A34A", fontWeight: 600 }}>efficiency</span>, and{" "}
             <span style={{ color: "#EA580C", fontWeight: 600 }}>affordability</span>.

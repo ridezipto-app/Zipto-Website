@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { IndianRupee, MapPin, Languages, ShieldCheck } from "lucide-react";
 
@@ -42,6 +43,7 @@ const features = [
 
 function FeatureCard({ feature, index }) {
   const Icon = feature.icon;
+  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
@@ -49,28 +51,27 @@ function FeatureCard({ feature, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
       style={{
-        background: "#FFFFFF",
-        border: "1.5px solid #E9EEF5",
-        borderRadius: "20px",
-        padding: "24px",
-        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+        background: hovered ? feature.bg : "#FFFFFF",
+        border: `1.5px solid ${hovered ? feature.border : "#E9EEF5"}`,
+        borderRadius: "22px",
+        padding: "28px",
+        boxShadow: hovered
+          ? `0 20px 48px ${feature.accent}18, 0 4px 12px rgba(0,0,0,0.06)`
+          : "0 1px 4px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)",
         cursor: "default",
-        transition: "box-shadow 0.25s, border-color 0.25s, transform 0.25s",
+        transform: hovered ? "translateY(-5px)" : "translateY(0px)",
+        transition: "background 0.35s, border-color 0.35s, box-shadow 0.35s, transform 0.35s cubic-bezier(0.22,1,0.36,1)",
         position: "relative",
         overflow: "hidden",
         fontFamily: "'Plus Jakarta Sans', sans-serif",
       }}
-      whileHover={{
-        y: -4,
-        boxShadow: "0 12px 32px rgba(0,0,0,0.09)",
-        borderColor: feature.border,
-      }}
     >
-      {/* top accent line on hover via motion */}
+      {/* top accent line */}
       <motion.div
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileHover={{ scaleX: 1, opacity: 1 }}
+        animate={{ scaleX: hovered ? 1 : 0, opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         style={{
           position: "absolute",
@@ -81,15 +82,19 @@ function FeatureCard({ feature, index }) {
         }}
       />
 
-      {/* index number */}
+      {/* index badge — styled pill instead of plain number */}
       <div style={{
         position: "absolute",
         top: "20px", right: "20px",
-        fontSize: "11px",
-        fontWeight: 700,
-        color: "#CBD5E1",
-        letterSpacing: "0.05em",
+        fontSize: "10px", fontWeight: 700,
+        color: hovered ? feature.accent : "#CBD5E1",
+        background: hovered ? feature.bg : "transparent",
+        border: `1px solid ${hovered ? feature.border : "transparent"}`,
+        borderRadius: "99px",
+        padding: "2px 8px",
         fontFamily: "monospace",
+        letterSpacing: "0.05em",
+        transition: "all 0.3s",
       }}>
         0{index + 1}
       </div>
@@ -120,29 +125,31 @@ function FeatureCard({ feature, index }) {
         {feature.tag}
       </div>
 
-      {/* icon */}
+      {/* icon — larger box */}
       <motion.div
-        whileHover={{ y: -3, scale: 1.06 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        animate={{ y: hovered ? -4 : 0, scale: hovered ? 1.08 : 1 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          width: "52px", height: "52px",
-          borderRadius: "14px",
+          width: "62px", height: "62px",
+          borderRadius: "16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           background: feature.bg,
           border: `1.5px solid ${feature.border}`,
-          marginBottom: "18px",
+          marginBottom: "20px",
+          boxShadow: hovered ? `0 8px 20px ${feature.accent}25` : "0 2px 8px rgba(0,0,0,0.04)",
+          transition: "box-shadow 0.35s",
         }}
       >
-        <Icon size={22} color={feature.accent} strokeWidth={2} />
+        <Icon size={26} color={feature.accent} strokeWidth={2} />
       </motion.div>
 
       {/* text */}
       <div>
         <h3 style={{
-          fontFamily: "'Fraunces', Georgia, serif",
-          fontSize: "17px",
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "18px",
           fontWeight: 800,
           color: "#0F172A",
           marginBottom: "8px",
@@ -161,35 +168,24 @@ function FeatureCard({ feature, index }) {
         </p>
       </div>
 
-      {/* bottom rule + learn more */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.25 }}
-        style={{ marginTop: "18px" }}
-      >
+      {/* bottom divider + learn more — fades in on hover */}
+      <div style={{
+        marginTop: "20px",
+        opacity: hovered ? 1 : 0,
+        transition: "opacity 0.25s",
+      }}>
         <div style={{
           height: "1px",
-          background: `linear-gradient(90deg, ${feature.accent}40, transparent)`,
+          background: `linear-gradient(90deg, ${feature.accent}50, transparent)`,
           marginBottom: "12px",
         }} />
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "4px",
-        }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
           <span style={{ fontSize: "12px", fontWeight: 700, color: feature.accent }}>
             Learn more
           </span>
-          <motion.span
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
-            style={{ fontSize: "12px", color: feature.accent }}
-          >
-            →
-          </motion.span>
+          <span style={{ fontSize: "12px", color: feature.accent }}>→</span>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -198,13 +194,13 @@ export default function WhyChooseSection() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
         .why-section * { box-sizing: border-box; }
 
         .why-section {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: #F8FAFD;
+          background: #FAFBFF;
           position: relative;
           overflow: hidden;
         }
@@ -282,7 +278,7 @@ export default function WhyChooseSection() {
                   background: "#EA580C",
                   display: "inline-block",
                 }} />
-                Why Zipto
+                Why bookfleet
               </span>
             </motion.div>
 
@@ -293,7 +289,7 @@ export default function WhyChooseSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                fontFamily: "'Fraunces', Georgia, serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(2rem, 3.5vw, 3rem)",
                 fontWeight: 900,
                 lineHeight: 1.1,
@@ -304,12 +300,12 @@ export default function WhyChooseSection() {
             >
               Why Choose{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: "linear-gradient(135deg, #EA580C 0%, #F97316 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}>
-                Zipto?
+                bookfleet?
               </em>
             </motion.h2>
 

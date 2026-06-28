@@ -1,4 +1,4 @@
-import riderImg from "../../assets/Rider.png";
+import riderImg from "../../assets/Rider-DDQ112CI.png";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Rocket, IndianRupee, Clock, Bike, Users } from "lucide-react";
@@ -80,16 +80,16 @@ export default function BecomeRider() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
         .rider-section * { box-sizing: border-box; }
 
         .rider-section {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: #F8FAFD;
+          background: #FFFFFF;
           position: relative;
           overflow: hidden;
-          padding: 96px 24px 88px;
+          padding: 100px 24px 96px;
         }
 
         .rider-section::before {
@@ -270,7 +270,7 @@ export default function BecomeRider() {
               }}>
                 <img
                   src={riderImg}
-                  alt="Zipto Rider"
+                  alt="bookfleet Rider"
                   style={{ width: "100%", display: "block", objectFit: "cover" }}
                 />
               </div>
@@ -298,7 +298,7 @@ export default function BecomeRider() {
                 </div>
                 <div>
                   <div style={{
-                    fontFamily: "'Fraunces', serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "20px", fontWeight: 900, color: "#0F172A", lineHeight: 1.1,
                   }}>
                     ₹60,000
@@ -354,7 +354,7 @@ export default function BecomeRider() {
 
             {/* heading */}
             <h2 style={{
-              fontFamily: "'Fraunces', Georgia, serif",
+              fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
               fontWeight: 900, lineHeight: 1.1,
               letterSpacing: "-0.02em",
@@ -362,11 +362,11 @@ export default function BecomeRider() {
             }}>
               Ride with{" "}
               <em style={{
-                fontStyle: "italic",
+                fontStyle: "italic", fontFamily: "'DM Serif Display', serif",
                 background: "linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>
-                Zipto
+                bookfleet
               </em>{" "}
               &amp; Earn More
             </h2>
@@ -507,7 +507,7 @@ export default function BecomeRider() {
                 >
                   <div className="rider-success-icon">✅</div>
                   <h2 style={{
-                    fontFamily: "'Fraunces', serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "20px", fontWeight: 900,
                     color: "#0F172A", marginBottom: "8px",
                   }}>
@@ -545,7 +545,7 @@ export default function BecomeRider() {
                   </motion.div>
 
                   <h2 style={{
-                    fontFamily: "'Fraunces', serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "22px", fontWeight: 900,
                     color: "#0F172A", marginBottom: "8px",
                   }}>
@@ -556,7 +556,7 @@ export default function BecomeRider() {
                     fontSize: "13px", color: "#64748B",
                     lineHeight: 1.65, marginBottom: "20px",
                   }}>
-                    The Zipto Rider app is on its way. Drop your email and
+                    The bookfleet Rider app is on its way. Drop your email and
                     we'll let you know the moment it's live.
                   </p>
 

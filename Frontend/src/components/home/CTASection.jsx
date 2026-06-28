@@ -4,7 +4,7 @@ export default function LaunchingSoon() {
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
-      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,300;0,700;1,300;1,600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -165,7 +165,7 @@ export default function LaunchingSoon() {
 
 /* ── Styles ── */
 const FONT  = "'Plus Jakarta Sans', sans-serif";
-const SERIF = "'Fraunces', Georgia, serif";
+const SERIF = "'Space Grotesk', sans-serif";
 
 const s = {
   page: {

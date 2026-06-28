@@ -7,7 +7,7 @@ import androidLogo from "../../assets/android-logo.png";
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzQ6kMhV0nudurNUXx0g4XjXIA3NTyEqwqvgU-_JknW_8OHyV7tafs-_TtMZEs0VDND/exec";
 
 const heroStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
   @font-face {
     font-family: 'Cocon';
@@ -27,8 +27,31 @@ const heroStyles = `
     min-height: 580px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, #dbeafe 0%, #eff6ff 40%, #f8fbff 70%, #ffffff 100%);
-    font-family: 'Syne', sans-serif;
+    background: linear-gradient(145deg, #07101f 0%, #0d1830 55%, #060d1a 100%);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Subtle dot grid for premium dark texture */
+  .zipto-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ambient blue glow top-right */
+  .zipto-hero::after {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 600px; height: 500px;
+    background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 65%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .hero-bg-text-wrap {
@@ -43,9 +66,9 @@ const heroStyles = `
   }
   .hero-bg-text {
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
-    font-size: clamp(100px, 24vw, 340px);
+    font-size: clamp(60px, 14vw, 190px);
     letter-spacing: 0.06em;
-    color: rgba(150,168,200,0.38);
+    color: rgba(255,255,255,0.03);
     line-height: 1;
     display: block;
     opacity: 0;
@@ -53,9 +76,9 @@ const heroStyles = `
   }
   .hero-bg-text-blue {
     font-family: 'Cocon', 'Bebas Neue', sans-serif;
-    font-size: clamp(100px, 24vw, 340px);
+    font-size: clamp(60px, 14vw, 190px);
     letter-spacing: 0.06em;
-    color: rgba(37,99,235,0.30);
+    color: rgba(255,255,255,0.03);
     line-height: 1;
     display: block;
     position: absolute;
@@ -84,7 +107,7 @@ const heroStyles = `
   }
   .hero-speed-line {
     height: 1.5px;
-    background: linear-gradient(to left, transparent 0%, rgba(155,155,155,0.5) 50%, transparent 100%);
+    background: linear-gradient(to left, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
     border-radius: 2px;
     margin: 14px 0;
     transform: scaleX(0);
@@ -116,7 +139,7 @@ const heroStyles = `
   .hero-rider-wrapper img {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 24px 64px rgba(0,0,0,0.11)) drop-shadow(0 6px 18px rgba(0,0,0,0.07));
+    filter: drop-shadow(0 24px 80px rgba(0,0,0,0.65)) drop-shadow(0 8px 24px rgba(37,99,235,0.18));
   }
 
   .hero-bottom {
@@ -137,16 +160,16 @@ const heroStyles = `
     font-weight: 600;
     letter-spacing: 3.5px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #60A5FA;
     margin-bottom: 6px;
   }
   .hero-headline {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(34px, 4.8vw, 66px);
     line-height: 0.92;
-    color: var(--dark);
+    color: #FFFFFF;
   }
-  .hero-headline span { color: var(--accent); }
+  .hero-headline span { color: #60A5FA; }
   .hero-actions {
     display: flex;
     gap: 12px;
@@ -154,25 +177,25 @@ const heroStyles = `
     flex-wrap: wrap;
   }
   .hero-btn-primary {
-    background: var(--dark);
-    color: #fff;
+    background: #FFFFFF;
+    color: #0A0F1E;
     padding: 11px 24px;
     border-radius: 100px;
     border: none;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.84rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s, transform 0.25s;
+    transition: background 0.3s, color 0.3s, transform 0.25s;
   }
-  .hero-btn-primary:hover { background: var(--accent); transform: scale(1.03); }
+  .hero-btn-primary:hover { background: #eff6ff; color: #1d4ed8; transform: scale(1.03); }
   .hero-btn-outline {
     background: transparent;
-    color: var(--dark);
+    color: #FFFFFF;
     padding: 10px 24px;
     border-radius: 100px;
-    border: 1.5px solid rgba(0,0,0,0.18);
-    font-family: 'Syne', sans-serif;
+    border: 1.5px solid rgba(255,255,255,0.28);
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.84rem;
     font-weight: 500;
     cursor: pointer;
@@ -182,9 +205,9 @@ const heroStyles = `
     gap: 7px;
   }
   .hero-btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(37,99,235,0.04);
+    border-color: #60A5FA;
+    color: #60A5FA;
+    background: rgba(96,165,250,0.1);
     transform: scale(1.03);
   }
   .hero-btn-outline .explore-arrow {
@@ -200,10 +223,12 @@ const heroStyles = `
   .hero-stats-box {
     display: inline-flex;
     align-items: center;
-    background: #fff;
-    border: 1.5px solid #e5e7eb;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
     border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
     overflow: hidden;
   }
   .hero-stat-item {
@@ -216,18 +241,18 @@ const heroStyles = `
     position: absolute;
     left: 0; top: 22%; height: 56%;
     width: 1px;
-    background: #e5e7eb;
+    background: rgba(255,255,255,0.1);
   }
   .hero-stat-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #111;
+    color: #FFFFFF;
     line-height: 1;
     letter-spacing: 0.5px;
   }
   .hero-stat-label {
     font-size: 0.58rem;
-    color: #aaa;
+    color: rgba(255,255,255,0.42);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 5px;
@@ -238,11 +263,12 @@ const heroStyles = `
     position: absolute;
     top: 14%; right: 10%;
     z-index: 6;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-radius: 14px;
     padding: 12px 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.09), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.12);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -257,11 +283,11 @@ const heroStyles = `
     animation: zh-blink 2.2s ease-in-out 3.0s infinite;
   }
   @keyframes zh-blink {
-    0%,100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+    0%,100% { opacity: 1; box-shadow: 0 0 0 4px rgba(34,197,94,0.25); }
     50%      { opacity: 0.3; box-shadow: none; }
   }
-  .hero-badge-text { font-size: 0.78rem; font-weight: 600; color: var(--dark); }
-  .hero-badge-sub  { font-size: 0.66rem; color: #999; margin-top: 2px; }
+  .hero-badge-text { font-size: 0.78rem; font-weight: 600; color: #FFFFFF; }
+  .hero-badge-sub  { font-size: 0.66rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
   /* MODAL */
   .zipto-overlay {
@@ -279,7 +305,7 @@ const heroStyles = `
     position: relative;
     box-shadow: 0 32px 80px rgba(0,0,0,0.16);
     animation: zh-cardIn 0.4s cubic-bezier(0.34,1.26,0.64,1) forwards;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     margin: 0 16px;
   }
   @keyframes zh-cardIn {
@@ -314,7 +340,7 @@ const heroStyles = `
     flex: 1; display: flex; align-items: center; gap: 10px;
     padding: 13px 15px; border-radius: 14px;
     border: 1.5px solid #e5e7eb; background: #fff;
-    cursor: pointer; text-align: left; font-family: 'Syne', sans-serif;
+    cursor: pointer; text-align: left; font-family: 'Space Grotesk', sans-serif;
     transition: border-color 0.22s, box-shadow 0.22s, transform 0.18s;
   }
   .zm-store:hover { border-color: #111; box-shadow: 0 4px 16px rgba(0,0,0,0.09); transform: translateY(-2px); }
@@ -328,7 +354,7 @@ const heroStyles = `
   .zm-email-input {
     width: 100%; padding: 12px 16px;
     border: 1.5px solid #e5e7eb; border-radius: 12px;
-    font-family: 'Syne', sans-serif; font-size: 0.86rem; color: #111;
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; color: #111;
     outline: none; transition: border-color 0.2s, box-shadow 0.2s;
     box-sizing: border-box;
   }
@@ -357,7 +383,7 @@ const heroStyles = `
 
   .zm-notify-btn {
     width: 100%; padding: 13px; background: #111; color: #fff;
-    border: none; border-radius: 100px; font-family: 'Syne', sans-serif;
+    border: none; border-radius: 100px; font-family: 'Space Grotesk', sans-serif;
     font-size: 0.86rem; font-weight: 600; cursor: pointer;
     letter-spacing: 0.2px; transition: background 0.25s, transform 0.18s; margin-top: 4px;
     display: flex; align-items: center; justify-content: center;
@@ -415,7 +441,7 @@ const heroStyles = `
     .hero-speed-lines   { display: none !important; }
     .hero-bg-text-wrap  { top: 0; left: 50%; transform: translateX(-50%); }
     .hero-bg-text,
-    .hero-bg-text-blue  { font-size: clamp(60px, 20vw, 100px) !important; letter-spacing: 0.08em; }
+    .hero-bg-text-blue  { font-size: clamp(36px, 12vw, 60px) !important; letter-spacing: 0.08em; }
     .hero-badge {
       position: absolute !important;
       top: clamp(52px, 11svh, 84px) !important;
@@ -476,7 +502,7 @@ const heroStyles = `
 
   @media (max-width: 390px) {
     .hero-bg-text,
-    .hero-bg-text-blue { font-size: 54px !important; }
+    .hero-bg-text-blue { font-size: 32px !important; }
     .hero-badge        { top: clamp(44px, 9svh, 68px) !important; left: 12px !important; }
     .hero-rider-wrapper { width: clamp(180px, 82vw, 280px) !important; top: 35% !important; }
     .hero-bottom       { gap: 8px !important; padding: 0 14px !important; padding-bottom: max(18px, env(safe-area-inset-bottom, 18px)) !important; }
@@ -493,7 +519,7 @@ const heroStyles = `
 
 const SESSION_KEY = "zipto-hero-seen";
 
-export default function ZiptoHero() {
+export default function bookfleetHero() {
   const [showOrder, setShowOrder] = useState(false);
   const [playAnim] = useState(() => {
     try {
@@ -559,10 +585,10 @@ export default function ZiptoHero() {
     <>
       <style dangerouslySetInnerHTML={{ __html: heroStyles }} />
 
-      <section className="zipto-hero" aria-label="Zipto hero">
+      <section className="zipto-hero" aria-label="bookfleet hero">
         <div className={na("hero-bg-text-wrap")} aria-hidden="true">
-          <span className="hero-bg-text">ZIPTO</span>
-          <span className="hero-bg-text-blue">ZIPTO</span>
+          <span className="hero-bg-text">bookfleet</span>
+          <span className="hero-bg-text-blue">bookfleet</span>
         </div>
 
         <div className={na("hero-speed-lines")} aria-hidden="true">
@@ -573,7 +599,7 @@ export default function ZiptoHero() {
         </div>
 
         <div className={na("hero-rider-wrapper")} aria-hidden="true">
-          <img src={ziptoTruck} alt="Zipto delivery truck" />
+          <img src={ziptoTruck} alt="bookfleet delivery truck" />
         </div>
 
         <div className={na("hero-badge")} role="status" aria-label="Rider nearby, 2 minutes away">

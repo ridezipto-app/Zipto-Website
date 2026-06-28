@@ -11,13 +11,13 @@ const sections = [
       <>
         <p>
           This Privacy Policy explains how <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
-          ("Zipto", "Company", "We", "Us", "Our") collects, uses, processes, stores, and
-          protects information of delivery partners ("Riders") using the Zipto Rider
+          ("bookfleet", "Company", "We", "Us", "Our") collects, uses, processes, stores, and
+          protects information of delivery partners ("Riders") using the bookfleet Rider
           Application and related services.
         </p>
         <p className="mt-3">
           The Rider App is designed to onboard and manage independent delivery partners
-          who perform pickup and delivery services through the Zipto platform.
+          who perform pickup and delivery services through the bookfleet platform.
         </p>
         <div className="notice-pill mt-4">
           ✅ By registering or using the Rider App, you agree to this Privacy Policy.
@@ -91,7 +91,7 @@ const sections = [
           </ul>
         </div>
         <div className="sub-block no-block mt-3">
-          <h4>Zipto Does NOT Store</h4>
+          <h4>bookfleet Does NOT Store</h4>
           <ul className="dot-list">
             <li>ATM PIN</li>
             <li>UPI PIN</li>
@@ -102,7 +102,7 @@ const sections = [
         <div className="sub-block mt-4" style={{ background: "#fff4e5", borderColor: "#ffd591" }}>
           <h4 style={{ color: "#7c4a00" }}>E. Location Data (Critical)</h4>
           <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
-            Zipto collects real-time and background location data. This is required for:
+            bookfleet collects real-time and background location data. This is required for:
           </p>
           <ul className="dot-list">
             <li>Assigning delivery orders based on proximity</li>
@@ -152,10 +152,10 @@ const sections = [
     number: "05",
     content: (
       <>
-        <p>Zipto operates as a technology-enabled logistics platform.</p>
+        <p>bookfleet operates as a technology-enabled logistics platform.</p>
         <div className="two-col mt-4">
           <div className="col-block yes-block">
-            <h4>Zipto's Role</h4>
+            <h4>bookfleet's Role</h4>
             <ul className="dot-list">
               <li>Facilitates order allocation</li>
               <li>Coordinates logistics</li>
@@ -165,9 +165,9 @@ const sections = [
           <div className="col-block no-block">
             <h4>Riders Are NOT</h4>
             <ul className="dot-list">
-              <li>Employees of Zipto</li>
-              <li>Agents of Zipto</li>
-              <li>Representatives of Zipto</li>
+              <li>Employees of bookfleet</li>
+              <li>Agents of bookfleet</li>
+              <li>Representatives of bookfleet</li>
             </ul>
           </div>
         </div>
@@ -190,7 +190,7 @@ const sections = [
         <div className="sub-block no-block mt-4">
           <h4>We Never Do This</h4>
           <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            Zipto does <strong>not</strong> sell rider personal data under any circumstances.
+            bookfleet does <strong>not</strong> sell rider personal data under any circumstances.
           </p>
         </div>
       </>
@@ -253,7 +253,7 @@ const sections = [
           <li>OTP is used only for login and verification</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Zipto is not responsible for unauthorized access due to user negligence.
+          ⚠️ bookfleet is not responsible for unauthorized access due to user negligence.
         </div>
       </>
     ),
@@ -264,7 +264,7 @@ const sections = [
     number: "11",
     content: (
       <>
-        <p>By using the Zipto Rider App, you explicitly consent to:</p>
+        <p>By using the bookfleet Rider App, you explicitly consent to:</p>
         <ul className="dot-list mt-3">
           <li>Real-time location tracking</li>
           <li>Background GPS access for operational purposes</li>
@@ -281,14 +281,14 @@ const sections = [
     number: "12",
     content: (
       <>
-        <p>Zipto shall not be responsible for:</p>
+        <p>bookfleet shall not be responsible for:</p>
         <ul className="dot-list mt-3">
           <li>Product quality, legality, or condition</li>
           <li>Issues caused by sender or third-party providers</li>
           <li>Indirect or consequential damages</li>
         </ul>
         <div className="notice-pill mt-4">
-          👉 Zipto's role is limited to <strong>platform facilitation</strong>.
+          👉 bookfleet's role is limited to <strong>platform facilitation</strong>.
         </div>
       </>
     ),
@@ -299,7 +299,7 @@ const sections = [
     number: "13",
     content: (
       <>
-        <p>Zipto reserves the right to:</p>
+        <p>bookfleet reserves the right to:</p>
         <ul className="dot-list mt-3">
           <li>Suspend or terminate rider accounts</li>
           <li>Take necessary action in case of fraud, misuse, or policy violations</li>
@@ -353,7 +353,7 @@ const sections = [
     number: "16",
     content: (
       <p>
-        Zipto may update this Privacy Policy from time to time. Continued use of the app
+        bookfleet may update this Privacy Policy from time to time. Continued use of the app
         indicates acceptance of the updated policy.
       </p>
     ),
@@ -387,7 +387,7 @@ const sections = [
     number: "18",
     content: (
       <ul className="info-list">
-        <li><span className="label">Officer</span><span>Zipto Support Team</span></li>
+        <li><span className="label">Officer</span><span>bookfleet Support Team</span></li>
         <li><span className="label">Response Time</span><span>Within 48 hours</span></li>
         <li><span className="label">Email</span><span><a href="mailto:rider.support@ridezipto.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@ridezipto.com</a></span></li>
       </ul>
@@ -401,7 +401,7 @@ const sections = [
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By using the Zipto Rider Application, you confirm that you have{" "}
+          By using the bookfleet Rider Application, you confirm that you have{" "}
           <strong>read, understood, and agreed</strong> to this Privacy Policy in its entirety.
         </p>
       </div>
@@ -432,8 +432,8 @@ export default function RiderPrivacyPolicy() {
   return (
     <>
       <Helmet>
-        <title>Rider Privacy Policy — Zipto</title>
-        <meta name="description" content="Privacy policy for Zipto delivery partners: data collection, usage, and retention policies for riders." />
+        <title>Rider Privacy Policy — bookfleet</title>
+        <meta name="description" content="Privacy policy for bookfleet delivery partners: data collection, usage, and retention policies for riders." />
       </Helmet>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }
@@ -643,7 +643,7 @@ export default function RiderPrivacyPolicy() {
         <div className="hero-badge">🛵 Rider Onboarding Privacy Policy</div>
 
         <div className="hero-logo">
-          <img src={riderlogo} alt="Zipto Logo" />
+          <img src={riderlogo} alt="bookfleet Logo" />
         </div>
 
         <h1>Rider Onboarding <em>Privacy Policy</em></h1>
