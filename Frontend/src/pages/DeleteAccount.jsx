@@ -406,7 +406,7 @@ export default function DeleteAccount() {
 
         {/* Footer note */}
         <div className="footer-note">
-          <p>© {new Date().getFullYear()} <strong>Zipto Hyperlogistics Pvt. Ltd.</strong> · Bhubaneswar, Odisha, India</p>
+          <p>© {new Date().getFullYear()} Bookfleet. Operated by <strong>Zipto Hyperlogistics Private Limited</strong>. All Rights Reserved.</p>
           <p style={{ marginTop: 4 }}>This page exists to comply with Google Play Store data deletion requirements.</p>
         </div>
 
