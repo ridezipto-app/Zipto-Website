@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import appleLogo from "../../assets/apple.png";
 import androidLogo from "../../assets/android-logo.png";
+import Hyperspeed from "./Hyperspeed";
 
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzQ6kMhV0nudurNUXx0g4XjXIA3NTyEqwqvgU-_JknW_8OHyV7tafs-_TtMZEs0VDND/exec";
 
@@ -16,7 +17,7 @@ const heroStyles = `
     min-height: 640px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(140deg, #050c1e 0%, #091528 55%, #040a1c 100%);
+    background: #030810;
     font-family: 'Space Grotesk', sans-serif;
     display: flex;
     align-items: center;
@@ -34,38 +35,6 @@ const heroStyles = `
     z-index: 0;
   }
 
-  /* ── ORBS ── */
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-orb-1 {
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 65%);
-    top: -200px; right: -150px;
-    filter: blur(70px);
-    animation: zh-orb1 9s ease-in-out infinite;
-  }
-  .hero-orb-2 {
-    width: 520px; height: 520px;
-    background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 65%);
-    bottom: -160px; left: -100px;
-    filter: blur(90px);
-    animation: zh-orb2 12s ease-in-out infinite;
-  }
-  .hero-orb-3 {
-    width: 380px; height: 380px;
-    background: radial-gradient(circle, rgba(14,165,233,0.11) 0%, transparent 65%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(110px);
-    animation: zh-orb3 7s ease-in-out infinite;
-  }
-  @keyframes zh-orb1 { 0%,100% { transform: translate(0,0);           } 50% { transform: translate(-40px, 50px);  } }
-  @keyframes zh-orb2 { 0%,100% { transform: translate(0,0);           } 50% { transform: translate(50px,-40px);   } }
-  @keyframes zh-orb3 { 0%,100% { transform: translate(-50%,-50%) scale(1);  } 50% { transform: translate(-50%,-50%) scale(1.3); } }
 
   /* ── BG TEXT ── */
   .hero-bg-text-wrap {
@@ -539,6 +508,42 @@ export default function bookfleetHero() {
     finally { setSubmitting(false); }
   };
 
+  const hyperspeedOptions = useMemo(() => ({
+    distortion: 'turbulentDistortion',
+    length: 400,
+    roadWidth: 10,
+    islandWidth: 2,
+    lanesPerRoad: 4,
+    fov: 90,
+    fovSpeedUp: 150,
+    speedUp: 2,
+    carLightsFade: 0.4,
+    totalSideLightSticks: 20,
+    lightPairsPerRoadWay: 40,
+    shoulderLinesWidthPercentage: 0.05,
+    brokenLinesWidthPercentage: 0.1,
+    brokenLinesLengthPercentage: 0.5,
+    lightStickWidth: [0.12, 0.5],
+    lightStickHeight: [1.3, 1.7],
+    movingAwaySpeed: [60, 80],
+    movingCloserSpeed: [-120, -160],
+    carLightsLength: [400 * 0.03, 400 * 0.2],
+    carLightsRadius: [0.05, 0.14],
+    carWidthPercentage: [0.3, 0.5],
+    carShiftX: [-0.8, 0.8],
+    carFloorSeparation: [0, 5],
+    colors: {
+      roadColor: 0x050c1e,
+      islandColor: 0x091528,
+      background: 0x030810,
+      shoulderLines: 0x1e40af,
+      brokenLines: 0x1e40af,
+      leftCars:  [0x2563eb, 0x3b82f6, 0x60a5fa],
+      rightCars: [0x1d4ed8, 0x1e40af, 0x93c5fd],
+      sticks: 0x60a5fa,
+    },
+  }), []);
+
   const na   = (base) => playAnim ? base : `${base} no-anim`;
   const nafc = (base) => playAnim ? `hero-float-card ${base}` : `hero-float-card ${base} no-anim`;
 
@@ -548,10 +553,8 @@ export default function bookfleetHero() {
 
       <section className="bookfleet-hero" aria-label="bookfleet hero">
 
-        {/* Background orbs */}
-        <div className="hero-orb hero-orb-1" aria-hidden="true" />
-        <div className="hero-orb hero-orb-2" aria-hidden="true" />
-        <div className="hero-orb hero-orb-3" aria-hidden="true" />
+        {/* Hyperspeed road animation background */}
+        <Hyperspeed effectOptions={hyperspeedOptions} />
 
         {/* Faint background text */}
         <div className="hero-bg-text-wrap" aria-hidden="true">
