@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
-import riderlogo from "../assets/rider_logo.png";
+import logo from "../assets/bookfleet_logo.png";
 
 const sections = [
   {
@@ -10,297 +10,263 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet Rider.</p>
-        <p className="mt-3">
-          These Rider Terms &amp; Conditions ("Terms") govern your registration and use
-          of the Bookfleet Rider App and related services operated by{" "}
-          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
-          "we", "our", or "us").
+        <p>
+          This Cancellation &amp; Refund Policy outlines the rules governing booking
+          cancellations, cancellation charges, refunds, and related processes for
+          services offered through the Bookfleet Customer App, website, and related
+          platforms operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet",
+          "Company", "we", "our", or "us").
         </p>
         <div className="notice-pill mt-4">
-          ✅ By registering as a Bookfleet Delivery Partner, you agree to comply with
-          these Terms &amp; Conditions.
+          ✅ By using Bookfleet, you agree to this Cancellation &amp; Refund Policy.
         </div>
       </>
     ),
   },
   {
-    id: "about",
-    title: "About Bookfleet",
+    id: "customer-cancellation",
+    title: "Customer Cancellation",
     number: "02",
     content: (
       <>
         <p>
-          Bookfleet is a technology platform that connects customers with independent
-          delivery partners for on-demand logistics services.
+          Customers may cancel a booking at any time through the Bookfleet App,
+          subject to the following conditions:
         </p>
-        <p className="mt-3">
-          Bookfleet provides access to delivery opportunities through various vehicle
-          categories, including:
-        </p>
-        <ul className="dot-list mt-3">
-          <li>Bike</li>
-          <li>Scooter</li>
-          <li>Auto</li>
-          <li>Pickup</li>
-          <li>Mini Truck</li>
-          <li>Other approved vehicles</li>
-        </ul>
-        <div className="notice-pill mt-4">
-          ℹ️ Bookfleet acts only as a technology platform and does not employ riders as employees.
+        <div className="sub-sections mt-3">
+          <div className="sub-block yes-block">
+            <h4>Before a Delivery Partner is Assigned</h4>
+            <ul className="dot-list mt-2">
+              <li>Cancellation is free of charge.</li>
+              <li>No cancellation fee will be applied.</li>
+            </ul>
+          </div>
+          <div className="sub-block mt-3" style={{ background: "#fff8ee", border: "1px solid #ffd591" }}>
+            <h4 style={{ color: "#92400e" }}>After a Delivery Partner is Assigned</h4>
+            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: 8 }}>
+              A cancellation fee may apply depending on:
+            </p>
+            <ul className="dot-list">
+              <li>Distance travelled by the delivery partner.</li>
+              <li>Time spent reaching the pickup location.</li>
+              <li>Operational costs incurred.</li>
+            </ul>
+          </div>
+          <div className="sub-block no-block mt-3">
+            <h4>After Pickup</h4>
+            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+              Once the shipment has been picked up by the delivery partner, the
+              booking generally cannot be cancelled unless approved by Bookfleet
+              under exceptional circumstances.
+            </p>
+          </div>
         </div>
       </>
     ),
   },
   {
-    id: "eligibility",
-    title: "Rider Eligibility",
+    id: "cancellation-by-bookfleet",
+    title: "Cancellation by Bookfleet",
     number: "03",
     content: (
       <>
-        <p>To register as a Bookfleet Delivery Partner, you must:</p>
-        <ul className="dot-list mt-3">
-          <li>Be at least 18 years of age.</li>
-          <li>Possess a valid Government-issued ID.</li>
-          <li>Hold a valid Driving Licence (where applicable).</li>
-          <li>Own or have legal access to an approved vehicle.</li>
-          <li>Submit accurate KYC documents.</li>
-          <li>Maintain a valid bank account for payouts.</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet reserves the right to approve or reject any application.
+        <p>Bookfleet reserves the right to cancel any booking due to:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">🚫 Rider unavailability</div>
+          <div className="service-chip">🚗 Vehicle unavailability</div>
+          <div className="service-chip">📍 Incorrect booking details</div>
+          <div className="service-chip">🛡️ Safety concerns</div>
+          <div className="service-chip">🔍 Suspected fraud</div>
+          <div className="service-chip">⚙️ Technical issues</div>
+          <div className="service-chip">🌪️ Force majeure events</div>
+          <div className="service-chip">📋 Policy violations</div>
+        </div>
+        <div className="notice-pill mt-4">
+          ℹ️ Where applicable, eligible refunds will be processed.
         </div>
       </>
     ),
   },
   {
-    id: "account",
-    title: "Rider Account",
+    id: "cancellation-by-partner",
+    title: "Cancellation by Delivery Partner",
     number: "04",
     content: (
       <>
-        <p>You are responsible for:</p>
+        <p>A delivery partner may cancel a booking due to:</p>
         <ul className="dot-list mt-3">
-          <li>Maintaining accurate profile information.</li>
-          <li>Protecting your login credentials.</li>
-          <li>Keeping your documents updated.</li>
-          <li>Reporting unauthorized access immediately.</li>
+          <li>Vehicle breakdown.</li>
+          <li>Personal emergency.</li>
+          <li>Safety concerns.</li>
+          <li>Incorrect booking details.</li>
+          <li>Other valid operational reasons.</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ You are solely responsible for all activities performed using your account.
+        <div className="notice-pill mt-4">
+          ℹ️ Bookfleet will make reasonable efforts to assign another available delivery partner.
         </div>
       </>
     ),
   },
   {
-    id: "responsibilities",
-    title: "Delivery Partner Responsibilities",
+    id: "refund-eligibility",
+    title: "Refund Eligibility",
     number: "05",
     content: (
       <>
-        <p>As a Delivery Partner, you agree to:</p>
-        <ul className="dot-list mt-3">
-          <li>Accept deliveries responsibly.</li>
-          <li>Deliver shipments safely and professionally.</li>
-          <li>Follow traffic rules and applicable laws.</li>
-          <li>Treat customers respectfully.</li>
-          <li>Maintain your vehicle in roadworthy condition.</li>
-          <li>Carry valid vehicle documents while online.</li>
-          <li>Complete deliveries honestly and accurately.</li>
-        </ul>
+        <p>Refunds may be provided in situations including but not limited to:</p>
+        <div className="penalty-table mt-3">
+          <div className="penalty-row">
+            <div className="penalty-icon warn">💳</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Payment Completed, Booking Not Created</div>
+              <div className="penalty-desc">Payment was deducted but no booking was generated.</div>
+            </div>
+            <div className="penalty-badge warn">Eligible</div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">🔁</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Duplicate Payment</div>
+              <div className="penalty-desc">Same booking charged more than once.</div>
+            </div>
+            <div className="penalty-badge warn">Eligible</div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">❌</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Booking Cancelled by Bookfleet</div>
+              <div className="penalty-desc">Cancellation initiated by the platform.</div>
+            </div>
+            <div className="penalty-badge warn">Eligible</div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">🚫</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Service Could Not Be Provided</div>
+              <div className="penalty-desc">Delivery failed due to platform-side reasons.</div>
+            </div>
+            <div className="penalty-badge warn">Eligible</div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">⚠️</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Incorrect Charge</div>
+              <div className="penalty-desc">Payment charged incorrectly or in excess.</div>
+            </div>
+            <div className="penalty-badge warn">Eligible</div>
+          </div>
+        </div>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Refunds are not guaranteed for every cancelled booking.
+        </div>
       </>
     ),
   },
   {
-    id: "contractor",
-    title: "Independent Contractor",
+    id: "non-refundable",
+    title: "Non-Refundable Situations",
     number: "06",
     content: (
       <>
-        <p>Bookfleet Delivery Partners are independent contractors.</p>
-        <p className="mt-3">
-          Nothing in these Terms creates an employer-employee relationship, partnership,
-          agency, or joint venture between Bookfleet and the Delivery Partner.
-        </p>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Delivery Partners remain responsible for their own taxes, insurance,
-          statutory obligations, and operational expenses.
-        </div>
+        <p>Refunds may not be provided if:</p>
+        <ul className="dot-list mt-3">
+          <li>The customer entered incorrect booking details.</li>
+          <li>The customer was unavailable at pickup or delivery.</li>
+          <li>The shipment violated Bookfleet policies.</li>
+          <li>Cancellation occurred after pickup without valid reason.</li>
+          <li>The service was successfully completed.</li>
+        </ul>
       </>
     ),
   },
   {
-    id: "earnings",
-    title: "Payments & Earnings",
+    id: "refund-processing",
+    title: "Refund Processing Time",
     number: "07",
     content: (
       <>
-        <p>Rider earnings are calculated according to the pricing structure displayed in the Rider App.</p>
-        <div className="two-col mt-3">
-          <div className="col-block yes-block">
-            <h4>Payments May Include</h4>
-            <ul className="dot-list">
-              <li>Delivery Earnings</li>
-              <li>Incentives</li>
-              <li>Bonuses</li>
-              <li>Surge Earnings (where applicable)</li>
-            </ul>
-          </div>
-          <div className="col-block no-block">
-            <h4>Bookfleet May Deduct</h4>
-            <ul className="dot-list">
-              <li>Platform Fees (if applicable)</li>
-              <li>Taxes</li>
-              <li>Penalties for policy violations</li>
-              <li>Other lawful deductions</li>
-            </ul>
-          </div>
-        </div>
-        <div className="notice-pill mt-4">
-          💳 Payouts are processed according to the Bookfleet payout schedule.
-        </div>
+        <ul className="info-list">
+          <li>
+            <span className="label">Processing Time</span>
+            <span>Generally within 5–10 business days from approval.</span>
+          </li>
+          <li>
+            <span className="label">Actual Credit Timeline</span>
+            <span>May vary depending on your bank or payment service provider.</span>
+          </li>
+        </ul>
       </>
     ),
   },
   {
-    id: "location",
-    title: "Live Location",
+    id: "refund-method",
+    title: "Refund Method",
     number: "08",
     content: (
       <>
-        <p>While online, riders must allow Bookfleet to access real-time and background location.</p>
-        <p className="mt-3">Location data is required for:</p>
-        <ul className="dot-list mt-3">
-          <li>Order Allocation</li>
-          <li>Navigation</li>
-          <li>Delivery Tracking</li>
-          <li>Customer Visibility</li>
-          <li>Safety</li>
-          <li>Operational Support</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Disabling location services may result in limited or unavailable services.
-        </div>
+        <p>
+          Refunds will normally be issued to the <strong>original payment method</strong> used
+          during booking.
+        </p>
+        <p className="mt-3 text-muted">
+          Where this is not possible, Bookfleet may process the refund through another
+          suitable method permitted by law.
+        </p>
       </>
     ),
   },
   {
-    id: "prohibited",
-    title: "Prohibited Conduct",
+    id: "failed-payments",
+    title: "Failed or Pending Payments",
     number: "09",
     content: (
       <>
-        <p>Delivery Partners must not:</p>
-        <ul className="dot-list mt-3">
-          <li>Submit false documents.</li>
-          <li>Share Rider Accounts.</li>
-          <li>Accept fake deliveries.</li>
-          <li>Misuse customer information.</li>
-          <li>Carry illegal or prohibited goods.</li>
-          <li>Consume alcohol or drugs while delivering.</li>
-          <li>Behave abusively towards customers or staff.</li>
-          <li>Engage in fraudulent activities.</li>
-        </ul>
-        <div className="sub-block no-block mt-4">
-          <h4>Consequences</h4>
-          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            Violation may result in immediate suspension or permanent termination.
-          </p>
+        <p>
+          If a payment fails or remains pending, customers should first verify the
+          transaction with their bank or payment provider.
+        </p>
+        <div className="notice-pill mt-4">
+          📧 If the amount has been debited but the booking was not created, contact
+          Bookfleet Support for assistance.
         </div>
       </>
     ),
   },
   {
-    id: "vehicle",
-    title: "Vehicle Compliance",
+    id: "disputes",
+    title: "Disputes",
     number: "10",
     content: (
       <>
-        <p>Riders are responsible for ensuring that:</p>
-        <ul className="dot-list mt-3">
-          <li>Their vehicle is legally registered.</li>
-          <li>Insurance remains valid.</li>
-          <li>Pollution Certificate (PUC), where applicable, is valid.</li>
-          <li>Vehicle documents remain up to date.</li>
-        </ul>
-        <div className="notice-pill mt-4">
-          ℹ️ Bookfleet may request updated documents at any time.
+        <p>Any cancellation or refund dispute will be reviewed by Bookfleet.</p>
+        <div className="notice-pill notice-warn mt-4">
+          ⚖️ Bookfleet's decision regarding refunds, after reviewing the relevant
+          facts and applicable policies, shall be final to the extent permitted by law.
         </div>
       </>
     ),
   },
   {
-    id: "termination",
-    title: "Suspension & Termination",
+    id: "policy-updates",
+    title: "Policy Updates",
     number: "11",
     content: (
       <>
-        <p>Bookfleet reserves the right to suspend or permanently terminate Rider Accounts for:</p>
-        <ul className="dot-list mt-3">
-          <li>Fraud</li>
-          <li>Fake Documents</li>
-          <li>Unsafe Driving</li>
-          <li>Criminal Activities</li>
-          <li>Customer Abuse</li>
-          <li>Repeated Policy Violations</li>
-          <li>Low Service Standards</li>
-          <li>Any activity that may harm the Bookfleet Platform or its users</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "liability",
-    title: "Limitation of Liability",
-    number: "12",
-    content: (
-      <>
         <p>
-          Bookfleet acts solely as a technology platform connecting customers with
-          independent delivery partners.
+          Bookfleet may modify this Cancellation &amp; Refund Policy from time to time.
         </p>
-        <p className="mt-3">To the fullest extent permitted by law, Bookfleet shall not be liable for:</p>
-        <ul className="dot-list mt-3">
-          <li>Loss or damage resulting from rider negligence.</li>
-          <li>Road accidents.</li>
-          <li>Vehicle damage.</li>
-          <li>Traffic delays.</li>
-          <li>Government restrictions.</li>
-          <li>Force majeure events.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "changes",
-    title: "Modification of Terms",
-    number: "13",
-    content: (
-      <>
-        <p>Bookfleet may revise these Terms &amp; Conditions from time to time.</p>
         <p className="mt-3 text-muted">
-          Updated Terms become effective immediately upon publication on the Rider App
-          or website. Continued use of the Rider Platform constitutes acceptance of the
-          updated Terms.
+          The latest version will always be available on the Bookfleet website and
+          application.
         </p>
       </>
-    ),
-  },
-  {
-    id: "law",
-    title: "Governing Law",
-    number: "14",
-    content: (
-      <ul className="info-list">
-        <li><span className="label">Governing Law</span><span>Laws of India</span></li>
-        <li><span className="label">Jurisdiction</span><span>Competent courts of Bhubaneswar, Odisha</span></li>
-      </ul>
     ),
   },
   {
     id: "contact",
     title: "Contact Us",
-    number: "15",
+    number: "12",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
@@ -321,7 +287,10 @@ const sections = [
           <div className="icon">📍</div>
           <div>
             <div className="c-label">Registered Office</div>
-            <span>Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span>
+            <span>
+              Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar,
+              780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India
+            </span>
           </div>
         </div>
       </div>
@@ -329,7 +298,7 @@ const sections = [
   },
 ];
 
-export default function RiderTerms() {
+export default function CancellationRefundPolicy() {
   const navigate = useNavigate();
   const [openSections, setOpenSections] = useState(new Set());
   const allIds = sections.map((s) => s.id);
@@ -352,11 +321,11 @@ export default function RiderTerms() {
   return (
     <>
       <Helmet>
-        <title>Rider Terms & Conditions – bookfleet | bookfleet.in</title>
-        <meta name="description" content="Terms and conditions for delivery partners using the bookfleet Rider app, including rider responsibilities, obligations, and policies." />
-        <link rel="canonical" href="https://bookfleet.in/rider-terms-of-service" />
-        <meta property="og:title" content="Rider Terms & Conditions – bookfleet" />
-        <meta property="og:url" content="https://bookfleet.in/rider-terms-of-service" />
+        <title>Cancellation & Refund Policy – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Learn about Bookfleet's cancellation and refund policy, including cancellation fees, refund eligibility, processing times, and how to raise disputes." />
+        <link rel="canonical" href="https://bookfleet.in/cancellation-refund-policy" />
+        <meta property="og:title" content="Cancellation & Refund Policy – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/cancellation-refund-policy" />
         <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
@@ -379,7 +348,6 @@ export default function RiderTerms() {
         }
         body { font-family: var(--font-body); background: var(--blue-50); color: var(--text-primary); }
 
-
         .hero {
           background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
           padding: 64px 24px 56px; text-align: center;
@@ -401,10 +369,8 @@ export default function RiderTerms() {
           width: 160px; height: 160px;
           border-radius: 28px;
           overflow: hidden;
-          border: 3px solid rgba(255,255,255,0.3);
-          box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+          box-shadow: 0 12px 40px rgba(0,0,0,0.35);
           margin: 0 auto 24px;
-          background: var(--blue-800);
           display: flex; align-items: center; justify-content: center;
         }
         .hero h1 {
@@ -497,23 +463,8 @@ export default function RiderTerms() {
         }
         .sub-block.no-block { background: #fff4f4; border-color: #ffd0d0; }
         .sub-block.no-block h4 { color: #c0392b; }
-
-        .notice-pill {
-          display: inline-flex; align-items: center; gap: 6px;
-          background: var(--blue-100); border: 1px solid var(--blue-200);
-          color: var(--blue-800); font-size: 0.78rem; font-weight: 500;
-          padding: 7px 14px; border-radius: 8px; line-height: 1.5;
-        }
-        .notice-pill.notice-warn { background: #fff4e5; border-color: #ffd591; color: #7c4a00; }
-
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media (max-width: 540px) { .two-col { grid-template-columns: 1fr; } }
-        .col-block { padding: 14px; border-radius: 10px; }
-        .col-block h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
-        .no-block { background: #fff4f4; border: 1px solid #ffd0d0; }
-        .no-block h4 { color: #c0392b; }
-        .yes-block { background: var(--blue-50); border: 1px solid var(--blue-200); }
-        .yes-block h4 { color: var(--blue-700); }
+        .sub-block.yes-block { background: var(--blue-50); border-color: var(--blue-200); }
+        .sub-block.yes-block h4 { color: var(--blue-700); }
 
         .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         @media (max-width: 480px) { .service-grid { grid-template-columns: 1fr; } }
@@ -523,6 +474,14 @@ export default function RiderTerms() {
           font-size: 0.82rem; font-weight: 600; color: var(--blue-800);
           display: flex; align-items: center; gap: 8px;
         }
+
+        .notice-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: var(--blue-100); border: 1px solid var(--blue-200);
+          color: var(--blue-800); font-size: 0.78rem; font-weight: 500;
+          padding: 7px 14px; border-radius: 8px; line-height: 1.5;
+        }
+        .notice-pill.notice-warn { background: #fff4e5; border-color: #ffd591; color: #7c4a00; }
 
         .penalty-table { display: flex; flex-direction: column; gap: 10px; }
         .penalty-row {
@@ -546,7 +505,7 @@ export default function RiderTerms() {
           font-size: 0.7rem; font-weight: 700; padding: 4px 10px;
           border-radius: 99px; white-space: nowrap; flex-shrink: 0;
         }
-        .penalty-badge.warn { background: #fff4e5; color: #7c4a00; border: 1px solid #ffd591; }
+        .penalty-badge.warn { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
         .penalty-badge.red { background: #fff0f0; color: #c0392b; border: 1px solid #ffd0d0; }
 
         .contact-grid { display: flex; flex-direction: column; gap: 10px; }
@@ -561,28 +520,19 @@ export default function RiderTerms() {
         .contact-card a:hover { text-decoration: underline; }
         .contact-card span { font-size: 0.875rem; color: var(--text-secondary); }
 
-        .acceptance-box {
-          display: flex; gap: 14px; align-items: flex-start;
-          padding: 18px;
-          background: linear-gradient(135deg, var(--blue-100), var(--blue-50));
-          border: 1px solid var(--blue-300); border-radius: 12px;
-        }
-        .accept-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-        .acceptance-box p { font-size: 0.875rem; color: var(--blue-900); line-height: 1.7; }
-
         .text-muted { color: var(--text-muted) !important; font-style: italic; font-size: 0.82rem; }
       `}</style>
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Terms & Conditions</div>
+        <div className="hero-badge">💳 Cancellation &amp; Refund Policy</div>
         <div className="hero-logo">
-          <img src={riderlogo} alt="bookfleet Logo" />
+          <img src={logo} alt="bookfleet Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
-        <h1>Rider Terms &amp; <em>Conditions</em></h1>
+        <h1>Cancellation &amp; <em>Refund</em> Policy</h1>
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>
-          <span>🛵 Delivery Partner</span>
+          <span>👤 Customer</span>
           <span>⚖️ Governed by Indian Law</span>
         </div>
       </div>

@@ -9,18 +9,20 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>
-          This Privacy Policy explains how <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
-          ("bookfleet", "Company", "We", "Us", "Our") collects, uses, processes, stores, and
-          protects information of delivery partners ("Riders") using the bookfleet Rider
-          Application and related services.
+        <p>Welcome to Bookfleet Rider.</p>
+        <p className="mt-3">
+          Bookfleet Rider is operated by <strong>Zipto Hyperlogistics Private Limited</strong>{" "}
+          ("Bookfleet", "Company", "we", "our", or "us"). We are committed to protecting
+          the privacy and personal information of our delivery partners.
         </p>
         <p className="mt-3">
-          The Rider App is designed to onboard and manage independent delivery partners
-          who perform pickup and delivery services through the bookfleet platform.
+          This Privacy Policy explains how we collect, use, store, process, share, and
+          protect your personal information when you register as a delivery partner or use
+          the Bookfleet Rider App and related services.
         </p>
         <div className="notice-pill mt-4">
-          ✅ By registering or using the Rider App, you agree to this Privacy Policy.
+          ✅ By registering with or using the Bookfleet Rider Platform, you acknowledge
+          that you have read, understood, and agreed to this Privacy Policy.
         </div>
       </>
     ),
@@ -31,167 +33,173 @@ const sections = [
     number: "02",
     content: (
       <ul className="info-list">
-        <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
-        <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
-        <li><span className="label">Operating Location</span><span>Bhubaneswar, Odisha, India</span></li>
-        <li><span className="label">Email</span><span><a href="mailto:rider.support@bookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@bookfleet.com</a></span></li>
+        <li><span className="label">Legal Entity</span><span>Zipto Hyperlogistics Private Limited</span></li>
+        <li><span className="label">Brand Name</span><span>Bookfleet</span></li>
+        <li><span className="label">Registered Office</span><span>781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
+        <li><span className="label">Website</span><a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue-600)", textDecoration: "none" }}>www.bookfleet.in</a></li>
+        <li><span className="label">Support Email</span><a href="mailto:support@bookfleet.in" style={{ color: "var(--blue-600)", textDecoration: "none" }}>support@bookfleet.in</a></li>
       </ul>
+    ),
+  },
+  {
+    id: "scope",
+    title: "Scope of this Privacy Policy",
+    number: "03",
+    content: (
+      <>
+        <p>This Privacy Policy applies to:</p>
+        <ul className="dot-list mt-3">
+          <li>Bookfleet Rider App</li>
+          <li>Rider Registration</li>
+          <li>KYC Verification</li>
+          <li>Delivery Operations</li>
+          <li>Rider Wallet &amp; Payout Services</li>
+          <li>Customer Support</li>
+          <li>Communication Services</li>
+          <li>Any other services offered through the Bookfleet Rider Platform</li>
+        </ul>
+      </>
     ),
   },
   {
     id: "data-collected",
     title: "Information We Collect",
-    number: "03",
+    number: "04",
     content: (
-      <>
-        <div className="two-col mt-3">
-          <div className="col-block yes-block">
-            <h4>A. Personal Information</h4>
-            <ul className="dot-list">
-              <li>Full Name</li>
-              <li>Mobile Number</li>
-              <li>Email Address</li>
-              <li>Profile Photo (if applicable)</li>
-            </ul>
-          </div>
-          <div className="col-block yes-block">
-            <h4>B. Device & Technical Data</h4>
-            <ul className="dot-list">
-              <li>Device type and model</li>
-              <li>Operating system</li>
-              <li>IP address</li>
-              <li>App usage logs</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="sub-block mt-4">
-          <h4>C. KYC & Verification Data</h4>
-          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
-            To ensure identity verification and regulatory compliance, we collect:
-          </p>
+      <div className="sub-sections">
+        <div className="sub-block">
+          <h4>Personal Information</h4>
           <ul className="dot-list">
-            <li>Driving License</li>
-            <li>Vehicle Registration Certificate (RC)</li>
-            <li>Identity Proof (Aadhaar / PAN / other valid ID)</li>
+            <li>Full Name</li>
+            <li>Mobile Number</li>
+            <li>Email Address (if provided)</li>
+            <li>Date of Birth</li>
+            <li>Profile Photograph</li>
           </ul>
-          <p className="mt-3 text-muted">
-            All KYC documents are securely processed and used strictly for verification purposes.
-          </p>
         </div>
-
-        <div className="sub-block mt-4">
-          <h4>D. Financial Information</h4>
-          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
-            For processing payouts:
-          </p>
+        <div className="sub-block">
+          <h4>Identity &amp; KYC Information</h4>
           <ul className="dot-list">
-            <li>Bank Account Details</li>
+            <li>Aadhaar Card</li>
+            <li>PAN Card</li>
+            <li>Driving Licence</li>
+            <li>Selfie Verification</li>
+            <li>Other documents required under applicable law</li>
+          </ul>
+        </div>
+        <div className="sub-block">
+          <h4>Vehicle Information</h4>
+          <ul className="dot-list">
+            <li>Vehicle Type</li>
+            <li>Vehicle Registration Certificate (RC)</li>
+            <li>Insurance Details</li>
+            <li>Vehicle Photos</li>
+            <li>Permit Details (where applicable)</li>
+          </ul>
+        </div>
+        <div className="sub-block">
+          <h4>Banking Information</h4>
+          <ul className="dot-list">
+            <li>Bank Account Holder Name</li>
+            <li>Account Number</li>
+            <li>IFSC Code</li>
             <li>UPI ID (if applicable)</li>
           </ul>
         </div>
-        <div className="sub-block no-block mt-3">
-          <h4>bookfleet Does NOT Store</h4>
+        <div className="sub-block" style={{ background: "#fff4e5", borderColor: "#ffd591" }}>
+          <h4 style={{ color: "#7c4a00" }}>Location Information</h4>
           <ul className="dot-list">
-            <li>ATM PIN</li>
-            <li>UPI PIN</li>
-            <li>Payment OTP</li>
-          </ul>
-        </div>
-
-        <div className="sub-block mt-4" style={{ background: "#fff4e5", borderColor: "#ffd591" }}>
-          <h4 style={{ color: "#7c4a00" }}>E. Location Data (Critical)</h4>
-          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: 8 }}>
-            bookfleet collects real-time and background location data. This is required for:
-          </p>
-          <ul className="dot-list">
-            <li>Assigning delivery orders based on proximity</li>
-            <li>Providing real-time tracking to customers</li>
-            <li>Route optimization and navigation</li>
-            <li>Ensuring safety, compliance, and fraud prevention</li>
+            <li>Live GPS Location</li>
+            <li>Background Location (while online for deliveries)</li>
+            <li>Pickup &amp; Delivery Route Information</li>
           </ul>
           <div className="notice-pill notice-warn mt-3">
-            ⚠️ Background location is required even when the app is not actively in use.
+            ⚠️ Background location is required while you are online for deliveries.
           </div>
         </div>
-
-        <div className="sub-block mt-4">
-          <h4>F. OTP & Authentication Data</h4>
+        <div className="sub-block">
+          <h4>Device Information</h4>
           <ul className="dot-list">
-            <li>OTP usage for login and verification</li>
-            <li>Authentication logs</li>
+            <li>Device Model</li>
+            <li>Device Identifier</li>
+            <li>Operating System</li>
+            <li>App Version</li>
+            <li>IP Address</li>
+            <li>Crash Reports</li>
+            <li>Diagnostic Information</li>
           </ul>
-          <p className="mt-3 text-muted">OTP may be sent via email or mobile for account access.</p>
         </div>
-      </>
+        <div className="sub-block">
+          <h4>Performance Information</h4>
+          <ul className="dot-list">
+            <li>Delivery History</li>
+            <li>Acceptance Rate</li>
+            <li>Completion Rate</li>
+            <li>Earnings</li>
+            <li>Customer Ratings &amp; Reviews</li>
+            <li>Incentives &amp; Bonuses</li>
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
     id: "data-usage",
-    title: "How We Use Rider Data",
-    number: "04",
+    title: "How We Use Your Information",
+    number: "05",
     content: (
       <>
-        <p>We use collected data to:</p>
+        <p>We use your information to:</p>
         <ul className="dot-list mt-3">
-          <li>Verify rider identity and documents</li>
-          <li>Enable onboarding and account activation</li>
-          <li>Assign delivery orders</li>
-          <li>Provide navigation and tracking services</li>
-          <li>Process earnings and payouts</li>
-          <li>Monitor performance, safety, and compliance</li>
+          <li>Verify your identity and KYC</li>
+          <li>Activate your rider account</li>
+          <li>Assign delivery requests</li>
+          <li>Provide real-time navigation</li>
+          <li>Calculate earnings and incentives</li>
+          <li>Process payouts</li>
+          <li>Improve platform safety</li>
           <li>Prevent fraud and misuse</li>
-          <li>Improve platform functionality</li>
+          <li>Provide customer support</li>
+          <li>Comply with legal and regulatory requirements</li>
         </ul>
       </>
     ),
   },
   {
-    id: "platform-nature",
-    title: "Nature of Platform",
-    number: "05",
+    id: "location",
+    title: "Location Permissions",
+    number: "06",
     content: (
       <>
-        <p>bookfleet operates as a technology-enabled logistics platform.</p>
-        <div className="two-col mt-4">
-          <div className="col-block yes-block">
-            <h4>bookfleet's Role</h4>
-            <ul className="dot-list">
-              <li>Facilitates order allocation</li>
-              <li>Coordinates logistics</li>
-              <li>Provides technology platform</li>
-            </ul>
-          </div>
-          <div className="col-block no-block">
-            <h4>Riders Are NOT</h4>
-            <ul className="dot-list">
-              <li>Employees of bookfleet</li>
-              <li>Agents of bookfleet</li>
-              <li>Representatives of bookfleet</li>
-            </ul>
-          </div>
-        </div>
+        <p>
+          Bookfleet Rider requires access to your device location, including background
+          location while you are online, to:
+        </p>
+        <ul className="dot-list mt-3">
+          <li>Assign nearby delivery requests</li>
+          <li>Navigate to pickup and delivery locations</li>
+          <li>Track deliveries</li>
+          <li>Improve rider safety</li>
+          <li>Calculate trip distance and earnings</li>
+        </ul>
       </>
     ),
   },
   {
     id: "data-sharing",
-    title: "Data Sharing",
-    number: "06",
+    title: "Sharing of Information",
+    number: "07",
     content: (
       <>
-        <p>We may share limited rider data with:</p>
+        <p>Bookfleet may share limited rider information with:</p>
         <ul className="dot-list mt-3">
-          <li>Customers (name and phone number for delivery coordination)</li>
-          <li>Payment processors (for payout processing)</li>
-          <li>Service providers (analytics, support, infrastructure)</li>
-          <li>Legal or government authorities (if required by law)</li>
+          <li>Customers (such as first name, profile photo, vehicle details, and live trip location)</li>
+          <li>Payment Service Providers</li>
+          <li>Technology Service Providers</li>
+          <li>Government Authorities where legally required</li>
         </ul>
-        <div className="sub-block no-block mt-4">
-          <h4>We Never Do This</h4>
-          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            bookfleet does <strong>not</strong> sell rider personal data under any circumstances.
-          </p>
+        <div className="notice-pill notice-warn mt-4">
+          🚫 Bookfleet does not sell rider personal information to third parties.
         </div>
       </>
     ),
@@ -199,211 +207,113 @@ const sections = [
   {
     id: "data-security",
     title: "Data Security",
-    number: "07",
+    number: "08",
     content: (
-      <>
-        <p>We implement appropriate technical and organizational safeguards including:</p>
-        <div className="service-grid mt-3">
-          <div className="service-chip">🔒 Secure servers</div>
-          <div className="service-chip">🔐 Encryption practices</div>
-          <div className="service-chip">🛡️ Restricted access</div>
-          <div className="service-chip">📋 Compliance controls</div>
-        </div>
-      </>
+      <p>
+        We implement appropriate administrative, technical, and organizational measures
+        to protect rider information from unauthorized access, disclosure, alteration,
+        or misuse.
+      </p>
     ),
   },
   {
     id: "data-retention",
     title: "Data Retention",
-    number: "08",
-    content: (
-      <>
-        <p>We retain rider data:</p>
-        <ul className="dot-list mt-3">
-          <li>As long as the account is active</li>
-          <li>As required for legal, compliance, and fraud prevention purposes</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "rider-responsibilities",
-    title: "Rider Responsibilities",
     number: "09",
     content: (
-      <>
-        <p>Riders agree to:</p>
-        <ul className="dot-list mt-3">
-          <li>Provide accurate and valid information</li>
-          <li>Maintain updated documents</li>
-          <li>Safely handle items during delivery</li>
-          <li>Follow all applicable laws and platform guidelines</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "otp-security",
-    title: "OTP & Account Security",
-    number: "10",
-    content: (
-      <>
-        <ul className="dot-list">
-          <li>Riders must keep OTP and account credentials confidential</li>
-          <li>OTP is used only for login and verification</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ bookfleet is not responsible for unauthorized access due to user negligence.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "location-consent",
-    title: "Background Location Consent",
-    number: "11",
-    content: (
-      <>
-        <p>By using the bookfleet Rider App, you explicitly consent to:</p>
-        <ul className="dot-list mt-3">
-          <li>Real-time location tracking</li>
-          <li>Background GPS access for operational purposes</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Disabling location access may affect order availability and service functionality.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "liability",
-    title: "Limitation of Liability",
-    number: "12",
-    content: (
-      <>
-        <p>bookfleet shall not be responsible for:</p>
-        <ul className="dot-list mt-3">
-          <li>Product quality, legality, or condition</li>
-          <li>Issues caused by sender or third-party providers</li>
-          <li>Indirect or consequential damages</li>
-        </ul>
-        <div className="notice-pill mt-4">
-          👉 bookfleet's role is limited to <strong>platform facilitation</strong>.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "fraud",
-    title: "Fraud & Misuse",
-    number: "13",
-    content: (
-      <>
-        <p>bookfleet reserves the right to:</p>
-        <ul className="dot-list mt-3">
-          <li>Suspend or terminate rider accounts</li>
-          <li>Take necessary action in case of fraud, misuse, or policy violations</li>
-        </ul>
-      </>
+      <p>
+        We retain rider information only for as long as necessary to provide our services,
+        comply with legal obligations, resolve disputes, and enforce our agreements.
+      </p>
     ),
   },
   {
     id: "rider-rights",
     title: "Rider Rights",
-    number: "14",
+    number: "10",
     content: (
       <>
-        <p>Riders may:</p>
+        <p>You may request to:</p>
         <ul className="dot-list mt-3">
-          <li>Access and update their information</li>
-          <li>Request correction of data</li>
-          <li>Request account deletion</li>
+          <li>Access your personal information</li>
+          <li>Update inaccurate information</li>
+          <li>Correct your profile</li>
+          <li>Request account closure</li>
+          <li>Withdraw consent where permitted by law</li>
         </ul>
-        <div className="contact-grid mt-4">
-          <div className="contact-card">
-            <div className="icon">📩</div>
-            <div>
-              <div className="c-label">Submit requests via</div>
-              <a href="mailto:rider.support@bookfleet.com">rider.support@bookfleet.com</a>
-            </div>
-          </div>
-        </div>
       </>
     ),
   },
   {
     id: "account-deletion",
-    title: "Account Deletion",
-    number: "15",
+    title: "Account Suspension & Deletion",
+    number: "11",
     content: (
       <>
         <p>
-          Account deletion requests can be made via email. Data will be removed within a
-          reasonable timeframe, subject to legal obligations.
+          Bookfleet may suspend or permanently terminate rider accounts for fraud, policy
+          violations, unsafe conduct, submission of false documents, or any activity that
+          violates applicable laws or Bookfleet policies.
         </p>
-        <div className="notice-pill mt-4">
-          📩 Email: <strong>rider.support@bookfleet.com</strong>
-        </div>
+        <p className="mt-3 text-muted">
+          You may also request deletion of your rider account by contacting Bookfleet
+          Support, subject to legal and operational requirements.
+        </p>
       </>
     ),
   },
   {
-    id: "policy-changes",
-    title: "Changes to Policy",
-    number: "16",
+    id: "children",
+    title: "Children's Privacy",
+    number: "12",
     content: (
       <p>
-        bookfleet may update this Privacy Policy from time to time. Continued use of the app
-        indicates acceptance of the updated policy.
+        Only individuals who are legally eligible to work and enter into a contract under
+        applicable laws may register as Bookfleet delivery partners.
       </p>
     ),
   },
   {
+    id: "policy-changes",
+    title: "Changes to this Privacy Policy",
+    number: "13",
+    content: (
+      <>
+        <p>Bookfleet may update this Privacy Policy from time to time.</p>
+        <p className="mt-3 text-muted">
+          Any changes will be published on our website and/or Rider App and will become
+          effective immediately upon publication unless otherwise stated.
+        </p>
+      </>
+    ),
+  },
+  {
     id: "contact",
-    title: "Contact Information",
-    number: "17",
+    title: "Contact Us",
+    number: "14",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
           <div className="icon">📧</div>
           <div>
-            <div className="c-label">Email</div>
-            <a href="mailto:rider.support@bookfleet.com">rider.support@bookfleet.com</a>
+            <div className="c-label">Support Email</div>
+            <a href="mailto:support@bookfleet.in">support@bookfleet.in</a>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="icon">🌐</div>
+          <div>
+            <div className="c-label">Website</div>
+            <a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer">www.bookfleet.in</a>
           </div>
         </div>
         <div className="contact-card">
           <div className="icon">📍</div>
           <div>
-            <div className="c-label">Location</div>
-            <span>Bhubaneswar, Odisha, India</span>
+            <div className="c-label">Registered Office</div>
+            <span>Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span>
           </div>
         </div>
-      </div>
-    ),
-  },
-  {
-    id: "grievance",
-    title: "Grievance Officer",
-    number: "18",
-    content: (
-      <ul className="info-list">
-        <li><span className="label">Officer</span><span>bookfleet Support Team</span></li>
-        <li><span className="label">Response Time</span><span>Within 48 hours</span></li>
-        <li><span className="label">Email</span><span><a href="mailto:rider.support@bookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@bookfleet.com</a></span></li>
-      </ul>
-    ),
-  },
-  {
-    id: "acceptance",
-    title: "Acceptance",
-    number: "19",
-    content: (
-      <div className="acceptance-box">
-        <div className="accept-icon">✅</div>
-        <p>
-          By using the bookfleet Rider Application, you confirm that you have{" "}
-          <strong>read, understood, and agreed</strong> to this Privacy Policy in its entirety.
-        </p>
       </div>
     ),
   },
@@ -479,7 +389,7 @@ export default function RiderPrivacyPolicy() {
        .hero-logo {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 28px;
   overflow: hidden;
   border: 3px solid rgba(255,255,255,0.3);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);

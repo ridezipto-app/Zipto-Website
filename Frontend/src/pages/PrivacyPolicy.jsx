@@ -10,16 +10,22 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>
-          This Privacy Policy describes how <strong>Zipto Hyperlogistics Private
-            Limited</strong> ("bookfleet", "Company", "We", "Us") collects, uses, and
-          protects your information when you use the bookfleet Customer Application,
-          website, and related services.
+        <p>Welcome to Bookfleet.</p>
+        <p className="mt-3">
+          Bookfleet is a technology platform owned and operated by{" "}
+          <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
+          "we", "our", or "us"). We are committed to protecting your privacy and ensuring
+          that your personal information is handled responsibly, securely, and transparently.
         </p>
         <p className="mt-3">
-          By using bookfleet, you explicitly consent to the collection and use of
-          your data as described in this policy.
+          This Privacy Policy explains how we collect, use, store, process, share, and
+          protect your personal information when you access or use the Bookfleet Customer
+          App, Bookfleet Website, and any related products or services offered by Bookfleet.
         </p>
+        <div className="notice-pill mt-4">
+          ✅ By accessing or using the Bookfleet Platform, you acknowledge that you have
+          read, understood, and agreed to this Privacy Policy.
+        </div>
       </>
     ),
   },
@@ -29,68 +35,99 @@ const sections = [
     number: "02",
     content: (
       <ul className="info-list">
-        <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
-        <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
-        <li><span className="label">Operating Location</span><span>Bhubaneswar, Odisha, India</span></li>
-        <li><span className="label">Email</span><a href="mailto:support@bookfleet.com">support@bookfleet.com</a></li>
+        <li><span className="label">Legal Entity</span><span>Zipto Hyperlogistics Private Limited</span></li>
+        <li><span className="label">Brand Name</span><span>Bookfleet</span></li>
+        <li><span className="label">Registered Office</span><span>781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
+        <li><span className="label">Website</span><a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer">www.bookfleet.in</a></li>
+        <li><span className="label">Support Email</span><a href="mailto:support@bookfleet.in">support@bookfleet.in</a></li>
       </ul>
+    ),
+  },
+  {
+    id: "scope",
+    title: "Scope of this Privacy Policy",
+    number: "03",
+    content: (
+      <>
+        <p>This Privacy Policy applies to:</p>
+        <ul className="dot-list mt-3">
+          <li>Bookfleet Customer App</li>
+          <li>Bookfleet Website</li>
+          <li>Customer Support Services</li>
+          <li>Online Booking Platform</li>
+          <li>Payment Services</li>
+          <li>Promotional Communications</li>
+          <li>Any other services provided by Bookfleet</li>
+        </ul>
+      </>
     ),
   },
   {
     id: "collection",
     title: "Information We Collect",
-    number: "03",
+    number: "04",
     content: (
       <div className="sub-sections">
         <div className="sub-block">
-          <h4>A. Personal Information</h4>
-          <ul className="dot-list"><li>Full Name</li><li>Mobile Number</li><li>Email Address</li></ul>
-        </div>
-        <div className="sub-block">
-          <h4>B. Location Data</h4>
-          <p>We collect location data to:</p>
+          <h4>Personal Information</h4>
           <ul className="dot-list">
-            <li>Enable pickup and delivery services</li>
-            <li>Provide real-time tracking</li>
-            <li>Improve service accuracy</li>
-          </ul>
-          <div className="notice-pill">📍 Location is collected only when required for active services.</div>
-        </div>
-        <div className="sub-block">
-          <h4>C. Order &amp; Transaction Data</h4>
-          <ul className="dot-list">
-            <li>Pickup and delivery addresses</li>
-            <li>Order details &amp; delivery instructions</li>
-            <li>Payment method (UPI / Cash / COD)</li>
+            <li>Full Name</li>
+            <li>Mobile Number</li>
+            <li>Email Address (if provided)</li>
+            <li>Profile Photo (optional)</li>
           </ul>
         </div>
         <div className="sub-block">
-          <h4>D. Device &amp; Usage Information</h4>
-          <ul className="dot-list"><li>Device type</li><li>IP address</li><li>App usage data</li></ul>
+          <h4>Location Information</h4>
+          <ul className="dot-list">
+            <li>Pickup Address</li>
+            <li>Delivery Address</li>
+            <li>Live GPS Location (during active bookings)</li>
+            <li>Saved Addresses</li>
+          </ul>
         </div>
         <div className="sub-block">
-          <h4>E. Verification Data</h4>
+          <h4>Booking Information</h4>
           <ul className="dot-list">
-            <li>OTP usage (email-based and in-app)</li>
-            <li>Authentication logs for security purposes</li>
+            <li>Booking ID</li>
+            <li>Vehicle Category</li>
+            <li>Delivery Details</li>
+            <li>Order History</li>
+            <li>Delivery Status</li>
+          </ul>
+        </div>
+        <div className="sub-block">
+          <h4>Payment Information</h4>
+          <ul className="dot-list">
+            <li>Payment Method</li>
+            <li>Transaction Details</li>
+            <li>Invoice Details</li>
+            <li>Refund Information</li>
+          </ul>
+          <div className="notice-pill mt-3">🔐 Bookfleet does not store complete debit or credit card information.</div>
+        </div>
+        <div className="sub-block">
+          <h4>Device Information</h4>
+          <ul className="dot-list">
+            <li>Device Model</li>
+            <li>Device Identifier</li>
+            <li>Operating System</li>
+            <li>App Version</li>
+            <li>IP Address</li>
+            <li>Diagnostic Information</li>
+            <li>Crash Reports</li>
+          </ul>
+        </div>
+        <div className="sub-block">
+          <h4>Communication Information</h4>
+          <ul className="dot-list">
+            <li>Customer Support Requests</li>
+            <li>Ratings &amp; Reviews</li>
+            <li>Feedback</li>
+            <li>Complaint Details</li>
           </ul>
         </div>
       </div>
-    ),
-  },
-  {
-    id: "otp",
-    title: "OTP & Verification",
-    number: "04",
-    content: (
-      <>
-        <p>bookfleet uses secure verification mechanisms for authentication and delivery operations:</p>
-        <ul className="dot-list mt-3">
-          <li>Email OTP may be used for account login and verification</li>
-          <li>Pickup and Delivery OTPs are generated within the application</li>
-        </ul>
-        <div className="notice-pill mt-4">🔒 OTPs are used <strong>only</strong> for authentication and delivery confirmation — never for marketing.</div>
-      </>
     ),
   },
   {
@@ -98,73 +135,72 @@ const sections = [
     title: "How We Use Your Information",
     number: "05",
     content: (
-      <ul className="dot-list">
-        <li>Provide pickup and delivery services</li>
-        <li>Assign delivery partners</li>
-        <li>Process orders and facilitate payments</li>
-        <li>Send notifications and service updates</li>
-        <li>Improve platform performance and reliability</li>
-      </ul>
+      <>
+        <p>We use your information to:</p>
+        <ul className="dot-list mt-3">
+          <li>Process bookings</li>
+          <li>Assign delivery partners</li>
+          <li>Provide real-time tracking</li>
+          <li>Calculate delivery charges</li>
+          <li>Process payments</li>
+          <li>Generate invoices</li>
+          <li>Improve customer support</li>
+          <li>Prevent fraud and misuse</li>
+          <li>Enhance platform security</li>
+          <li>Improve our products and services</li>
+          <li>Send important service notifications</li>
+          <li>Comply with applicable laws and regulations</li>
+        </ul>
+      </>
     ),
   },
   {
-    id: "nature",
-    title: "Nature of Service",
+    id: "permissions",
+    title: "Permissions We Request",
     number: "06",
     content: (
       <>
-        <p>bookfleet is a <strong>logistics facilitation platform</strong> that facilitates the movement of goods.</p>
-        <div className="two-col mt-4">
-          <div className="col-block no-block">
-            <h4>bookfleet Does NOT</h4>
-            <ul className="dot-list">
-              <li>Sell, manufacture, or own any products</li>
-              <li>Control product quality, legality, or condition</li>
-            </ul>
-          </div>
-          <div className="col-block yes-block">
-            <h4>Responsibility Lies With</h4>
-            <ul className="dot-list">
-              <li>Sender</li>
-              <li>Seller</li>
-              <li>Third-party provider</li>
-            </ul>
-          </div>
+        <p>Bookfleet may request access to:</p>
+        <ul className="dot-list mt-3">
+          <li>Device Location</li>
+          <li>Camera</li>
+          <li>Photos &amp; Media</li>
+          <li>Notifications</li>
+          <li>Phone (where required)</li>
+        </ul>
+        <div className="notice-pill mt-4">
+          📱 These permissions are requested only to enable platform features and improve your experience.
         </div>
       </>
     ),
   },
   {
     id: "sharing",
-    title: "Data Sharing",
+    title: "Sharing of Information",
     number: "07",
     content: (
       <>
-        <p>We may share limited information with:</p>
+        <p>Bookfleet may share limited information with:</p>
         <ul className="dot-list mt-3">
-          <li>Delivery partners (for order execution)</li>
-          <li>Payment gateways</li>
-          <li>Service providers (analytics, support, infrastructure)</li>
-          <li>Legal authorities (if required by law)</li>
+          <li>Delivery Partners</li>
+          <li>Payment Service Providers</li>
+          <li>Technology Service Providers</li>
+          <li>Government Authorities (where required by law)</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">🚫 bookfleet does <strong>NOT</strong> sell personal data.</div>
+        <div className="notice-pill notice-warn mt-4">🚫 Bookfleet does <strong>not</strong> sell your personal information to third parties.</div>
       </>
     ),
   },
   {
-    id: "payment",
-    title: "Payment Security",
+    id: "security",
+    title: "Data Security",
     number: "08",
     content: (
-      <>
-        <p>All payments are processed through secure third-party providers. bookfleet does <strong>not</strong> store:</p>
-        <ul className="dot-list mt-3">
-          <li>Card details</li>
-          <li>UPI PIN</li>
-          <li>Payment authentication credentials</li>
-        </ul>
-        <div className="notice-pill mt-4">🔐 bookfleet does not send OTPs for payment authentication.</div>
-      </>
+      <p>
+        We use appropriate technical, administrative, and organizational measures to protect
+        your personal information against unauthorized access, alteration, disclosure, loss,
+        or misuse.
+      </p>
     ),
   },
   {
@@ -172,112 +208,94 @@ const sections = [
     title: "Data Retention",
     number: "09",
     content: (
-      <ul className="dot-list">
-        <li>As long as your account is active</li>
-        <li>As required under applicable laws and regulations</li>
-      </ul>
-    ),
-  },
-  {
-    id: "responsibility",
-    title: "User Responsibility",
-    number: "10",
-    content: (
-      <>
-        <p>Users must ensure:</p>
-        <ul className="dot-list mt-3">
-          <li>Accurate pickup and delivery details</li>
-          <li>Correct item description</li>
-          <li>Items are legal and safe for transport</li>
-        </ul>
-        <p className="mt-3 text-muted">bookfleet reserves the right to refuse unsafe or restricted items.</p>
-      </>
-    ),
-  },
-  {
-    id: "liability",
-    title: "Limitation of Liability",
-    number: "11",
-    content: (
-      <>
-        <p>bookfleet shall not be responsible for:</p>
-        <ul className="dot-list mt-3">
-          <li>Product quality or condition</li>
-          <li>Incorrect or incomplete items</li>
-          <li>Expired or damaged goods</li>
-          <li>Indirect or consequential losses</li>
-        </ul>
-        <p className="mt-3 text-muted">bookfleet's responsibility is limited strictly to logistics services.</p>
-      </>
+      <p>
+        We retain your information only for as long as necessary to provide our services,
+        comply with legal obligations, resolve disputes, and enforce our policies.
+      </p>
     ),
   },
   {
     id: "rights",
-    title: "User Rights",
-    number: "12",
+    title: "Your Rights",
+    number: "10",
     content: (
       <>
-        <p>You may:</p>
+        <p>Depending on applicable laws, you may have the right to:</p>
         <ul className="dot-list mt-3">
-          <li>Access your data</li>
+          <li>Access your information</li>
           <li>Update your information</li>
-          <li>Request account deletion</li>
+          <li>Request correction of inaccurate information</li>
+          <li>Request deletion of your account</li>
+          <li>Withdraw consent where applicable</li>
         </ul>
-        <div className="contact-chip mt-4">📩 <a href="mailto:support@bookfleet.com">support@bookfleet.com</a></div>
       </>
     ),
   },
   {
     id: "deletion",
     title: "Account Deletion",
-    number: "13",
+    number: "11",
     content: (
-      <p>Users may request deletion via email. Data will be removed within a reasonable timeframe, subject to legal obligations.</p>
+      <>
+        <p>
+          You may request deletion of your Bookfleet account by contacting our support team.
+        </p>
+        <p className="mt-3 text-muted">
+          Certain information may be retained where required by law or for legitimate business purposes.
+        </p>
+      </>
     ),
-  },
-  {
-    id: "cookies",
-    title: "Cookies",
-    number: "14",
-    content: <p>We may use cookies and similar technologies to enhance user experience and improve platform performance.</p>,
   },
   {
     id: "children",
     title: "Children's Privacy",
-    number: "15",
-    content: <p>bookfleet services are <strong>not intended</strong> for individuals under the age of 18.</p>,
+    number: "12",
+    content: (
+      <>
+        <p>Bookfleet services are intended only for individuals who are legally eligible to use our platform.</p>
+        <p className="mt-3 text-muted">We do not knowingly collect personal information from children.</p>
+      </>
+    ),
   },
   {
     id: "changes",
-    title: "Changes to Policy",
-    number: "16",
-    content: <p>We may update this Privacy Policy from time to time. Continued use of the service constitutes acceptance of updated terms.</p>,
+    title: "Changes to this Privacy Policy",
+    number: "13",
+    content: (
+      <>
+        <p>We may update this Privacy Policy from time to time.</p>
+        <p className="mt-3 text-muted">
+          Any changes will be published on our website and/or application and will become
+          effective immediately upon publication unless otherwise stated.
+        </p>
+      </>
+    ),
   },
   {
     id: "contact",
-    title: "Contact & Grievance",
-    number: "17",
+    title: "Contact Us",
+    number: "14",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
           <div className="icon">📧</div>
           <div>
-            <div className="c-label">Email</div>
-            <a href="mailto:support@bookfleet.com">support@bookfleet.com</a>
+            <div className="c-label">Support Email</div>
+            <a href="mailto:support@bookfleet.in">support@bookfleet.in</a>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="icon">🌐</div>
+          <div>
+            <div className="c-label">Website</div>
+            <a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer">www.bookfleet.in</a>
           </div>
         </div>
         <div className="contact-card">
           <div className="icon">📍</div>
           <div>
-            <div className="c-label">Location</div>
-            <span>Bhubaneswar, Odisha, India</span>
-          </div>
-        </div>
-        <div className="contact-card">
-          <div className="icon">⏱</div>
-          <div>
-            <div className="c-label">Response Time</div>
-            <span>Within 48 hours</span>
+            <div className="c-label">Registered Office</div>
+            <span>Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span>
           </div>
         </div>
       </div>
@@ -362,15 +380,12 @@ export default function PrivacyPolicy() {
           padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
         }
   .hero-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 32px;
+  width: 160px;
+  height: 160px;
+  border-radius: 28px;
   overflow: hidden;
-  border: 3px solid rgba(255,255,255,0.3);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  margin: 0 auto 20px;
-
-  background: var(--blue-800);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  margin: 0 auto 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -561,10 +576,10 @@ export default function PrivacyPolicy() {
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🔒 Legal &amp; Privacy</div>
+        <div className="hero-badge">🔒 Customer Privacy Policy</div>
 
         <div className="hero-logo">
-          <img src={logo} alt="bookfleet Logo" />
+          <img src={logo} alt="bookfleet Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
 
         <h1>bookfleet <em>Privacy</em> Policy</h1>

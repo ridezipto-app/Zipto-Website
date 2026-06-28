@@ -5,177 +5,42 @@ import riderlogo from "../assets/rider_logo.png";
 
 const sections = [
   {
-    id: "introduction",
-    title: "Introduction",
+    id: "nature",
+    title: "Nature of Relationship",
     number: "01",
     content: (
       <>
-        <p>Welcome to <strong>bookfleet Rider Platform</strong> — powering fast, reliable intra-city delivery.</p>
-        <p className="mt-3">This Rider Agreement ("Agreement") is entered into between:</p>
-        <div className="two-col mt-4">
-          <div className="col-block yes-block">
-            <h4>Company</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              Zipto Hyperlogistics Pvt. Ltd.<br />
-              ("Company", "bookfleet", "We")
-            </p>
-          </div>
-          <div className="col-block yes-block">
-            <h4>Rider</h4>
-            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              You ("Rider", "Delivery Partner")
-            </p>
-          </div>
-        </div>
-        <div className="notice-pill mt-4">
-          ✅ By registering or using the bookfleet platform, you agree to this Agreement.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "about",
-    title: "About bookfleet",
-    number: "02",
-    content: (
-      <>
-        <p>bookfleet is a technology-enabled logistics platform that connects users with delivery partners.</p>
-        <div className="sub-block mt-4">
-          <h4>What bookfleet Does</h4>
-          <ul className="dot-list mt-2">
-            <li>Facilitates pickup &amp; delivery</li>
-          </ul>
-        </div>
-        <div className="sub-block no-block mt-3">
-          <h4>What bookfleet Does NOT Do</h4>
-          <ul className="dot-list mt-2">
-            <li>bookfleet does NOT own goods</li>
-            <li>bookfleet does NOT act as a seller</li>
-          </ul>
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "status",
-    title: "Independent Contractor Status",
-    number: "03",
-    content: (
-      <>
-        <p>By joining bookfleet, you operate as an <strong>independent delivery partner</strong>. This Agreement does NOT create:</p>
+        <p>
+          Bookfleet is a technology platform that connects customers with independent
+          delivery partners.
+        </p>
+        <p className="mt-3">The Delivery Partner acknowledges that:</p>
         <ul className="dot-list mt-3">
-          <li>Employment</li>
-          <li>Partnership</li>
-          <li>Agency relationship</li>
+          <li>They are an <strong>independent contractor</strong>.</li>
+          <li>Nothing in this Agreement creates an employer-employee relationship.</li>
+          <li>Nothing creates a partnership, agency, franchise, or joint venture.</li>
+          <li>The Delivery Partner controls when to go online and accept deliveries.</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ You are not entitled to salary, PF/ESI, insurance, or employee benefits.
+        <div className="notice-pill mt-4">
+          ✅ By registering on the Bookfleet Rider App, you agree to be legally bound by this Agreement.
         </div>
       </>
     ),
   },
   {
     id: "eligibility",
-    title: "Eligibility & Onboarding",
-    number: "04",
+    title: "Eligibility",
+    number: "02",
     content: (
       <>
-        <p>To join bookfleet, you must be at least <strong>18 years old</strong> and hold a valid driving license. You must provide:</p>
+        <p>The Delivery Partner confirms that they:</p>
         <div className="service-grid mt-3">
-          <div className="service-chip">🪪 Driving License</div>
-          <div className="service-chip">🚗 Vehicle RC</div>
-          <div className="service-chip">📄 Identity Proof</div>
-          <div className="service-chip">🏦 Bank Details</div>
-        </div>
-        <p className="mt-3 text-muted">
-          bookfleet reserves the right to approve or reject applications at its sole discretion.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "role",
-    title: "Role & Services",
-    number: "05",
-    content: (
-      <>
-        <p>You agree to perform pickup and delivery services, including:</p>
-        <div className="service-grid mt-3">
-          <div className="service-chip">🍔 Restaurants</div>
-          <div className="service-chip">💊 Pharmacies</div>
-          <div className="service-chip">📦 Parcels & Packages</div>
-          <div className="service-chip">🚚 Goods & Bulk Items</div>
-        </div>
-        <div className="notice-pill mt-4">
-          📍 Delivery flow: Pickup → Transport → Drop
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "flexibility",
-    title: "Work Flexibility",
-    number: "06",
-    content: (
-      <>
-        <ul className="dot-list">
-          <li>You choose your own working hours</li>
-          <li>You may accept or reject orders freely</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Your performance impacts order allocation, platform visibility, and account status.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "earnings",
-    title: "Earnings & Payouts",
-    number: "07",
-    content: (
-      <>
-        <div className="two-col mt-3">
-          <div className="col-block yes-block">
-            <h4>Earnings Include</h4>
-            <ul className="dot-list">
-              <li>Base fare</li>
-              <li>Distance-based charges</li>
-              <li>Incentives / bonuses</li>
-            </ul>
-          </div>
-          <div className="col-block no-block">
-            <h4>Deductions May Include</h4>
-            <ul className="dot-list">
-              <li>Platform fees</li>
-              <li>Penalties</li>
-              <li>Cancellation charges</li>
-            </ul>
-          </div>
-        </div>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Earnings are dynamic and not guaranteed. Income depends on demand, location, and performance.
-        </div>
-        <div className="notice-pill mt-3">
-          💳 Payouts are processed periodically to your registered bank account.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "performance",
-    title: "Performance Standards",
-    number: "08",
-    content: (
-      <>
-        <p>bookfleet may monitor:</p>
-        <ul className="dot-list mt-3">
-          <li>Acceptance rate</li>
-          <li>Cancellation rate</li>
-          <li>Delivery completion</li>
-          <li>Customer ratings</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Poor performance may result in reduced orders, temporary suspension, or permanent deactivation.
+          <div className="service-chip">🎂 At least 18 years old</div>
+          <div className="service-chip">🪪 Valid identity documents</div>
+          <div className="service-chip">🚗 Valid Driving Licence</div>
+          <div className="service-chip">📄 Legally authorized vehicle</div>
+          <div className="service-chip">📋 Accurate KYC documents</div>
+          <div className="service-chip">🏦 Valid bank account for payouts</div>
         </div>
       </>
     ),
@@ -183,170 +48,192 @@ const sections = [
   {
     id: "responsibilities",
     title: "Rider Responsibilities",
-    number: "09",
+    number: "03",
     content: (
       <>
-        <p>You agree to:</p>
+        <p>The Delivery Partner agrees to:</p>
         <ul className="dot-list mt-3">
-          <li>Follow all traffic laws</li>
-          <li>Maintain professional conduct</li>
-          <li>Ensure safe handling of items</li>
-          <li>Verify delivery details</li>
-          <li>Complete deliveries on time</li>
+          <li>Complete deliveries safely and professionally.</li>
+          <li>Follow all traffic laws.</li>
+          <li>Wear appropriate safety gear.</li>
+          <li>Treat customers respectfully.</li>
+          <li>Keep vehicle documents valid.</li>
+          <li>Maintain their vehicle in roadworthy condition.</li>
+          <li>Deliver only lawful shipments.</li>
         </ul>
-        <div className="sub-block no-block mt-4">
-          <h4>Strictly Prohibited</h4>
-          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            You must NOT open, tamper, or misuse any package under any circumstances.
-          </p>
+      </>
+    ),
+  },
+  {
+    id: "kyc",
+    title: "KYC Verification",
+    number: "04",
+    content: (
+      <>
+        <p>Bookfleet may verify:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">🪪 Aadhaar</div>
+          <div className="service-chip">📄 PAN</div>
+          <div className="service-chip">🚗 Driving Licence</div>
+          <div className="service-chip">📋 Vehicle RC</div>
+          <div className="service-chip">🛡️ Insurance</div>
+          <div className="service-chip">🏦 Bank Details</div>
+          <div className="service-chip">🤳 Selfie Verification</div>
+          <div className="service-chip">📁 Additional documents as required</div>
+        </div>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Failure to provide valid documents may result in rejection or suspension.
         </div>
       </>
     ),
   },
   {
-    id: "penalties",
-    title: "Penalties & Platform Discipline",
-    number: "10",
+    id: "delivery-requests",
+    title: "Delivery Requests",
+    number: "05",
     content: (
       <>
-        <p>To maintain service quality, bookfleet may impose the following penalties:</p>
-
-        <div className="penalty-table mt-4">
-          <div className="penalty-row">
-            <div className="penalty-icon warn">⚠️</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Order Cancellation (after accept)</div>
-              <div className="penalty-desc">Repeated cancellations may lead to suspension</div>
-            </div>
-            <div className="penalty-badge warn">Suspension Risk</div>
+        <p>Bookfleet may send delivery requests based on:</p>
+        <ul className="dot-list mt-3">
+          <li>Rider availability</li>
+          <li>Live location</li>
+          <li>Vehicle type</li>
+          <li>Performance</li>
+          <li>Operational requirements</li>
+        </ul>
+        <div className="notice-pill mt-4">
+          ℹ️ Acceptance of every order is voluntary unless otherwise stated by applicable incentives or programs.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "earnings",
+    title: "Earnings & Payouts",
+    number: "06",
+    content: (
+      <>
+        <div className="two-col mt-3">
+          <div className="col-block yes-block">
+            <h4>Delivery Partners May Earn</h4>
+            <ul className="dot-list">
+              <li>Delivery Charges</li>
+              <li>Distance-based Earnings</li>
+              <li>Incentives</li>
+              <li>Bonuses</li>
+              <li>Surge Earnings (where applicable)</li>
+            </ul>
           </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">📦</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Mishandling / Damage (negligence)</div>
-              <div className="penalty-desc">Severe cases may result in deactivation</div>
-            </div>
-            <div className="penalty-badge red">₹100 – ₹500</div>
-          </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">🚫</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Fraud / Fake Delivery</div>
-              <div className="penalty-desc">Earnings hold + legal action</div>
-            </div>
-            <div className="penalty-badge red">Immediate Termination</div>
-          </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">📱</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Platform Misuse</div>
-              <div className="penalty-desc">Data misuse or app manipulation</div>
-            </div>
-            <div className="penalty-badge red">Permanent Ban</div>
-          </div>
-
-          <div className="penalty-row">
-            <div className="penalty-icon red">🚔</div>
-            <div className="penalty-info">
-              <div className="penalty-title">Illegal Deliveries</div>
-              <div className="penalty-desc">Immediate deactivation</div>
-            </div>
-            <div className="penalty-badge red">Legal Action</div>
+          <div className="col-block no-block">
+            <h4>Bookfleet May Deduct</h4>
+            <ul className="dot-list">
+              <li>Applicable Taxes</li>
+              <li>Government Charges</li>
+              <li>Penalties (where applicable)</li>
+              <li>Other lawful deductions</li>
+            </ul>
           </div>
         </div>
-
-        <div className="notice-pill notice-warn mt-4">
-          ⚖️ bookfleet reserves the right to adjust penalties based on severity.
+        <div className="notice-pill mt-4">
+          💳 Payouts shall be processed according to Bookfleet's payout schedule.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "conduct",
+    title: "Rider Conduct",
+    number: "07",
+    content: (
+      <>
+        <p>The Delivery Partner shall <strong>not</strong>:</p>
+        <ul className="dot-list mt-3">
+          <li>Misbehave with customers.</li>
+          <li>Carry prohibited goods.</li>
+          <li>Consume alcohol or drugs while online.</li>
+          <li>Share Rider Accounts.</li>
+          <li>Submit fake documents.</li>
+          <li>Commit fraud.</li>
+          <li>Manipulate GPS.</li>
+          <li>Engage in criminal activities.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "vehicle",
+    title: "Vehicle Compliance",
+    number: "08",
+    content: (
+      <>
+        <p>The Delivery Partner is solely responsible for ensuring:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">📋 Valid RC</div>
+          <div className="service-chip">🛡️ Valid Insurance</div>
+          <div className="service-chip">🪪 Valid Driving Licence</div>
+          <div className="service-chip">🌿 Pollution Certificate (where applicable)</div>
+          <div className="service-chip">🔧 Proper vehicle maintenance</div>
         </div>
       </>
     ),
   },
   {
     id: "safety",
-    title: "Safety & Compliance",
-    number: "11",
+    title: "Safety",
+    number: "09",
     content: (
       <>
-        <p>You are solely responsible for:</p>
+        <p>The Delivery Partner shall:</p>
         <ul className="dot-list mt-3">
-          <li>Vehicle condition &amp; maintenance</li>
-          <li>Valid documents &amp; insurance</li>
-          <li>Personal safety during deliveries</li>
-          <li>Legal compliance</li>
+          <li>Wear a helmet where legally required.</li>
+          <li>Drive responsibly.</li>
+          <li>Follow road safety rules.</li>
+          <li>Never overload the vehicle.</li>
+          <li>Refuse transportation of prohibited items.</li>
+        </ul>
+        <div className="notice-pill mt-4">
+          🛡️ Safety shall always take priority over delivery timelines.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "taxes",
+    title: "Independent Taxes",
+    number: "10",
+    content: (
+      <>
+        <p>The Delivery Partner shall be solely responsible for:</p>
+        <ul className="dot-list mt-3">
+          <li>Income Tax</li>
+          <li>GST (where applicable)</li>
+          <li>Professional Tax</li>
+          <li>Any statutory obligations applicable to them</li>
         </ul>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ bookfleet is NOT liable for accidents, injuries, or violations.
+          ⚠️ Bookfleet shall not be responsible for the Delivery Partner's personal tax liabilities.
         </div>
-      </>
-    ),
-  },
-  {
-    id: "insurance",
-    title: "Insurance",
-    number: "12",
-    content: (
-      <>
-        <p>bookfleet does <strong>not</strong> provide insurance unless explicitly stated.</p>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Riders must manage their own vehicle insurance and personal coverage.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "equipment",
-    title: "Equipment & Expenses",
-    number: "13",
-    content: (
-      <>
-        <p>You are responsible for providing and maintaining:</p>
-        <div className="service-grid mt-3">
-          <div className="service-chip">🚗 Vehicle</div>
-          <div className="service-chip">⛽ Fuel</div>
-          <div className="service-chip">📱 Mobile Device</div>
-          <div className="service-chip">📶 Internet</div>
-        </div>
-        <p className="mt-3 text-muted">
-          bookfleet does not reimburse operational costs unless specifically agreed upon.
-        </p>
       </>
     ),
   },
   {
     id: "termination",
-    title: "Account Suspension & Termination",
-    number: "14",
+    title: "Suspension & Termination",
+    number: "11",
     content: (
       <>
-        <p>bookfleet may suspend or terminate your account for:</p>
-        <ul className="dot-list mt-3">
-          <li>Fraud or misconduct</li>
-          <li>Policy violations</li>
-          <li>Poor performance</li>
-          <li>Legal non-compliance</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Severe violations may result in immediate termination without prior notice.
+        <p>Bookfleet may suspend or permanently terminate Rider Accounts for:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">🚫 Fraud</div>
+          <div className="service-chip">📄 Fake Documents</div>
+          <div className="service-chip">⚠️ Unsafe Behaviour</div>
+          <div className="service-chip">📢 Customer Complaints</div>
+          <div className="service-chip">🚔 Criminal Activities</div>
+          <div className="service-chip">📋 Violation of Policies</div>
+          <div className="service-chip">📱 Misuse of Platform</div>
         </div>
-      </>
-    ),
-  },
-  {
-    id: "privacy",
-    title: "Data & Privacy",
-    number: "15",
-    content: (
-      <>
-        <p>Your data is handled as per the bookfleet Rider Privacy Policy. By using the app, you consent to:</p>
-        <ul className="dot-list mt-3">
-          <li>Data collection</li>
-          <li>Location tracking (including background GPS)</li>
-        </ul>
         <div className="notice-pill mt-4">
-          📍 Location data is used solely to facilitate deliveries and improve platform performance.
+          ℹ️ Bookfleet reserves the right to investigate any suspected misconduct.
         </div>
       </>
     ),
@@ -354,99 +241,89 @@ const sections = [
   {
     id: "liability",
     title: "Limitation of Liability",
-    number: "16",
+    number: "12",
     content: (
       <>
-        <p>To the maximum extent permitted by law, bookfleet shall not be liable for:</p>
+        <p>Bookfleet is solely a technology platform.</p>
+        <p className="mt-3">Bookfleet shall not be liable for:</p>
         <ul className="dot-list mt-3">
-          <li>Loss of income</li>
-          <li>Accidents or injuries</li>
-          <li>Customer disputes</li>
-          <li>Third-party issues</li>
-          <li>App downtime</li>
+          <li>Vehicle Damage</li>
+          <li>Personal Injury</li>
+          <li>Road Accidents</li>
+          <li>Traffic Delays</li>
+          <li>Government Restrictions</li>
+          <li>Force Majeure Events</li>
+          <li>Losses arising from rider negligence</li>
         </ul>
-        <div className="notice-pill mt-4">
-          📍 bookfleet's role is limited to platform facilitation only.
+      </>
+    ),
+  },
+  {
+    id: "confidentiality",
+    title: "Confidentiality",
+    number: "13",
+    content: (
+      <>
+        <p>
+          Delivery Partners shall keep confidential any customer information, pricing
+          information, operational processes, and business information obtained while
+          using the Bookfleet Platform.
+        </p>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Breach of confidentiality may result in immediate termination and legal action.
         </div>
       </>
     ),
   },
   {
-    id: "indemnification",
-    title: "Indemnification",
-    number: "17",
+    id: "changes",
+    title: "Changes to this Agreement",
+    number: "14",
     content: (
       <>
-        <p>You agree to indemnify and hold harmless bookfleet against:</p>
-        <ul className="dot-list mt-3">
-          <li>Claims</li>
-          <li>Damages</li>
-          <li>Legal costs</li>
-        </ul>
+        <p>Bookfleet may update this Agreement from time to time.</p>
         <p className="mt-3 text-muted">
-          arising from your negligence, violations of this Agreement, or illegal activities.
+          Continued use of the Rider Platform constitutes acceptance of the updated Agreement.
         </p>
       </>
     ),
   },
   {
-    id: "force",
-    title: "Force Majeure",
-    number: "18",
-    content: (
-      <p>
-        bookfleet is not liable for delays or failures caused by natural disasters,
-        government restrictions, network failures, or any other events beyond its reasonable control.
-      </p>
-    ),
-  },
-  {
     id: "law",
-    title: "Governing Law & Jurisdiction",
-    number: "19",
+    title: "Governing Law",
+    number: "15",
     content: (
       <ul className="info-list">
         <li><span className="label">Governing Law</span><span>Laws of India</span></li>
-        <li><span className="label">Jurisdiction</span><span>Bhubaneswar, Odisha</span></li>
+        <li><span className="label">Jurisdiction</span><span>Competent courts of Bhubaneswar, Odisha</span></li>
       </ul>
     ),
   },
   {
-    id: "modifications",
-    title: "Changes to Agreement",
-    number: "20",
-    content: (
-      <p>
-        bookfleet may update this Agreement at any time. Continued use of the platform
-        after changes constitutes your acceptance of the revised terms.
-      </p>
-    ),
-  },
-  {
     id: "contact",
-    title: "Contact & Support",
-    number: "21",
+    title: "Contact Us",
+    number: "16",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
           <div className="icon">📧</div>
           <div>
-            <div className="c-label">Email</div>
-            <a href="mailto:rider.support@bookfleet.com">rider.support@bookfleet.com</a>
+            <div className="c-label">Support Email</div>
+            <a href="mailto:support@bookfleet.in">support@bookfleet.in</a>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="icon">🌐</div>
+          <div>
+            <div className="c-label">Website</div>
+            <a href="https://www.bookfleet.in" target="_blank" rel="noopener noreferrer">www.bookfleet.in</a>
           </div>
         </div>
         <div className="contact-card">
           <div className="icon">📍</div>
           <div>
-            <div className="c-label">Office</div>
-            <span>Bhubaneswar, Odisha, India</span>
-          </div>
-        </div>
-        <div className="contact-card">
-          <div className="icon">⏱</div>
-          <div>
-            <div className="c-label">Response Time</div>
-            <span>Within 48 hours</span>
+            <div className="c-label">Registered Office</div>
+            <span>Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span>
           </div>
         </div>
       </div>
@@ -455,14 +332,13 @@ const sections = [
   {
     id: "acceptance",
     title: "Acceptance",
-    number: "22",
+    number: "17",
     content: (
       <div className="acceptance-box">
         <div className="accept-icon">✅</div>
         <p>
-          By registering on the bookfleet Rider platform, you confirm that you have{" "}
-          <strong>read, understood, and voluntarily agreed</strong> to all terms in this
-          Agreement and that you are joining as an independent delivery partner.
+          By registering as a Bookfleet Delivery Partner, you confirm that you have{" "}
+          <strong>read, understood, and agreed</strong> to this Delivery Partner Agreement.
         </p>
       </div>
     ),
@@ -539,7 +415,7 @@ export default function RiderAgreement() {
         }
         .hero-logo {
           width: 160px; height: 160px;
-          border-radius: 50%;
+          border-radius: 28px;
           overflow: hidden;
           border: 3px solid rgba(255,255,255,0.3);
           box-shadow: 0 10px 40px rgba(0,0,0,0.3);

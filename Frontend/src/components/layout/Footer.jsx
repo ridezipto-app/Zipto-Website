@@ -15,12 +15,16 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy",           path: "/privacy-policy"           },
-    { name: "Terms & Conditions",       path: "/terms-of-service"         },
-    { name: "Rider Agreement",          path: "/rider-agreement"          },
-    { name: "Rider Privacy Policy",     path: "/rider-privacy-policy"     },
-    { name: "Rider Terms & Conditions", path: "/rider-terms-of-service"   },
-    { name: "Delete Account",           path: "/delete-account"           },
+    { name: "Privacy Policy",               path: "/privacy-policy"               },
+    { name: "Terms & Conditions",           path: "/terms-of-service"             },
+    { name: "Cancellation & Refund",        path: "/cancellation-refund-policy"   },
+    { name: "Data Deletion Policy",         path: "/data-deletion-policy"         },
+    { name: "Prohibited Items",             path: "/prohibited-items-policy"      },
+    { name: "Rider Agreement",              path: "/rider-agreement"              },
+    { name: "Rider Privacy Policy",         path: "/rider-privacy-policy"         },
+    { name: "Rider Terms & Conditions",     path: "/rider-terms-of-service"       },
+    { name: "Rider Data Deletion",          path: "/rider-data-deletion-policy"   },
+    { name: "Delete Account",               path: "/delete-account"               },
   ];
 
   const socials = [
@@ -47,27 +51,19 @@ export default function Footer() {
       <style>{`
         .footer-grid {
           display: grid;
-          grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-          gap: 48px;
-          max-width: 1200px;
+          grid-template-columns: 1.3fr 0.9fr 1.1fr 0.9fr 1.1fr;
+          gap: 40px;
+          max-width: 1280px;
           margin: 0 auto;
           padding: 72px 40px 60px;
         }
         .footer-bottom-inner {
-          max-width: 1200px;
+          max-width: 1280px;
           margin: 0 auto;
           padding: 20px 40px;
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-        .footer-legal-links {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 0;
+          justify-content: center;
         }
         .footer-social-btn:hover {
           background: rgba(255,255,255,0.1) !important;
@@ -78,17 +74,22 @@ export default function Footer() {
           background: rgba(255,255,255,0.08) !important;
           border-color: rgba(255,255,255,0.15) !important;
         }
-        @media (max-width: 900px) {
-          .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; padding: 56px 28px 48px; }
+        @media (max-width: 1100px) {
+          .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; gap: 36px; padding: 60px 32px 52px; }
           .footer-brand-col { grid-column: 1 / -1; }
-          .footer-bottom-inner { padding: 16px 28px; flex-direction: column; align-items: flex-start; gap: 10px; }
+          .footer-legal-col { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 24px; }
         }
-        @media (max-width: 560px) {
-          .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 44px 20px 40px; }
+        @media (max-width: 700px) {
+          .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 48px 24px 44px; }
+          .footer-brand-col { grid-column: 1 / -1; }
+          .footer-legal-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+          .footer-bottom-inner { padding: 16px 24px; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px 40px; }
           .footer-brand-col { grid-column: auto; }
+          .footer-legal-col { grid-column: auto; display: flex; flex-direction: column; }
           .footer-bottom-inner { padding: 14px 20px; }
-          .footer-legal-links { flex-direction: column; align-items: flex-start; gap: 6px; }
-          .footer-legal-sep { display: none !important; }
         }
       `}</style>
 
@@ -153,7 +154,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Col 3: Contact ── */}
+          {/* ── Col 3: Legal ── */}
+          <div className="footer-legal-col">
+            <p style={s.colLabel}>Legal</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+              {legalLinks.map(({ name, path }) => (
+                <li key={path}>
+                  <Link
+                    to={path}
+                    style={name === "Delete Account" ? { ...s.linkBtn, color: "#F87171" } : s.linkBtn}
+                    className="footer-link-btn"
+                  >
+                    <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.35 }} />
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── Col 4: Contact ── */}
           <div>
             <p style={s.colLabel}>Contact us</p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -177,7 +197,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Col 4: Download CTA ── */}
+          {/* ── Col 5: Download CTA ── */}
           <div>
             <p style={s.colLabel}>Get the app</p>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.65, marginBottom: 16 }}>
@@ -205,20 +225,6 @@ export default function Footer() {
             <p style={s.copyright}>
               © {new Date().getFullYear()} Zipto Hyperlogistics Pvt. Ltd. · Made with care in Bhubaneswar
             </p>
-            <div className="footer-legal-links">
-              {legalLinks.map(({ name, path }, i) => (
-                <span key={path} style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                  {i > 0 && <span className="footer-legal-sep" style={{ color: "rgba(255,255,255,0.15)" }}>·</span>}
-                  <Link
-                    to={path}
-                    style={name === "Delete Account" ? s.legalLinkDelete : s.legalLink}
-                    onMouseEnter={e => e.currentTarget.style.color = name === "Delete Account" ? "#FCA5A5" : "#60A5FA"}
-                    onMouseLeave={e => e.currentTarget.style.color = name === "Delete Account" ? "#F87171" : "rgba(255,255,255,0.3)"}>
-                    {name}
-                  </Link>
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </footer>
@@ -297,6 +303,4 @@ const s = {
     background: "rgba(0,0,0,0.2)",
   },
   copyright: { fontSize: 12, color: "rgba(255,255,255,0.28)" },
-  legalLink: { fontSize: 12, color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.15s" },
-  legalLinkDelete: { fontSize: 12, color: "#F87171", textDecoration: "none", transition: "color 0.15s" },
 };

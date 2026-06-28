@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
-import riderlogo from "../assets/rider_logo.png";
+import logo from "../assets/bookfleet_logo.png";
 
 const sections = [
   {
@@ -10,297 +10,202 @@ const sections = [
     number: "01",
     content: (
       <>
-        <p>Welcome to Bookfleet Rider.</p>
-        <p className="mt-3">
-          These Rider Terms &amp; Conditions ("Terms") govern your registration and use
-          of the Bookfleet Rider App and related services operated by{" "}
+        <p>
+          This Data Deletion Policy explains how Bookfleet, operated by{" "}
           <strong>Zipto Hyperlogistics Private Limited</strong> ("Bookfleet", "Company",
-          "we", "our", or "us").
+          "we", "our", or "us"), handles requests for deletion of personal information
+          and user accounts.
         </p>
         <div className="notice-pill mt-4">
-          ✅ By registering as a Bookfleet Delivery Partner, you agree to comply with
-          these Terms &amp; Conditions.
+          🔒 We respect your privacy and provide users with the ability to request
+          deletion of their personal information, subject to applicable laws and our
+          legitimate business obligations.
         </div>
       </>
     ),
   },
   {
-    id: "about",
-    title: "About Bookfleet",
+    id: "who-can-request",
+    title: "Who Can Request Data Deletion",
     number: "02",
     content: (
       <>
-        <p>
-          Bookfleet is a technology platform that connects customers with independent
-          delivery partners for on-demand logistics services.
-        </p>
-        <p className="mt-3">
-          Bookfleet provides access to delivery opportunities through various vehicle
-          categories, including:
-        </p>
-        <ul className="dot-list mt-3">
-          <li>Bike</li>
-          <li>Scooter</li>
-          <li>Auto</li>
-          <li>Pickup</li>
-          <li>Mini Truck</li>
-          <li>Other approved vehicles</li>
-        </ul>
-        <div className="notice-pill mt-4">
-          ℹ️ Bookfleet acts only as a technology platform and does not employ riders as employees.
+        <p>The following users may request deletion of their Bookfleet account and associated personal information:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">👤 Customers</div>
+          <div className="service-chip">🛵 Delivery Partners (Riders)</div>
         </div>
       </>
     ),
   },
   {
-    id: "eligibility",
-    title: "Rider Eligibility",
+    id: "how-to-request",
+    title: "How to Request Data Deletion",
     number: "03",
     content: (
       <>
-        <p>To register as a Bookfleet Delivery Partner, you must:</p>
+        <p>You may request deletion of your Bookfleet account by:</p>
         <ul className="dot-list mt-3">
-          <li>Be at least 18 years of age.</li>
-          <li>Possess a valid Government-issued ID.</li>
-          <li>Hold a valid Driving Licence (where applicable).</li>
-          <li>Own or have legal access to an approved vehicle.</li>
-          <li>Submit accurate KYC documents.</li>
-          <li>Maintain a valid bank account for payouts.</li>
+          <li>Using the <strong>Delete Account</strong> option available within the Bookfleet App (where available), or</li>
+          <li>Contacting our support team directly.</li>
         </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Bookfleet reserves the right to approve or reject any application.
+        <div className="contact-grid mt-4">
+          <div className="contact-card">
+            <div className="icon">📧</div>
+            <div>
+              <div className="c-label">Support Email</div>
+              <a href="mailto:support@bookfleet.in">support@bookfleet.in</a>
+            </div>
+          </div>
+        </div>
+        <div className="notice-pill mt-4">
+          ℹ️ Please include your registered mobile number and account details when submitting a request.
         </div>
       </>
     ),
   },
   {
-    id: "account",
-    title: "Rider Account",
+    id: "what-happens-after",
+    title: "What Happens After Your Request",
     number: "04",
     content: (
       <>
-        <p>You are responsible for:</p>
-        <ul className="dot-list mt-3">
-          <li>Maintaining accurate profile information.</li>
-          <li>Protecting your login credentials.</li>
-          <li>Keeping your documents updated.</li>
-          <li>Reporting unauthorized access immediately.</li>
-        </ul>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ You are solely responsible for all activities performed using your account.
+        <p>Once your request is received:</p>
+        <div className="penalty-table mt-3">
+          <div className="penalty-row">
+            <div className="penalty-icon warn">🔍</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Identity Verification</div>
+              <div className="penalty-desc">Your identity may be verified before processing.</div>
+            </div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">📋</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Account Review</div>
+              <div className="penalty-desc">Your account will be reviewed for pending obligations.</div>
+            </div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">🗑️</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Data Deletion / Anonymization</div>
+              <div className="penalty-desc">Eligible personal information will be deleted or anonymized.</div>
+            </div>
+          </div>
+          <div className="penalty-row">
+            <div className="penalty-icon warn">✅</div>
+            <div className="penalty-info">
+              <div className="penalty-title">Confirmation</div>
+              <div className="penalty-desc">You may receive confirmation once the deletion process is completed.</div>
+            </div>
+          </div>
         </div>
       </>
     ),
   },
   {
-    id: "responsibilities",
-    title: "Delivery Partner Responsibilities",
+    id: "information-retained",
+    title: "Information That May Be Retained",
     number: "05",
     content: (
       <>
-        <p>As a Delivery Partner, you agree to:</p>
-        <ul className="dot-list mt-3">
-          <li>Accept deliveries responsibly.</li>
-          <li>Deliver shipments safely and professionally.</li>
-          <li>Follow traffic rules and applicable laws.</li>
-          <li>Treat customers respectfully.</li>
-          <li>Maintain your vehicle in roadworthy condition.</li>
-          <li>Carry valid vehicle documents while online.</li>
-          <li>Complete deliveries honestly and accurately.</li>
-        </ul>
+        <p>Certain information may continue to be retained where required for:</p>
+        <div className="service-grid mt-3">
+          <div className="service-chip">⚖️ Legal compliance</div>
+          <div className="service-chip">🧾 Tax &amp; accounting obligations</div>
+          <div className="service-chip">🛡️ Fraud prevention</div>
+          <div className="service-chip">🤝 Dispute resolution</div>
+          <div className="service-chip">📋 Regulatory requirements</div>
+          <div className="service-chip">🔒 Law enforcement requests</div>
+          <div className="service-chip">📁 Internal record keeping</div>
+        </div>
+        <div className="notice-pill notice-warn mt-4">
+          ⚠️ Such information will only be retained for the period required by applicable law.
+        </div>
       </>
     ),
   },
   {
-    id: "contractor",
-    title: "Independent Contractor",
+    id: "effect-of-deletion",
+    title: "Effect of Account Deletion",
     number: "06",
     content: (
       <>
-        <p>Bookfleet Delivery Partners are independent contractors.</p>
-        <p className="mt-3">
-          Nothing in these Terms creates an employer-employee relationship, partnership,
-          agency, or joint venture between Bookfleet and the Delivery Partner.
-        </p>
-        <div className="notice-pill notice-warn mt-4">
-          ⚠️ Delivery Partners remain responsible for their own taxes, insurance,
-          statutory obligations, and operational expenses.
+        <p>After account deletion:</p>
+        <div className="two-col mt-3">
+          <div className="col-block no-block">
+            <h4>What You Lose</h4>
+            <ul className="dot-list mt-2">
+              <li>Access to your Bookfleet account.</li>
+              <li>Booking history may no longer be accessible.</li>
+              <li>Saved addresses and preferences will be removed.</li>
+              <li>Wallet balance (if applicable) may be forfeited unless otherwise required by law or Bookfleet policy.</li>
+            </ul>
+          </div>
+          <div className="col-block" style={{ background: "#fff8ee", border: "1px solid #ffd591" }}>
+            <h4 style={{ color: "#92400e", fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 8 }}>Important Note</h4>
+            <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+              The deletion process cannot generally be reversed once initiated.
+            </p>
+          </div>
         </div>
       </>
     ),
   },
   {
-    id: "earnings",
-    title: "Payments & Earnings",
+    id: "processing-time",
+    title: "Processing Time",
     number: "07",
     content: (
       <>
-        <p>Rider earnings are calculated according to the pricing structure displayed in the Rider App.</p>
-        <div className="two-col mt-3">
-          <div className="col-block yes-block">
-            <h4>Payments May Include</h4>
-            <ul className="dot-list">
-              <li>Delivery Earnings</li>
-              <li>Incentives</li>
-              <li>Bonuses</li>
-              <li>Surge Earnings (where applicable)</li>
-            </ul>
-          </div>
-          <div className="col-block no-block">
-            <h4>Bookfleet May Deduct</h4>
-            <ul className="dot-list">
-              <li>Platform Fees (if applicable)</li>
-              <li>Taxes</li>
-              <li>Penalties for policy violations</li>
-              <li>Other lawful deductions</li>
-            </ul>
-          </div>
-        </div>
-        <div className="notice-pill mt-4">
-          💳 Payouts are processed according to the Bookfleet payout schedule.
-        </div>
+        <ul className="info-list">
+          <li>
+            <span className="label">Standard Timeline</span>
+            <span>Within 30 days from successful identity verification.</span>
+          </li>
+          <li>
+            <span className="label">Extended Timeline</span>
+            <span>May apply if required by applicable law or exceptional circumstances.</span>
+          </li>
+        </ul>
       </>
     ),
   },
   {
-    id: "location",
-    title: "Live Location",
+    id: "third-party",
+    title: "Third-Party Services",
     number: "08",
     content: (
       <>
-        <p>While online, riders must allow Bookfleet to access real-time and background location.</p>
-        <p className="mt-3">Location data is required for:</p>
-        <ul className="dot-list mt-3">
-          <li>Order Allocation</li>
-          <li>Navigation</li>
-          <li>Delivery Tracking</li>
-          <li>Customer Visibility</li>
-          <li>Safety</li>
-          <li>Operational Support</li>
-        </ul>
+        <p>
+          Where your information has been shared with authorized service providers
+          (such as payment processors or technology partners), deletion of such
+          information will be subject to their respective legal and contractual obligations.
+        </p>
         <div className="notice-pill notice-warn mt-4">
-          ⚠️ Disabling location services may result in limited or unavailable services.
+          ⚠️ Bookfleet cannot guarantee deletion timelines for data held by third-party service providers.
         </div>
       </>
     ),
   },
   {
-    id: "prohibited",
-    title: "Prohibited Conduct",
+    id: "policy-updates",
+    title: "Policy Updates",
     number: "09",
     content: (
       <>
-        <p>Delivery Partners must not:</p>
-        <ul className="dot-list mt-3">
-          <li>Submit false documents.</li>
-          <li>Share Rider Accounts.</li>
-          <li>Accept fake deliveries.</li>
-          <li>Misuse customer information.</li>
-          <li>Carry illegal or prohibited goods.</li>
-          <li>Consume alcohol or drugs while delivering.</li>
-          <li>Behave abusively towards customers or staff.</li>
-          <li>Engage in fraudulent activities.</li>
-        </ul>
-        <div className="sub-block no-block mt-4">
-          <h4>Consequences</h4>
-          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-            Violation may result in immediate suspension or permanent termination.
-          </p>
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "vehicle",
-    title: "Vehicle Compliance",
-    number: "10",
-    content: (
-      <>
-        <p>Riders are responsible for ensuring that:</p>
-        <ul className="dot-list mt-3">
-          <li>Their vehicle is legally registered.</li>
-          <li>Insurance remains valid.</li>
-          <li>Pollution Certificate (PUC), where applicable, is valid.</li>
-          <li>Vehicle documents remain up to date.</li>
-        </ul>
-        <div className="notice-pill mt-4">
-          ℹ️ Bookfleet may request updated documents at any time.
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "termination",
-    title: "Suspension & Termination",
-    number: "11",
-    content: (
-      <>
-        <p>Bookfleet reserves the right to suspend or permanently terminate Rider Accounts for:</p>
-        <ul className="dot-list mt-3">
-          <li>Fraud</li>
-          <li>Fake Documents</li>
-          <li>Unsafe Driving</li>
-          <li>Criminal Activities</li>
-          <li>Customer Abuse</li>
-          <li>Repeated Policy Violations</li>
-          <li>Low Service Standards</li>
-          <li>Any activity that may harm the Bookfleet Platform or its users</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "liability",
-    title: "Limitation of Liability",
-    number: "12",
-    content: (
-      <>
-        <p>
-          Bookfleet acts solely as a technology platform connecting customers with
-          independent delivery partners.
-        </p>
-        <p className="mt-3">To the fullest extent permitted by law, Bookfleet shall not be liable for:</p>
-        <ul className="dot-list mt-3">
-          <li>Loss or damage resulting from rider negligence.</li>
-          <li>Road accidents.</li>
-          <li>Vehicle damage.</li>
-          <li>Traffic delays.</li>
-          <li>Government restrictions.</li>
-          <li>Force majeure events.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: "changes",
-    title: "Modification of Terms",
-    number: "13",
-    content: (
-      <>
-        <p>Bookfleet may revise these Terms &amp; Conditions from time to time.</p>
+        <p>Bookfleet may update this Data Deletion Policy from time to time.</p>
         <p className="mt-3 text-muted">
-          Updated Terms become effective immediately upon publication on the Rider App
-          or website. Continued use of the Rider Platform constitutes acceptance of the
-          updated Terms.
+          Any changes will be published on the Bookfleet website and applications.
         </p>
       </>
-    ),
-  },
-  {
-    id: "law",
-    title: "Governing Law",
-    number: "14",
-    content: (
-      <ul className="info-list">
-        <li><span className="label">Governing Law</span><span>Laws of India</span></li>
-        <li><span className="label">Jurisdiction</span><span>Competent courts of Bhubaneswar, Odisha</span></li>
-      </ul>
     ),
   },
   {
     id: "contact",
     title: "Contact Us",
-    number: "15",
+    number: "10",
     content: (
       <div className="contact-grid">
         <div className="contact-card">
@@ -321,7 +226,10 @@ const sections = [
           <div className="icon">📍</div>
           <div>
             <div className="c-label">Registered Office</div>
-            <span>Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar, 780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span>
+            <span>
+              Zipto Hyperlogistics Private Limited, 781, Shaheed Nagar,
+              780 Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India
+            </span>
           </div>
         </div>
       </div>
@@ -329,7 +237,7 @@ const sections = [
   },
 ];
 
-export default function RiderTerms() {
+export default function DataDeletionPolicy() {
   const navigate = useNavigate();
   const [openSections, setOpenSections] = useState(new Set());
   const allIds = sections.map((s) => s.id);
@@ -352,11 +260,11 @@ export default function RiderTerms() {
   return (
     <>
       <Helmet>
-        <title>Rider Terms & Conditions – bookfleet | bookfleet.in</title>
-        <meta name="description" content="Terms and conditions for delivery partners using the bookfleet Rider app, including rider responsibilities, obligations, and policies." />
-        <link rel="canonical" href="https://bookfleet.in/rider-terms-of-service" />
-        <meta property="og:title" content="Rider Terms & Conditions – bookfleet" />
-        <meta property="og:url" content="https://bookfleet.in/rider-terms-of-service" />
+        <title>Data Deletion Policy – bookfleet | bookfleet.in</title>
+        <meta name="description" content="Learn how to request deletion of your Bookfleet account and personal data, what information is retained, and how long processing takes." />
+        <link rel="canonical" href="https://bookfleet.in/data-deletion-policy" />
+        <meta property="og:title" content="Data Deletion Policy – bookfleet" />
+        <meta property="og:url" content="https://bookfleet.in/data-deletion-policy" />
         <meta property="og:image" content="https://bookfleet.in/logo.jpeg" />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
@@ -379,7 +287,6 @@ export default function RiderTerms() {
         }
         body { font-family: var(--font-body); background: var(--blue-50); color: var(--text-primary); }
 
-
         .hero {
           background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
           padding: 64px 24px 56px; text-align: center;
@@ -401,10 +308,8 @@ export default function RiderTerms() {
           width: 160px; height: 160px;
           border-radius: 28px;
           overflow: hidden;
-          border: 3px solid rgba(255,255,255,0.3);
-          box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+          box-shadow: 0 12px 40px rgba(0,0,0,0.35);
           margin: 0 auto 24px;
-          background: var(--blue-800);
           display: flex; align-items: center; justify-content: center;
         }
         .hero h1 {
@@ -498,6 +403,15 @@ export default function RiderTerms() {
         .sub-block.no-block { background: #fff4f4; border-color: #ffd0d0; }
         .sub-block.no-block h4 { color: #c0392b; }
 
+        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (max-width: 480px) { .service-grid { grid-template-columns: 1fr; } }
+        .service-chip {
+          padding: 12px 14px; background: var(--blue-50);
+          border: 1px solid var(--blue-200); border-radius: 10px;
+          font-size: 0.82rem; font-weight: 600; color: var(--blue-800);
+          display: flex; align-items: center; gap: 8px;
+        }
+
         .notice-pill {
           display: inline-flex; align-items: center; gap: 6px;
           background: var(--blue-100); border: 1px solid var(--blue-200);
@@ -515,15 +429,6 @@ export default function RiderTerms() {
         .yes-block { background: var(--blue-50); border: 1px solid var(--blue-200); }
         .yes-block h4 { color: var(--blue-700); }
 
-        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        @media (max-width: 480px) { .service-grid { grid-template-columns: 1fr; } }
-        .service-chip {
-          padding: 12px 14px; background: var(--blue-50);
-          border: 1px solid var(--blue-200); border-radius: 10px;
-          font-size: 0.82rem; font-weight: 600; color: var(--blue-800);
-          display: flex; align-items: center; gap: 8px;
-        }
-
         .penalty-table { display: flex; flex-direction: column; gap: 10px; }
         .penalty-row {
           display: flex; align-items: center; gap: 14px;
@@ -538,16 +443,9 @@ export default function RiderTerms() {
           font-size: 1rem; flex-shrink: 0;
         }
         .penalty-icon.warn { background: #fff4e5; }
-        .penalty-icon.red { background: #fff0f0; }
         .penalty-info { flex: 1; min-width: 0; }
         .penalty-title { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
         .penalty-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
-        .penalty-badge {
-          font-size: 0.7rem; font-weight: 700; padding: 4px 10px;
-          border-radius: 99px; white-space: nowrap; flex-shrink: 0;
-        }
-        .penalty-badge.warn { background: #fff4e5; color: #7c4a00; border: 1px solid #ffd591; }
-        .penalty-badge.red { background: #fff0f0; color: #c0392b; border: 1px solid #ffd0d0; }
 
         .contact-grid { display: flex; flex-direction: column; gap: 10px; }
         .contact-card {
@@ -561,28 +459,19 @@ export default function RiderTerms() {
         .contact-card a:hover { text-decoration: underline; }
         .contact-card span { font-size: 0.875rem; color: var(--text-secondary); }
 
-        .acceptance-box {
-          display: flex; gap: 14px; align-items: flex-start;
-          padding: 18px;
-          background: linear-gradient(135deg, var(--blue-100), var(--blue-50));
-          border: 1px solid var(--blue-300); border-radius: 12px;
-        }
-        .accept-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-        .acceptance-box p { font-size: 0.875rem; color: var(--blue-900); line-height: 1.7; }
-
         .text-muted { color: var(--text-muted) !important; font-style: italic; font-size: 0.82rem; }
       `}</style>
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-badge">🛵 Rider Terms & Conditions</div>
+        <div className="hero-badge">🗑️ Data Deletion Policy</div>
         <div className="hero-logo">
-          <img src={riderlogo} alt="bookfleet Logo" />
+          <img src={logo} alt="bookfleet Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
-        <h1>Rider Terms &amp; <em>Conditions</em></h1>
+        <h1>Data <em>Deletion</em> Policy</h1>
         <div className="hero-meta">
           <span>📅 Effective: 11 April 2026</span>
-          <span>🛵 Delivery Partner</span>
+          <span>👤 All Users</span>
           <span>⚖️ Governed by Indian Law</span>
         </div>
       </div>
