@@ -42,8 +42,8 @@ const contactItems = [
       </svg>
     ),
     label: "Address",
-    value: "781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Odisha – 751007",
-    href: "https://maps.google.com/?q=Saheed+Nagar+Bhubaneswar+Odisha",
+    value: "Bhubaneswar, Odisha",
+    href: "https://maps.google.com/?q=Bhubaneswar+Odisha",
   },
 ];
 

@@ -139,7 +139,7 @@ export default function Footer() {
               {quickLinks.map(({ name, id, path }) => (
                 <li key={name}>
                   {path ? (
-                    <Link to={path} style={s.linkBtn} className="footer-link-btn">
+                    <Link to={path} style={s.linkBtn} className="footer-link-btn" onClick={() => window.scrollTo(0, 0)}>
                       <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.35 }} />
                       {name}
                     </Link>
