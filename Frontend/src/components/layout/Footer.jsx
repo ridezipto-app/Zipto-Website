@@ -170,8 +170,8 @@ export default function Footer() {
               </li>
               <li style={s.contactItem}>
                 <div style={s.contactIcon}><Mail size={14} style={{ color: "#60A5FA" }} /></div>
-                <a href="mailto:support@ridebookfleet.com" style={{ ...s.contactText, color: "#60A5FA", textDecoration: "none" }}>
-                  support@ridebookfleet.com
+                <a href="mailto:support@bookfleet.com" style={{ ...s.contactText, color: "#60A5FA", textDecoration: "none" }}>
+                  support@bookfleet.com
                 </a>
               </li>
             </ul>

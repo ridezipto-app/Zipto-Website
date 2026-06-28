@@ -32,7 +32,7 @@ const sections = [
         <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
         <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
         <li><span className="label">Operating Location</span><span>Bhubaneswar, Odisha, India</span></li>
-        <li><span className="label">Email</span><a href="mailto:support@ridebookfleet.com">support@ridebookfleet.com</a></li>
+        <li><span className="label">Email</span><a href="mailto:support@bookfleet.com">support@bookfleet.com</a></li>
       </ul>
     ),
   },
@@ -223,7 +223,7 @@ const sections = [
           <li>Update your information</li>
           <li>Request account deletion</li>
         </ul>
-        <div className="contact-chip mt-4">📩 <a href="mailto:support@ridebookfleet.com">support@ridebookfleet.com</a></div>
+        <div className="contact-chip mt-4">📩 <a href="mailto:support@bookfleet.com">support@bookfleet.com</a></div>
       </>
     ),
   },
@@ -263,7 +263,7 @@ const sections = [
           <div className="icon">📧</div>
           <div>
             <div className="c-label">Email</div>
-            <a href="mailto:support@ridebookfleet.com">support@ridebookfleet.com</a>
+            <a href="mailto:support@bookfleet.com">support@bookfleet.com</a>
           </div>
         </div>
         <div className="contact-card">

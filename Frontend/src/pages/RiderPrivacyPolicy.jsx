@@ -34,7 +34,7 @@ const sections = [
         <li><span className="label">Company Name</span><span>Zipto Hyperlogistics Private Limited</span></li>
         <li><span className="label">Registered Office</span><span>781, Saheed Nagar, Maharishi College Road, Bhubaneswar, Khordha, Odisha – 751007, India</span></li>
         <li><span className="label">Operating Location</span><span>Bhubaneswar, Odisha, India</span></li>
-        <li><span className="label">Email</span><span><a href="mailto:rider.support@ridebookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@ridebookfleet.com</a></span></li>
+        <li><span className="label">Email</span><span><a href="mailto:rider.support@bookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@bookfleet.com</a></span></li>
       </ul>
     ),
   },
@@ -324,7 +324,7 @@ const sections = [
             <div className="icon">📩</div>
             <div>
               <div className="c-label">Submit requests via</div>
-              <a href="mailto:rider.support@ridebookfleet.com">rider.support@ridebookfleet.com</a>
+              <a href="mailto:rider.support@bookfleet.com">rider.support@bookfleet.com</a>
             </div>
           </div>
         </div>
@@ -342,7 +342,7 @@ const sections = [
           reasonable timeframe, subject to legal obligations.
         </p>
         <div className="notice-pill mt-4">
-          📩 Email: <strong>rider.support@ridebookfleet.com</strong>
+          📩 Email: <strong>rider.support@bookfleet.com</strong>
         </div>
       </>
     ),
@@ -368,7 +368,7 @@ const sections = [
           <div className="icon">📧</div>
           <div>
             <div className="c-label">Email</div>
-            <a href="mailto:rider.support@ridebookfleet.com">rider.support@ridebookfleet.com</a>
+            <a href="mailto:rider.support@bookfleet.com">rider.support@bookfleet.com</a>
           </div>
         </div>
         <div className="contact-card">
@@ -389,7 +389,7 @@ const sections = [
       <ul className="info-list">
         <li><span className="label">Officer</span><span>bookfleet Support Team</span></li>
         <li><span className="label">Response Time</span><span>Within 48 hours</span></li>
-        <li><span className="label">Email</span><span><a href="mailto:rider.support@ridebookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@ridebookfleet.com</a></span></li>
+        <li><span className="label">Email</span><span><a href="mailto:rider.support@bookfleet.com" style={{ color: "var(--blue-600)", textDecoration: "none" }}>rider.support@bookfleet.com</a></span></li>
       </ul>
     ),
   },
