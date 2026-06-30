@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>bookfleet – Fast Hyperlocal Delivery in Bhubaneswar, Odisha | bookfleet.in</title>
-        <meta name="description" content="bookfleet is Odisha's trusted hyperlocal delivery service. Bike, scooty, auto, pickup & mini truck deliveries in Bhubaneswar with real-time tracking and transparent pricing." />
+        <title>Bookfleet – India's Smart Last-Mile Logistics Platform</title>
+        <meta name="description" content="Bookfleet is a technology-driven last-mile logistics platform offering bike, auto and mini truck delivery for businesses and individuals across India." />
         <meta name="keywords" content="bookfleet, hyperlocal delivery, last-mile delivery, Bhubaneswar delivery, Odisha courier, parcel delivery, bike delivery, logistics" />
         <link rel="canonical" href="https://bookfleet.in/" />
         <meta property="og:type" content="website" />

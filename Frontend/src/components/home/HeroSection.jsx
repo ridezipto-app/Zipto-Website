@@ -455,6 +455,16 @@ const heroStyles = `
     .hero-badge {
       top: auto !important; bottom: 16px; right: 16px;
       padding: 9px 14px; border-radius: 12px;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .hero-stats-row {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .hero-btn-outline {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
     .hero-content { padding: 0 20px; }
     .hero-eyebrow-pill { font-size: 0.62rem; letter-spacing: 2.5px; padding: 6px 14px; margin-bottom: 20px; }

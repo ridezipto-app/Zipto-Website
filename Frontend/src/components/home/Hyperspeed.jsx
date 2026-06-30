@@ -474,14 +474,19 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
 
     class App {
       constructor(container,options={}){
+        this.isMobile=window.matchMedia('(max-width:768px)').matches||/Mobi|Android/i.test(navigator.userAgent);
+        if(this.isMobile){
+          options={...options,lightPairsPerRoadWay:Math.floor(options.lightPairsPerRoadWay/2),totalSideLightSticks:Math.floor(options.totalSideLightSticks/2)};
+        }
         this.options=options;
         if(this.options.distortion==null) this.options.distortion={uniforms:distortion_uniforms,getDistortion:distortion_vertex};
         this.container=container;
         this.hasValidSize=false;
+        this._rafId=null;
         const initW=Math.max(1,container.offsetWidth), initH=Math.max(1,container.offsetHeight);
         this.renderer=new THREE.WebGLRenderer({antialias:false,alpha:true});
         this.renderer.setSize(initW,initH,false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio,this.isMobile?1:2));
         this.composer=new EffectComposer(this.renderer);
         container.append(this.renderer.domElement);
         this.camera=new THREE.PerspectiveCamera(options.fov,initW/initH,0.1,10000);
@@ -515,10 +520,15 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       }
       initPasses(){
         this.renderPass=new RenderPass(this.scene,this.camera);
-        this.bloomPass=new EffectPass(this.camera,new BloomEffect({luminanceThreshold:0.2,luminanceSmoothing:0,resolutionScale:1}));
-        const smaaPass=new EffectPass(this.camera,new SMAAEffect({preset:SMAAPreset.MEDIUM,searchImage:SMAAEffect.searchImageDataURL,areaImage:SMAAEffect.areaImageDataURL}));
-        this.renderPass.renderToScreen=false; this.bloomPass.renderToScreen=false; smaaPass.renderToScreen=true;
-        this.composer.addPass(this.renderPass); this.composer.addPass(this.bloomPass); this.composer.addPass(smaaPass);
+        if(this.isMobile){
+          this.renderPass.renderToScreen=true;
+          this.composer.addPass(this.renderPass);
+        } else {
+          this.bloomPass=new EffectPass(this.camera,new BloomEffect({luminanceThreshold:0.2,luminanceSmoothing:0,resolutionScale:1}));
+          const smaaPass=new EffectPass(this.camera,new SMAAEffect({preset:SMAAPreset.MEDIUM,searchImage:SMAAEffect.searchImageDataURL,areaImage:SMAAEffect.areaImageDataURL}));
+          this.renderPass.renderToScreen=false; this.bloomPass.renderToScreen=false; smaaPass.renderToScreen=true;
+          this.composer.addPass(this.renderPass); this.composer.addPass(this.bloomPass); this.composer.addPass(smaaPass);
+        }
       }
       loadAssets(){
         const assets=this.assets;
@@ -571,8 +581,11 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         if(updateCamera) this.camera.updateProjectionMatrix();
       }
       render(delta){ this.composer.render(delta); }
+      pause(){ if(this._rafId){ cancelAnimationFrame(this._rafId); this._rafId=null; } }
+      resume(){ if(!this._rafId&&!this.disposed){ this.clock.getDelta(); this._rafId=requestAnimationFrame(this.tick); } }
       dispose(){
         this.disposed=true;
+        if(this._rafId){ cancelAnimationFrame(this._rafId); this._rafId=null; }
         if(this.scene){
           this.scene.traverse(object=>{ const o=object; if(!o.isMesh) return; if(o.geometry) o.geometry.dispose(); if(o.material){ if(Array.isArray(o.material)) o.material.forEach(m=>m.dispose()); else o.material.dispose(); } });
           this.scene.clear();
@@ -600,14 +613,14 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         if(!this.hasValidSize){
           const w=this.container.offsetWidth, h=this.container.offsetHeight;
           if(w>0&&h>0){ this.renderer.setSize(w,h,false); this.camera.aspect=w/h; this.camera.updateProjectionMatrix(); this.composer.setSize(w,h); this.hasValidSize=true; }
-          else{ requestAnimationFrame(this.tick); return; }
+          else{ this._rafId=requestAnimationFrame(this.tick); return; }
         }
         if(resizeRendererToDisplaySize(this.renderer,this.setSize)){
           const canvas=this.renderer.domElement;
           if(this.hasValidSize){ this.camera.aspect=canvas.clientWidth/canvas.clientHeight; this.camera.updateProjectionMatrix(); }
         }
         if(this.hasValidSize){ const delta=this.clock.getDelta(); this.render(delta); this.update(delta); }
-        requestAnimationFrame(this.tick);
+        this._rafId=requestAnimationFrame(this.tick);
       }
     }
 
@@ -623,9 +636,25 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
 
     const myApp = new App(container, options);
     appRef.current = myApp;
-    myApp.loadAssets().then(myApp.init);
+
+    if(myApp.isMobile){
+      myApp.init();
+    } else {
+      myApp.loadAssets().then(myApp.init);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if(appRef.current){
+          entry.isIntersecting ? appRef.current.resume() : appRef.current.pause();
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(container);
 
     return () => {
+      observer.disconnect();
       if (appRef.current) { appRef.current.dispose(); appRef.current = null; }
     };
   }, [effectOptions]);
