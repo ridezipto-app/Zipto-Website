@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import AppRoutes from "./routes/AppRoutes";
+import GrandOpening from "./components/GrandOpening";
 
 if (typeof window !== "undefined") {
   window.history.scrollRestoration = "manual";
@@ -19,6 +20,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <BrowserRouter>
+      <GrandOpening />
       <ScrollToTop />
       <Navbar />
       <AppRoutes />
