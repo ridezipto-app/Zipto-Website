@@ -214,7 +214,10 @@ const css = `
 
 export default function GrandOpening() {
   const [show, setShow] = useState(() => {
-    try { return !sessionStorage.getItem(SESSION_KEY); } catch { return true; }
+    try {
+      sessionStorage.removeItem(SESSION_KEY); // always show on load
+      return true;
+    } catch { return true; }
   });
   const [count, setCount]     = useState(COUNTDOWN_FROM);
   const [animKey, setAnimKey] = useState(0);
@@ -245,9 +248,10 @@ export default function GrandOpening() {
 
   if (!show) return null;
 
-  const r            = 80;
-  const svgSize      = 220;
-  const cx = cy      = svgSize / 2;
+  const r             = 80;
+  const svgSize       = 220;
+  const cx            = svgSize / 2;
+  const cy            = svgSize / 2;
   const circumference = 2 * Math.PI * r;
   const progress     = phase === 'go' ? 1 : (COUNTDOWN_FROM - count) / COUNTDOWN_FROM;
   const dashOffset   = circumference * (1 - progress);
