@@ -168,24 +168,6 @@ function FeatureCard({ feature, index }) {
         </p>
       </div>
 
-      {/* bottom divider + learn more — fades in on hover */}
-      <div style={{
-        marginTop: "20px",
-        opacity: hovered ? 1 : 0,
-        transition: "opacity 0.25s",
-      }}>
-        <div style={{
-          height: "1px",
-          background: `linear-gradient(90deg, ${feature.accent}50, transparent)`,
-          marginBottom: "12px",
-        }} />
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-          <span style={{ fontSize: "12px", fontWeight: 700, color: feature.accent }}>
-            Learn more
-          </span>
-          <span style={{ fontSize: "12px", color: feature.accent }}>→</span>
-        </div>
-      </div>
     </motion.div>
   );
 }
@@ -205,14 +187,6 @@ export default function WhyChooseSection() {
           overflow: hidden;
         }
 
-        /* dot grid */
-        .why-section::before {
-          content: '';
-          position: absolute; inset: 0; pointer-events: none;
-          background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
-          background-size: 28px 28px;
-          opacity: 0.4;
-        }
       `}</style>
 
       <section
@@ -224,13 +198,6 @@ export default function WhyChooseSection() {
           position: "absolute", top: "-60px", left: "-60px",
           width: "480px", height: "480px", borderRadius: "50%",
           background: "radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%)",
-          filter: "blur(40px)", pointerEvents: "none",
-        }} />
-        {/* orange glow bottom-right */}
-        <div style={{
-          position: "absolute", bottom: "-60px", right: "-60px",
-          width: "400px", height: "400px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(234,88,12,0.07) 0%, transparent 70%)",
           filter: "blur(40px)", pointerEvents: "none",
         }} />
 

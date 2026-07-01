@@ -92,14 +92,6 @@ export default function BecomeRider() {
           padding: 100px 24px 96px;
         }
 
-        .rider-section::before {
-          content: '';
-          position: absolute; inset: 0; pointer-events: none;
-          background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
-          background-size: 28px 28px;
-          opacity: 0.4;
-        }
-
         .rider-section::after {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 1px;
@@ -138,17 +130,10 @@ export default function BecomeRider() {
           color: #FFFFFF;
           box-shadow: 0 4px 20px rgba(37,99,235,0.3);
           transition: transform 0.2s, box-shadow 0.2s;
-          animation: pulse-ring 3s ease-out infinite;
         }
         .join-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 28px rgba(37,99,235,0.38);
-        }
-
-        @keyframes pulse-ring {
-          0%   { box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 0 rgba(37,99,235,0.35); }
-          70%  { box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 14px rgba(37,99,235,0); }
-          100% { box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 0 rgba(37,99,235,0); }
         }
 
         @keyframes float-img {

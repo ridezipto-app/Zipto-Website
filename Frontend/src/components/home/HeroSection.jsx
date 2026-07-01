@@ -24,37 +24,6 @@ const heroStyles = `
     justify-content: center;
   }
 
-  /* dot grid */
-  .bookfleet-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-
-  /* ── BG TEXT ── */
-  .hero-bg-text-wrap {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-  }
-  .hero-bg-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(90px, 17vw, 240px);
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.022);
-    line-height: 1;
-    display: block;
-  }
-
   /* ── MAIN CONTENT ── */
   .hero-content {
     position: relative;
@@ -67,42 +36,6 @@ const heroStyles = `
     align-items: center;
   }
 
-  .hero-eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(37,99,235,0.14);
-    border: 1px solid rgba(96,165,250,0.3);
-    border-radius: 100px;
-    padding: 7px 18px;
-    font-size: 0.70rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #60A5FA;
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: zh-fadeUp 0.8s cubic-bezier(0.4,0,0.2,1) 0.2s forwards;
-  }
-  .hero-eyebrow-dot {
-    width: 6px; height: 6px;
-    background: #60A5FA;
-    border-radius: 50%;
-    flex-shrink: 0;
-    animation: zh-blink 2s ease-in-out infinite;
-  }
-
-  .hero-brand-name {
-    font-family: 'Cocon', 'Space Grotesk', sans-serif;
-    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 0.3px;
-    margin-bottom: 16px;
-    opacity: 0;
-    animation: zh-fadeUp 0.8s cubic-bezier(0.4,0,0.2,1) 0.35s forwards;
-  }
-
   .hero-headline {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(58px, 9vw, 116px);
@@ -113,11 +46,7 @@ const heroStyles = `
     opacity: 0;
     animation: zh-fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
   }
-  .hero-headline .hl-blue    { color: #60A5FA; }
-  .hero-headline .hl-outline {
-    -webkit-text-stroke: 2px rgba(255,255,255,0.32);
-    color: transparent;
-  }
+  .hero-headline .hl-blue { color: #60A5FA; }
 
   .hero-subtitle {
     font-size: clamp(0.88rem, 1.3vw, 1.05rem);
@@ -227,51 +156,6 @@ const heroStyles = `
     font-weight: 600;
   }
 
-  /* ── FLOATING SERVICE CARDS ── */
-  .hero-float-card {
-    position: absolute;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.11);
-    border-radius: 18px;
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    z-index: 4;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-    opacity: 0;
-    white-space: nowrap;
-    pointer-events: none;
-  }
-  .hero-float-icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
-  .hero-float-title { font-size: 0.82rem; font-weight: 600; color: #FFFFFF; }
-  .hero-float-sub   { font-size: 0.65rem; color: rgba(255,255,255,0.42); margin-top: 2px; }
-  .hero-float-badge {
-    font-size: 0.6rem; font-weight: 700;
-    color: #60A5FA;
-    background: rgba(37,99,235,0.18);
-    border: 1px solid rgba(96,165,250,0.25);
-    border-radius: 100px;
-    padding: 2px 8px;
-    margin-top: 4px;
-    display: inline-block;
-  }
-
-  .hero-float-card-1 { left: 3%;  top: 22%; animation: zh-floatIn 0.7s cubic-bezier(0.34,1.26,0.64,1) 1.2s forwards, zh-bob1 5s   ease-in-out 2s infinite; }
-  .hero-float-card-2 { left: 2%;  top: 58%; animation: zh-floatIn 0.7s cubic-bezier(0.34,1.26,0.64,1) 1.5s forwards, zh-bob2 6s   ease-in-out 2.3s infinite; }
-  .hero-float-card-3 { right: 3%; top: 22%; animation: zh-floatIn 0.7s cubic-bezier(0.34,1.26,0.64,1) 1.35s forwards, zh-bob3 5.5s ease-in-out 2.1s infinite; }
-  .hero-float-card-4 { right: 2%; top: 58%; animation: zh-floatIn 0.7s cubic-bezier(0.34,1.26,0.64,1) 1.6s forwards, zh-bob1 7s   ease-in-out 2.4s infinite; }
-
-  @keyframes zh-floatIn {
-    from { opacity: 0; transform: translateY(24px) scale(0.92); }
-    to   { opacity: 1; transform: translateY(0)    scale(1);    }
-  }
-  @keyframes zh-bob1 { 0%,100% { transform: translateY(0);    } 50% { transform: translateY(-10px); } }
-  @keyframes zh-bob2 { 0%,100% { transform: translateY(0);    } 50% { transform: translateY( 10px); } }
-  @keyframes zh-bob3 { 0%,100% { transform: translateY(-5px); } 50% { transform: translateY(  8px); } }
-
   /* ── LIVE BADGE ── */
   .hero-badge {
     position: absolute;
@@ -327,19 +211,13 @@ const heroStyles = `
   }
 
   /* ── NO-ANIM ── */
-  .hero-content.no-anim .hero-eyebrow-pill,
-  .hero-content.no-anim .hero-brand-name,
   .hero-content.no-anim .hero-headline,
   .hero-content.no-anim .hero-subtitle,
   .hero-content.no-anim .hero-actions,
   .hero-content.no-anim .hero-stats-row {
     opacity: 1 !important; transform: none !important; animation: none !important;
   }
-  .hero-float-card-1.no-anim { opacity: 1 !important; animation: zh-bob1 5s   ease-in-out infinite !important; }
-  .hero-float-card-2.no-anim { opacity: 1 !important; animation: zh-bob2 6s   ease-in-out infinite !important; }
-  .hero-float-card-3.no-anim { opacity: 1 !important; animation: zh-bob3 5.5s ease-in-out infinite !important; }
-  .hero-float-card-4.no-anim { opacity: 1 !important; animation: zh-bob1 7s   ease-in-out infinite !important; }
-  .hero-badge.no-anim         { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .hero-badge.no-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
 
   /* ── MODAL ── */
   .bookfleet-overlay {
@@ -433,16 +311,6 @@ const heroStyles = `
   .zm-notify-btn:hover:not(:disabled) { background: var(--accent); transform: scale(1.02); }
   .zm-notify-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  /* ── TABLET ── */
-  @media (min-width: 769px) and (max-width: 1100px) {
-    .hero-float-card-1, .hero-float-card-2 { left: 1%; }
-    .hero-float-card-3, .hero-float-card-4 { right: 1%; }
-    .hero-float-icon { font-size: 1.3rem; }
-    .hero-float-title { font-size: 0.76rem; }
-    .hero-float-sub, .hero-float-badge { font-size: 0.58rem; }
-    .hero-content { max-width: 640px; }
-  }
-
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     .bookfleet-hero {
@@ -451,7 +319,6 @@ const heroStyles = `
       align-items: center;
       padding: 20px 0 0;
     }
-    .hero-float-card { display: none; }
     .hero-badge {
       top: auto !important; bottom: 16px; right: 16px;
       padding: 9px 14px; border-radius: 12px;
@@ -467,7 +334,6 @@ const heroStyles = `
       -webkit-backdrop-filter: none;
     }
     .hero-content { padding: 0 20px; }
-    .hero-eyebrow-pill { font-size: 0.62rem; letter-spacing: 2.5px; padding: 6px 14px; margin-bottom: 20px; }
     .hero-headline { font-size: clamp(46px, 11.5vw, 72px); margin-bottom: 16px; }
     .hero-subtitle { font-size: 0.86rem; margin-bottom: 28px; }
     .hero-actions { margin-bottom: 36px; gap: 10px; }
@@ -566,8 +432,7 @@ export default function bookfleetHero() {
     },
   }), []);
 
-  const na   = (base) => playAnim ? base : `${base} no-anim`;
-  const nafc = (base) => playAnim ? `hero-float-card ${base}` : `hero-float-card ${base} no-anim`;
+  const na = (base) => playAnim ? base : `${base} no-anim`;
 
   return (
     <>
@@ -578,60 +443,12 @@ export default function bookfleetHero() {
         {/* Hyperspeed road animation background */}
         <Hyperspeed effectOptions={hyperspeedOptions} />
 
-        {/* Faint background text */}
-        <div className="hero-bg-text-wrap" aria-hidden="true">
-          <span className="hero-bg-text">bookfleet</span>
-        </div>
-
-        {/* ── Floating service cards (desktop) ── */}
-        <div className={nafc("hero-float-card-1")} aria-hidden="true">
-          <span className="hero-float-icon">🛵</span>
-          <div>
-            <div className="hero-float-title">Bike Delivery</div>
-            <div className="hero-float-sub">Fastest pickup</div>
-            <div className="hero-float-badge">2 min ETA</div>
-          </div>
-        </div>
-
-        <div className={nafc("hero-float-card-2")} aria-hidden="true">
-          <span className="hero-float-icon">🛺</span>
-          <div>
-            <div className="hero-float-title">Auto Delivery</div>
-            <div className="hero-float-sub">Medium loads</div>
-            <div className="hero-float-badge">On demand</div>
-          </div>
-        </div>
-
-        <div className={nafc("hero-float-card-3")} aria-hidden="true">
-          <span className="hero-float-icon">🚛</span>
-          <div>
-            <div className="hero-float-title">Truck Delivery</div>
-            <div className="hero-float-sub">Heavy cargo</div>
-            <div className="hero-float-badge">Scheduled</div>
-          </div>
-        </div>
-
-        <div className={nafc("hero-float-card-4")} aria-hidden="true">
-          <span className="hero-float-icon">📦</span>
-          <div>
-            <div className="hero-float-title">100% Insured</div>
-            <div className="hero-float-sub">Every package</div>
-            <div className="hero-float-badge">Guaranteed</div>
-          </div>
-        </div>
-
         {/* ── Center content ── */}
         <div className={na("hero-content")}>
-          <div className="hero-eyebrow-pill">
-            <div className="hero-eyebrow-dot" />
-            ⚡ Fast · Reliable · Now
-          </div>
-
-          <div className="hero-brand-name">bookfleet</div>
 
           <h1 className="hero-headline">
-            Move <span className="hl-outline">Anything,</span><br />
-            <span className="hl-blue">Anytime.</span>
+            Hyperlocal Delivery<br />
+            <span className="hl-blue">Across Odisha.</span>
           </h1>
 
           <p className="hero-subtitle">
@@ -647,14 +464,14 @@ export default function bookfleetHero() {
               Get Started
             </button>
             <button className="hero-btn-outline" onClick={() => navigate("/about")}>
-              Explore More <span className="explore-arrow">→</span>
+              About Us <span className="explore-arrow">→</span>
             </button>
           </div>
 
           <div className="hero-stats-row" role="list" aria-label="Key stats">
             <div className="hero-stat-item" role="listitem">
-              <div className="hero-stat-num">12K+</div>
-              <div className="hero-stat-label">Expected Deliveries</div>
+              <div className="hero-stat-num">5+</div>
+              <div className="hero-stat-label">Vehicle Types</div>
             </div>
             <div className="hero-stat-item" role="listitem">
               <div className="hero-stat-num">4.9★</div>

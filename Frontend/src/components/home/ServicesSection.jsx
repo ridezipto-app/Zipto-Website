@@ -276,15 +276,6 @@ export default function ServicesSection() {
 
         .bookfleet-services-section * { box-sizing: border-box; }
 
-        /* subtle dot pattern */
-        .bookfleet-services-section::before {
-          content: '';
-          position: absolute; inset: 0; pointer-events: none;
-          background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
-          background-size: 28px 28px;
-          opacity: 0.3;
-        }
-
         /* bottom divider line fade */
         .bookfleet-services-section::after {
           content: '';
@@ -407,10 +398,10 @@ export default function ServicesSection() {
             }}
           >
             {[
-              { emoji: "⚡", text: "Speed", color: "#2563EB" },
-              { emoji: "💰", text: "Affordability", color: "#16A34A" },
-              { emoji: "🎯", text: "Precision", color: "#EA580C" },
-              { emoji: "🔒", text: "Reliability", color: "#7C3AED" },
+              { text: "Speed", color: "#2563EB" },
+              { text: "Affordability", color: "#16A34A" },
+              { text: "Precision", color: "#EA580C" },
+              { text: "Reliability", color: "#7C3AED" },
             ].map((item) => (
               <div
                 key={item.text}
@@ -425,7 +416,7 @@ export default function ServicesSection() {
                   cursor: "default",
                 }}
               >
-                <span>{item.emoji}</span>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: item.color, display: "inline-block", flexShrink: 0 }} />
                 <span style={{ color: item.color }}>{item.text}</span>
               </div>
             ))}

@@ -48,8 +48,8 @@ export default function ForBusinessSection() {
   ];
 
   const stats = [
-    { value: "Growing 🚀", label: "Business Partners", color: "#60A5FA" },
-    { value: "98%", label: "On-Time Delivery", color: "#FB923C" },
+    { value: "24/7", label: "Service Hours", color: "#60A5FA" },
+    { value: "Same Day", label: "Delivery", color: "#FB923C" },
   ];
 
   return (
@@ -122,19 +122,12 @@ export default function ForBusinessSection() {
           color: #FFFFFF;
           box-shadow: 0 4px 24px rgba(37,99,235,0.45);
           transition: transform 0.2s, box-shadow 0.2s;
-          animation: biz-pulse 3s ease-out infinite;
         }
         .biz-cta-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 32px rgba(37,99,235,0.6);
         }
         .biz-cta-btn:active { transform: scale(0.97); }
-
-        @keyframes biz-pulse {
-          0%   { box-shadow: 0 4px 24px rgba(37,99,235,0.45), 0 0 0 0 rgba(37,99,235,0.4); }
-          70%  { box-shadow: 0 4px 24px rgba(37,99,235,0.45), 0 0 0 14px rgba(37,99,235,0); }
-          100% { box-shadow: 0 4px 24px rgba(37,99,235,0.45), 0 0 0 0 rgba(37,99,235,0); }
-        }
 
         @keyframes biz-float-panel {
           0%   { transform: translateY(0px); }
@@ -344,38 +337,19 @@ export default function ForBusinessSection() {
               {/* Divider */}
               <div style={{ height: "1px", background: "rgba(255,255,255,0.08)", margin: "4px 0 14px" }} />
 
-              {/* Testimonial */}
+              {/* Commitment */}
               <div className="biz-testimonial-card">
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                  <div style={{
-                    width: "42px", height: "42px", borderRadius: "50%",
-                    background: "linear-gradient(135deg, #2563EB, #60A5FA)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: "17px", fontWeight: 800, color: "#fff",
-                    flexShrink: 0,
-                  }}>
-                    R
-                  </div>
-                  <div>
-                    <div style={{ fontSize: "13.5px", fontWeight: 700, color: "#FFFFFF" }}>Rajesh Kumar</div>
-                    <div style={{ fontSize: "11.5px", color: "rgba(255,255,255,0.4)" }}>Local Store Owner</div>
-                  </div>
-                  <div style={{ marginLeft: "auto", display: "flex", gap: "2px" }}>
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{ color: "#F59E0B", fontSize: "11px" }}>★</span>
-                    ))}
-                  </div>
+                <div style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "12px" }}>
+                  Our Commitment
                 </div>
                 <p style={{
-                  fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: 1.65,
-                  fontStyle: "italic",
+                  fontSize: "13px", color: "rgba(255,255,255,0.58)", lineHeight: 1.7,
                   borderLeft: "3px solid rgba(96,165,250,0.4)",
-                  paddingLeft: "12px",
+                  paddingLeft: "14px",
                   margin: 0,
                 }}>
-                  "bookfleet has transformed how we serve our customers. Fast,
-                  reliable, and always professional!"
+                  Every delivery is backed by real-time tracking, verified riders, and
+                  dedicated business support — so you can focus on what matters.
                 </p>
               </div>
 
